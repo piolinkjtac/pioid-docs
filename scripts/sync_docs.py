@@ -10,6 +10,7 @@ TARGET          = ROOT / "docs"
 BRAND_ASSETS    = ROOT / "brand" / "assets"
 BRAND_OVERRIDES = ROOT / "brand" / "overrides"
 BRAND_MKDOCS    = ROOT / "brand" / "mkdocs.yml"
+BRAND_INDEX     = ROOT / "brand" / "index.md"
 PROJECT_MKDOCS  = ROOT / "mkdocs.yml"
 
 def rename_path(p: Path):
@@ -17,7 +18,6 @@ def rename_path(p: Path):
     new = Path(str(p)
                .replace("singleid-", "pioid-")
                .replace("singleid_", "pioid_"))
-    # 既に新ディレクトリが存在する場合はスキップ
     if p.is_dir() and new.exists():
         print(f"  → Skipping rename of existing dir: {p} -> {new}")
         return new
@@ -34,22 +34,17 @@ def replace_in_file(p: Path):
             "(https://login.singleid.jp/)",
             "(https://www.piolink.co.jp/sec1/pioid.html)"
         )
-
         # 1) アンカーリンク中の singleid → pio-id
         line = re.sub(
             r"\(#([^)]+)\)",
             lambda m: "(#" + m.group(1).replace("singleid", "pio-id") + ")",
             line
         )
-
         # 2) 大文字 “SingleID” はすべて “PIO-ID” に置換
         line = line.replace("SingleID", "PIO-ID")
-
         # 3) 小文字 “singleid” は、前後がドットでなければ “pioid” に置換
         line = re.sub(r'(?<!\.)singleid(?!\.)', "pioid", line)
-
         out.append(line)
-
     p.write_text("".join(out), encoding="utf-8")
 
 def main():
@@ -72,15 +67,13 @@ def main():
     for md in TARGET.rglob("*.md"):
         replace_in_file(md)
 
-
     print("5) ブランディング資産をコピー")
-    # ── 既存の assets/ と overrides/ はこれまで通り
     if BRAND_ASSETS.exists():
         shutil.copytree(BRAND_ASSETS, TARGET / "assets", dirs_exist_ok=True)
     if BRAND_OVERRIDES.exists():
         shutil.copytree(BRAND_OVERRIDES, TARGET / "overrides", dirs_exist_ok=True)
 
-    # ── 追加：brand/assets/css/*.css → docs/css/*.css
+    # 追加：brand/assets/css/*.css → docs/css/*.css
     css_src = BRAND_ASSETS / "css"
     if css_src.exists():
         dest_css = TARGET / "css"
@@ -89,8 +82,19 @@ def main():
             shutil.copy2(css_file, dest_css / css_file.name)
             print(f"  • copied CSS: {css_file.name} → docs/css/")
 
+    # 追加：brand/index.md → docs/index.md
+    if BRAND_INDEX.exists():
+        shutil.copy2(BRAND_INDEX, TARGET / "index.md")
+        print("  • copied brand/index.md → docs/index.md")
+    else:
+        print("  → brand/index.md が見つからないためスキップ")
+
     print("6) mkdocs.yml を上書き")
-    shutil.copy2(BRAND_MKDOCS, PROJECT_MKDOCS)
+    # brand と project mkdocs.yml が同じならスキップ
+    if BRAND_MKDOCS.resolve() != PROJECT_MKDOCS.resolve():
+        shutil.copy2(BRAND_MKDOCS, PROJECT_MKDOCS)
+    else:
+        print("  → brand/mkdocs.yml と mkdocs.yml が同一のためスキップ")
 
     print("同期完了 🎉")
 
