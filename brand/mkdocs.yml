@@ -1,0 +1,92 @@
+# brand/mkdocs.yml
+site_name: PIO-ID マニュアル
+site_url: https://piolinkjtac.github.io/pioid-docs/
+
+theme:
+  name: material
+  language: ja
+  palette:
+    - scheme: default
+      primary: black
+      accent: red
+      toggle:
+        icon: material/toggle-switch 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  favicon: assets/favicon.ico
+#  logo: assets/logo.png
+extra:
+  generator: false
+  homepage: https://www.piolink.co.jp/
+extra_css:
+  - https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - /pioid-docs/css/custom.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - markdown.extensions.toc:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+      permalink: "\ue157"
+
+plugins:
+  - search:
+      lang: ja
+
+nav:
+  - HOME: index.md
+  - 管理者ガイド:
+    - はじめに: pioid-adminguide/index.md
+    - ログ:
+      - RADIUS認証ログ: pioid-adminguide/radius_authlog.md
+      - 操作ログ: pioid-adminguide/operation_log.md
+    - ユーザ: pioid-adminguide/user.md
+    - グループ: pioid-adminguide/group.md
+    - 認証:
+      - LDAP: pioid-adminguide/ldap.md
+      - RADIUS: pioid-adminguide/radius.md
+      - 証明書: pioid-adminguide/pki.md
+    - アプリ連携:
+      - アプリ一覧: pioid-adminguide/app_integration.md
+    - セキュリティ診断: pioid-adminguide/security_check.md
+    - 管理:
+      - 基本情報（組織アカウント）: pioid-adminguide/accountinfo.md
+      - 管理者: pioid-adminguide/admin.md
+      - ネットワーク: pioid-adminguide/network.md
+      - 詳細設定: pioid-adminguide/setting.md
+  - ユーザガイド:
+    - はじめに: pioid-userguide/index.md
+    - アカウント: pioid-userguide/account.md
+    - パスワード: pioid-userguide/password.md
+    - オーセンティケーター: pioid-userguide/authenticator.md
+    - セッション: pioid-userguide/session.md
+  - アプリ連携ガイド: pioid-appguide/index.md
+  - ネットワーク機器連携の設定例: pioid-pocguide/index.md
+  - セキュリティ診断: pioid-security-check/index.md
+  - よくある質問: faq/index.md
+  - リリースノート:
+    - 製品版: pioid-release-notes/service.md
+
+copyright: >
+  Copyright &copy; PIOLINK, Inc. All rights reserved.
+
+validation:
+  absolute_links: ignore

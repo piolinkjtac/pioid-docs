@@ -1,0 +1,56 @@
+# .github/workflows/ci.yml
+name: Build & Deploy PIO-ID Docs
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 14 * * *'
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. ソースチェックアウト
+      - uses: actions/checkout@v3
+
+      # 2. upstream pubdocs を取得
+      - name: Checkout upstream pubdocs
+        uses: actions/checkout@v3
+        with:
+          repository: singleidkk/pubdocs
+          path: upstream
+
+      # 3. PIO-ID ブランディングを適用
+      - name: Sync docs & replace branding
+        run: python3 scripts/sync_docs.py
+
+      # 4. Python をセットアップ（必要に応じて）
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 5. MkDocs とプラグインをインストール
+      - name: Install MkDocs & plugins
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install mkdocs-material mkdocs-macros-plugin mkdocs-glightbox
+
+      # 6. サイトをビルド
+      - name: Build site
+        run: mkdocs build --site-dir site
+
+      # 7. gh-pages ブランチへデプロイ
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: site

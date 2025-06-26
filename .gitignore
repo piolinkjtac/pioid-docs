@@ -1,0 +1,8 @@
+Dockerfile
+README
+docker-compose.yml
+upstream/
+docs/
+.env
+.venv/
+/mkdocs.yml
