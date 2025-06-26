@@ -1,0 +1,1777 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<YOUR-ORG>.github.io/pioid-appguide/microsoft_365/setup_using_powershell/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Microsoft 365（M365）連携 - PowerShellを利用 - PIO-ID マニュアル</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsoft-365m365連携---powershellを利用" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-header__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIO-ID マニュアル
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Microsoft 365（M365）連携 - PowerShellを利用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-nav__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PIO-ID マニュアル
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HOME
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    管理者ガイド
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            管理者ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ログ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ログ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/radius_authlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RADIUS認証ログ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/operation_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    操作ログ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ユーザ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    グループ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    認証
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            認証
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RADIUS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    証明書
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    アプリ連携
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            アプリ連携
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/app_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アプリ一覧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/security_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セキュリティ診断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    管理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/accountinfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本情報（組織アカウント）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    管理者
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ネットワーク
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-adminguide/setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    詳細設定
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-userguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-userguide/account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アカウント
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-userguide/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    パスワード
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-userguide/authenticator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    オーセンティケーター
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-userguide/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セッション
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アプリ連携ガイド
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-pocguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ネットワーク機器連携の設定例
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-security-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セキュリティ診断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    よくある質問
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    リリースノート
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            リリースノート
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pioid-release-notes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    製品版
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#m365を新規導入する場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365を新規導入する場合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#m365をすでに運用中の場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365をすでに運用中の場合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#事前作業" class="md-nav__link">
+    <span class="md-ellipsis">
+      事前作業
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="事前作業">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m365のカスタムドメイン設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のカスタムドメイン設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="M365のカスタムドメイン設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#カスタムドメインの追加方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      カスタムドメインの追加方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xxxxxonmicrosoftcomドメインを既定のドメインにする方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      xxxxx.onmicrosoft.comドメインを既定のドメインにする方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#緊急アクセス用アカウントの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      緊急アクセス用アカウントの作成
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#シングルサインオンおよびプロビジョニング設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      シングルサインオンおよびプロビジョニング設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シングルサインオンおよびプロビジョニング設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m365のアプリ登録" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のアプリ登録
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのアプリ連携設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのアプリ連携設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのアプリにユーザ追加" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのアプリにユーザ追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#動作確認ユーザグループ同期" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作確認（ユーザ/グループ同期）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m365のフェデレーションsaml設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のフェデレーション（SAML）設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#動作確認シングルサインオン" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作確認（シングルサインオン）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="動作確認（シングルサインオン）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m365のログイン画面でパスワードの入力を要求された場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のログイン画面で、パスワードの入力を要求された場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m365のログイン画面でアカウント保護にご協力くださいの画面が表示された場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のログイン画面で、アカウント保護にご協力くださいの画面が表示された場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m365のログイン画面で詳細情報が必要の画面が表示された場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      M365のログイン画面で、詳細情報が必要の画面が表示された場合
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#その他資料" class="md-nav__link">
+    <span class="md-ellipsis">
+      その他資料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="microsoft-365m365連携---powershellを利用">Microsoft 365（M365）連携 - PowerShellを利用<a class="headerlink" href="#microsoft-365m365連携---powershellを利用" title="Permanent link"></a></h1>
+<p>設定を始める前に、<a href="../considerations/">一般的な考慮事項</a>をお読みください。</p>
+<h4 id="m365を新規導入する場合">M365を新規導入する場合<a class="headerlink" href="#m365を新規導入する場合" title="Permanent link"></a></h4>
+<p><a href="#m365のカスタムドメイン設定">事前作業のM365のカスタムドメイン設定</a>から始めてください。</p>
+<h4 id="m365をすでに運用中の場合">M365をすでに運用中の場合<a class="headerlink" href="#m365をすでに運用中の場合" title="Permanent link"></a></h4>
+<p>設定作業を始める前に、<strong>以下の全ての項目に該当することを確認</strong>してください。該当しない場合には、シングルサインオンおよびプロビジョニングを行うことができません。全てに該当している場合には、<a href="#シングルサインオンおよびプロビジョニング設定">シングルサインオンおよびプロビジョニング設定</a>から始めてください。</p>
+<ul>
+<li>シングルサインオンするUPN（ユーザプリンシパル名）のドメインをカスタムドメインとして追加済みであること</li>
+<li>シングルサインオンするカスタムドメインは、既定のドメインに設定されていないこと</li>
+<li>シングルサインオンするカスタムドメインに、フェデレーション（SAML）の設定がされていないこと</li>
+<li>PIO-IDユーザのメールアドレスとM365ユーザのUPNが一致すること</li>
+<li>M365のグローバル管理者はxxxxx.onmicrosoft.comドメインにいること</li>
+</ul>
+<h2 id="事前作業">事前作業<a class="headerlink" href="#事前作業" title="Permanent link"></a></h2>
+<h3 id="m365のカスタムドメイン設定">M365のカスタムドメイン設定<a class="headerlink" href="#m365のカスタムドメイン設定" title="Permanent link"></a></h3>
+<p>PIO-IDのユーザの組織のメールアドレスのメールドメインをM365のカスタムドメインとして追加します。M365の契約時に提供される<strong>xxxxx.onmicrosoft.com</strong>ドメインは<strong>既定</strong>のドメインとして設定し、シングルサインオンの対象となるドメインとして利用できません。</p>
+<h4 id="カスタムドメインの追加方法">カスタムドメインの追加方法<a class="headerlink" href="#カスタムドメインの追加方法" title="Permanent link"></a></h4>
+<ol>
+<li><a href="https://admin.microsoft.com/" target="_blank">Microsoft 365 の管理センター</a>にグローバル管理者でログインします。</li>
+<li><strong>設定＞ドメイン</strong>画面へ移動します。</li>
+<li><strong>ドメインの追加</strong>ボタンをクリックします。</li>
+<li>追加するドメインの名前を入力し、<strong>このドメインを使用する</strong>ボタンをクリックします。</li>
+<li><strong>ドメインの所有を確認する方法</strong>を選択します。</li>
+<li>Microsoftがドメインを使用するために必要な<strong>DNS変更</strong>を行います。</li>
+<li><strong>完了</strong>ボタンをクリックします。</li>
+</ol>
+<p>詳細は、<a href="https://learn.microsoft.com/ja-jp/microsoft-365/admin/setup/add-domain?view=o365-worldwide" target="_blank">Microsoft 365 のヘルプ記事</a>を参照してください。</p>
+<h4 id="xxxxxonmicrosoftcomドメインを既定のドメインにする方法">xxxxx.onmicrosoft.comドメインを既定のドメインにする方法<a class="headerlink" href="#xxxxxonmicrosoftcomドメインを既定のドメインにする方法" title="Permanent link"></a></h4>
+<ol>
+<li><a href="https://admin.microsoft.com/" target="_blank">Microsoft 365 の管理センター</a>にグローバル管理者でログインします。</li>
+<li><strong>設定＞ドメイン</strong>画面へ移動します。</li>
+<li><strong>ドメイン</strong>画面で、xxxxx.onmicrosoft.comドメインを選択します。</li>
+<li><strong>既定に設定</strong>ボタンをクリックします。</li>
+</ol>
+<p>詳細は、<a href="https://learn.microsoft.com/ja-jp/microsoft-365/admin/setup/domains-faq?view=o365-worldwide#microsoft-365-------------------------------" target="_blank">Microsoft 365 のヘルプ記事</a>を参照してください。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Exchange Onlineが生成する組織外向けの配信不能通知（NDR）の送信元メールアドレスは、<strong>postmaster@組織の既定のドメイン</strong>です。そのため、NDRの送信元は、<strong>postmaster@xxxxx.onmicrosoft.com</strong>となります。組織外向けのNDRの送信元メールアドレスを変更したい場合には、Windows PowerShell <code>Set-TransportConfig</code>コマンドを使用します。詳細は、<a href="https://learn.microsoft.com/ja-jp/exchange/mail-flow-best-practices/configure-external-postmaster-address" target="_blank">Exchange Onlineの記事</a>を参照してください。</p>
+</div>
+<h4 id="緊急アクセス用アカウントの作成">緊急アクセス用アカウントの作成<a class="headerlink" href="#緊急アクセス用アカウントの作成" title="Permanent link"></a></h4>
+<p>グローバル管理者が、シングルサインオンするカスタムドメインにしかいない場合、フェデレーション（SAML）による認証ができない状況に陥ると、グローバル管理者としてM365にログインすることができなくなってしまいます。そのため、必ず、緊急アクセス用アカウントとして、<strong>xxxxx.onmicrosoft.comドメインにグローバル管理者のロールを割当てたユーザを作成</strong>しておきます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>緊急アクセス用アカウントには、様々な要件があります。詳しくは、<a href="https://learn.microsoft.com/ja-jp/azure/active-directory/roles/security-emergency-access" target="_blank">Azure AD で緊急アクセス用管理者アカウントを管理する</a>を参照してください。</p>
+</div>
+<h2 id="シングルサインオンおよびプロビジョニング設定">シングルサインオンおよびプロビジョニング設定<a class="headerlink" href="#シングルサインオンおよびプロビジョニング設定" title="Permanent link"></a></h2>
+<h3 id="m365のアプリ登録">M365のアプリ登録<a class="headerlink" href="#m365のアプリ登録" title="Permanent link"></a></h3>
+<ol>
+<li><a href="https://portal.azure.com" target="_blank">Azureポータル</a>へグローバル管理者でログインします。</li>
+<li>
+<p><strong>Azure Active Directory</strong>管理画面に移動します。（画面上部の検索ボックスに<strong>Active</strong>と入力し、表示された<strong>Azure Active Directory</strong>をクリックします。）</p>
+<p><a href="/images/2022-09-26_7-46-39.png"><img alt="Screenshot" src="/images/2022-09-26_7-46-39.png" /></a></p>
+</li>
+<li>
+<p>サイドメニューから<strong>アプリの登録</strong>をクリックします。</p>
+<p><a href="/images/2022-09-26_7-50-38.png"><img alt="Screenshot" src="/images/2022-09-26_7-50-38.png" /></a></p>
+</li>
+<li>
+<p><strong>新規登録</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_7-53-45.png"><img alt="Screenshot" src="/images/2022-09-26_7-53-45.png" /></a></p>
+</li>
+<li>
+<p>以下の内容で設定し、<strong>登録</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>名前</strong></td>
+<td style="text-align: left;">任意です。（例：PIO-ID）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サポートされているアカウントの種類</strong></td>
+<td style="text-align: left;">この組織ディレクトリのみに含まれるアカウント (シングル テナント)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2022-09-26_7-55-21.png"><img alt="Screenshot" src="/images/2022-09-26_7-55-21.png" /></a></p>
+</li>
+<li>
+<p><strong>アプリケーション (クライアント) ID</strong>、<strong>ディレクトリ (テナント) ID</strong>は、PIO-IDのアプリ登録のプロビジョニング設定で必要となります。<strong>値をコピーして、保存</strong>しておきます。</p>
+<p><a href="/images/2022-09-26_8-53-32.png"><img alt="Screenshot" src="/images/2022-09-26_8-53-32.png" /></a></p>
+</li>
+<li>
+<p>サイドメニューから<strong>証明書とシークレット</strong>をクリックします。</p>
+<p><a href="/images/2022-09-26_8-15-17.png"><img alt="Screenshot" src="/images/2022-09-26_8-15-17.png" /></a></p>
+</li>
+<li>
+<p><strong>クライアント シークレット</strong>タブへ移動し、<strong>新しいクライアント シークレット</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_8-18-49.png"><img alt="Screenshot" src="/images/2022-09-26_8-18-49.png" /></a></p>
+</li>
+<li>
+<p>以下の内容で設定し、<strong>追加</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>説明</strong></td>
+<td style="text-align: left;">任意です。（例：PIO-ID連携）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>有効期限</strong></td>
+<td style="text-align: left;">24か月</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2022-09-26_8-28-54.png"><img alt="Screenshot" src="/images/2022-09-26_8-28-54.png" /></a></p>
+</li>
+<li>
+<p>作成された<strong>クライアント シークレット</strong>は、PIO-IDのアプリ登録のプロビジョニング設定で必要となります。<strong>値をコピーして、保存</strong>しておきます。</p>
+<p><a href="/images/2022-09-26_8-33-11.png"><img alt="Screenshot" src="/images/2022-09-26_8-33-11.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>クライアント シークレットの値は、画面を遷移すると参照できなくなります。値をコピーし忘れた場合には、作成したクライアント シークレットを削除し、再作成してください。</p>
+</div>
+</li>
+<li>
+<p>サイドメニューから<strong>API のアクセス許可</strong>をクリックします。</p>
+<p><a href="/images/2022-09-26_9-43-40.png"><img alt="Screenshot" src="/images/2022-09-26_9-43-40.png" /></a></p>
+</li>
+<li>
+<p><strong>アクセス許可の追加</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_9-45-35.png"><img alt="Screenshot" src="/images/2022-09-26_9-45-35.png" /></a></p>
+</li>
+<li>
+<p><strong>Microsoft API</strong>の<strong>Microsoft Graph</strong>を選択します。</p>
+<p><a href="/images/2022-09-26_9-48-40.png"><img alt="Screenshot" src="/images/2022-09-26_9-48-40.png" /></a></p>
+</li>
+<li>
+<p><strong>アプリケーションの許可</strong>を選択します。</p>
+<p><a href="/images/2022-09-26_9-52-01.png"><img alt="Screenshot" src="/images/2022-09-26_9-52-01.png" /></a></p>
+</li>
+<li>
+<p>以下のアクセス許可を全て追加します。全て選択したら<strong>アクセス許可の追加</strong>ボタンをクリックします。</p>
+<ul>
+<li>Directory.ReadWrite.All</li>
+<li>Group.ReadWrite.All</li>
+<li>GroupMember.ReadWrite.All</li>
+<li>Organization.ReadWrite.All</li>
+<li>User.ReadWrite.All</li>
+</ul>
+</li>
+<li>
+<p>追加したアクセス許可が一覧に表示されたことを確認し、<strong>管理者の同意を与えます</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-28_15-40-18.png"><img alt="Screenshot" src="/images/2022-09-28_15-40-18.png" /></a></p>
+</li>
+<li>
+<p><strong>はい</strong>をクリックします。</p>
+<p><a href="/images/2022-09-26_11-52-42.png"><img alt="Screenshot" src="/images/2022-09-26_11-52-42.png" /></a></p>
+</li>
+</ol>
+<h3 id="pio-idのアプリ連携設定">PIO-IDのアプリ連携設定<a class="headerlink" href="#pio-idのアプリ連携設定" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞アプリ連携＞アプリ一覧</strong>画面へ移動します。</li>
+<li>
+<p><strong>カタログ表示</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-08-16_3-53-18.png"><img alt="Screenshot" src="/images/2022-08-16_3-53-18.png" /></a></p>
+</li>
+<li>
+<p>アプリカタログが表示されるので、Microsoft 365の<strong>登録</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_3-02-06.png"><img alt="Screenshot" src="/images/2022-09-26_3-02-06.png" /></a></p>
+</li>
+<li>
+<p><strong>アプリ登録</strong>画面がポップアップします。<strong>情報</strong>タブの<strong>名前</strong>に、アプリを識別できるような名前を、半角小文字の<strong>英数字</strong>、<strong>-（ハイフン）</strong>、<strong>_（アンダースコア）</strong>で設定します。</p>
+</li>
+<li>
+<p><strong>シングルサインオン</strong>タブに移動します。</p>
+<p><a href="/images/2022-09-26_3-11-42.png"><img alt="Screenshot" src="/images/2022-09-26_3-11-42.png" /></a></p>
+</li>
+<li>
+<p><strong>SSO 有効/無効</strong>を<strong>有効</strong>に設定します。</p>
+</li>
+<li><strong>IdP エンドポイントメタデータ</strong>の<strong>ダウンロード</strong>ボタンをクリックし、メタデータを取得します。このメタデータは、M365の設定を行うときに必要となります。</li>
+<li>
+<p><strong>プロビジョニング</strong>タブに移動します。</p>
+<p><a href="/images/2022-09-26_3-12-56.png"><img alt="Screenshot" src="/images/2022-09-26_3-12-56.png" /></a></p>
+</li>
+<li>
+<p><strong>プロビジョニング 有効/無効</strong>を<strong>有効</strong>に設定します。</p>
+</li>
+<li>
+<p><strong>ユーザ削除時の同期の動作 無効/削除</strong>を設定します。<strong>無効</strong>を推奨します。</p>
+<ul>
+<li><strong>無効</strong>の場合、PIO-IDのM365アプリからユーザを削除した際、M365ではユーザはライセンスが適用されたまま無効化されます。必要に応じて、M365管理センターから、ユーザのライセンス解除またはユーザ削除を手動で行ってください。</li>
+<li>
+<p><strong>削除</strong>の場合、PIO-IDのM365アプリからユーザを削除した際、M365のユーザも削除（M365の削除済みユーザとして表示）されます。</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>M365のユーザが削除されるとユーザに関連付くデータも削除されます。<a href="https://learn.microsoft.com/ja-jp/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide" target="_blank">元従業員を削除し、データをセキュリティで保護する</a>を参照し、適切にデータを保護してください。</p>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p>以下の内容で設定し、<strong>登録</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ディレクトリ (テナント) ID</strong></td>
+<td style="text-align: left;"><a href="#m365のアプリ登録">M365のアプリ登録</a>の手順6参照</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アプリケーション (クライアント) ID</strong></td>
+<td style="text-align: left;"><a href="#m365のアプリ登録">M365のアプリ登録</a>の手順6参照</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>クライアント シークレット</strong></td>
+<td style="text-align: left;"><a href="#m365のアプリ登録">M365のアプリ登録</a>の手順10参照</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ライセンスの自動割当</strong></td>
+<td style="text-align: left;">有効（詳細は、<a href="../microsoft_365_autoassign/">自動割当可能なライセンス</a>を参照）</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2022-09-26_3-15-14.png"><img alt="Screenshot" src="/images/2022-09-26_3-15-14.png" /></a></p>
+</li>
+</ol>
+<h3 id="pio-idのアプリにユーザ追加">PIO-IDのアプリにユーザ追加<a class="headerlink" href="#pio-idのアプリにユーザ追加" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞アプリ連携＞アプリ一覧</strong>画面へ移動します。</li>
+<li>登録したアプリの列にある<strong>チェックボックス</strong>を選択します。</li>
+<li>
+<p><strong>ユーザ追加</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-4.png"><img alt="Screenshot" src="/images/image-4.png" /></a></p>
+</li>
+<li>
+<p><strong>ユーザ追加</strong>画面がポップアップします。アプリへ追加したい<strong>ユーザ名</strong>を選択し、<strong>登録</strong>ボタンをクリックして、アプリへユーザを追加します。</p>
+<p><a href="/images/image-5.png"><img alt="Screenshot" src="/images/image-5.png" /></a></p>
+</li>
+</ol>
+<h3 id="動作確認ユーザグループ同期">動作確認（ユーザ/グループ同期）<a class="headerlink" href="#動作確認ユーザグループ同期" title="Permanent link"></a></h3>
+<ol>
+<li><a href="https://admin.microsoft.com/" target="_blank">Microsoft 365 の管理センター</a>にグローバル管理者でログインします。</li>
+<li>
+<p><strong>ユーザー＞アクティブなユーザー</strong>画面および<strong>チームとグループ＞アクティブなチームとグループ</strong>画面へ移動し、以下のことを確認します。</p>
+<ul>
+<li>アプリに追加したユーザが作成されていること</li>
+<li>グループが作成され、メンバーが追加されていること</li>
+<li>
+<p>ユーザに適切なライセンスが割当てられていること</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ライセンスの自動割当によりライセンスが割当てられていない場合には、手動で、ユーザにライセンスを割当てるか、<a href="../microsoft_365_autoassign/#m365ライセンスの自動割当の代替案">M365ライセンスの自動割当の代替案</a>を検討してください。</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="m365のフェデレーションsaml設定">M365のフェデレーション（SAML）設定<a class="headerlink" href="#m365のフェデレーションsaml設定" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>PowerShellで、グローバル管理者としてAzure ADにログインします。</p>
+<div class="highlight"><span class="filename">PowerShell</span><pre><span></span><code><span class="nb">Connect-MsolService</span>
+</code></pre></div>
+</li>
+<li>
+<p>シングルサインオンするカスタムドメインにフェデレーション（SAML）設定を行います。PowerShellのサンプルスクリプトの変数を環境に合わせて値を変更してから、実行します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">PowerShellの変数</th>
+<th style="text-align: left;">変数の値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$domain</td>
+<td style="text-align: left;">シングルサインオンするカスタムドメイン</td>
+</tr>
+<tr>
+<td style="text-align: left;">$IdpIssuer</td>
+<td style="text-align: left;">PIO-IDのIdPエンドポイントメタデータのファイルを開きます。<br><code>&lt;md:EntityDescriptor entityID=</code>　から始まる行のURLを入力します。<br><br>（例：<code>https://auth-02-0001.poc.singleid.jp/auth/realms/90000013</code>）</td>
+</tr>
+<tr>
+<td style="text-align: left;">$IdpSigningCert</td>
+<td style="text-align: left;">PIO-IDのIdPエンドポイントメタデータのファイルを開きます。<br><code>&lt;ds:X509Certificate&gt;</code>タグ内のMIIで始まる文字列（例：<code>MIICnzCCAYcCBgF/zubcKTANBgkqhkiG9w0BAQsFADATMREwDw……..</code>）をコピーして、入力します。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><span class="filename">PowerShellのサンプルスクリプト</span><pre><span></span><code><span class="nv">$domain</span> <span class="p">=</span> <span class="s2">&quot;xxxxx.example.com&quot;</span> 
+<span class="nv">$IdpIssuer</span> <span class="p">=</span> <span class="s2">&quot;https://auth-02-0001.dev.singleid.jp/auth/realms/90000013&quot;</span> 
+<span class="nv">$IdpSigningCert</span> <span class="p">=</span> <span class="s2">&quot;MIICnzCCAYcCBgF/zubcKTANBgkqhkiG9w0BAQsFADATMREwDw……..&quot;</span> 
+<span class="nv">$BrandName</span> <span class="p">=</span> <span class="s2">&quot;PIO-ID&quot;</span>
+<span class="nv">$IdpEndpoint</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">&quot;/protocol/saml&quot;</span>
+<span class="nv">$LogOffUrl</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">&quot;/protocol/openid-connect/logout&quot;</span> 
+<span class="nv">$Protocol</span> <span class="p">=</span> <span class="s2">&quot;SAMLP&quot;</span> 
+<span class="nb">Set-MsolDomainAuthentication</span> <span class="p">`</span>
+    <span class="n">-DomainName</span> <span class="nv">$domain</span> <span class="p">`</span>
+    <span class="n">-FederationBrandName</span> <span class="nv">$BrandName</span> <span class="p">`</span>
+    <span class="n">-Authentication</span> <span class="n">Federated</span> <span class="p">`</span>
+    <span class="n">-PassiveLogOnUri</span> <span class="nv">$IdpEndpoint</span> <span class="p">`</span>
+    <span class="n">-ActiveLogOnUri</span> <span class="nv">$IdpEndpoint</span> <span class="p">`</span>
+    <span class="n">-SigningCertificate</span> <span class="nv">$IdpSigningCert</span> <span class="p">`</span>
+    <span class="n">-IssuerUri</span> <span class="nv">$IdpIssuer</span> <span class="p">`</span>
+    <span class="n">-LogOffUri</span> <span class="nv">$LogOffUrl</span> <span class="p">`</span>
+    <span class="n">-PreferredAuthenticationProtocol</span> <span class="nv">$Protocol</span>
+</code></pre></div>
+</li>
+<li>
+<p>フェデレーション（SAML）設定が行えたことを確認します。シングルサインオンするカスタムドメイン<strong>Verified Federated</strong>となっていればフェデレーション（SAML）設定がされています。</p>
+<div class="highlight"><span class="filename">PowerShell</span><pre><span></span><code><span class="nb">Get-MsolDomain</span> 
+</code></pre></div>
+<div class="highlight"><span class="filename">レスポンス</span><pre><span></span><code><span class="n">Name</span>                            <span class="n">Status</span>   <span class="n">Authentication</span>
+<span class="p">----</span>                            <span class="p">------</span>   <span class="p">--------------</span>
+<span class="n">xxxxx</span><span class="p">.</span><span class="n">onmicrosoft</span><span class="p">.</span><span class="n">com</span>         <span class="n">Verified</span> <span class="n">Managed</span>
+<span class="n">xxxxx</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>             <span class="n">Verified</span> <span class="n">Federated</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="動作確認シングルサインオン">動作確認（シングルサインオン）<a class="headerlink" href="#動作確認シングルサインオン" title="Permanent link"></a></h3>
+<ol>
+<li>https://portal.office.com へアクセスします。</li>
+<li>
+<p>ユーザ同期されM365に作成されたユーザを入力して、<strong>次へ</strong>をクリックします。</p>
+<p><a href="/images/2022-09-26_18-57-56.png"><img alt="Screenshot" src="/images/2022-09-26_18-57-56.png" /></a></p>
+</li>
+</ol>
+<h4 id="m365のログイン画面でパスワードの入力を要求された場合">M365のログイン画面で、パスワードの入力を要求された場合<a class="headerlink" href="#m365のログイン画面でパスワードの入力を要求された場合" title="Permanent link"></a></h4>
+<p><a href="/images/2022-09-26_19-00-03.png"><img alt="Screenshot" src="/images/2022-09-26_19-00-03.png" /></a></p>
+<p>Microsoftのドキュメントによると、フェデレーション（SAML）設定が有効となるまで、2時間ほどかかる場合があります。しばらくたってからお試しください。</p>
+<h4 id="m365のログイン画面でアカウント保護にご協力くださいの画面が表示された場合">M365のログイン画面で、アカウント保護にご協力くださいの画面が表示された場合<a class="headerlink" href="#m365のログイン画面でアカウント保護にご協力くださいの画面が表示された場合" title="Permanent link"></a></h4>
+<p><a href="/images/2022-09-26_17-38-02.png"><img alt="Screenshot" src="/images/2022-09-26_17-38-02.png" /></a></p>
+<p><strong>セキュリティの既定値</strong>が<strong>有効化</strong>されています。以下の手順に従い、<strong>無効化</strong>します。</p>
+<ol>
+<li><a href="https://portal.azure.com" target="_blank">Azureポータル</a>へグローバル管理者でログインします。</li>
+<li>
+<p><strong>Azure Active Directory</strong>管理画面に移動します。（画面上部の検索ボックスに<strong>Active</strong>と入力し、表示された<strong>Azure Active Directory</strong>をクリックします。）</p>
+<p><a href="/images/2022-09-26_7-46-39.png"><img alt="Screenshot" src="/images/2022-09-26_7-46-39.png" /></a></p>
+</li>
+<li>
+<p>サイドメニューから<strong>プロパティ</strong>をクリックします。</p>
+</li>
+<li><strong>セキュリティの既定値の管理</strong>をクリックします。</li>
+<li>
+<p><strong>セキュリティの既定値の有効化</strong>を<strong>いいえ</strong>を選択し、<strong>保存</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_17-39-08.png"><img alt="Screenshot" src="/images/2022-09-26_17-39-08.png" /></a></p>
+</li>
+</ol>
+<h4 id="m365のログイン画面で詳細情報が必要の画面が表示された場合">M365のログイン画面で、詳細情報が必要の画面が表示された場合<a class="headerlink" href="#m365のログイン画面で詳細情報が必要の画面が表示された場合" title="Permanent link"></a></h4>
+<p><a href="/images/2022-09-26_18-11-23.png"><img alt="Screenshot" src="/images/2022-09-26_18-11-23.png" /></a></p>
+<p>M365の<strong>パスワード リセットのセルフサービス</strong>が<strong>有効</strong>となっています。PIO-IDで認証するユーザに対して、M365のセルフパスワードリセットを<strong>無効化</strong>します。</p>
+<ol>
+<li><a href="https://portal.azure.com" target="_blank">Azureポータル</a>へグローバル管理者でログインします。</li>
+<li>
+<p><strong>Azure Active Directory</strong>管理画面に移動します。（画面上部の検索ボックスに<strong>Active</strong>と入力し、表示された<strong>Azure Active Directory</strong>をクリックします。）</p>
+<p><a href="/images/2022-09-26_7-46-39.png"><img alt="Screenshot" src="/images/2022-09-26_7-46-39.png" /></a></p>
+</li>
+<li>
+<p>サイドメニューから<strong>ユーザ</strong>をクリックします。</p>
+</li>
+<li>サイドメニューから<strong>パスワードリセット</strong>をクリックします。</li>
+<li>
+<p><strong>パスワード リセットのセルフサービスが有効</strong>を<strong>すべて</strong>から<strong>選択済み</strong>（シングルサインオンを実施しないユーザを選択）または<strong>なし</strong>に変更し、保存ボタンをクリックします。</p>
+<p><a href="/images/2022-09-26_18-50-27.png"><img alt="Screenshot" src="/images/2022-09-26_18-50-27.png" /></a></p>
+</li>
+</ol>
+<h2 id="その他資料">その他資料<a class="headerlink" href="#その他資料" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../featuires/">M365連携機能の仕様</a></li>
+<li><a href="../faq/">M365連携のよくある質問</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; PIOLINK, Inc. All rights reserved.
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

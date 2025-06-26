@@ -1,0 +1,152 @@
+!
+!  - Startup Configuration -
+!  Last Modified: Sun Feb  2 05:28:50 JST 2031
+!
+enable password admin
+!
+username admin privilege on password password
+!
+dns-client enable
+aaa authentication dot1x
+aaa authentication auth-mac
+auth-mac auth-user unformatted lower-case
+lldp run
+lldp auto-setting enable
+!
+radius-server host 35.77.207.168 auth-port 10003 key yamaha
+radius-server host 35.73.34.139 auth-port 10003 key yamaha
+!
+vlan database
+ vlan 101 name VLAN0101
+!
+interface port1.1
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ auth timeout server-timeout 40
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.2
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.3
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.4
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.5
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.6
+ switchport
+ switchport mode access
+ no shutdown
+ auth host-mode multi-supplicant
+ auth-mac enable
+ dot1x port-control auto
+ auth dynamic-vlan-creation
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.7
+ switchport
+ switchport mode access
+ no shutdown
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.8
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 101
+ no shutdown
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.9
+ switchport
+ switchport mode access
+ no shutdown
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface port1.10
+ switchport
+ switchport mode access
+ no shutdown
+ lldp-agent
+  set lldp enable txrx 
+  exit 
+!
+interface vlan1
+ no switchport
+ auto-ip enable
+ ip address 192.168.100.240/24
+ no shutdown
+!
+interface vlan101
+ no switchport
+ no shutdown
+!
+ip route 0.0.0.0/0 192.168.100.1
+!
+!
+clock timezone JST
+!
+http-server enable
+http-proxy enable
+!
+telnet-server enable
+!
+line con 0
+line vty 0 7
+!
+end
+

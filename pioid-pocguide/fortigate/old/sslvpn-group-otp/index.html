@@ -1,0 +1,1594 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<YOUR-ORG>.github.io/pioid-pocguide/fortigate/old/sslvpn-group-otp/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Sslvpn group otp - PIO-ID マニュアル</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-header__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIO-ID マニュアル
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sslvpn group otp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-nav__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PIO-ID マニュアル
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HOME
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    管理者ガイド
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            管理者ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ログ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ログ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/radius_authlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RADIUS認証ログ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/operation_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    操作ログ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ユーザ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    グループ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    認証
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            認証
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RADIUS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    証明書
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    アプリ連携
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            アプリ連携
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/app_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アプリ一覧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/security_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セキュリティ診断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    管理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/accountinfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本情報（組織アカウント）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    管理者
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ネットワーク
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-adminguide/setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    詳細設定
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-userguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-userguide/account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アカウント
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-userguide/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    パスワード
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-userguide/authenticator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    オーセンティケーター
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-userguide/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セッション
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-appguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    アプリ連携ガイド
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ネットワーク機器連携の設定例
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-security-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セキュリティ診断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    よくある質問
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    リリースノート
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            リリースノート
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pioid-release-notes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    製品版
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- wp:heading {"level":1} -->
+<h1 id="block-faa217c5-800c-484d-8e63-c1d68b88e1a2">目的</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-52612b0f-ad31-4374-aa7a-a4bdac9dd73b">FortiGateのリモートアクセスVPN（SSLVPN）について、以下の要件を満たすために、PIO-IDを利用します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul id="block-ffa0b631-ec90-4ed3-982d-a952836b5d90"><li>RADIUSサーバに登録されたユーザでログインする。</li><li>特定グループに属するユーザのみアクセスを許可する。</li><li>ログインの認証方式は、パスワード＋ワンタイムパスワード認証（時間ベースのTOTP）とする。</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":1} -->
+<h1 id="block-a2dc1425-f883-4710-8363-d6ecc24f1da6">環境</h1>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 id="block-c4ee4011-2547-4bbe-9510-699eec55166d">グループの情報</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>グループ名</td><td>グループの説明</td><td>メンバー</td></tr><tr><td>リモートアクセスユーザ（ビルトイングループ）</td><td>FortiGateのリモートアクセスVPNへログインできるユーザのグループ</td><td>user1</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 id="block-5d278fa1-fdd3-481b-b43f-c128259a1d11">RADIUSの情報</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>設定に必要な情報</td><td>説明および情報取得の方法など</td></tr><tr><td>RADIUSサーバのホスト名</td><td>PIO-ID 管理者ポータル＞認証＞RADIUS画面の基本情報タブの「ホスト名」です。</td></tr><tr><td>RADIUSサーバのIPアドレス</td><td>PIO-ID 管理者ポータル＞認証＞RADIUS画面の基本情報タブの「IPアドレス」です。</td></tr><tr><td>RADIUSサーバのポート番号</td><td>PIO-ID 管理者ポータル＞認証＞RADIUS画面の基本情報タブの「RADIUSポート番号」です。デフォルトUDP1812です。</td></tr><tr><td>RADIUSクライアントのIPアドレス</td><td>FortiGate側のグローバルIPアドレスです。インターネットに出ていくときの送信元のIPアドレスです。</td></tr><tr><td>RADIUSクライアントのシークレット</td><td>任意の文字列を設定します。ここでは、「fortigate」とします。</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 id="block-4bcc4855-14e0-4be2-9e7f-72cea524d912">VPN設定の情報</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>設定に必要な情報</td><td>説明および情報取得の方法など</td></tr><tr><td> リッスンするインターフェース</td><td>FortiGateのWAN側のインターフェースです。環境により異なります。</td></tr><tr><td> リッスンするポート </td><td>VPNクライアントが接続するポート番号です。ここでは、「10443」とします。</td></tr><tr><td>サーバ証明書</td><td>VPNのサーバ認証のためのサーバ証明書を指定します。ここでは、「Fortinet_Factory」とします。</td></tr><tr><td>ファイアウォールポリシーの宛先</td><td>VPNでアクセスした通信に対して、許可したい宛先です。環境により異なります。</td></tr><tr><td> VPNゲートウェイIPアドレス </td><td> VPNクライアントが接続するIPアドレスです。環境により異なります。 </td></tr><tr><td> 発信インターフェース </td><td>VPN接続が完了し、内部通信が行われるときに、発信元のインターフェースです。 環境により異なります。  </td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":1} -->
+<h1 id="block-75a94984-aa3a-4150-a1f8-46f39a0ac8a3">設定方法</h1>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 id="block-94d041ac-2f7e-4620-ad17-d9d0d546aca5">PIO-IDの設定</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-631fcbb0-4750-4af8-9c2c-89618e0b1990">PIO-IDの管理者ポータルへログインします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-631fcbb0-4750-4af8-9c2c-89618e0b1990">https://login.singleid.jp/</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-c26851b0-0350-4159-8381-dafe04f0baff">ユーザの作成</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-ab1d329d-6e9f-469c-a650-6b22b984652a">PIO-ID 管理者ポータル＞ユーザ一覧画面へ移動します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-4ee9048f-5147-4a01-9039-c882ae971323">「登録」をクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-7ae010e7-a239-4f16-9e0a-37c53789714f"><img src="https://www.singleid.jp/wp-content/uploads/2021/08/image-7.png" alt="画像に alt 属性が指定されていません。ファイル名: image-7.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p id="block-c56c28bb-2a61-4740-af3e-c54658388c79">ユーザ登録画面の「基本情報」を入力します。 作成するユーザは、<a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/グループの情報</a>を参照します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-ad557f1a-6ede-4650-ad1b-418272874aac">「グループ」タブをクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-c5b57d84-932f-4e1e-8724-7a0057c88f46"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-1024x476.png" alt="画像に alt 属性が指定されていません。ファイル名: image-1024x476.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p id="block-21d3441e-9baf-4294-a270-5d2398c652af">参加するグループを選択し、「登録」をクリックします。参加するグループについては、<a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/グループの情報</a>を参照します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-f68ac9cb-a433-4dc2-8014-7158b9e3ca79"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-18-1024x311.png" alt="画像に alt 属性が指定されていません。ファイル名: image-18-1024x311.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-63e87bd2-836d-419d-967e-53e8f08b1a13">RADIUSの設定</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-122429d9-fcea-4305-9a66-65d15a64acbf">PIO-ID 管理者ポータル＞認証＞RADIUS画面へ移動します。「FortiGate」タブへ移動します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-1aaa811a-749b-4b54-ab09-f95a4465fca1">「登録」をクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-697b56e1-76b4-456d-a8e2-96dbf49958cb"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-2-1024x228.png" alt="画像に alt 属性が指定されていません。ファイル名: image-2-1024x228.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-42264df5-0ce1-4e8a-8bbc-3b91caf2c488"></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-09497afd-0625-45ec-8fb8-3d634ee90bf4">RADIUSクライアントに関する以下の項目を入力します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>「VPNアクセスの認証」タブへ移動します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>ワンタイムパスワードの強制</td><td>  有効</td></tr><tr><td>IPアドレス</td><td> <a style="font-family: inherit; font-size: var(--vk-size-text-sm); font-weight: inherit;" href="#env" data-type="internal" data-id="#env">環境/RADIUSの情報</a>　の「RADIUSクライアントのIPアドレス」です。</td></tr><tr><td>シークレット</td><td> <a style="font-family: inherit; font-size: var(--vk-size-text-sm); font-weight: inherit;" href="#env" data-type="internal" data-id="#env">環境/RADIUSの情報</a>　の「RADIUSクライアントのシークレット」です。</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:vk-blocks/alert {"style":"warning"} -->
+<div class="wp-block-vk-blocks-alert alert alert-warning"><p>選択するサーバの番号により、RADIUSサーバのポート番号が異なります。<br>サーバが１の場合には、UDP1812です。<br>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報タブ画面の「RADIUSポート番号」にサーバの番号と通信ポート番号の対応が記載されています。</p></div>
+<!-- /wp:vk-blocks/alert -->
+
+<!-- wp:image {"id":2226,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-15-1024x457.png" alt="" class="wp-image-2226"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p id="block-d9d1e58e-95ab-46e0-b80e-4be578f24d1c">許可グループの設定で「リモートアクセスユーザ」グループをダブルクリックし、許可へ移動させます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-9bd40d64-a9aa-4304-ad9c-739ddc722b46">「登録」をクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-bfd73f6d-c644-43f2-b8ec-da06bc2efc10"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-19-1024x636.png" alt="画像に alt 属性が指定されていません。ファイル名: image-19-1024x636.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 id="block-1a4b9cd1-3307-4b55-8415-738edc3c521a">FortiGateの設定</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-aeb819dd-0233-4083-a381-25855e7c8c53">FortiGateの管理GUIへログインします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://<FortiGateの管理IPアドレス>">https://&lt;FortiGateの管理IPアドレス&gt;</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-b57d17a1-0d05-4ea2-8357-696cbbfef102"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-5.png" alt="画像に alt 属性が指定されていません。ファイル名: image-5.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-15242965-7690-424b-8c6c-1d71c1e85dd3">RADIUSサーバの設定</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-b5da3f3a-a7cb-428d-95b7-2b5a578ed798">FortiGate管理GUI＞ ユーザ＆認証＞RADIUSサーバへ移動します。「新規作成」ボタンをクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-ae449e06-4e67-4939-84f8-18b8a1fc9190">以下の項目を設定し、「OK」をクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-vk-table-border"} -->
+<figure class="wp-block-table is-style-vk-table-border"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>名前</td><td>PIO-ID_RADIUS</td></tr><tr><td>認証方式</td><td>指定　PAP</td></tr><tr><td>IP/名前</td><td><a style="font-family: inherit; font-size: revert; font-weight: inherit;" href="#env" data-type="internal" data-id="#env">環境/RADIUSの情報</a>　の「RADIUSサーバのIPアドレス」です。</td></tr><tr><td>シークレット</td><td><a style="font-family: inherit; font-size: revert; font-weight: inherit;" href="#env" data-type="internal" data-id="#env">環境/RADIUSの情報</a>　の「RADIUSクライアントのシークレット」です。</td></tr></tbody></table><figcaption><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-16.png" alt=""></figcaption></figure>
+<!-- /wp:table -->
+
+<!-- wp:vk-blocks/alert {"style":"warning"} -->
+<div class="wp-block-vk-blocks-alert alert alert-warning"><p>「接続をテスト」をクリックし、接続が成功しない場合には、以下をご確認ください。<br>・設定内容が間違いないこと<br>・FortiGateからPIO-IDのRADIUSサーバのIPアドレスへ接続可能であること<br><br>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、「ユーザクレデンシャルをテスト」ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p></div>
+<!-- /wp:vk-blocks/alert -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-02217d43-4f78-4629-ae8a-29752c4e0464">ユーザグループの設定</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-511b9d68-0f99-4016-a026-c0e618c290b7">FortiGate管理GUI＞ユーザ＆認証＞ユーザグループへ移動します。「新規作成」ボタンをクリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-dc63134c-7aa1-497f-8bf1-2431c1de6b81">以下の項目を設定し、「OK」を クリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>名前</td><td>PIO-ID</td></tr><tr><td>タイプ</td><td>ファイアウォール</td></tr><tr><td>リモートグループ</td><td>リモートサーバ：PIO-ID_RADIUS　グループ：すべて</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-4a30e056-f021-466b-aa72-f10613038065"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-9.png" alt="画像に alt 属性が指定されていません。ファイル名: image-9.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="block-0f0174cf-5518-4250-bf3b-e60c611b2bd1">SSLVPNの設定</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-45daeb5f-206a-401e-8cf7-5c557757eb03">FortiGate管理GUI＞VPN＞SSL-VPN設定へ移動します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p id="block-0c2d0d49-01fe-457e-87dd-945645ccc272">以下の項目を設定し、「適用」を クリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>リッスンするインターフェース</td><td> <a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「リッスンするインターフェース 」です。</td></tr><tr><td>リッスンするポート</td><td> <a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「リッスンするポート 」です。</td></tr><tr><td>サーバ証明書</td><td> <a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「サーバ証明書 」です。</td></tr><tr><td>認証ポータルマッピング</td><td>グループ：PIO-ID　ポータル：full-access<br>すべてのその他のユーザ/グループ　ポータル：web-access</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:image {"id":2313,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/2021-11-08_5-01-45-1.png" alt="" class="wp-image-2313"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3>ポリシーの設定</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>SSLVPNの設定を適用すると、上部に以下のようなメッセージが表示されます。リンクをクリックし、ファイアウォールポリシーの設定を行います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>表示されない場合には、 FortiGate管理GUI＞ポリシー＆オブジェクト＞ファイアウォールポリシーへ移動します。 </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2317,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-29.png" alt="" class="wp-image-2317"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p id="block-0c2d0d49-01fe-457e-87dd-945645ccc272">以下の項目を設定し、「適用」を クリックします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>名前</td><td>SSLVPN </td></tr><tr><td>着信インターフェース</td><td>SSL-VPN tunnel Interface (ssl.root)</td></tr><tr><td>発信インターフェース</td><td><a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「発信インターフェース」です。</td></tr><tr><td>発信元</td><td>アドレス：SSLVPN_TUNNEL_ADDR1　ユーザグループ：PIO-ID</td></tr><tr><td>宛先</td><td> <a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「ファイアウォールポリシーの宛先」です。</td></tr><tr><td>サービス</td><td>all</td></tr><tr><td>アクション</td><td>許可</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:image {"id":2318,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/2021-11-08_5-25-13-741x1024.png" alt="" class="wp-image-2318"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":1} -->
+<h1 id="block-30aa7cd3-efcb-4d9f-8556-b428e56a6553">動作確認方法</h1>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2>ソフトウェアトークンのインストール</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ソフトウェアトークンとして、以下のiPhoneおよびAndroidのスマートフォンアプリが利用できます。どちらかのアプリをスマートフォンへインストールします。 </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li>FreeOTP</li><li>Google Authenticator</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>PIO-IDへソフトウェアトークンの登録</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>user1のSingle IDのユーザポータルへログインします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://login.singleid.jp/">https://login.singleid.jp/</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>PIO-ID ユーザポータル＞オーセンティケーター画面へ移動します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>QRコードが表示されていることを確認します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2085,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-90.png" alt="" class="wp-image-2085"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>スマートフォンへインストールしたソフトウェアトークンアプリを起動します。（ここでは、Google Authenticatorを利用します。）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>＋をクリックし、新規アカウントを追加します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2091,"width":240,"sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
+<figure class="wp-block-image size-full is-resized is-style-default"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-95.png" alt="" class="wp-image-2091" width="240"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>「QRコードをスキャン」をクリックし、ユーザポータルに表示されているQRコードを読み取ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2089,"width":240,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-93.png" alt="" class="wp-image-2089" width="240"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>「アカウントを追加」をクリックし、アカウントを追加します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2238,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-17.png" alt="" class="wp-image-2238"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>表示されている６桁の数字をPIO-ID ユーザポータル＞オーセンティケーター画面の「ワンタイムコード」へ入力し、「保存」をクリックし、オーセンティケーターを登録します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:vk-blocks/alert -->
+<div class="wp-block-vk-blocks-alert alert alert-info"><p>ソフトウェアトークンの6桁の数字の表示は、30秒ごとに変わります。変わる前に、オーセンティケーターの登録を完了させる必要があります。登録する途中で、ソフトウェアトークンの数字が変わってしまった場合には、変わった数字を登録します。</p></div>
+<!-- /wp:vk-blocks/alert -->
+
+<!-- wp:image {"id":2093,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-97.png" alt="" class="wp-image-2093"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2094,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-98-1024x177.png" alt="" class="wp-image-2094"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 id="block-005fcf60-e3c8-4cd3-a91a-831250e392dc">FortiClientのインストール</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p id="block-ad3242fe-0035-4bee-b434-d63f82f729e3">以下、URLからFortiClientをダウンロードして、インストールします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.forticlient.com">https://www.forticlient.com</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="block-2b01d3f3-6c87-4963-809f-c5ec077dc4fb">FortiClientの設定</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular"><table><tbody><tr><td>項目</td><td>設定値</td></tr><tr><td>VPN</td><td>SSL-VPN</td></tr><tr><td>接続名</td><td>任意です。例：PIO-ID</td></tr><tr><td>リモートGW</td><td><a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「VPNゲートウェイIPアドレス」です。</td></tr><tr><td>ポートの編集</td><td><a href="https://www.singleid.jp/wp-admin/post.php?post=2246&amp;action=edit#env">環境/VPN設定の情報</a>　の「リッスンするポート」です。</td></tr><tr><td>認証</td><td>ユーザ名入力</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:image {"id":2328,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-30.png" alt="" class="wp-image-2328"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 id="block-f69a353b-3655-4f85-85b2-f65ace3b2e91">FortiGateへリモートアクセスVPN</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>スマートフォンのソフトウェアトークンアプリを起動し、６桁のワンタイムパスワードを確認します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:vk-blocks/alert -->
+<div class="wp-block-vk-blocks-alert alert alert-info"><p>ソフトウェアトークンの6桁の数字の表示は、30秒ごとに変わります。数字が変わる前に、ログイン処理を終了させる必要があります。</p></div>
+<!-- /wp:vk-blocks/alert -->
+
+<!-- wp:image {"id":2093,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.singleid.jp/wp-content/uploads/2021/09/image-97.png" alt="" class="wp-image-2093"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>PIO-IDのユーザ（user1）でログインを試みます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>user1のパスワードとワンタイムパスワードを:（コロン）でつなげた文字列をパスワードとして入力します。（例：password:123456）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-8b97c8c5-fbec-4706-ad10-78a81d662669"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-27.png" alt="画像に alt 属性が指定されていません。ファイル名: image-27.png"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p id="block-d66cdb1d-21f8-47d0-b342-1c450a863c9a">user1でログインできたことを確認します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image" id="block-2d2ab1b0-067f-486b-adc8-18f35756958c"><img src="https://www.singleid.jp/wp-content/uploads/2021/11/image-28.png" alt="画像に alt 属性が指定されていません。ファイル名: image-28.png"/></figure>
+<!-- /wp:image -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; PIOLINK, Inc. All rights reserved.
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

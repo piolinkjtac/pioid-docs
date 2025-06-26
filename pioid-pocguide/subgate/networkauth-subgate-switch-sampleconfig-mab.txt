@@ -1,0 +1,109 @@
+!
+service password-encryption
+service password-security
+!
+!
+username root password 8 $5$bc7fb84587634179c4fdbb8c0d38149d7103ffb041909037e036946275b422234158b56fd1098042
+!
+no ip domain-lookup
+!
+!
+bridge 1 protocol pvstp
+!
+bridge 1 pvstp vlan 1
+no bridge 1 pvstp enable bridge-forward bpdu-flood
+!
+mds enable ge1-8 drop
+mds uplink ge9-12
+mds dad-attack ge1-8 drop
+mds self-loop-detect ge1-8 protect-all-ports
+mds response enable
+mds attack-fragment enable
+mds attack-smurf enable
+mds syslog enable
+mds arp-list send-port all
+mds auto-config
+mds auto-config relay
+mds arp-spoofing drop ge1-8
+mds mac-flooding maximum 1000
+mds if-pkt-loss ge1-8
+mds if-pkt-loss threshold 30
+!
+mls qos enable
+login-fail auto-deny 5
+usb vipm-update
+dot1x system-auth-ctrl
+!
+aaa system-aaa-ctrl
+radius-server host 35.77.207.168 auth-port 1812 timeout 5 retransmit 3 key $5$d7e2c99ca11129a99f53a93e4ec5fe202e5a5568a4f52cce4e32336f764bc93093119d8d
+3bc5a01a
+radius-server host 35.73.34.139 auth-port 1812 timeout 5 retransmit 3 key $5$7365f86830dd6a1502fff0c4eaf866f1b1b207fe97ebabfa7fb13932185a83bb4ee04f909
+0f8f29a
+ip radius source-interface 192.168.100.20 1023
+!
+interface ge1
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge2
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge3
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge4
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge5
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge6
+ dot1x port-control auto
+ dot1x extension multi-user
+ dot1x extension mac-auth-bypass
+!
+interface ge7
+!
+interface ge8
+!
+interface ge9
+!
+interface ge10
+!
+interface ge11
+!
+interface ge12
+!
+interface lo
+ ip address 127.0.0.1/8
+ ipv6 address ::1/128
+!
+interface vlan1.1
+ ip address 192.168.100.20/24
+!
+ip route 0.0.0.0/0 192.168.100.1
+!
+snmp-server disable
+!
+timezone GMT+9
+!
+!
+service dhcp
+no service sshd
+service https
+no service telnetd
+line con 0
+ login local
+line vty 0 5
+ login local
+!
+end
