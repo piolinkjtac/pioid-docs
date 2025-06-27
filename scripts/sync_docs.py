@@ -30,17 +30,16 @@ def replace_in_file(p: Path):
     out = []
     for line in text.splitlines(keepends=True):
         # ──────────────────────────────
-        # 対策１：絶対パス "/images/xxx" → "/pioid-docs/images/xxx"
-        #   Markdown リンク／画像
+        # Markdown の (/images/xxx) → (/pioid-docs/images/xxx)
         line = re.sub(
-            r'(!?\[[^\]]*\]\()/(images/[^)\s]+)',
-            r'\1/pioid-docs/\2',
+            r'\(/images/([^)\s]+)\)',
+            r'(/pioid-docs/images/\1)',
             line
         )
-        #   HTML タグ href/src
+        # HTML タグの href/src も同様に
         line = re.sub(
-            r'(href|src)="/(images/[^"]+)"',
-            r'\1="/pioid-docs/\2"',
+            r'(href|src)="/images/([^"]+)"',
+            r'\1="/pioid-docs/images/\2"',
             line
         )
         # ──────────────────────────────
