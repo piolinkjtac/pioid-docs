@@ -29,10 +29,21 @@ def replace_in_file(p: Path):
     text = p.read_text(encoding="utf-8")
     out = []
     for line in text.splitlines(keepends=True):
-        # A) Markdown の絶対パス → 相対パス
-        line = re.sub(r'(!?\[[^\]]*\]\()\/+([^)\s]+)', r'\1\2', line)
-        # B) HTML の絶対パス → 相対パス
-        line = re.sub(r'(href|src)="\/+([^"]+)"', r'\1="\2"', line)
+        # ──────────────────────────────
+        # 対策１：絶対パス "/images/xxx" → "/pioid-docs/images/xxx"
+        #   Markdown リンク／画像
+        line = re.sub(
+            r'(!?\[[^\]]*\]\()/(images/[^)\s]+)',
+            r'\1/pioid-docs/\2',
+            line
+        )
+        #   HTML タグ href/src
+        line = re.sub(
+            r'(href|src)="/(images/[^"]+)"',
+            r'\1="/pioid-docs/\2"',
+            line
+        )
+        # ──────────────────────────────
 
         # 0) 固定 URL の置換
         line = line.replace(
