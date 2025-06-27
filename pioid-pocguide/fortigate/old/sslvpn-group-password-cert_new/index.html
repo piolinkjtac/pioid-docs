@@ -1649,7 +1649,7 @@
 <p><strong>PIO-IDのルートCA証明書をFortiGateへインポートしないようにしてください。意図しないVPN接続の認証が成功してしまいます。</strong></p>
 <p>リモートアクセスクライアントからFortiGateへのVPN接続時、PIO-IDのルートCA証明書がFortiGateにインポートされていると、PIO-IDのルートCAを発行元とするどんな中間CAが発行したクライアント証明書であっても、証明書のパスの検証に成功してしまいます。</p>
 </div>
-<p><a href="/images/fortigate-19.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-19.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-19.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-19.png" /></a></p>
 </li>
 </ol>
 <h4 id="pio-idの中間caの証明書失効リストcrlの設定">PIO-IDの中間CAの証明書失効リスト（CRL）の設定<a class="headerlink" href="#pio-idの中間caの証明書失効リストcrlの設定" title="Permanent link"></a></h4>
@@ -1676,7 +1676,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-20.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-20.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-20.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-20.png" /></a></p>
 </li>
 <li>
 <p>定期的（1時間ごと）に証明書失効リスト（CRL）を更新するために、FortiGate CLIから<strong>set update-interval 3600</strong>を以下のように設定します。</p>
@@ -1740,7 +1740,7 @@ end
 <p class="admonition-title">Warning</p>
 <p>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、<strong>ユーザクレデンシャルをテスト</strong>ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p>
 </div>
-<p><a href="/images/fortigate-1.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-1.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-1.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-1.png" /></a></p>
 </li>
 <li>
 <p><strong>OK</strong>ボタンをクリックします。</p>
@@ -1774,7 +1774,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-2.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-2.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-2.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-2.png" /></a></p>
 </li>
 <li>
 <p><strong>OK</strong>を クリックします。</p>
@@ -1815,7 +1815,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-22.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-22.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-22.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-22.png" /></a></p>
 </li>
 <li>
 <p>FortiFate CLIから以下を設定します。</p>
@@ -1834,7 +1834,7 @@ end
 <ol>
 <li>
 <p>SSLVPNの設定を適用すると、上部に以下のようなメッセージが表示されます。リンクをクリックし、ファイアウォールポリシーの設定を行います。表示されない場合には、<strong>Fortigate 管理GUI＞ポリシー＆オブジェクト＞ファイアウォールポリシー</strong>へ移動します。</p>
-<p><a href="/images/fortigate-12.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-12.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-12.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-12.png" /></a></p>
 </li>
 <li>
 <p>以下の項目を設定し、<strong>OK</strong>ボタンをクリックします。</p>
@@ -1876,7 +1876,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-13.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-13.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-13.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-13.png" /></a></p>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
@@ -1885,7 +1885,7 @@ end
 <ol>
 <li><strong>PIO-IDシステム管理</strong>から届いたメールを開きます。</li>
 <li><strong>ダウンロード</strong>リンクをクリックします。P12形式のクライアント証明書がダウンロードされます。
-    <a href="/images/2021-09-02_19-10-04-1024x489-1.png"><img alt="Screenshot" src="/pioid-docs/images/2021-09-02_19-10-04-1024x489-1.png" /></a></li>
+    <a href="/pioid-docs/images/2021-09-02_19-10-04-1024x489-1.png"><img alt="Screenshot" src="/pioid-docs/images/2021-09-02_19-10-04-1024x489-1.png" /></a></li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1896,27 +1896,27 @@ end
 <li>ダウンロードした<strong>PIO-IDのユーザ</strong><a href="#ユーザの情報">（参照）</a>の P12形式のクライアント証明書ファイルをダブルクリックします。</li>
 <li>
 <p>保存場所として<strong>現在のユーザー</strong>を選択し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/images/image-certinstall-1.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-1.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-1.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-1.png" /></a></p>
 </li>
 <li>
 <p>ダウンロードしたP12形式のファイル名とパスが正しく入力されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/images/image-certinstall-2.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-2.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-2.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-2.png" /></a></p>
 </li>
 <li>
 <p><strong>パスワード</strong>に、クライアント証明書のパスワードを入力します。クライアント証明書のパスワードは、ユーザ名<a href="#ユーザの情報">（参照）</a>と同一です。<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/images/image-certinstall-3.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-3.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-3.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-3.png" /></a></p>
 </li>
 <li>
 <p><strong>証明書の種類に基づいて、自動に証明書ストアを選択する</strong>が選択されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/images/image-certinstall-4.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-4.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-4.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-4.png" /></a></p>
 </li>
 <li>
 <p><strong>完了</strong>ボタンをクリックし、証明書をインストールします。</p>
-<p><a href="/images/image-certinstall-5.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-5.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-5.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-5.png" /></a></p>
 </li>
 <li>
 <p>クライアント証明書のインストールが成功しました。</p>
-<p><a href="/images/image-certinstall-6.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-6.png" /></a></p>
+<p><a href="/pioid-docs/images/image-certinstall-6.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-6.png" /></a></p>
 </li>
 </ol>
 <h4 id="リモートアクセスクライアントのインストール">リモートアクセスクライアントのインストール<a class="headerlink" href="#リモートアクセスクライアントのインストール" title="Permanent link"></a></h4>
@@ -1960,7 +1960,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-26.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-26.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-26.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-26.png" /></a></p>
 </li>
 <li>
 <p><strong>保存</strong>ボタンをクリックします。</p>
@@ -1971,11 +1971,11 @@ end
 <li><strong>VPN名称</strong>に、作成した接続先を選択します。</li>
 <li>
 <p><strong>PIO-IDのユーザ</strong><a href="#ユーザの情報">（参照）</a>でログインを試みます。</p>
-<p><a href="/images/fortigate-27.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-27.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-27.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-27.png" /></a></p>
 </li>
 <li>
 <p>ログインが成功することを確認します。</p>
-<p><a href="/images/fortigate-25.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-25.png" /></a></p>
+<p><a href="/pioid-docs/images/fortigate-25.png"><img alt="Screenshot" src="/pioid-docs/images/fortigate-25.png" /></a></p>
 </li>
 </ol>
 
