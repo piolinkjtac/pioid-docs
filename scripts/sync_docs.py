@@ -29,6 +29,11 @@ def replace_in_file(p: Path):
     text = p.read_text(encoding="utf-8")
     out = []
     for line in text.splitlines(keepends=True):
+        # A) Markdown の絶対パス → 相対パス
+        line = re.sub(r'(!?\[[^\]]*\]\()\/+([^)\s]+)', r'\1\2', line)
+        # B) HTML の絶対パス → 相対パス
+        line = re.sub(r'(href|src)="\/+([^"]+)"', r'\1="\2"', line)
+
         # 0) 固定 URL の置換
         line = line.replace(
             "(https://login.singleid.jp/)",
@@ -40,11 +45,13 @@ def replace_in_file(p: Path):
             lambda m: "(#" + m.group(1).replace("singleid", "pio-id") + ")",
             line
         )
-        # 2) 大文字 “SingleID” はすべて “PIO-ID” に置換
+        # 2) 大文字 “SingleID” → “PIO-ID”
         line = line.replace("SingleID", "PIO-ID")
-        # 3) 小文字 “singleid” は、前後がドットでなければ “pioid” に置換
+        # 3) 小文字 “singleid” → “pioid”（前後ドットを除外）
         line = re.sub(r'(?<!\.)singleid(?!\.)', "pioid", line)
+
         out.append(line)
+
     p.write_text("".join(out), encoding="utf-8")
 
 def main():
