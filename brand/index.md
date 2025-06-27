@@ -4,8 +4,6 @@
 
 [ユーザガイド](./pioid-userguide/index.md)
 
-[サポートセンター](./supportcenter/index.md)
-
 [アプリ連携ガイド](./pioid-appguide/index.md)
 
 [ネットワーク機器連携の設定例](./pioid-pocguide/index.md)
