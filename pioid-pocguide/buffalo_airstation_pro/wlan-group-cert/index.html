@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1216,39 +1216,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="動作確認方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#クライアント証明書のダウンロード" class="md-nav__link">
-    <span class="md-ellipsis">
-      クライアント証明書のダウンロード
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#クライアント証明書のインストール" class="md-nav__link">
-    <span class="md-ellipsis">
-      クライアント証明書のインストール
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#無線apへ接続" class="md-nav__link">
-    <span class="md-ellipsis">
-      無線APへ接続
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1474,88 +1441,8 @@
 <li><strong>設定</strong>ボタンをクリックして、設定内容を機器へ適用します。</li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<p>Windows端末からEAP-TLS（クライアント証明書認証）で無線LANアクセスの認証が可能なことを確認します。</p>
-<h3 id="クライアント証明書のダウンロード">クライアント証明書のダウンロード<a class="headerlink" href="#クライアント証明書のダウンロード" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-IDシステム管理</strong>から届いたメールを開きます。</li>
-<li>
-<p><strong>ダウンロード</strong>リンクをクリックします。P12形式のクライアント証明書がダウンロードされます。</p>
-<p><a href="/pioid-docs/images/2021-09-02_19-10-04-1024x489-1.png"><img alt="Screenshot" src="/pioid-docs/images/2021-09-02_19-10-04-1024x489-1.png" /></a></p>
-</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>もし、PCでメールを受信し、スマートフォンやタブレットにクライアント証明書をインストールしたい場合には、メールに添付されているQRコードを スマートフォンやタブレットで読み取ります。クライアント証明書のダウンロードURLを認識しますので、そのURLへアクセスすることで、 スマートフォンやタブレット にもクライアント証明書をダウンロードできます。</p>
-</div>
-<h3 id="クライアント証明書のインストール">クライアント証明書のインストール<a class="headerlink" href="#クライアント証明書のインストール" title="Permanent link"></a></h3>
-<ol>
-<li>ダウンロードしたP12形式のクライアント証明書ファイルをダブルクリックします。</li>
-<li>
-<p>保存場所として<strong>現在のユーザー</strong>を選択し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-certinstall-1.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-1.png" /></a></p>
-</li>
-<li>
-<p>ダウンロードしたP12形式のファイル名とパスが正しく入力されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-certinstall-2.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-2.png" /></a></p>
-</li>
-<li>
-<p><strong>パスワード</strong>に、クライアント証明書のパスワードを入力します。クライアント証明書のパスワードは、ユーザ名と同一です。（例：ユーザ名が、user1の場合、クライアント証明書のパスワードは、user1です。）<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-certinstall-3.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-3.png" /></a></p>
-</li>
-<li>
-<p><strong>証明書の種類に基づいて、自動に証明書ストアを選択する</strong>が選択されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-certinstall-4.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-4.png" /></a></p>
-</li>
-<li>
-<p><strong>完了</strong>ボタンをクリックし、証明書をインストールします。</p>
-<p><a href="/pioid-docs/images/image-certinstall-5.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-5.png" /></a></p>
-</li>
-<li>
-<p>クライアント証明書のインストールが成功しました。</p>
-<p><a href="/pioid-docs/images/image-certinstall-6.png"><img alt="Screenshot" src="/pioid-docs/images/image-certinstall-6.png" /></a></p>
-</li>
-</ol>
-<h3 id="無線apへ接続">無線APへ接続<a class="headerlink" href="#無線apへ接続" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p>無線LANアクセスポイントのSSIDを選択し、<strong>接続</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-34.png"><img alt="Screenshot" src="/pioid-docs/images/image-34.png" /></a></p>
-</li>
-<li>
-<p><strong>証明書を使って接続する</strong>をクリックします。</p>
-<p><a href="/pioid-docs/images/image-certwifilogin-1.png"><img alt="Screenshot" src="/pioid-docs/images/image-certwifilogin-1.png" /></a></p>
-</li>
-<li>
-<p>認証で使用するクライアント証明書を選択し、<strong>OK</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/image-certwifilogin-2.png"><img alt="Screenshot" src="/pioid-docs/images/image-certwifilogin-2.png" /></a></p>
-</li>
-<li>
-<p>接続先が正しいかどうかの確認を要求されます。<strong>証明書の詳しい内容の表示</strong>でRADIUSサーバのサーバ証明書の情報が表示されますので、接続先の確認を行います。接続先が正しければ、<strong>接続</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>発行先</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>発行元</strong></td>
-<td style="text-align: left;">R3</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/pioid-docs/images/image-48.png"><img alt="Screenshot" src="/pioid-docs/images/image-48.png" /></a></p>
-</li>
-<li>
-<p>接続成功したことを確認します。</p>
-<p><a href="/pioid-docs/images/image-39.png"><img alt="Screenshot" src="/pioid-docs/images/image-39.png" /></a></p>
-</li>
-</ol>
+<p>以下を参考にクライアントを設定して動作確認します。</p>
+<p><a href="../../clients/">クライアント接続設定</a></p>
 
 
 
@@ -1607,7 +1494,7 @@
       <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
