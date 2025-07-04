@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/subgate/networkauth-group-password-adv/">
+        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/clients/windows_setup_wired_cert/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>有線LANアクセス-パスワード認証 - PIO-ID マニュアル</title>
+        <title>Windows: クライアント証明書で有線LANアクセスの認証 - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#有線lanアクセス-パスワード認証" class="md-skip">
+        <a href="#windows-クライアント証明書で有線lanアクセスの認証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              有線LANアクセス-パスワード認証
+              Windows: クライアント証明書で有線LANアクセスの認証
             
           </span>
         </div>
@@ -1134,116 +1134,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#目的" class="md-nav__link">
-    <span class="md-ellipsis">
-      目的
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#設定方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      設定方法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="設定方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのグループの作成" class="md-nav__link">
-    <span class="md-ellipsis">
-      PIO-IDのグループの作成
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのユーザの作成" class="md-nav__link">
-    <span class="md-ellipsis">
-      PIO-IDのユーザの作成
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idの拡張radiusサーバの登録" class="md-nav__link">
-    <span class="md-ellipsis">
-      PIO-IDの拡張RADIUSサーバの登録
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subgateの設定" class="md-nav__link">
-    <span class="md-ellipsis">
-      SubGateの設定
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#サイト識別する属性の確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      サイト識別する属性の確認方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
-    <span class="md-ellipsis">
-      PIO-IDのRADIUSサイトの登録
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#動作確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      動作確認方法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="動作確認方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#macアドレス認証バイパス" class="md-nav__link">
-    <span class="md-ellipsis">
-      MACアドレス認証バイパス
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1258,272 +1148,68 @@
 
 
 
-<h1 id="有線lanアクセス-パスワード認証">有線LANアクセス-パスワード認証<a class="headerlink" href="#有線lanアクセス-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-09</p>
-<h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
-<ul>
-<li>PIO-IDのユーザで、SubGateへアクセスします。</li>
-<li>接続する際の認証方式は、パスワード（PEAP、EAP-TTLS-PAP）です。</li>
-<li>PIO-IDの拡張RADIUSサーバを利用します。</li>
-<li>ユーザ/グループによるアクセス制限をします。</li>
-</ul>
-<h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
-<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
+<h1 id="windows-クライアント証明書で有線lanアクセスの認証">Windows: クライアント証明書で有線LANアクセスの認証<a class="headerlink" href="#windows-クライアント証明書で有線lanアクセスの認証" title="Permanent link"></a></h1>
 <ol>
-<li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
-<li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
-<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
-</ol>
-<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
-<li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
-<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
-<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
-</ol>
-<h3 id="pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録<a class="headerlink" href="#pio-idの拡張radiusサーバの登録" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本設定</strong>タブへ移動します。</li>
+<li>PCをネットワークスイッチの802.1x認証を有効にしたポートへ接続します。</li>
 <li>
-<p><strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>の<strong>登録</strong>ボタンをクリックします。<strong>拡張RADIUSサーバの登録</strong>画面がポップアップします。</p>
+<p>ログイン要求がポップアップします。<strong>サインイン</strong>をクリックします。</p>
+<p><a href="/pioid-docs/images/2022-09-06_17-00-04.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-00-04.png" /></a></p>
+</li>
+<li>
+<p><strong>認証設定</strong>の<strong>編集</strong>ボタンをクリックします。</p>
+<p><a href="/pioid-docs/images/2022-09-06_18-15-32.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_18-15-32.png" /></a></p>
+</li>
+<li>
+<p>以下を設定し、<strong>保存</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
+<th style="text-align: left;">設定項目</th>
+<th style="text-align: left;">設定内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>使用するプロトコル</strong></td>
-<td style="text-align: left;"><strong>UDP</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>シークレット</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
+<td style="text-align: left;">EAPメソッド</td>
+<td style="text-align: left;">スマートカードまたはその他の証明書(EAP-TLS)</td>
 </tr>
 </tbody>
 </table>
+<p><a href="/pioid-docs/images/2022-09-06_18-16-00.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_18-16-00.png" /></a></p>
 </li>
 <li>
-<p><strong>登録</strong>ボタンをクリックします。専用のRADIUSポート番号が割り当てれます。</p>
-</li>
-</ol>
-<h3 id="subgateの設定">SubGateの設定<a class="headerlink" href="#subgateの設定" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p>SubGateにCLIでログインして設定します。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>GUIでは、802.1x認証の設定を行うことはできません。</p>
-</div>
+<p><strong>サインイン</strong>をクリックします。</p>
+<p><a href="/pioid-docs/images/2022-09-06_17-22-12.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-22-12.png" /></a></p>
 </li>
 <li>
-<p><strong>mac-flooding</strong>を<strong>無効化</strong>します。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>mac-floodingが有効の状態では、802.1x認証を有効にできません。</p>
-</div>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#no mds mac-flooding enable
-</code></pre></div>
+<p>クライアント証明書を選択し、<strong>接続</strong>ボタンをクリックします。</p>
+<p><a href="/pioid-docs/images/2022-09-06_18-04-32.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_18-04-32.png" /></a></p>
 </li>
 <li>
-<p><strong>送信元のIPアドレス</strong>と<strong>デフォルトルート</strong>の設定を行います。PIO-IDのクラウドRADIUSと通信するために、デフォルトVLAN(vlan1.1)に送信元となるIPアドレス　および　デフォルトルートを設定します。送信元となるIPアドレスおよびデフォルトルートは、環境により異なるため適切なIPアドレスを設定します。</p>
-<div class="highlight"><span class="filename">送信元のIPアドレス設定</span><pre><span></span><code>SG2412G(config)interface vlan1.1
-SG2412G(config-if)ip address &lt;送信元のIPアドレス&gt;/&lt;送信元のIPアドレスのネットマスク&gt;
-</code></pre></div>
-<div class="highlight"><span class="filename">デフォルートの設定</span><pre><span></span><code>SG2412G(config)ip route 0.0.0.0/0 &lt;デフォルトゲートウェイのIPアドレス&gt;
-</code></pre></div>
-</li>
-<li>
-<p>（ダイナミックVLANを利用する場合）VLANを作成します。</p>
-<div class="highlight"><span class="filename">VLANの作成</span><pre><span></span><code>SG2412G(config)#vlan database
-SG2412G(config-vlan)#vlan &lt;VLAN ID&gt; bridge 1
-</code></pre></div>
-</li>
-<li>
-<p>（ダイナミックVLANを利用する場合）アップリンクポートをトランクポートに設定します。</p>
+<p>接続先が正しいかどうかの確認を要求されます。<strong>証明書の詳しい内容の表示</strong>でRADIUSサーバのサーバ証明書の情報が表示されますので、接続先の確認を行います。接続先が正しければ、<strong>接続</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
+<th style="text-align: left;"><strong>項目</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>アップリンクポートのインターフェース名</strong></td>
-<td style="text-align: left;">アップリンクポートのインターフェース名です。（例: ge8）</td>
+<td style="text-align: left;"><strong>発行先</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>発行元</strong></td>
+<td style="text-align: left;">R3</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">トランクポートの設定</span><pre><span></span><code>SG2412G(config)#interface &lt;アップリンクポートのインターフェース名&gt;
-SG2412G(config-if)#switchport mode trunk
-SG2412G(config-if)##switchport trunk allowed vlan add &lt;VLAN ID&gt;
-</code></pre></div>
+<p><a href="/pioid-docs/images/2022-09-06_15-57-08.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_15-57-08.png" /></a></p>
 </li>
 <li>
-<p>以下の内容で、RADIUSサーバを登録します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのプライマリIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのセカンダリIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>セカンダリ</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのポート番号</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>のポート番号です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのシークレット</strong></td>
-<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>送信元のIPアドレス</strong></td>
-<td style="text-align: left;"><a href="#subgateの設定">SubGateの設定</a>の手順で設定した<strong>送信元のIPアドレス</strong>です。</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#aaa system-aaa-ctrl
-SG2412G(config)#radius-server host &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
-SG2412G(config)#radius-server host &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
-SG2412G(config)#ip radius source-interface &lt;送信元のIPアドレス&gt; 1023
-</code></pre></div>
-</li>
-<li>
-<p><strong>802.1x認証</strong>を<strong>有効化</strong>します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>802.1x認証の有効化する物理ポート名</strong></td>
-<td style="text-align: left;">802.1x認証の有効化する物理ポート名です。（例: ge1-6）</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><span class="filename">ダイナミックVLANを利用する場合</span><pre><span></span><code>SG2412G(config)#dot1x system-auth-ctrl
-SG2412G(config)#interface range &lt;802.1x認証の有効化する物理ポート名&gt;
-SG2412G(config-if-range)#dot1x port-control auto
-SG2412G(config-if-range)#dot1x extension multi-user
-SG2412G(config-if-range)#dot1x extension mac-auth-bypass
-</code></pre></div>
-<div class="highlight"><span class="filename">ダイナミックVLANを利用しない場合</span><pre><span></span><code>SG2412G(config)#dot1x system-auth-ctrl
-SG2412G(config)#interface range &lt;802.1x認証の有効化する物理ポート名&gt;
-SG2412G(config-if-range)#dot1x port-control auto
-SG2412G(config-if-range)#dot1x extension mac-auth-bypass
-SG2412G(config-if-range)#dot1x extension dynamic-vlan
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><code>dot1x extension multi-user</code>と<code>dot1x extension dynamic-vlan</code>の両方を同一の物理ポートで同時に有効にできません。</p>
-</div>
-</li>
-<li>
-<p>設定を保存します。</p>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#write memory
-</code></pre></div>
-</li>
-</ol>
-<p><a class="md-button md-button--primary" href="../networkauth-subgate-switch-sampleconfig.txt" target="_blank">SubGateのサンプルコンフィグ1 ダウンロード</a></p>
-<p><a class="md-button md-button--primary" href="../networkauth-subgate-switch-sampleconfig-mab.txt" target="_blank">SubGateのサンプルコンフィグ2 ダウンロード</a></p>
-<p><a class="md-button md-button--primary" href="../networkauth-subgate-switch-sampleconfig-mab-dvlan.txt" target="_blank">SubGateのサンプルコンフィグ3 ダウンロード</a></p>
-<h3 id="サイト識別する属性の確認方法">サイト識別する属性の確認方法<a class="headerlink" href="#サイト識別する属性の確認方法" title="Permanent link"></a></h3>
-<p>YAMAHA WLXが送信するNAS-IP-Address属性およびNAS-Identifier属性の属性値を確認します。</p>
-<ol>
-<li><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</li>
-<li>認証が失敗します。</li>
-<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
-<li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
-<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>SubGate</strong>の<strong>登録</strong>ボタンをクリックします。<strong>SubGate</strong>画面がポップアップします。</li>
-<li>
-<p><strong>基本情報</strong>タブに、以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ番号</strong></td>
-<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>で登録したサーバ番号を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>ネットワークアクセスの認証</strong>タブへ移動します。</p>
-</li>
-<li>
-<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>認証したユーザおよびグループにVLAN IDを割り当てたい場合には、<strong>VLAN ID</strong>入力欄に、割り当てたい<strong>VLAN ID</strong>を入力します。</p>
-</div>
-</li>
-<li>
-<p><strong>MACアドレス認証バイパス</strong>タブへ移動します。</p>
-</li>
-<li>
-<p>802.1x認証をサポートしていないデバイスの<strong>MACアドレス</strong>を大文字英数字の<strong>ハイフン区切り</strong>で入力します。（例：00-E1-5C-68-16-04）</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>MACアドレスにVLAN IDを割り当てたい場合には、<strong>VLAN ID</strong>入力欄に、割り当てたい<strong>VLAN ID</strong>を入力します。</p>
-</div>
-</li>
-<li>
-<p><strong>登録</strong>ボタンをクリックします。</p>
-</li>
-</ol>
-<h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<p>以下を参考にクライアントを設定して動作確認します。</p>
-<p><a href="../../clients/">クライアント接続設定</a></p>
-<h3 id="macアドレス認証バイパス">MACアドレス認証バイパス<a class="headerlink" href="#macアドレス認証バイパス" title="Permanent link"></a></h3>
-<ol>
-<li><strong>802.1x認証を無効にした</strong>PCをSubGateの802.1x認証を有効にしたポートへ接続します。</li>
-<li>
-<p>１分間ほど待ち、ネットワークへ接続できたことを確認します。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>SubGateで<code>#show dot1x brief</code>コマンドを実行して、接続状況を確認できます。</p>
-</div>
+<p>接続成功したことを確認します。</p>
+<p><a href="/pioid-docs/images/2022-09-06_17-27-56.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-27-56.png" /></a></p>
 </li>
 </ol>
 

@@ -1211,24 +1211,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#設定" class="md-nav__link">
-    <span class="md-ellipsis">
-      設定
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#接続" class="md-nav__link">
-    <span class="md-ellipsis">
-      接続
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#macアドレス認証バイパス" class="md-nav__link">
     <span class="md-ellipsis">
       MACアドレス認証バイパス
@@ -1572,106 +1554,8 @@ awplus(config-if)# auth timeout connect-timeout 120
 </div>
 <p><a class="md-button md-button--primary" href="../networkauth-allied_telesis_networkswitch-sampleconfig.txt" target="_blank">AT-x230-28GPのサンプルコンフィグ1 ダウンロード</a></p>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<p>Windows端末からパスワードによるネットワークアクセスの認証が可能なことを確認します。</p>
-<h3 id="設定">設定<a class="headerlink" href="#設定" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p>PCのネットワークインターフェースの802.1x認証を有効化する必要があります。Windowsの<strong>サービス設定</strong>画面から<strong>Wired AutoConfig</strong>サービスをダブルクリックします。</p>
-<p><a href="/pioid-docs/images/2022-09-06_15-40-20.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_15-40-20.png" /></a></p>
-</li>
-<li>
-<p>PC起動時に、ネットワークインターフェースの802.1x認証を有効化するために、<strong>Wired AutoConfig</strong>サービスの<strong>スタートアップの種類</strong>を<strong>自動</strong>に変更します。そして、<strong>開始</strong>ボタンをクリックして、802.1x認証を有効化します。</p>
-<p><a href="/pioid-docs/images/2022-09-06_15-40-39.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_15-40-39.png" /></a></p>
-</li>
-<li>
-<p>PCをネットワークスイッチの802.1x認証を有効にしたポートへ接続します。</p>
-</li>
-<li>
-<p>ログイン要求がポップアップします。<strong>サインイン</strong>をクリックします。</p>
-<p><a href="/pioid-docs/images/2022-09-06_17-00-04.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-00-04.png" /></a></p>
-</li>
-<li>
-<p><strong>認証設定</strong>の<strong>編集</strong>ボタンをクリックします。</p>
-<p><a href="/pioid-docs/images/2022-09-06_18-15-32.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_18-15-32.png" /></a></p>
-</li>
-<li>
-<p>以下を設定し、<strong>保存</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">設定項目</th>
-<th style="text-align: left;">設定内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">EAPメソッド</td>
-<td style="text-align: left;">保護されたEAP(PEAP)</td>
-</tr>
-<tr>
-<td style="text-align: left;">認証方法</td>
-<td style="text-align: left;">セキュリティで保護されたパスワード(EAP-MSCHAP v2)</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/pioid-docs/images/2022-09-06_18-16-26.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_18-16-26.png" /></a></p>
-</li>
-</ol>
-<h3 id="接続">接続<a class="headerlink" href="#接続" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p><strong>サインイン</strong>をクリックします。</p>
-<p><a href="/pioid-docs/images/2022-09-06_17-22-12.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-22-12.png" /></a></p>
-</li>
-<li>
-<p>認証情報を入力し、<strong>OK</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>ユーザ名</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で許可したユーザです。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;"><strong>ユーザのパスワード</strong>です。</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/pioid-docs/images/2022-09-06_15-44-57.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_15-44-57.png" /></a></p>
-</li>
-<li>
-<p>接続先が正しいかどうかの確認を要求されます。<strong>証明書の詳しい内容の表示</strong>でRADIUSサーバのサーバ証明書の情報が表示されますので、接続先の確認を行います。接続先が正しければ、<strong>接続</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>発行先</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>発行元</strong></td>
-<td style="text-align: left;">R3</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/pioid-docs/images/2022-09-06_15-57-08.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_15-57-08.png" /></a></p>
-</li>
-<li>
-<p>接続成功したことを確認します。</p>
-<p><a href="/pioid-docs/images/2022-09-06_17-27-56.png"><img alt="Screenshot" src="/pioid-docs/images/2022-09-06_17-27-56.png" /></a></p>
-</li>
-</ol>
+<p>以下を参考にクライアントを設定して動作確認します。</p>
+<p><a href="../../clients/">クライアント接続設定</a></p>
 <h3 id="macアドレス認証バイパス">MACアドレス認証バイパス<a class="headerlink" href="#macアドレス認証バイパス" title="Permanent link"></a></h3>
 <ol>
 <li><strong>802.1x認証を無効にした</strong>PCをネットワークスイッチの802.1x認証を有効にしたポートへ接続します。</li>
