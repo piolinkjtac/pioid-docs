@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/anti_spreader_ap/wlan-group-ssid-password/">
+        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/anti_spreader_ap/wlan-group-cert-adv/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>無線LANアクセス グループごとに、接続可能な無線LANアクセスポイントをSSIDで制限-パスワード認証 - PIO-ID マニュアル</title>
+        <title>無線LANアクセス-クライアント証明書認証 - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#無線lanアクセス-グループごとに接続可能な無線lanアクセスポイントをssidで制限-パスワード認証" class="md-skip">
+        <a href="#無線lanアクセス-クライアント証明書認証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              無線LANアクセス グループごとに、接続可能な無線LANアクセスポイントをSSIDで制限-パスワード認証
+              無線LANアクセス-クライアント証明書認証
             
           </span>
         </div>
@@ -1150,48 +1150,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#環境" class="md-nav__link">
-    <span class="md-ellipsis">
-      環境
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="環境">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ユーザの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      ユーザの情報
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#グループの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      グループの情報
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#radiusの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      RADIUSの情報
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#設定方法" class="md-nav__link">
     <span class="md-ellipsis">
       設定方法
@@ -1202,53 +1160,38 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pio-idの設定" class="md-nav__link">
+  <a href="#pio-idのグループの作成" class="md-nav__link">
     <span class="md-ellipsis">
-      PIO-IDの設定
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="PIO-IDの設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#管理者ポータルへログイン" class="md-nav__link">
-    <span class="md-ellipsis">
-      管理者ポータルへログイン
+      PIO-IDのグループの作成
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#グループの作成" class="md-nav__link">
+  <a href="#pio-idのユーザの作成" class="md-nav__link">
     <span class="md-ellipsis">
-      グループの作成
+      PIO-IDのユーザの作成
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ユーザの作成" class="md-nav__link">
+  <a href="#pio-idのクライアント証明書の発行" class="md-nav__link">
     <span class="md-ellipsis">
-      ユーザの作成
+      PIO-IDのクライアント証明書の発行
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#radiusの設定" class="md-nav__link">
+  <a href="#pio-idの拡張radiusサーバの登録" class="md-nav__link">
     <span class="md-ellipsis">
-      RADIUSの設定
+      PIO-IDの拡張RADIUSサーバの登録
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1259,29 +1202,23 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Anti Spreader アクセスポイントの設定">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#ローカル管理者でログイン" class="md-nav__link">
+  <a href="#サイト識別する属性の確認方法" class="md-nav__link">
     <span class="md-ellipsis">
-      ローカル管理者でログイン
+      サイト識別する属性の確認方法
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#radiusサーバの設定" class="md-nav__link">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
-      RADIUSサーバの設定
+      PIO-IDのRADIUSサイトの登録
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1315,112 +1252,120 @@
 
 
 
-<h1 id="無線lanアクセス-グループごとに接続可能な無線lanアクセスポイントをssidで制限-パスワード認証">無線LANアクセス グループごとに、接続可能な無線LANアクセスポイントをSSIDで制限-パスワード認証<a class="headerlink" href="#無線lanアクセス-グループごとに接続可能な無線lanアクセスポイントをssidで制限-パスワード認証" title="Permanent link"></a></h1>
+<h1 id="無線lanアクセス-クライアント証明書認証">無線LANアクセス-クライアント証明書認証<a class="headerlink" href="#無線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
+<p>文書更新日:2025-07-04</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
-<p>PIO-IDのユーザで、Anti Spreader アクセスポイントの無線LANアクセスポイントへアクセスします。
-接続する際の認証方式は、パスワードです。</p>
-<p>パスワード認証方式でサポートしている認証プロトコルは以下です。</p>
 <ul>
-<li>EAP-TTLS-PAP</li>
-<li>PEAP(MSCHAPv2)</li>
+<li>PIO-IDのユーザで、Anti Spreader アクセスポイントの無線LANアクセスポイントへアクセスします。</li>
+<li>接続する際の認証方式は、クライアント証明書認証（EAP-TLS）です。</li>
+<li>PIO-IDの拡張RADIUSサーバを利用します。</li>
+<li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
-<p>本ガイドでは、PIO-IDのRADIUS機能により、グループごとに接続可能な無線LANアクセスポイントをSSIDで制御します。</p>
-<h2 id="環境">環境<a class="headerlink" href="#環境" title="Permanent link"></a></h2>
-<h3 id="ユーザの情報">ユーザの情報<a class="headerlink" href="#ユーザの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>ユーザ名</strong></th>
-<th style="text-align: left;"><strong>姓（英字）</strong></th>
-<th style="text-align: left;"><strong>名（英字）</strong></th>
-<th style="text-align: left;"><strong>メールアドレス</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1@example.com</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>メールアドレス: 受信可能なメールアドレスを指定してください。</p>
-</div>
-<h3 id="グループの情報">グループの情報<a class="headerlink" href="#グループの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>グループ名</strong></th>
-<th style="text-align: left;"><strong>メンバー</strong></th>
-<th style="text-align: left;"><strong>接続可能な無線LANアクセスポイントのSSID</strong></th>
-<th style="text-align: left;"><strong>動作</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">restricted-wlan-access-users</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">restricted-wlan-access</td>
-<td style="text-align: left;">このSSIDの無線LANアクセスポイントのみにアクセス可能</td>
-</tr>
-</tbody>
-</table>
-<h3 id="radiusの情報">RADIUSの情報<a class="headerlink" href="#radiusの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定に必要な情報</strong></th>
-<th style="text-align: left;"><strong>説明および情報取得の方法など</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのホスト名</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>IPアドレス</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのポート番号</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>RADIUSポート番号</strong>です。ここでは、デフォルトUDP1812を使用します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのIPアドレス</strong></td>
-<td style="text-align: left;"><strong>Anti Spreader アクセスポイント</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのシークレット</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。ここでは、シークレットを<strong>antispreader</strong>とします。</td>
-</tr>
-</tbody>
-</table>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
-<h3 id="pio-idの設定">PIO-IDの設定<a class="headerlink" href="#pio-idの設定" title="Permanent link"></a></h3>
-<h4 id="管理者ポータルへログイン">管理者ポータルへログイン<a class="headerlink" href="#管理者ポータルへログイン" title="Permanent link"></a></h4>
-<ol>
-<li>PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html" target="_blank"><strong>管理者ポータル</strong></a>へログインします。</li>
-</ol>
-<h4 id="グループの作成">グループの作成<a class="headerlink" href="#グループの作成" title="Permanent link"></a></h4>
+<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
 <li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
-<li><strong>グループ名</strong><a href="#グループの情報">（参照）</a>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
+<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
 </ol>
-<h4 id="ユーザの作成">ユーザの作成<a class="headerlink" href="#ユーザの作成" title="Permanent link"></a></h4>
+<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
 <li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
-<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。作成するユーザは、<a href="#ユーザの情報">ユーザの情報</a>を参照します。 <strong>グループ</strong>タブをクリックします。</li>
-<li><strong>参加するグループ</strong><a href="#グループの情報">（参照）</a>を選択し、<strong>登録</strong>ボタンをクリックします。</li>
+<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
+<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
 </ol>
-<h4 id="radiusの設定">RADIUSの設定<a class="headerlink" href="#radiusの設定" title="Permanent link"></a></h4>
+<h3 id="pio-idのクライアント証明書の発行">PIO-IDのクライアント証明書の発行<a class="headerlink" href="#pio-idのクライアント証明書の発行" title="Permanent link"></a></h3>
 <ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>簡易設定</strong>タブへ移動します。</li>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>タブへ移動します。</li>
+<li>クライアント証明書を発行したいユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書の発行</strong>を選択します。</li>
+<li><strong>証明書発行</strong>画面がポップアップします。</li>
+<li><strong>プロファイル</strong>（例：デフォルト）および<strong>配布形式</strong>（例：一般）を選択します。</li>
+<li><strong>発行</strong>ボタンをクリックして、クライアント証明書を発行します。ユーザのメールアドレス宛に発行されたクライアント証明書のダウンロードリンクが送信されます。</li>
+</ol>
+<h3 id="pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録<a class="headerlink" href="#pio-idの拡張radiusサーバの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本設定</strong>タブへ移動します。</li>
+<li>
+<p><strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>の<strong>登録</strong>ボタンをクリックします。<strong>拡張RADIUSサーバの登録</strong>画面がポップアップします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>使用するプロトコル</strong></td>
+<td style="text-align: left;"><strong>UDP</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>シークレット</strong></td>
+<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。専用のRADIUSポート番号が割り当てれます。</p>
+</li>
+</ol>
+<h3 id="anti-spreader-アクセスポイントの設定">Anti Spreader アクセスポイントの設定<a class="headerlink" href="#anti-spreader-アクセスポイントの設定" title="Permanent link"></a></h3>
+<ol>
+<li><strong>Anti Spreader アクセスポイント GUI</strong>へアクセスします。</li>
+<li>ローカル管理者のユーザ名、パスワードを入力し、<strong>LOGIN</strong>をクリックします。</li>
+<li><strong>Anti Spreader アクセスポイント GUI＞無線＞一般設定</strong>画面へ移動します。</li>
+<li>2.4GHzまたは5GHzの必要な周波数の<strong>修正</strong>ボタンをクリックします。WiFi Setup画面を表示します。</li>
+<li>
+<p><strong>WiFi Security</strong>セクションで、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>暗号化方式</strong></td>
+<td style="text-align: left;"><strong>WPA2-enterprise</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUS Server</strong></td>
+<td style="text-align: left;"><strong>外部認証サーバー</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUS Server IP</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Server Port</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>のポート番号です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アクセスパスワード</strong></td>
+<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>保存</strong>ボタンをクリックします。</p>
+</li>
+</ol>
+<h3 id="サイト識別する属性の確認方法">サイト識別する属性の確認方法<a class="headerlink" href="#サイト識別する属性の確認方法" title="Permanent link"></a></h3>
+<p>Anti Spreader アクセスポイントが送信するNAS-IP-Address属性およびNAS-Identifier属性の属性値を確認します。</p>
+<ol>
+<li><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</li>
+<li>認証が失敗します。</li>
+<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
+<li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
 <li>カタログから<strong>Anti Spreader アクセスポイント</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Anti Spreader アクセスポイント</strong>画面がポップアップします。</li>
 <li>
@@ -1435,87 +1380,49 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;">有効</td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ワンタイムパスワード強制</strong></td>
-<td style="text-align: left;">無効</td>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順で登録したサーバ番号を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>IP or ホスト名</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのIPアドレス</strong>を参照</td>
+<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
+<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>の手順で確認できた属性を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>シークレット</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのシークレット</strong>を参照</td>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>選択するサーバの番号により、RADIUSサーバのポート番号が異なります。サーバが1の場合には、UDP1812です。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<ul>
+<li><strong>サイト識別する属性</strong>にNAS-IP-Addressを設定したときには、<strong>属性値</strong>に、グローバルIPアドレスを設定しないでください。</li>
+<li><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>の手順で、NAS-IP-AddressとNAS-Identifierのどちらの属性も確認できた場合には、どちらかの設定のみ行ってください。どちらかの設定を行うときには、NAS-Identifier属性の設定を行うことをお勧めします。NAS-IP-Address属性は、機器の設定によっては動的に変わってしまう場合があります。</li>
+</ul>
 </div>
 </li>
 <li>
 <p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
 </li>
-<li><strong>許可グループ</strong>の設定で<strong>許可したいグループ</strong><a href="#グループの情報">（参照）</a>をダブルクリックし、<strong>許可</strong>へ移動させます。</li>
-<li><strong>許可</strong>へ移動させたグループの同じ行に、接続を許可したい無線LANアクセスポイントのSSID<a href="#グループの情報">（参照）</a>を入力します。</li>
-<li><strong>登録</strong>ボタンをクリックします。</li>
-</ol>
-<h3 id="anti-spreader-アクセスポイントの設定">Anti Spreader アクセスポイントの設定<a class="headerlink" href="#anti-spreader-アクセスポイントの設定" title="Permanent link"></a></h3>
-<h4 id="ローカル管理者でログイン">ローカル管理者でログイン<a class="headerlink" href="#ローカル管理者でログイン" title="Permanent link"></a></h4>
-<ol>
-<li><strong>Anti Spreader アクセスポイント GUI</strong>へアクセスします。</li>
-<li>ローカル管理者のユーザ名、パスワードを入力し、<strong>LOGIN</strong>をクリックします。</li>
-</ol>
-<h4 id="radiusサーバの設定">RADIUSサーバの設定<a class="headerlink" href="#radiusサーバの設定" title="Permanent link"></a></h4>
-<ol>
-<li><strong>Anti Spreader アクセスポイント GUI＞無線＞一般設定</strong>画面へ移動します。</li>
-<li>2.4GHzまたは5GHzの必要な周波数の<strong>修正</strong>ボタンをクリックします。WiFi Setup画面を表示します。</li>
 <li>
-<p>以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>ネットワーク名(SSID)</strong></td>
-<td style="text-align: left;"><a href="#グループの情報">グループの情報</a>の<strong>接続可能な無線LANアクセスポイントのSSID</strong>を参照</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>暗号化方式</strong></td>
-<td style="text-align: left;">WPA2-enterprise</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUS Server</strong></td>
-<td style="text-align: left;">外部認証サーバー</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUS Server IP</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSサーバのIPアドレス</strong>を参照</td>
-</tr>
-<tr>
-<td style="text-align: left;">**Server Port **</td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSサーバのポート番号</strong>を参照</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>アクセスパスワード</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのシークレット</strong>を参照</td>
-</tr>
-</tbody>
-</table>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>証明書認証（EAP-TLS）のみ許可</strong>を<strong>有効</strong>にすると、クライアント証明書認証以外の認証方式のアクセスを拒否します。</li>
+<li>接続可能なSSIDを制限したい場合には、SSID入力欄に、接続を許可したいSSIDを入力します。</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>保存</strong>ボタンをクリックします。</p>
+<p><strong>登録</strong>ボタンをクリックします。</p>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>

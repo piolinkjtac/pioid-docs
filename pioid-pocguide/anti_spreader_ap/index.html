@@ -1158,15 +1158,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#２要素認証パスワード認証ワンタイムパスワード認証" class="md-nav__link">
-    <span class="md-ellipsis">
-      ２要素認証（パスワード認証＋ワンタイムパスワード認証）
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1186,26 +1177,22 @@
 <h1 id="anti-spreader-アクセスポイントの設定例一覧">Anti Spreader アクセスポイントの設定例一覧<a class="headerlink" href="#anti-spreader-アクセスポイントの設定例一覧" title="Permanent link"></a></h1>
 <h2 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="wlan-group-password/">無線LANアクセス グループによるアクセス制限</a></li>
-<li><a href="wlan-group-ssid-password/">無線LANアクセス グループごとに、接続可能な無線LANアクセスポイントをSSIDで制限</a></li>
+<li>無線LANアクセス ユーザ/グループによるアクセス制限 <a href="wlan-group-password/">標準</a>/<a href="wlan-group-password-adv/">拡張</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 <h2 id="クライアント証明書認証">クライアント証明書認証<a class="headerlink" href="#クライアント証明書認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="wlan-group-cert/">無線LANアクセス グループによるアクセス制限</a></li>
-<li><a href="wlan-group-ssid-cert/">無線LANアクセス グループごとに、接続可能な無線LANアクセスポイントをSSIDで制限</a></li>
-</ul>
-<h2 id="２要素認証パスワード認証ワンタイムパスワード認証">２要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#２要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h2>
-<ul>
-<li>無線LANアクセス グループによるアクセス制限（未対応）<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>無線LANアクセス ユーザ/グループによるアクセス制限 <a href="wlan-group-cert/">標準</a>/<a href="wlan-group-cert-adv/">拡張</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <ul>
-<li>一般的に、無線LANアクセス時に、ワンタイムパスワード認証は使用することがないことから、PIO-IDでは、無線LANアクセス時のワンタイムパスワードをサポートしておりません。パスワード認証またはクライアント証明書による認証となります。</li>
+<li>標準：標準RADIUSサーバを利用した設定方法です。</li>
+<li>拡張：拡張RADIUSサーバを利用した設定方法です。</li>
+<li>固定グローバルIPをもたないインターネット接続環境の場合には、拡張RADIUSサーバを利用した設定方法を参考にしてください。</li>
 </ul>
-<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
