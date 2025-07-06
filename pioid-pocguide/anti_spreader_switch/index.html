@@ -1177,20 +1177,25 @@
 <h1 id="anti-spreader-セキュアスイッチの設定例一覧">Anti Spreader セキュアスイッチの設定例一覧<a class="headerlink" href="#anti-spreader-セキュアスイッチの設定例一覧" title="Permanent link"></a></h1>
 <h2 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="networkauth-group-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）</a></li>
-<li><a href="networkauth-group-mab-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>MACアドレス認証バイパス</strong>（MAC Authentication Bypass）の併用</a></li>
-<li><a href="networkauth-group-dvlan-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>ダイナミックVLAN</strong>の併用</a></li>
+<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-password/">標準</a>/<a href="networkauth-group-password-adv/">拡張</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 <h2 id="クライアント証明書認証">クライアント証明書認証<a class="headerlink" href="#クライアント証明書認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="networkauth-group-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）</a></li>
-<li><a href="networkauth-group-mab-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>MACアドレス認証バイパス</strong>（MAC Authentication Bypass）の併用</a></li>
-<li>
+<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-cert/">標準</a>/<a href="networkauth-group-cert-adv/">拡張</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
 <ul>
-<li><a href="networkauth-group-dvlan-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>ダイナミックVLAN</strong>の併用</a></li>
+<li>標準：標準RADIUSサーバを利用した設定方法です。</li>
+<li>拡張：拡張RADIUSサーバを利用した設定方法です。</li>
+<li>固定グローバルIPをもたないインターネット接続環境の場合には、拡張RADIUSサーバを利用した設定方法を参考にしてください。</li>
 </ul>
+<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-</ul>
+</ol>
+</div>
 
 
 
