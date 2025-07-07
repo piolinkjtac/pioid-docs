@@ -88,14 +88,22 @@ def process_pocguide_index():
     split_at = next((i for i, l in enumerate(lines) if l.lstrip().startswith("*")), len(lines))
     header, items = lines[:split_at], lines[split_at:]
 
-    # 1) 除外
-    items = [l for l in items if "./subgate_ap/" not in l and "./subgate/" not in l]
+    # 1) 除外するパターンをリスト化
+    exclude = [
+        "./subgate_ap/",
+        "./subgate/",
+        "./anti_spreader_ap/",
+        "./anti_spreader_switch/",
+    ]
+    items = [l for l in items if not any(pat in l for pat in exclude)]
+
     # 2) PIOLINK TiFRONT-AP を先頭へ
     piolink = next((l for l in items if "piolink_tifront-ap" in l), None)
     if piolink:
         items.remove(piolink)
         items.insert(0, piolink)
 
+    # ファイルに書き戻し
     idx_file.write_text("".join(header + items), encoding="utf-8")
     print("  • Reordered pioid-pocguide/index.md")
 
