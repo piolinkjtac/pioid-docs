@@ -1,105 +1,92 @@
-:root {
-  /* Material テーマの変数を活用 */
-  --pioid-border-color: var(--md-typeset-secondary-text-color);
-  --pioid-heading-border: #757575;
-  --pioid-heading-icon-color: var(--md-typeset-a-color);
-  --pioid-table-header-bg: #4a4a4a;
-  --pioid-table-header-text: #ffffff;
-  --pioid-indent: 1rem;
-  --pioid-list-gap: 0.25rem;
-}
-
-/* 1. 画像の枠線を統一 */
+/* 画像の輪郭の縁取り */
 img {
-  border: 1px solid var(--pioid-border-color);
-  border-radius: 4px;
+    border: solid;
 }
 
-/* 2. ナビのアクティブリンク強調 */
+/* メニューのアクティブな項目の文字を大文字にする */
 .md-nav__link--active {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--md-typeset-a-color);
+    font-weight: bold;
+    color: var(--md-typeset-a-color);
 }
 
-/* 3. 見出しの下辺だけ下線に */
-.md-typeset h1,
-.md-typeset h2,
-.md-typeset h3,
+.md-typeset h1 {
+    font-weight: bold;
+    border-bottom: solid 2px #757575;
+    padding-bottom: .1em;
+}
+
+.md-typeset h2 {
+    font-weight: bold;
+    border-bottom: 2px dotted #757575;
+}
+
+.md-typeset h3 {
+    font-weight: bold;
+    border-bottom: 1px dotted #757575;
+}
+
 .md-typeset h4 {
-  border: none !important;
-  border-bottom: 2px solid var(--pioid-heading-border) !important;
-  padding-bottom: 0.25em !important;
-  margin-top: 1.5em !important;
-  position: relative !important;
-  color: inherit !important;
-  /* アイコン＋テキスト間のスペースを確保 */
-  padding-left: 3rem !important;
+    font-weight: bold;
+    border-bottom: 1px solid #757575;
 }
 
-/* レベルごとの下線スタイル */
-.md-typeset h2 { border-bottom: 2px dotted var(--pioid-heading-border) !important; }
-.md-typeset h3 { border-bottom: 1px dotted var(--pioid-heading-border) !important; }
-.md-typeset h4 { border-bottom: 1px solid var(--pioid-heading-border) !important; }
+.md-typeset > ::before {
+    font-family: "FontAwesome";
+    /* font-family: "Font Awesome 5 Free"; */
+    margin-right: .3em;
+    display:inline-block !important;
+}
 
-/* 3-1. 見出しアイコンを文字色に揃えつつ位置を調整 */
-.md-typeset h1::before,
-.md-typeset h2::before,
-.md-typeset h3::before,
+.md-typeset h1::before {
+    content:"\f02d" !important;
+}
+
+.md-typeset h2::before {
+    content:"\f0a9" !important;
+}
+
+.md-typeset h3::before {
+    content:"\f061" !important;
+}
+
 .md-typeset h4::before {
-  font-family: "FontAwesome";
-  color: inherit !important;
-  opacity: 0.8;
-  /* 見出し左端からアイコンを1rem下がった位置に */
-  left: 1rem !important;
-  top: 0;
-  position: absolute;
+    content:"\f0da" !important;
 }
 
-/* 各レベルのアイコン指定 */
-.md-typeset h1::before { content: "\f02d"; }
-.md-typeset h2::before { content: "\f0a9"; }
-.md-typeset h3::before { content: "\f061"; }
-.md-typeset h4::before { content: "\f0da"; }
-
-/* 4. リンクの下線 */
 .md-typeset a:not([class]) {
-  border-bottom: 1px dotted var(--pioid-border-color);
-  text-decoration: none;
+    border-bottom: 1px dotted #757575;
 }
 
-/* 5. 段落インデント */
 .md-typeset > p {
-  text-indent: var(--pioid-indent);
-  margin-bottom: 1rem;
+    text-indent: 1em;
 }
 
-/* 6. アドモニション／コードテーブル余白 */
-.md-typeset > .admonition,
-.md-typeset > .codehilitetable {
-  margin-left: var(--pioid-indent);
+.md-typeset > div.admonition {
+    margin-left: 1em !important;
 }
 
-/* 7. リストの入れ子レベル余白調整 */
-.md-typeset ul,
-.md-typeset ol {
-  margin-left: var(--pioid-indent);
-  margin-bottom: var(--pioid-list-gap);
+.md-typeset > table.codehilitetable {
+    margin-left: 1em !important;
+    margin-right: 0em !important;
 }
 
-.md-typeset li > ul,
-.md-typeset li > ol {
-  margin-top: var(--pioid-list-gap);
+.md-typeset > ul {
+    margin-left: 1em;
 }
 
-/* 8. FontAwesome アイコン配置調整（汎用） */
+.md-typeset > ol li, .md-typeset > ul li {
+    margin-bottom: .1em !important;
+}
+
+.md-typeset > ol li ol, .md-typeset > ol li ul, .md-typeset > ul li ol, .md-typeset > ul li ul {
+    margin-top: .1em !important;
+}
+
 .md-typeset i.fa {
-  margin-right: 0.5rem;
-  vertical-align: middle;
+    text-indent: 0em;
 }
 
-/* 9. テーブルヘッダーのコントラスト強化 */
-.md-typeset th {
-  background-color: var(--pioid-table-header-bg);
-  color: var(--pioid-table-header-text);
+th {
+    background-color:#757575 !important;
+    color: #ffffff !important;
 }
