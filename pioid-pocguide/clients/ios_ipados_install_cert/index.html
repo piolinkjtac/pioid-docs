@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/clients/android_install_cert/">
+        <link rel="canonical" href="https://piolinkjtac.github.io/pioid-docs/pioid-pocguide/clients/ios_ipados_install_cert/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Android: クライアント証明書（Wi-Fi証明書）のインストール - PIO-ID マニュアル</title>
+        <title>iOS/iPadOS: クライアント証明書のインストール - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-クライアント証明書wi-fi証明書のインストール" class="md-skip">
+        <a href="#iosipados-クライアント証明書のインストール" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android: クライアント証明書（Wi-Fi証明書）のインストール
+              iOS/iPadOS: クライアント証明書のインストール
             
           </span>
         </div>
@@ -1148,15 +1148,19 @@
 
 
 
-<h1 id="android-クライアント証明書wi-fi証明書のインストール">Android: クライアント証明書（Wi-Fi証明書）のインストール<a class="headerlink" href="#android-クライアント証明書wi-fi証明書のインストール" title="Permanent link"></a></h1>
+<h1 id="iosipados-クライアント証明書のインストール">iOS/iPadOS: クライアント証明書のインストール<a class="headerlink" href="#iosipados-クライアント証明書のインストール" title="Permanent link"></a></h1>
 <ol>
-<li>証明書発行通知メールにあるURLリンクまたはQRコードからP12形式の証明書をダウンロードします。</li>
-<li>ダウンロードフォルダからP12形式のファイル (証明書.p12) を選択します。</li>
-<li>証明書の抽出用パスワードを求められるので、PIO-IDの<strong>ユーザ名</strong>を入力し、<strong>OK</strong>をクリックします。</li>
-<li><strong>証明書の種類の選択</strong>にて、<strong>Wi-Fi証明書</strong>を選択し、<strong>OK</strong>をクリックします。</li>
-<li>証明書の名前を尋ねられるので、<strong>わかりやすい名称</strong>を設定し、<strong>OK</strong>をクリックします。</li>
+<li>証明書発行通知メールにあるURLリンクまたはQRコードからmobileconfig形式の証明書をダウンロードします。</li>
+<li>ホーム画面に戻り、<strong>設定</strong>を選択します。</li>
+<li><strong>ダウンロード済みのプロファイル</strong>を選択します。 </li>
+<li>先ほどダウンロードしたプロファイルが表示されるので、<strong>インストール</strong>を選択します。</li>
+<li>端末に設定されているログインコード (例: パスコード) の入力が求められるので、端末にログインするときに利用するパスコードを入力してください。</li>
+<li>警告が表示されますので、<strong>インストール</strong>を選択します。</li>
+<li>ポップアップが表示されますので、再度、<strong>インストール</strong>を選択します。</li>
+<li>パスワードの入力が求められるので、PIO-IDの<strong>ユーザ名</strong>を入力し、<strong>次へ</strong>を選択します。</li>
+<li>インストール完了画面が表示されたら、<strong>完了</strong>をクリックします。 </li>
 </ol>
-<p>以上でWi-Fi認証利用のための証明書のインストールは完了です。 </p>
+<p>以上で証明書のインストールは完了です。 </p>
 
 
 
