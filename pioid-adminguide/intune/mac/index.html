@@ -1141,13 +1141,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#信頼された証明書" class="md-nav__link">
+  <a href="#pio-idのクライアント証明書の配布手順" class="md-nav__link">
     <span class="md-ellipsis">
-      信頼された証明書
+      PIO-IDのクライアント証明書の配布手順
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="信頼された証明書">
+    <nav class="md-nav" aria-label="PIO-IDのクライアント証明書の配布手順">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1160,18 +1160,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ルートca証明書" class="md-nav__link">
+  <a href="#pio-idのルートca証明書" class="md-nav__link">
     <span class="md-ellipsis">
-      ルートCA証明書
+      PIO-IDのルートCA証明書
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#中間ca証明書" class="md-nav__link">
+  <a href="#pio-idの中間ca証明書" class="md-nav__link">
     <span class="md-ellipsis">
-      中間CA証明書
+      PIO-IDの中間CA証明書
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのクライアント証明書" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのクライアント証明書
     </span>
   </a>
   
@@ -1179,15 +1188,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scep証明書" class="md-nav__link">
-    <span class="md-ellipsis">
-      SCEP証明書
-    </span>
-  </a>
   
 </li>
       
@@ -1208,15 +1208,15 @@
 
 
 <h1 id="macosのデバイス構成プロファイルの作成方法">macOSのデバイス構成プロファイルの作成方法<a class="headerlink" href="#macosのデバイス構成プロファイルの作成方法" title="Permanent link"></a></h1>
-<h2 id="信頼された証明書">信頼された証明書<a class="headerlink" href="#信頼された証明書" title="Permanent link"></a></h2>
+<h2 id="pio-idのクライアント証明書の配布手順">PIO-IDのクライアント証明書の配布手順<a class="headerlink" href="#pio-idのクライアント証明書の配布手順" title="Permanent link"></a></h2>
 <h3 id="事前作業">事前作業<a class="headerlink" href="#事前作業" title="Permanent link"></a></h3>
 <p>PIO-IDのルートCA証明書ファイルと中間CA証明書ファイルを取得します。</p>
 <p><a href="../../pki/#基本情報">取得方法</a></p>
-<h3 id="ルートca証明書">ルートCA証明書<a class="headerlink" href="#ルートca証明書" title="Permanent link"></a></h3>
+<h3 id="pio-idのルートca証明書">PIO-IDのルートCA証明書<a class="headerlink" href="#pio-idのルートca証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1255,11 +1255,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="中間ca証明書">中間CA証明書<a class="headerlink" href="#中間ca証明書" title="Permanent link"></a></h3>
+</li>
+</ol>
+<h3 id="pio-idの中間ca証明書">PIO-IDの中間CA証明書<a class="headerlink" href="#pio-idの中間ca証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1298,11 +1300,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="scep証明書">SCEP証明書<a class="headerlink" href="#scep証明書" title="Permanent link"></a></h2>
+</li>
+</ol>
+<h3 id="pio-idのクライアント証明書">PIO-IDのクライアント証明書<a class="headerlink" href="#pio-idのクライアント証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1377,6 +1381,8 @@
 </tr>
 </tbody>
 </table>
+</li>
+</ol>
 
 
 

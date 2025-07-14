@@ -1141,13 +1141,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#信頼された証明書" class="md-nav__link">
+  <a href="#pio-idのクライアント証明書の配布手順" class="md-nav__link">
     <span class="md-ellipsis">
-      信頼された証明書
+      PIO-IDのクライアント証明書の配布手順
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="信頼された証明書">
+    <nav class="md-nav" aria-label="PIO-IDのクライアント証明書の配布手順">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1160,18 +1160,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ルートca証明書" class="md-nav__link">
+  <a href="#pio-idのルートca証明書" class="md-nav__link">
     <span class="md-ellipsis">
-      ルートCA証明書
+      PIO-IDのルートCA証明書
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#中間ca証明書" class="md-nav__link">
+  <a href="#pio-idの中間ca証明書" class="md-nav__link">
     <span class="md-ellipsis">
-      中間CA証明書
+      PIO-IDの中間CA証明書
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのクライアント証明書" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのクライアント証明書
     </span>
   </a>
   
@@ -1183,11 +1192,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scep証明書" class="md-nav__link">
+  <a href="#wi-fi設定の配布手順" class="md-nav__link">
     <span class="md-ellipsis">
-      SCEP証明書
+      Wi-Fi設定の配布手順
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Wi-Fi設定の配布手順">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lets-encryptのルートca証明書" class="md-nav__link">
+    <span class="md-ellipsis">
+      Let's EncryptのルートCA証明書
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wi-fi設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wi-Fi設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1208,15 +1241,15 @@
 
 
 <h1 id="windows-10-以降のデバイス構成プロファイルの作成方法">Windows 10 以降のデバイス構成プロファイルの作成方法<a class="headerlink" href="#windows-10-以降のデバイス構成プロファイルの作成方法" title="Permanent link"></a></h1>
-<h2 id="信頼された証明書">信頼された証明書<a class="headerlink" href="#信頼された証明書" title="Permanent link"></a></h2>
+<h2 id="pio-idのクライアント証明書の配布手順">PIO-IDのクライアント証明書の配布手順<a class="headerlink" href="#pio-idのクライアント証明書の配布手順" title="Permanent link"></a></h2>
 <h3 id="事前作業">事前作業<a class="headerlink" href="#事前作業" title="Permanent link"></a></h3>
 <p>PIO-IDのルートCA証明書ファイルと中間CA証明書ファイルを取得します。</p>
 <p><a href="../../pki/#基本情報">取得方法</a></p>
-<h3 id="ルートca証明書">ルートCA証明書<a class="headerlink" href="#ルートca証明書" title="Permanent link"></a></h3>
+<h3 id="pio-idのルートca証明書">PIO-IDのルートCA証明書<a class="headerlink" href="#pio-idのルートca証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1255,11 +1288,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="中間ca証明書">中間CA証明書<a class="headerlink" href="#中間ca証明書" title="Permanent link"></a></h3>
+</li>
+</ol>
+<h3 id="pio-idの中間ca証明書">PIO-IDの中間CA証明書<a class="headerlink" href="#pio-idの中間ca証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1298,11 +1333,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="scep証明書">SCEP証明書<a class="headerlink" href="#scep証明書" title="Permanent link"></a></h2>
+</li>
+</ol>
+<h3 id="pio-idのクライアント証明書">PIO-IDのクライアント証明書<a class="headerlink" href="#pio-idのクライアント証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
-<li><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</li>
-</ol>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
 <table>
 <thead>
 <tr>
@@ -1381,6 +1418,164 @@
 </tr>
 </tbody>
 </table>
+</li>
+</ol>
+<h2 id="wi-fi設定の配布手順">Wi-Fi設定の配布手順<a class="headerlink" href="#wi-fi設定の配布手順" title="Permanent link"></a></h2>
+<h3 id="lets-encryptのルートca証明書">Let's EncryptのルートCA証明書<a class="headerlink" href="#lets-encryptのルートca証明書" title="Permanent link"></a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>PIO-IDのクラウドRADIUSサーバは Let's Encrypt によって署名されたサーバ証明書を使用しています。Windows 10以降には通常、Let's EncryptのルートCA（ISRG Root X1）が既にインストールされていますが、<strong>IntuneのWi-Fi構成プロファイルでは、明示的に信頼されたルート証明書を指定する必要があるため、配布設定が必要です。</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>PIO-ID クラウドRADIUSのサーバ証明書が信頼されないと、Wi-Fi接続時に警告が表示されたり自動接続が失敗します。</li>
+<li>Intuneでは、Wi-Fi構成における<strong>サーバー検証</strong>項目で明示的にルートCAを参照するため、この設定が必須です。</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>以下のURLより、Let's EncryptのルートCA（ISRG Root X1）ダウンロードします。</p>
+<p><a href="https://letsencrypt.org/certs/isrgrootx1.der">ISRG Root X1（DER形式）をダウンロード</a></p>
+</li>
+<li>
+<p><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</p>
+</li>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>名前</strong></td>
+<td style="text-align: left;">任意です。（例: LEルートCA証明書-windows）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>プラットフォーム</strong></td>
+<td style="text-align: left;"><strong>Windows 10 以降</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>プロファイルの種類</strong></td>
+<td style="text-align: left;"><strong>信頼された証明書（テンプレート）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>証明書ファイル</strong></td>
+<td style="text-align: left;">ダウンロードした<strong>Let's EncryptのルートCA証明書（ISRG Root X1）</strong>ファイルを選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>保存先ストア</strong></td>
+<td style="text-align: left;"><strong>コンピュータ証明書ストア - ルート</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>割り当て</strong></td>
+<td style="text-align: left;">構成プロファイルを適用するグループを設定します。（例: すべてのデバイス）<br>⚠️ <strong>注意:</strong> SCEP証明書と同じ割り当てを設定する必要があります。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>スコープタグ</strong></td>
+<td style="text-align: left;"><strong>既定</strong>を設定します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="wi-fi設定">Wi-Fi設定<a class="headerlink" href="#wi-fi設定" title="Permanent link"></a></h3>
+<ol>
+<li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>
+<li>
+<p><strong>作成＞新しいポリシー</strong>ボタンをクリックし、以下の内容でポリシーを作成します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>名前</strong></td>
+<td style="text-align: left;">任意です。（例: Wi-Fi設定-windows）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>プラットフォーム</strong></td>
+<td style="text-align: left;"><strong>Windows 10 以降</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>プロファイルの種類</strong></td>
+<td style="text-align: left;"><strong>Wi-Fi（テンプレート）</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wi-Fi の種類</strong></td>
+<td style="text-align: left;"><strong>Enterprise</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wi-Fi 名 (SSID)</strong></td>
+<td style="text-align: left;">接続する無線APの<strong>SSID</strong>を入力します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>接続名</strong></td>
+<td style="text-align: left;">任意です。通常は、Wi-Fi 名 (SSID)と同一です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>範囲内にある場合は自動的に接続する</strong></td>
+<td style="text-align: left;">任意です。（例: <strong>はい</strong>を選択します。）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ネットワークが SSID をブロードキャストしていない場合でも、このネットワークに接続する</strong></td>
+<td style="text-align: left;">任意です。（例: <strong>はい</strong>を選択します。）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>範囲内にある場合は自動的に接続する</strong></td>
+<td style="text-align: left;">任意です。（例: <strong>はい</strong>を選択します。）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証モード</strong></td>
+<td style="text-align: left;"><strong>ユーザー</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EAP の種類</strong></td>
+<td style="text-align: left;"><strong>EAP-TLS</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバー信頼</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>証明書サーバー名</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブ画面の<strong>ホスト名</strong>を入力します。（例: radius-02-0001.poc.singleid.jp）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバー検証に使用するルート証明書</strong></td>
+<td style="text-align: left;"><a href="#lets-encryptのルートca証明書">Let's EncryptのルートCA証明書</a>の手順で設定した<strong>信頼された証明書</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>クライアント認証</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証方法</strong></td>
+<td style="text-align: left;"><strong>SCEP証明書</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>クライアント認証に使用するクライアント証明書 (ID 証明書)</strong></td>
+<td style="text-align: left;"><a href="#pio-idのクライアント証明書">PIO-IDのクライアント証明書</a>の手順で設定した<strong>SCEP証明書</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>割り当て</strong></td>
+<td style="text-align: left;">構成プロファイルを適用するグループを設定します。（例: すべてのデバイス）<br>⚠️ <strong>注意:</strong> SCEP証明書と同じ割り当てを設定する必要があります。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>スコープタグ</strong></td>
+<td style="text-align: left;"><strong>既定</strong>を設定します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
 
 
 
