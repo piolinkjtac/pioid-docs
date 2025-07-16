@@ -43,13 +43,13 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install mkdocs-material mkdocs-macros-plugin mkdocs-glightbox
 
-      # 6. サイトをビルド
-      - name: Build site
-        run: mkdocs build --site-dir site
-
-      # 7. カスタムドメイン用のCNAMEファイルを作成
+      # 6. カスタムドメイン用のCNAMEファイルを作成
       - name: Create CNAME file for custom domain
         run: echo "pioid-docs.piolink.co.jp" > docs/CNAME
+
+      # 7. サイトをビルド
+      - name: Build site
+        run: mkdocs build --site-dir site
 
       # 8. gh-pages ブランチへデプロイ
       - name: Deploy to GitHub Pages
