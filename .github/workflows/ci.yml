@@ -49,7 +49,7 @@ jobs:
 
       # 7. カスタムドメイン用のCNAMEファイルを作成
       - name: Create CNAME file for custom domain
-      - run: echo "pioid-docs.piolink.co.jp" > docs/CNAME
+        run: echo "pioid-docs.piolink.co.jp" > docs/CNAME
 
       # 8. gh-pages ブランチへデプロイ
       - name: Deploy to GitHub Pages
