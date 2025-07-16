@@ -1,6 +1,10 @@
 # brand/mkdocs.yml
 site_name: PIO-ID マニュアル
-site_url: https://piolinkjtac.github.io/pioid-docs/
+# カスタムドメインを使用しない場合
+#site_url: https://piolinkjtac.github.io/pioid-docs/
+
+# カスタムドメインを使用する場合
+site_url: https://pioid-docs.piolink.co.jp
 
 theme:
   name: material

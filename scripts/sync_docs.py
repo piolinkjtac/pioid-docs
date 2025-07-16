@@ -68,7 +68,8 @@ def replace_in_file(p: Path):
     text = p.read_text(encoding="utf-8")
     out = []
     for line in text.splitlines(keepends=True):
-        line = convert_image_paths(line)
+        # カスタムドメインを使用する場合には、コメントアウトする
+        # line = convert_image_paths(line)
         line = convert_fixed_url(line)
         line = convert_anchor_links(line)
         line = convert_uppercase_singleid(line)

@@ -47,7 +47,11 @@ jobs:
       - name: Build site
         run: mkdocs build --site-dir site
 
-      # 7. gh-pages ブランチへデプロイ
+      # 7. カスタムドメイン用のCNAMEファイルを作成
+      - name: Create CNAME file for custom domain
+      - run: echo "pioid-docs.piolink.co.jp" > docs/CNAME
+
+      # 8. gh-pages ブランチへデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
