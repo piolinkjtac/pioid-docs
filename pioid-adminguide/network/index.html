@@ -853,6 +853,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#方法３-関連付けたいipアドレスを明示的に指定するdyndns互換api" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法３ 関連付けたいIPアドレスを明示的に指定する（DynDNS互換API）
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1306,6 +1315,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#方法３-関連付けたいipアドレスを明示的に指定するdyndns互換api" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法３ 関連付けたいIPアドレスを明示的に指定する（DynDNS互換API）
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1363,7 +1381,7 @@
 <li><strong>ホスト名</strong>を入力します。</li>
 <li><strong>DNSゾーン</strong>を選択します。</li>
 <li><strong>IPタイプ</strong>を選択します。</li>
-<li><strong>APIキー</strong>が生成されます。</li>
+<li><strong>APIキー</strong>が生成されます。このAPIキーは、後述のIPアドレス登録APIで使用します。</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1381,12 +1399,34 @@
 </div>
 <h3 id="ダイナミックdnsホストfqdnにipを関連付ける">ダイナミックDNSホスト（FQDN）にIPを関連付ける<a class="headerlink" href="#ダイナミックdnsホストfqdnにipを関連付ける" title="Permanent link"></a></h3>
 <p>ダイナミックDNSホスト（FQDN）にIPアドレスを関連付けるには、APIを使用します。以下は、CURLコマンドを利用してAPIを実行した場合の例です。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ダイナミックDNSホスト（FQDN）にIPアドレスを関連付けるAPIリクエストを定期的に実行する場合は、DNSレコードのキャッシュ時間（TTL30秒）よりも短くならない間隔で実行してください。</p>
+</div>
 <h4 id="方法１-apiリクエストの送信元のグローバルipアドレスを関連付ける">方法１　APIリクエストの送信元のグローバルIPアドレスを関連付ける<a class="headerlink" href="#方法１-apiリクエストの送信元のグローバルipアドレスを関連付ける" title="Permanent link"></a></h4>
 <ol>
 <li>
-<p>以下のCURLコマンドの<code>&lt;APIキー&gt;</code>の部分に生成されたAPIキーの文字列を指定します。</p>
+<p>以下のCURLコマンドを社内LAN内にあるコンピュータで実行します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>パラメータ</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>APIキー</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞管理＞ネットワーク</strong>画面で登録したダイナミックDNSホストに関連付いたAPIキーです。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>エンドポイントのホスト名</strong></td>
+<td style="text-align: left;"><strong>本番環境</strong>: tun-00-0001.service.singleid.jp <br><strong>PoC環境</strong>: tun-02-0001.poc.singleid.jp</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code>curl -X &#39;POST&#39; \
-    &#39;https://tun-00-0001.service.singleid.jp/box/forwarding/ddns&#39; \
+    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
     -H &#39;accept: application/json&#39; \
     -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
     -H &#39;Content-Type: application/json&#39; \
@@ -1394,11 +1434,11 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>IPv4とIPv6の両方のアドレスがもったインターネット回線の場合、curlコマンドでIPv4またはIPv6を明示して実行する必要があります。</p>
+<p>IPv4とIPv6の両方のアドレスをもったインターネット回線の場合、curlコマンドでIPv4またはIPv6を明示して実行する必要があります。</p>
 </div>
 <p><strong>例 IPv4のIPをDDNSホストに登録したい場合</strong>
 <div class="highlight"><pre><span></span><code>curl -4 -X &#39;POST&#39; \
-    &#39;https://tun-00-0001.service.singleid.jp/box/forwarding/ddns&#39; \
+    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
     -H &#39;accept: application/json&#39; \
     -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
     -H &#39;Content-Type: application/json&#39; \
@@ -1406,7 +1446,7 @@
 </code></pre></div></p>
 <p><strong>例 IPv6のIPをDDNSホストに登録したい場合</strong>
 <div class="highlight"><pre><span></span><code>curl -6 -X &#39;POST&#39; \
-    &#39;https://tun-00-0001.service.singleid.jp/box/forwarding/ddns&#39; \
+    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
     -H &#39;accept: application/json&#39; \
     -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
     -H &#39;Content-Type: application/json&#39; \
@@ -1414,16 +1454,37 @@
 </code></pre></div></p>
 </li>
 <li>
-<p>このコマンドを社内LAN内にあるコンピュータで実行します。</p>
+<p>会社のインターネット接続のグローバルIPアドレスが、ダイナミックDNSホスト（FQDN）のDNSレコードに設定されます。</p>
 </li>
-<li>会社のインターネット接続のグローバルIPアドレスが、ダイナミックDNSホスト（FQDN）のDNSレコードに設定されます。</li>
 </ol>
 <h4 id="方法２-関連付けたいipアドレスを明示的に指定する">方法２　関連付けたいIPアドレスを明示的に指定する<a class="headerlink" href="#方法２-関連付けたいipアドレスを明示的に指定する" title="Permanent link"></a></h4>
 <ol>
 <li>
-<p>以下のCURLコマンドの<code>&lt;APIキー&gt;</code>の部分に生成されたAPIキーの文字列、<code>&lt;IPアドレス&gt;</code>の部分に関連付けたいグローバルIPアドレス（IPv4またはIPv6）を指定します。</p>
+<p>以下のCURLコマンドをコンピュータで実行します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>パラメータ</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>APIキー</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞管理＞ネットワーク</strong>画面で登録したダイナミックDNSホストに関連付いたAPIキーです。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPアドレス</strong></td>
+<td style="text-align: left;">登録したいグローバルIPアドレスです。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>エンドポイントのホスト名</strong></td>
+<td style="text-align: left;"><strong>本番環境</strong>: tun-00-0001.service.singleid.jp <br><strong>PoC環境</strong>: tun-02-0001.poc.singleid.jp</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code>curl -X &#39;POST&#39; \
-    &#39;https://tun-00-0001.service.singleid.jp/box/forwarding/ddns&#39; \
+    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
     -H &#39;accept: application/json&#39; \
     -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
     -H &#39;Content-Type: application/json&#39; \
@@ -1431,9 +1492,51 @@
 </code></pre></div>
 </li>
 <li>
-<p>このコマンドをコンピュータで実行します。</p>
+<p>指定したグローバルIPアドレスが、ダイナミックDNSホスト（FQDN）のDNSレコードに設定されます。</p>
 </li>
-<li>指定したグローバルIPアドレスが、ダイナミックDNSホスト（FQDN）のDNSレコードに設定されます。</li>
+</ol>
+<h4 id="方法３-関連付けたいipアドレスを明示的に指定するdyndns互換api">方法３　関連付けたいIPアドレスを明示的に指定する（DynDNS互換API）<a class="headerlink" href="#方法３-関連付けたいipアドレスを明示的に指定するdyndns互換api" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>以下のCURLコマンドをコンピュータで実行します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>パラメータ</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ホスト名</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞管理＞ネットワーク</strong>画面で登録したダイナミックDNSホストのホスト名です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FQDN</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞管理＞ネットワーク</strong>画面で登録したホスト名に関連付いたDNSゾーンを含むダイナミックDNSホスト（FQDN）です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>APIキー</strong></td>
+<td style="text-align: left;"><strong>顧客管理者ポータル＞管理＞ネットワーク</strong>画面で登録したダイナミックDNSホストに関連付いたAPIキーです。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPアドレス</strong></td>
+<td style="text-align: left;">登録したいグローバルIPアドレスです。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>エンドポイントのホスト名</strong></td>
+<td style="text-align: left;"><strong>本番環境</strong>: tun-00-0001.service.singleid.jp <br><strong>PoC環境</strong>: tun-02-0001.poc.singleid.jp</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39; \
+-u &lt;ホスト名&gt;:&lt;APIキー&gt; \
+&#39;https://&lt;エンドポイントのホスト名&gt;/nic/update?hostname=&lt;FQDN&gt;&amp;myip=&lt;IPアドレス&gt;&#39;
+</code></pre></div>
+</li>
+<li>
+<p>指定したグローバルIPアドレスが、ダイナミックDNSホスト（FQDN）のDNSレコードに設定されます。</p>
+</li>
 </ol>
 
 
