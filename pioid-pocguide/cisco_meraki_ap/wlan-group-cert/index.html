@@ -8,28 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_ap/wlan-group-cert/">
       
       
-        <link rel="prev" href="../pioid-appguide/">
       
       
-        <link rel="next" href="../pioid-security-check/">
-      
-      
-      <link rel="icon" href="../assets/favicon.ico">
+      <link rel="icon" href="../../../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
-        <title>ネットワーク機器連携の設定例 - PIO-ID マニュアル</title>
+        <title>無線LANアクセス-クライアント証明書認証 - PIO-ID マニュアル</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +46,9 @@
     
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../../css/custom.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#無線lanアクセス-クライアント証明書認証" class="md-skip">
+          コンテンツにスキップ
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -109,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ネットワーク機器連携の設定例
+              無線LANアクセス-クライアント証明書認証
             
           </span>
         </div>
@@ -231,7 +232,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -291,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/" class="md-nav__link">
         
   
   
@@ -352,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/radius_authlog/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/radius_authlog/" class="md-nav__link">
         
   
   
@@ -375,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/operation_log/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/operation_log/" class="md-nav__link">
         
   
   
@@ -406,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/user/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/user/" class="md-nav__link">
         
   
   
@@ -429,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/group/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/group/" class="md-nav__link">
         
   
   
@@ -490,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/ldap/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/ldap/" class="md-nav__link">
         
   
   
@@ -513,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/radius/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/radius/" class="md-nav__link">
         
   
   
@@ -536,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/pki/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/pki/" class="md-nav__link">
         
   
   
@@ -605,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/app_integration/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/app_integration/" class="md-nav__link">
         
   
   
@@ -636,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/security_check/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/security_check/" class="md-nav__link">
         
   
   
@@ -697,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/accountinfo/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/accountinfo/" class="md-nav__link">
         
   
   
@@ -720,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/admin/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/admin/" class="md-nav__link">
         
   
   
@@ -743,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/network/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/network/" class="md-nav__link">
         
   
   
@@ -766,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-adminguide/setting/" class="md-nav__link">
+      <a href="../../../pioid-adminguide/setting/" class="md-nav__link">
         
   
   
@@ -842,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-userguide/" class="md-nav__link">
+      <a href="../../../pioid-userguide/" class="md-nav__link">
         
   
   
@@ -865,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-userguide/account/" class="md-nav__link">
+      <a href="../../../pioid-userguide/account/" class="md-nav__link">
         
   
   
@@ -888,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-userguide/password/" class="md-nav__link">
+      <a href="../../../pioid-userguide/password/" class="md-nav__link">
         
   
   
@@ -911,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-userguide/authenticator/" class="md-nav__link">
+      <a href="../../../pioid-userguide/authenticator/" class="md-nav__link">
         
   
   
@@ -934,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-userguide/session/" class="md-nav__link">
+      <a href="../../../pioid-userguide/session/" class="md-nav__link">
         
   
   
@@ -964,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-appguide/" class="md-nav__link">
+      <a href="../../../pioid-appguide/" class="md-nav__link">
         
   
   
@@ -983,17 +984,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1004,7 +998,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1016,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-security-check/" class="md-nav__link">
+      <a href="../../../pioid-security-check/" class="md-nav__link">
         
   
   
@@ -1038,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   
@@ -1098,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pioid-release-notes/service/" class="md-nav__link">
+      <a href="../../../pioid-release-notes/service/" class="md-nav__link">
         
   
   
@@ -1138,6 +1131,94 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#目的" class="md-nav__link">
+    <span class="md-ellipsis">
+      目的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#設定方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのグループの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのグループの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのユーザの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのユーザの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのクライアント証明書の発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのクライアント証明書の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのRADIUSサイトの登録
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisco-meraki-無線lanアクセスポイントの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cisco Meraki 無線LANアクセスポイントの設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#動作確認方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作確認方法
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1153,30 +1234,215 @@
 
 
 
-  <h1>ネットワーク機器連携の設定例</h1>
-
-<p>認証システムとしてPIO-IDを利用したネットワーク機器連携の設定例です。</p>
+<h1 id="無線lanアクセス-クライアント証明書認証">無線LANアクセス-クライアント証明書認証<a class="headerlink" href="#無線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
+<p>文書更新日:2025-08-24</p>
+<h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
-<li><a href="piolink_tifront-ap/">PIOLINK TiFRONT-AP/パイオリンク</a></li>
-<li><a href="allied_telesis_ap/">アライドテレシス 無線LANアクセスポイント/アライドテレシス</a></li>
-<li><a href="allied_telesis_networkswitch/">アライドテレシス ネットワークスイッチ/アライドテレシス</a></li>
-<li><a href="buffalo_airstation_pro/">Buffalo AirStation Pro/バッファロー</a></li>
-<li><a href="cisco_meraki_ap/">Cisco Meraki 無線LANアクセスポイント/Cisco</a></li>
-<li><a href="cisco_meraki_networkswitch/">Cisco Meraki ネットワークスイッチ/Cisco</a></li>
-<li><a href="checkpoint/">Check Point Quantum Spark/チェックポイントソフトウェアテクノロジーズ</a></li>
-<li><a href="firebox/">Firebox/ウォッチガード・テクノロジー・ジャパン</a></li>
-<li><a href="fortigate/">FortiGate NGFW/フォーティネットジャパン</a></li>
-<li><a href="h3c_ap_cloud/">H3C 無線LANアクセスポイント/H3C</a></li>
-<li><a href="h3c_ac_cloud/">H3C アクセスコントローラー/H3C</a></li>
-<li><a href="packetix_vpn/">PacketiX VPN/ソフトイーサ</a></li>
-<li><a href="sophos_firewall/">Sophos Firewall/ソフォス</a></li>
-<li><a href="stealthone_ap/">STEALTHONE AP/ワイズ</a></li>
-<li><a href="yamaha_rtx/">YAMAHA RTXシリーズ/ヤマハ</a></li>
-<li><a href="yamaha_swx/">YAMAHA SWXシリーズ/ヤマハ</a></li>
-<li><a href="yamaha_utx/">YAMAHA UTXシリーズ/ヤマハ</a>　</li>
-<li><a href="yamaha_wlx/">YAMAHA WLXシリーズ/ヤマハ</a></li>
-<li><a href="wifiap/">RADIUS対応無線LANアクセスポイント</a></li>
+<li>PIO-IDのユーザで、Cisco Meraki 無線LANアクセスポイントへアクセスします。</li>
+<li>接続する際の認証方式は、クライアント証明書認証（EAP-TLS）です。</li>
+<li>PIO-IDの標準RADIUSサーバを利用します。</li>
+<li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
+<h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
+<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
+<li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
+<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
+</ol>
+<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
+<li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
+<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
+<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
+</ol>
+<h3 id="pio-idのクライアント証明書の発行">PIO-IDのクライアント証明書の発行<a class="headerlink" href="#pio-idのクライアント証明書の発行" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
+<li>クライアント証明書を発行したいユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書の発行</strong>を選択します。</li>
+<li><strong>証明書発行</strong>画面がポップアップします。</li>
+<li><strong>プロファイル</strong>（例：デフォルト）および<strong>配布形式</strong>（例：一般）を選択します。</li>
+<li><strong>発行</strong>ボタンをクリックして、クライアント証明書を発行します。ユーザのメールアドレス宛に発行されたクライアント証明書のダウンロードリンクが送信されます。</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
+<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
+<li>カタログから<strong>Cisco Meraki 無線LANアクセスポイント</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Cisco Meraki 無線LANアクセスポイント</strong>画面がポップアップします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ</strong></td>
+<td style="text-align: left;"><strong>標準</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;">適切なサーバ番号を選択します。選択するサーバの番号により、RADIUSサーバのポート番号が異なります。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP or ホスト名</strong></td>
+<td style="text-align: left;"><strong>Cisco Meraki 無線LANアクセスポイント</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。グローバルIPアドレスが、動的の場合には、DDNS（ダイナミックDNS）を利用して<strong>ホスト名（FQDN）</strong>を設定します。<br><br><strong>注意:</strong> グローバルIPアドレスにIPv4の共用IPアドレスが使用されるインターネット接続サービス（IPv6インターネット接続、マンションタイプのインターネット接続、CATVインターネット、モバイルインターネット）の場合やDDNSサービスの利用ができない場合には、<strong>拡張RADIUSサーバ</strong>の利用を検討してください。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>シークレット</strong></td>
+<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
+</li>
+<li>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>証明書認証（EAP-TLS）のみ許可</strong>を<strong>有効</strong>にすると、クライアント証明書認証以外の認証方式のアクセスを拒否します。</li>
+<li>認証したユーザおよびグループにVLAN IDを割り当てたい場合には、<strong>VLAN ID</strong>入力欄に、割り当てたい<strong>VLAN ID</strong>を入力します。</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+</li>
+</ol>
+<h3 id="cisco-meraki-無線lanアクセスポイントの設定">Cisco Meraki 無線LANアクセスポイントの設定<a class="headerlink" href="#cisco-meraki-無線lanアクセスポイントの設定" title="Permanent link"></a></h3>
+<ol>
+<li>Cisco Merakiの管理画面へログインします。</li>
+<li><strong>Wireless＞Access Control</strong>画面へ移動します。</li>
+<li>
+<p>未使用のSSIDを選択し、以下を設定します。</p>
+<ul>
+<li><strong>Basic info</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SSID (name)</strong></td>
+<td style="text-align: left;">任意の文字列を設定します。（例: cisco_meraki）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SSID status</strong></td>
+<td style="text-align: left;"><strong>Enabled</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hide SSID</strong></td>
+<td style="text-align: left;">SSIDを公開する場合には、チェックボックスのチェックを外します。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Security</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Security</strong></td>
+<td style="text-align: left;"><strong>Enterprise with</strong>を選択し、<strong>My RADIUS Server</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WPA encryption</strong></td>
+<td style="text-align: left;">無線LANクライアントがサポートする暗号方式を選択します。(例: wpa2 only)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>RADIUS</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RADIUS Servers</strong></td>
+<td style="text-align: left;"><strong>Add server</strong>をクリックし、<strong>プライマリ</strong>および<strong>セカンダリ</strong>のRADIUSサーバを登録します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Host IP or FQDN</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>および<strong>セカンダリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Auth port</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secret</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Advanced RADIUS settings</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Called-station-ID</strong></td>
+<td style="text-align: left;">デフォルトの設定のままにします。(デフォルト設定: 1. <strong>AP MAC Address</strong>、2. <strong>SSID name</strong>) <br><strong>注意</strong>: 設定を変更すると、PIO-IDが正しくRADIUSリクエストを認識できなくなります。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Server timeout</strong></td>
+<td style="text-align: left;">タイムアウト値を長くします。(推奨値: 10秒、デフォルト値: 1秒)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(RADIUS属性のVLAN IDを割り当てる場合)<strong>Client IP and VLAN</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>DHCP</strong></td>
+<td style="text-align: left;"><strong>External DHCP server assigned</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUS override</strong></td>
+<td style="text-align: left;"><strong>Override VLAN tag</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Save</strong>ボタンをクリックします。</p>
+</li>
+</ol>
+<h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
+<p>以下を参考にクライアントを設定して動作確認します。</p>
+<p><a href="../../clients/">クライアント接続設定</a></p>
 
 
 
@@ -1225,10 +1491,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
