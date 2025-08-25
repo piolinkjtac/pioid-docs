@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/yamaha_rtx/vpn-group-otp/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_security/vpn-group-otp/">
       
       
       
@@ -1187,18 +1187,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#yamaha-rtxのradiusサーバの設定" class="md-nav__link">
+  <a href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定" class="md-nav__link">
     <span class="md-ellipsis">
-      YAMAHA RTXのRADIUSサーバの設定
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#yamaha-rtxのリモートアクセスユーザの認証の設定" class="md-nav__link">
-    <span class="md-ellipsis">
-      YAMAHA RTXのリモートアクセスユーザの認証の設定
+      Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定
     </span>
   </a>
   
@@ -1277,10 +1268,10 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-09</p>
+<p>文書更新日:2025-08-24</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
-<li>PIO-IDのユーザで、YAMAHA RTXへVPNを使ってリモートアクセスします。</li>
+<li>PIO-IDのユーザで、Cisco Meraki セキュリティ&amp;SD-WANへVPNを使ってリモートアクセスします。</li>
 <li>接続する際の認証方式は、2要素認証（パスワード認証＋ワンタイムパスワード認証）です。</li>
 <li>PIO-IDの標準RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
@@ -1303,7 +1294,7 @@
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>YAMAHA RTXシリーズ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>YAMAHA RTXシリーズ</strong>画面がポップアップします。</li>
+<li>カタログから<strong>Cisco Meraki セキュリティ&amp;SD-WANシリーズ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Cisco Meraki セキュリティ&amp;SD-WANシリーズ</strong>画面がポップアップします。</li>
 <li>
 <p><strong>基本情報</strong>タブに、以下を設定します。</p>
 <table>
@@ -1328,7 +1319,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>IP or ホスト名</strong></td>
-<td style="text-align: left;"><strong>YAMAHA RTX</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。</td>
+<td style="text-align: left;"><strong>Cisco Meraki セキュリティ&amp;SD-WAN</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。グローバルIPアドレスが、動的の場合には、Cisco MerakiのDDNS（ダイナミックDNS）を利用して<strong>ホスト名（FQDN）</strong>を設定します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>シークレット</strong></td>
@@ -1351,11 +1342,12 @@
 <p><strong>登録</strong>ボタンをクリックします。</p>
 </li>
 </ol>
-<h3 id="yamaha-rtxのradiusサーバの設定">YAMAHA RTXのRADIUSサーバの設定<a class="headerlink" href="#yamaha-rtxのradiusサーバの設定" title="Permanent link"></a></h3>
+<h3 id="cisco-meraki-セキュリティsd-wanのradiusサーバの設定">Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定<a class="headerlink" href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定" title="Permanent link"></a></h3>
 <ol>
-<li>SSHまたはTelnetで、ローカル管理者でYAMAHA RTXのCLIにログインします。</li>
+<li>Cisco Merakiの管理画面へログインします。</li>
+<li><strong>Security &amp; SD-WAN＞Client VPN＞IPsec Settings</strong>タブへ移動します。</li>
 <li>
-<p>コマンドで以下を設定します。</p>
+<p>以下を設定します。</p>
 <table>
 <thead>
 <tr>
@@ -1365,85 +1357,53 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>RADIUSサーバのプライマリIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
+<td style="text-align: left;"><strong>Client VPN server</strong></td>
+<td style="text-align: left;"><strong>Enabled</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>RADIUSサーバのセカンダリIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>セカンダリ</strong>です。</td>
+<td style="text-align: left;"><strong>Hostname</strong></td>
+<td style="text-align: left;">グローバルIPが動的の場合には、ここに表示されているホスト名を<a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>IP or ホスト名</strong>に設定します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>RADIUSサーバのポート番号</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
+<td style="text-align: left;"><strong>Subnet</strong></td>
+<td style="text-align: left;">VPNクライアントに割り当てるIPアドレスのネットワークです。必要に応じて、ネットワークを作成してください。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのシークレット</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>radius auth on
-radius auth server &lt;RADIUSサーバのプライマリIPアドレス&gt; &lt;RADIUSサーバのセカンダリIPアドレス&gt;
-radius auth port &lt;RADIUSサーバのポート番号&gt;
-radius secret &lt;RADIUSクライアントのシークレット&gt;
-</code></pre></div></td></tr></table></div>
-</li>
-</ol>
-<h3 id="yamaha-rtxのリモートアクセスユーザの認証の設定">YAMAHA RTXのリモートアクセスユーザの認証の設定<a class="headerlink" href="#yamaha-rtxのリモートアクセスユーザの認証の設定" title="Permanent link"></a></h3>
-<ol>
-<li><strong>YAMAHA RTX GUI＞かんたん設定＞VPN＞リモートアクセス</strong>画面へ移動します。</li>
-<li>リモートアクセスVPNの設定を新規作成します。<strong>新規</strong>ボタンをクリックします。<strong>共通設定</strong>画面へ移動します。</li>
-<li>
-<p>以下を設定します。<strong>次へ</strong>ボタンをクリックします。<strong>ユーザの登録</strong>画面へ移動します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>接続種別</strong></td>
-<td style="text-align: left;"><strong>L2TP/IPSecを使用する</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>認証鍵</strong></td>
+<td style="text-align: left;"><strong>Shared secret</strong></td>
 <td style="text-align: left;">IPSec事前共有鍵として任意の文字列を設定します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>認証アルゴリズム</strong></td>
-<td style="text-align: left;"><strong>HMAC-SHA</strong>を選択します。</td>
+<td style="text-align: left;"><strong>Authentication</strong></td>
+<td style="text-align: left;"><strong>RADIUS</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>暗号アルゴリズム</strong></td>
-<td style="text-align: left;"><strong>AES-CBC</strong>を選択します。</td>
+<td style="text-align: left;"><strong>RADIUS servers</strong></td>
+<td style="text-align: left;"><strong>Add server</strong>をクリックし、<strong>プライマリ</strong>および<strong>セカンダリ</strong>のRADIUSサーバを登録します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ユーザ認証方式</strong></td>
-<td style="text-align: left;"><strong>PAP</strong>を選択します。</td>
+<td style="text-align: left;"><strong>Host</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>および<strong>セカンダリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Port</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secret</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUS timeout</strong></td>
+<td style="text-align: left;"><strong>10秒</strong>を設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Retry Count</strong></td>
+<td style="text-align: left;"><strong>3回</strong>を設定します。</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li>
-<p>一時的に適当な<strong>名前</strong>と<strong>パスワード</strong>でユーザを登録します。<strong>次へ</strong>ボタンをクリックします。<strong>入力内容の確認</strong>画面へ移動します。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>PIO-IDに登録されたユーザでリモートアクセスを行いますが、YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも１ユーザのユーザ登録が必要です。ここで登録したユーザは、後で、CLIから削除してもよいですし、削除しない場合には、複雑なパスワードを設定しておくことをお勧めします。</p>
-</div>
-</li>
-<li>
-<p>設定内容を確認し、<strong>設定の確定</strong>ボタンをクリックし、設定を完了します。</p>
-</li>
 </ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>YAMAHA RTXの設定については、<a href="https://network.yamaha.com/setting/router_firewall/vpn/vpn_client/vpn-smartphone-setup-rtx1210" target="_blank"><strong>L2TP/IPsecを使用したリモートアクセス : Web GUI設定</strong></a>を参考にさせていただきました。</p>
-</div>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
 <p>Windows端末から2要素認証（パスワード＋ワンタイムパスワード）によるリモートアクセスVPNの認証が可能なことを確認します。</p>
 <h3 id="ソフトウェアトークンのインストール">ソフトウェアトークンのインストール<a class="headerlink" href="#ソフトウェアトークンのインストール" title="Permanent link"></a></h3>
@@ -1520,7 +1480,7 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </tr>
 <tr>
 <td style="text-align: left;"><strong>事前共有キー</strong></td>
-<td style="text-align: left;"><a href="#yamaha-rtxのリモートアクセスユーザの認証の設定">YAMAHA RTXのリモートアクセスユーザの認証の設定</a>の手順の<strong>認証鍵</strong>に設定した文字列です。</td>
+<td style="text-align: left;"><a href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定">Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定</a>の手順の<strong>Shared secret</strong>に設定した文字列です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サインイン情報の種類</strong></td>
@@ -1588,7 +1548,7 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <h3 id="vpnの接続">VPNの接続<a class="headerlink" href="#vpnの接続" title="Permanent link"></a></h3>
 <ol>
 <li>
-<p>設定したVPNの<strong>接続</strong>をクリックし、YAMAHA RTXへVPN接続を試みます。</p>
+<p>設定したVPNの<strong>接続</strong>をクリックし、Cisco Meraki セキュリティ&amp;SD-WANへVPN接続を試みます。</p>
 <p><a href="/images/image-win-vpn-4.png"><img alt="Screenshot" src="/images/image-win-vpn-4.png" /></a></p>
 </li>
 <li>

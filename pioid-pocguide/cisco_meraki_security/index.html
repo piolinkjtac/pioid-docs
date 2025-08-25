@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_networkswitch/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_security/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Cisco Meraki ネットワークスイッチ(MSシリーズ)の設定例一覧 - PIO-ID マニュアル</title>
+        <title>Cisco Meraki セキュリティ&SD-WAN(MXシリーズ)の設定例一覧 - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cisco-meraki-ネットワークスイッチmsシリーズの設定例一覧" class="md-skip">
+        <a href="#cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cisco Meraki ネットワークスイッチ(MSシリーズ)の設定例一覧
+              Cisco Meraki セキュリティ&amp;SD-WAN(MXシリーズ)の設定例一覧
             
           </span>
         </div>
@@ -1150,6 +1150,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#l2tpipsec-共有鍵方式-接続" class="md-nav__link">
+    <span class="md-ellipsis">
+      L2TP/IPSec 共有鍵方式 接続
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="L2TP/IPSec 共有鍵方式 接続">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#パスワード認証" class="md-nav__link">
     <span class="md-ellipsis">
       パスワード認証
@@ -1157,11 +1167,49 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#2要素認証パスワード認証ワンタイムパスワード認証" class="md-nav__link">
+    <span class="md-ellipsis">
+      2要素認証（パスワード認証＋ワンタイムパスワード認証）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#クライアント証明書認証" class="md-nav__link">
+  <a href="#cisco-secure-client-接続" class="md-nav__link">
     <span class="md-ellipsis">
-      クライアント証明書認証
+      Cisco Secure Client 接続
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco Secure Client 接続">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#パスワード認証_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      パスワード認証
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#２要素認証パスワードクライアント証明書認証" class="md-nav__link">
+    <span class="md-ellipsis">
+      ２要素認証（パスワード＋クライアント証明書認証）
     </span>
   </a>
   
@@ -1183,7 +1231,7 @@
 
 
 
-<h1 id="cisco-meraki-ネットワークスイッチmsシリーズの設定例一覧">Cisco Meraki ネットワークスイッチ(MSシリーズ)の設定例一覧<a class="headerlink" href="#cisco-meraki-ネットワークスイッチmsシリーズの設定例一覧" title="Permanent link"></a></h1>
+<h1 id="cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧">Cisco Meraki セキュリティ&amp;SD-WAN(MXシリーズ)の設定例一覧<a class="headerlink" href="#cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧" title="Permanent link"></a></h1>
 <h2 id="検証環境">検証環境<a class="headerlink" href="#検証環境" title="Permanent link"></a></h2>
 <p>本設定ガイドは、下記の機器およびファームウェアで動作確認を行っています。<br />
 機種やソフトウェアのバージョンが異なる場合、画面表示や設定項目が一部変わることがあります。</p>
@@ -1197,29 +1245,35 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>ソフトウェアバージョン</strong></td>
-<td style="text-align: left;">MS 16.7</td>
+<td style="text-align: left;">MX 18.211</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>検証機種</strong></td>
-<td style="text-align: left;">MS120-8FP</td>
+<td style="text-align: left;">MX67</td>
 </tr>
 </tbody>
 </table>
-<h2 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h2>
+<h2 id="l2tpipsec-共有鍵方式-接続">L2TP/IPSec 共有鍵方式 接続<a class="headerlink" href="#l2tpipsec-共有鍵方式-接続" title="Permanent link"></a></h2>
+<h3 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h3>
 <ul>
-<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-password/">標準</a>/<a href="networkauth-group-password-adv/">拡張</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>リモートアクセスVPN ユーザ/グループによるアクセス制限 <a href="vpn-group-password/">標準</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
-<h2 id="クライアント証明書認証">クライアント証明書認証<a class="headerlink" href="#クライアント証明書認証" title="Permanent link"></a></h2>
+<h3 id="2要素認証パスワード認証ワンタイムパスワード認証">2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h3>
 <ul>
-<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-cert/">標準</a>/<a href="networkauth-group-cert-adv/">拡張</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>リモートアクセスVPN ユーザ/グループによるアクセス制限 <a href="vpn-group-otp/">標準</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
+<h2 id="cisco-secure-client-接続">Cisco Secure Client 接続<a class="headerlink" href="#cisco-secure-client-接続" title="Permanent link"></a></h2>
+<h3 id="パスワード認証_1">パスワード認証<a class="headerlink" href="#パスワード認証_1" title="Permanent link"></a></h3>
+<p>近日公開</p>
+<h2 id="２要素認証パスワードクライアント証明書認証">２要素認証（パスワード＋クライアント証明書認証）<a class="headerlink" href="#２要素認証パスワードクライアント証明書認証" title="Permanent link"></a></h2>
+<p>近日公開</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <ul>
 <li>標準：標準RADIUSサーバを利用した設定方法です。</li>
-<li>拡張：拡張RADIUSサーバを利用した設定方法です。</li>
+<li>機器が送信しているRADIUSリクエストにNAS-ID属性はなく、NAS-IDには、機器のIPアドレスが含まれていないため、拡張RADIUSサーバは利用できません。</li>
 <li>固定グローバルIPをもたないインターネット接続環境の場合には、拡張RADIUSサーバを利用した設定方法を参考にしてください。</li>
 </ul>
 <p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>

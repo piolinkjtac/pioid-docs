@@ -1573,7 +1573,7 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サーバまたはアドレス</strong></td>
-<td style="text-align: left;">VPNクライアントが接続するIPアドレスです。</td>
+<td style="text-align: left;">VPNクライアントが接続するIPアドレスまたはホスト名(FQDN)です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>VPNの種類</strong></td>
@@ -1595,9 +1595,25 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p>Windowsの<strong>ネットワーク接続の設定</strong>画面を開きます。</p>
 </li>
 <li>追加したVPN設定の<strong>プロパティ</strong>を開きます。</li>
-<li><strong>セキュリティ</strong>タブへ移動します。</li>
 <li>
-<p>以下を設定します。<strong>OK</strong>をクリックし、VPNの設定は完了です。</p>
+<p><strong>オプション</strong>タブへ移動します。以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>資格情報を記憶する</strong></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M384 80c8.8 0 16 7.2 16 16v320c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>セキュリティ</strong>タブへ移動します。以下を設定します。</p>
 <table>
 <thead>
 <tr>
@@ -1625,6 +1641,9 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </tbody>
 </table>
 <p><a href="/images/image-win-vpn-7.png"><img alt="Screenshot" src="/images/image-win-vpn-7.png" /></a></p>
+</li>
+<li>
+<p><strong>OK</strong>をクリックし、VPNの設定は完了です。</p>
 </li>
 </ol>
 <h3 id="vpnの接続">VPNの接続<a class="headerlink" href="#vpnの接続" title="Permanent link"></a></h3>
