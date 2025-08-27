@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_security/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-appguide/cisco_umbrella/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Cisco Meraki セキュリティ&SD-WAN(MXシリーズ)の設定例一覧 - PIO-ID マニュアル</title>
+        <title>Cisco Umbrellaのアプリ連携 - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧" class="md-skip">
+        <a href="#cisco-umbrellaのアプリ連携" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cisco Meraki セキュリティ&amp;SD-WAN(MXシリーズ)の設定例一覧
+              Cisco Umbrellaのアプリ連携
             
           </span>
         </div>
@@ -965,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pioid-appguide/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -987,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../pioid-pocguide/" class="md-nav__link">
         
   
   
@@ -1141,29 +1141,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#検証環境" class="md-nav__link">
+  <a href="#シングルサインオン" class="md-nav__link">
     <span class="md-ellipsis">
-      検証環境
+      シングルサインオン
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シングルサインオン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのアプリ連携設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIO-IDのアプリ連携設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisco-umbrellaのsaml認証設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cisco UmbrellaのSAML認証設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#プロビジョニング" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロビジョニング
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#パスワード認証" class="md-nav__link">
+  <a href="#アプリにユーザ追加" class="md-nav__link">
     <span class="md-ellipsis">
-      パスワード認証
+      アプリにユーザ追加
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#２要素認証パスワードクライアント証明書認証" class="md-nav__link">
+  <a href="#動作確認" class="md-nav__link">
     <span class="md-ellipsis">
-      ２要素認証（パスワード＋クライアント証明書認証）
+      動作確認
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="動作確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saml連携テスト" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAML連携テスト
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1183,49 +1231,180 @@
 
 
 
-<h1 id="cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧">Cisco Meraki セキュリティ&amp;SD-WAN(MXシリーズ)の設定例一覧<a class="headerlink" href="#cisco-meraki-セキュリティsd-wanmxシリーズの設定例一覧" title="Permanent link"></a></h1>
-<h2 id="検証環境">検証環境<a class="headerlink" href="#検証環境" title="Permanent link"></a></h2>
-<p>本設定ガイドは、下記の機器およびファームウェアで動作確認を行っています。<br />
-機種やソフトウェアのバージョンが異なる場合、画面表示や設定項目が一部変わることがあります。</p>
+<h1 id="cisco-umbrellaのアプリ連携">Cisco Umbrellaのアプリ連携<a class="headerlink" href="#cisco-umbrellaのアプリ連携" title="Permanent link"></a></h1>
+<p>文書更新日:2025-08-27</p>
+<h2 id="シングルサインオン">シングルサインオン<a class="headerlink" href="#シングルサインオン" title="Permanent link"></a></h2>
+<h3 id="pio-idのアプリ連携設定">PIO-IDのアプリ連携設定<a class="headerlink" href="#pio-idのアプリ連携設定" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞アプリ連携＞アプリ一覧</strong>画面へ移動します。</li>
+<li>
+<p><strong>カタログ表示</strong>ボタンをクリックします。</p>
+<p><a href="/images/2022-08-16_3-53-18.png"><img alt="Screenshot" src="/images/2022-08-16_3-53-18.png" /></a></p>
+</li>
+<li>
+<p>アプリカタログが表示されるので、Cisco Umbrellaの<strong>登録</strong>ボタンをクリックします。</p>
+<p><a href="/images/2025-08-27_16-36-07.png"><img alt="Screenshot" src="/images/2025-08-27_16-36-07.png" /></a></p>
+</li>
+<li>
+<p><strong>アプリ登録</strong>画面がポップアップします。<strong>情報</strong>タブの<strong>名前</strong>に、アプリを識別できるような名前を、半角小文字の<strong>英数字</strong>、<strong>-（ハイフン）</strong>、<strong>_（アンダースコア）</strong>で設定します。<strong>シングルサインオン</strong>タブに移動します。</p>
+<p><a href="/images/2025-08-27_16-39-03.png"><img alt="Screenshot" src="/images/2025-08-27_16-39-03.png" /></a></p>
+</li>
+<li>
+<p>以下の内容を設定し、<strong>登録</strong>ボタンをクリックして、アプリを登録します。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>内容</strong></th>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>ソフトウェアバージョン</strong></td>
-<td style="text-align: left;">MX 18.211</td>
+<td style="text-align: left;"><strong>SSO 有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>検証機種</strong></td>
-<td style="text-align: left;">MX67</td>
+<td style="text-align: left;"><strong>IdP エンドポイントメタデータ</strong></td>
+<td style="text-align: left;"><strong>ダウンロード</strong>ボタンをクリックし、メタデータを取得します。このメタデータは、<a href="#cisco-umbrellaのsaml認証設定">Cisco UmbrellaのSAML認証設定</a>の手順を行う際に必要となります。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>証明書</strong></td>
+<td style="text-align: left;"><a href="#cisco-umbrellaのsaml認証設定">Cisco UmbrellaのSAML認証設定</a>の手順でダウンロードしたメタデータのファイルを開きます。<br><code>&lt;ds:X509Certificate&gt;</code>タグ内のMIIで始まる文字列（例：<code>MIICnzCCAYcCBgF/zubcKTANBgkqhkiG9w0BAQsFADATMREwDw……..</code>）をコピーして、入力します。<br><strong>注意</strong>: <ds:X509Certificate>のタグが2つある場合には、後の証明書を使用してください。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NameIDフォーマット</strong></td>
+<td style="text-align: left;"><strong>username</strong>を入力します。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h2>
-<ul>
-<li>リモートアクセスVPN(L2TP/IPSec) グループによるアクセス制限 <a href="vpn-group-password/">標準</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>リモートアクセスVPN(Cisco Secure Client) グループによるアクセス制限 <a href="vpn-group-password-secureconnect/">標準</a> <sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-</ul>
-<h2 id="２要素認証パスワードクライアント証明書認証">２要素認証（パスワード＋クライアント証明書認証）<a class="headerlink" href="#２要素認証パスワードクライアント証明書認証" title="Permanent link"></a></h2>
-<ul>
-<li>リモートアクセスVPN(Cisco Secure Client) グループによるアクセス制限 <a href="vpn-group-password-cert-secureconnect/">標準</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<ul>
-<li>標準：標準RADIUSサーバを利用した設定方法です。</li>
-<li>機器が送信しているRADIUSリクエストにNAS-ID属性はなく、NAS-IDには、機器のIPアドレスが含まれていないため、拡張RADIUSサーバは利用できません。</li>
-</ul>
-<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="/images/2025-08-27_16-50-29.png"><img alt="Screenshot" src="/images/2025-08-27_16-50-29.png" /></a></p>
 </li>
 </ol>
+<h3 id="cisco-umbrellaのsaml認証設定">Cisco UmbrellaのSAML認証設定<a class="headerlink" href="#cisco-umbrellaのsaml認証設定" title="Permanent link"></a></h3>
+<ol>
+<li>Cisco UmbrellaのWeb管理コンソールへ管理者権限を持つユーザでログインします。</li>
+<li>
+<p><strong>導入＞設定＞SAML設定</strong>画面へ移動し、右上の<strong>追加</strong>ボタンをクリックします。</p>
+<p><a href="/images/2025-08-27_16-57-37.png"><img alt="Screenshot" src="/images/2025-08-27_16-57-37.png" /></a></p>
+</li>
+<li>
+<p>以下を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>アイデンティティ プロバイダーの選択</strong></td>
+<td style="text-align: left;"><strong>その他</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2025-08-27_16-59-49.png"><img alt="Screenshot" src="/images/2025-08-27_16-59-49.png" /></a></p>
+</li>
+<li>
+<p>以下を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Other メタデータの設定</strong></td>
+<td style="text-align: left;"><strong>XMLファイルのアップロード</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Umbrellaメタデータファイルのダウンロード</strong></td>
+<td style="text-align: left;"><strong>XMLファイル</strong>をダウンロードします。<a href="#pio-idのアプリ連携設定">PIO-IDのアプリ連携設定</a>の手順で必要となります。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2025-08-27_17-03-24.png"><img alt="Screenshot" src="/images/2025-08-27_17-03-24.png" /></a></p>
+</li>
+<li>
+<p>以下を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Other メタデータXMLアップロード</strong></td>
+<td style="text-align: left;"><a href="#pio-idのアプリ連携設定">PIO-IDのアプリ連携設定</a>の手順でダウンロードしたメタデータをアップロードします。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2025-08-27_17-10-52.png"><img alt="Screenshot" src="/images/2025-08-27_17-10-52.png" /></a></p>
+</li>
+<li>
+<p>以下を設定し、<strong>保存</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ユーザの再認証</strong></td>
+<td style="text-align: left;">再認証間隔を設定します。(例: 毎日)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2025-08-27_17-14-03.png"><img alt="Screenshot" src="/images/2025-08-27_17-14-03.png" /></a></p>
+</li>
+</ol>
+<h2 id="プロビジョニング">プロビジョニング<a class="headerlink" href="#プロビジョニング" title="Permanent link"></a></h2>
+<ol>
+<li><strong>Cisco UmbrellaのWeb管理コンソール＞導入＞コアアイデンティティ＞ユーザとグループ</strong>画面へ移動します。</li>
+<li>
+<p><strong>Manual Import</strong>から、ユーザ情報のCSVファイルをインポートします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>インポート用のCSVファイルを準備するには、PIO-IDのユーザCSVファイルをご活用ください。<strong>PIO-ID 管理者ポータル＞ユーザ一覧</strong>画面からユーザ情報をCSVファイルでエクスポートできます。</p>
 </div>
+<p><a href="/images/2025-08-27_17-19-38.png"><img alt="Screenshot" src="/images/2025-08-27_17-19-38.png" /></a></p>
+</li>
+</ol>
+<h2 id="アプリにユーザ追加">アプリにユーザ追加<a class="headerlink" href="#アプリにユーザ追加" title="Permanent link"></a></h2>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞アプリ連携＞アプリ一覧</strong>画面へ移動します。</li>
+<li>登録したアプリの列にある<strong>チェックボックス</strong>を選択します。</li>
+<li>
+<p><strong>ユーザ追加</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-4.png"><img alt="Screenshot" src="/images/image-4.png" /></a></p>
+</li>
+<li>
+<p><strong>ユーザ追加</strong>画面がポップアップします。アプリへ追加したい<strong>ユーザ名</strong>を選択し、<strong>登録</strong>ボタンをクリックして、アプリへユーザを追加します。</p>
+<p><a href="/images/image-5.png"><img alt="Screenshot" src="/images/image-5.png" /></a></p>
+</li>
+</ol>
+<h2 id="動作確認">動作確認<a class="headerlink" href="#動作確認" title="Permanent link"></a></h2>
+<h3 id="saml連携テスト">SAML連携テスト<a class="headerlink" href="#saml連携テスト" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p><strong>Cisco UmbrellaのWeb管理コンソール＞導入＞設定＞SAML設定</strong>画面へ移動します。<strong>テスト構成</strong>ボタンをクリックします。</p>
+<p><a href="/images/2025-08-27_17-32-41.png"><img alt="Screenshot" src="/images/2025-08-27_17-32-41.png" /></a></p>
+</li>
+<li>
+<p>PIO-IDのログイン画面が表示されます。すでに、PIO-IDへログイン中であれば、ログイン画面は表示されません。</p>
+<p><a href="/images/image-7-1024x462.png"><img alt="Screenshot" src="/images/image-7-1024x462.png" /></a></p>
+</li>
+<li>
+<p>PIO-IDの認証に成功すると<strong>SAML Configuration Test completed successfully.</strong>と表示されます。
+    <a href="/images/2025-08-27_17-36-27.png"><img alt="Screenshot" src="/images/2025-08-27_17-36-27.png" /></a></p>
+</li>
+</ol>
 
 
 
