@@ -18,7 +18,7 @@
     
     
       
-        <title>リモートアクセスVPN-２要素認証（パスワード認証＋ワンタイムパスワード認証） - PIO-ID マニュアル</title>
+        <title>リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証） - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#リモートアクセスvpn-２要素認証パスワード認証ワンタイムパスワード認証" class="md-skip">
+        <a href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              リモートアクセスVPN-２要素認証（パスワード認証＋ワンタイムパスワード認証）
+              リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）
             
           </span>
         </div>
@@ -1150,48 +1150,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#環境" class="md-nav__link">
-    <span class="md-ellipsis">
-      環境
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="環境">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ユーザの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      ユーザの情報
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#グループの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      グループの情報
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#radiusの情報" class="md-nav__link">
-    <span class="md-ellipsis">
-      RADIUSの情報
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#設定方法" class="md-nav__link">
     <span class="md-ellipsis">
       設定方法
@@ -1202,53 +1160,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pio-idの設定" class="md-nav__link">
+  <a href="#pio-idのグループの作成" class="md-nav__link">
     <span class="md-ellipsis">
-      PIO-IDの設定
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="PIO-IDの設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#管理者ポータルへログイン" class="md-nav__link">
-    <span class="md-ellipsis">
-      管理者ポータルへログイン
+      PIO-IDのグループの作成
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#グループの作成" class="md-nav__link">
+  <a href="#pio-idのユーザの作成" class="md-nav__link">
     <span class="md-ellipsis">
-      グループの作成
+      PIO-IDのユーザの作成
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ユーザの作成" class="md-nav__link">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
-      ユーザの作成
+      PIO-IDのRADIUSサイトの登録
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#radiusの設定" class="md-nav__link">
-    <span class="md-ellipsis">
-      RADIUSの設定
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1310,16 +1244,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#リモートアクセスvpnの認証パスワード認証" class="md-nav__link">
-    <span class="md-ellipsis">
-      リモートアクセスVPNの認証（パスワード認証）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="リモートアクセスVPNの認証（パスワード認証）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#ソフトウェアトークンのインストール" class="md-nav__link">
     <span class="md-ellipsis">
       ソフトウェアトークンのインストール
@@ -1359,11 +1283,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
@@ -1381,104 +1300,32 @@
 
 
 
-<h1 id="リモートアクセスvpn-２要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-２要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-２要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
+<h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
+<p>文書更新日:2025-08-24</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
-<p>PIO-IDのユーザで、PacketiX VPNへVPNを使ってリモートアクセスします。
-接続する際の認証方式は、２要素認証（パスワード認証＋ワンタイムパスワード認証）です。</p>
-<h2 id="環境">環境<a class="headerlink" href="#環境" title="Permanent link"></a></h2>
-<h3 id="ユーザの情報">ユーザの情報<a class="headerlink" href="#ユーザの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>ユーザ名</strong></th>
-<th style="text-align: left;"><strong>姓（英字）</strong></th>
-<th style="text-align: left;"><strong>名（英字）</strong></th>
-<th style="text-align: left;"><strong>メールアドレス</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">user1@example.com</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>メールアドレス: 受信可能なメールアドレスを指定してください。</p>
-</div>
-<h3 id="グループの情報">グループの情報<a class="headerlink" href="#グループの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>グループ名</strong></th>
-<th style="text-align: left;"><strong>メンバー</strong></th>
-<th style="text-align: left;"><strong>動作</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">pioid-remote-access-users</td>
-<td style="text-align: left;">user1</td>
-<td style="text-align: left;">リモートアクセス可能</td>
-</tr>
-</tbody>
-</table>
-<h3 id="radiusの情報">RADIUSの情報<a class="headerlink" href="#radiusの情報" title="Permanent link"></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定に必要な情報</strong></th>
-<th style="text-align: left;"><strong>説明および情報取得の方法など</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのホスト名</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>IPアドレス</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSサーバのポート番号</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>RADIUSポート番号</strong>です。ここでは、デフォルトUDP1812を使用します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのIPアドレス</strong></td>
-<td style="text-align: left;"><strong>PacketiX VPN</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUSクライアントのシークレット</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。ここでは、シークレットを<strong>packetix</strong>とします。</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>PIO-IDのユーザで、PacketiX VPNへVPNを使ってリモートアクセスします。</li>
+<li>接続する際の認証方式は、2要素認証（パスワード認証＋ワンタイムパスワード認証）です。</li>
+<li>PIO-IDの標準RADIUSサーバを利用します。</li>
+<li>ユーザ/グループによるアクセス制限をします。</li>
+</ul>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
-<h3 id="pio-idの設定">PIO-IDの設定<a class="headerlink" href="#pio-idの設定" title="Permanent link"></a></h3>
-<h4 id="管理者ポータルへログイン">管理者ポータルへログイン<a class="headerlink" href="#管理者ポータルへログイン" title="Permanent link"></a></h4>
-<ol>
-<li>PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html" target="_blank"><strong>管理者ポータル</strong></a>へログインします。</li>
-</ol>
-<h4 id="グループの作成">グループの作成<a class="headerlink" href="#グループの作成" title="Permanent link"></a></h4>
+<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
 <li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
-<li><strong>グループ名</strong><a href="#グループの情報">（参照）</a>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
+<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
 </ol>
-<h4 id="ユーザの作成">ユーザの作成<a class="headerlink" href="#ユーザの作成" title="Permanent link"></a></h4>
+<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
 <li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
-<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。作成するユーザは、<a href="#ユーザの情報">ユーザの情報</a>を参照します。 <strong>グループ</strong>タブをクリックします。</li>
-<li><strong>参加するグループ</strong><a href="#グループの情報">（参照）</a>を選択し、<strong>登録</strong>ボタンをクリックします。</li>
+<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
+<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
 </ol>
-<h4 id="radiusの設定">RADIUSの設定<a class="headerlink" href="#radiusの設定" title="Permanent link"></a></h4>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
 <ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>簡易設定</strong>タブへ移動します。</li>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
 <li>カタログから<strong>PacketiX VPN</strong>の<strong>登録</strong>ボタンをクリックします。<strong>PacketiX VPN</strong>画面がポップアップします。</li>
 <li>
@@ -1493,36 +1340,40 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;">有効</td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>標準</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ワンタイムパスワード強制</strong></td>
-<td style="text-align: left;">有効</td>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;">適切なサーバ番号を選択します。選択するサーバの番号により、RADIUSサーバのポート番号が異なります。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>IP or ホスト名</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのIPアドレス</strong>を参照</td>
+<td style="text-align: left;"><strong>PacketiX VPN</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>シークレット</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのシークレット</strong>を参照</td>
+<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>選択するサーバの番号により、RADIUSサーバのポート番号が異なります。サーバが1の場合には、UDP1812です。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</p>
-</div>
 </li>
 <li>
 <p><strong>その他の認証</strong>タブへ移動します。</p>
 </li>
-<li><strong>許可グループ</strong>の設定で<strong>許可したいグループ</strong><a href="#グループの情報">（参照）</a>をダブルクリックし、許可へ移動させます。</li>
-<li><strong>登録</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>2要素認証（OTP）のみ許可</strong>を<strong>有効</strong>にすると、2要素認証（OTP）以外の認証方式のアクセスを拒否します。</p>
+</div>
+</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+</li>
 </ol>
 <h3 id="packetix-vpnの設定">PacketiX VPNの設定<a class="headerlink" href="#packetix-vpnの設定" title="Permanent link"></a></h3>
 <h4 id="仮想hubの作成">仮想HUBの作成<a class="headerlink" href="#仮想hubの作成" title="Permanent link"></a></h4>
@@ -1543,11 +1394,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">接続設定名</td>
-<td style="text-align: left;">任意</td>
+<td style="text-align: left;"><strong>任意の文字列</strong>を設定します。</td>
 </tr>
 <tr>
 <td style="text-align: left;">ホスト名</td>
-<td style="text-align: left;">管理したいVPNサーバのIPアドレス</td>
+<td style="text-align: left;"><strong>管理したいVPNサーバのIPアドレス</strong>を設定します。</td>
 </tr>
 </tbody>
 </table>
@@ -1573,11 +1424,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">仮想HUB名</td>
-<td style="text-align: left;">任意</td>
+<td style="text-align: left;"><strong>任意の文字列</strong>を設定します。</td>
 </tr>
 <tr>
 <td style="text-align: left;">仮想HUBの管理用パスワード</td>
-<td style="text-align: left;">任意</td>
+<td style="text-align: left;"><strong>任意の文字列</strong>を設定します。</td>
 </tr>
 </tbody>
 </table>
@@ -1606,15 +1457,15 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>RADIUSサーバのホスト名またはIPアドレス</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSサーバのIPアドレス</strong>を参照</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ポート番号</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSサーバのポート番号</strong>を参照</td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>共有シークレット</strong></td>
-<td style="text-align: left;"><a href="#radiusの情報">RADIUSの情報</a>の<strong>RADIUSクライアントのシークレット</strong>を参照</td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
 </tr>
 </tbody>
 </table>
@@ -1639,11 +1490,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>ユーザ名</strong></td>
-<td style="text-align: left;">*（アスタリスクを設定することで、個別のユーザを登録しなくても、PIO-IDのクラウドRADIUS可能です。）</td>
+<td style="text-align: left;">* を設定します。（アスタリスクを設定することで、個別のユーザを登録しなくても、PIO-IDのクラウドRADIUSのユーザで認証可能です。）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証方法</strong></td>
-<td style="text-align: left;">RADIUS認証</td>
+<td style="text-align: left;"><strong>RADIUS認証</strong>を選択します。</td>
 </tr>
 </tbody>
 </table>
@@ -1651,20 +1502,20 @@
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<h3 id="リモートアクセスvpnの認証パスワード認証">リモートアクセスVPNの認証（パスワード認証）<a class="headerlink" href="#リモートアクセスvpnの認証パスワード認証" title="Permanent link"></a></h3>
-<h4 id="ソフトウェアトークンのインストール">ソフトウェアトークンのインストール<a class="headerlink" href="#ソフトウェアトークンのインストール" title="Permanent link"></a></h4>
+<p>Windows端末から2要素認証（パスワード＋ワンタイムパスワード）によるリモートアクセスVPNの認証が可能なことを確認します。</p>
+<h3 id="ソフトウェアトークンのインストール">ソフトウェアトークンのインストール<a class="headerlink" href="#ソフトウェアトークンのインストール" title="Permanent link"></a></h3>
 <p>ソフトウェアトークンとして、以下のiPhoneおよびAndroidのモバイルアプリが利用できます。どちらかのアプリをスマートフォンまたはタブレットへインストールします。</p>
 <ul>
 <li>FreeOTP</li>
 <li>Google Authenticator</li>
 </ul>
-<h4 id="pio-idへソフトウェアトークンの登録">PIO-IDへソフトウェアトークンの登録<a class="headerlink" href="#pio-idへソフトウェアトークンの登録" title="Permanent link"></a></h4>
+<h3 id="pio-idへソフトウェアトークンの登録">PIO-IDへソフトウェアトークンの登録<a class="headerlink" href="#pio-idへソフトウェアトークンの登録" title="Permanent link"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>PIO-IDへソフトウェアトークンの登録</strong>を行っていないユーザは、ワンタイムパスワードは無効となり、パスワードでの認証となります。</p>
 </div>
 <ol>
-<li><strong>PIO-IDのユーザ</strong><a href="#ユーザの情報">（参照）</a>で、PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html"><strong>ユーザポータル</strong></a>へログインします。</li>
+<li>[PIO-IDのユーザの作成]の手順で作成したユーザで、PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html"><strong>ユーザポータル</strong></a>へログインします。</li>
 <li><strong>PIO-ID ユーザポータル＞オーセンティケーター</strong>画面へ移動します。</li>
 <li>
 <p><strong>QRコード</strong>が表示されていることを確認します。</p>
@@ -1694,7 +1545,7 @@
 </div>
 </li>
 </ol>
-<h4 id="接続先の設定">接続先の設定<a class="headerlink" href="#接続先の設定" title="Permanent link"></a></h4>
+<h3 id="接続先の設定">接続先の設定<a class="headerlink" href="#接続先の設定" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p>PacketiX VPNクライアントマネージャを起動して、<strong>新しい接続設定の作成</strong>をクリックします。</p>
@@ -1712,37 +1563,37 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>接続設定名</strong></td>
-<td style="text-align: left;">任意</td>
+<td style="text-align: left;"><strong>任意の文字列</strong>を設定します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ホスト名</strong></td>
-<td style="text-align: left;">PacketiX VPN Server IPアドレス またはホスト名</td>
+<td style="text-align: left;"><strong>PacketiX VPN Server IPアドレス またはホスト名</strong>を設定します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>仮想HUB</strong></td>
-<td style="text-align: left;">作成した仮想HUBを選択</td>
+<td style="text-align: left;"><strong>作成した仮想HUB</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>使用する仮想LANカード</strong></td>
-<td style="text-align: left;">任意選択</td>
+<td style="text-align: left;"><strong>適切な仮想LANカード</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザー名</strong></td>
-<td style="text-align: left;"><a href="#ユーザの情報">ユーザの情報</a>を参照</td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で許可したユーザです。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;">空白</td>
+<td style="text-align: left;">空欄にします。</td>
 </tr>
 </tbody>
 </table>
 <p><a href="/images/2022-09-09_20-38-40.png"><img alt="Screenshot" src="/images/2022-09-09_20-38-40.png" /></a></p>
 </li>
 </ol>
-<h4 id="vpn接続">VPN接続<a class="headerlink" href="#vpn接続" title="Permanent link"></a></h4>
+<h3 id="vpn接続">VPN接続<a class="headerlink" href="#vpn接続" title="Permanent link"></a></h3>
 <ol>
 <li>
-<p><strong>PIO-IDのユーザ</strong><a href="#ユーザの情報">（参照）</a>でログインを試み、ログインが成功することを確認します。</p>
+<p>認証情報を入力し、<strong>OK</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1753,11 +1604,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">アカウントの種類</td>
-<td style="text-align: left;">RADIUSまたはNTドメイン認証</td>
+<td style="text-align: left;"><strong>RADIUSまたはNTドメイン認証</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザ名</strong></td>
-<td style="text-align: left;"><a href="#ユーザの情報">PIO-IDのユーザの情報</a>を参照</td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で許可したユーザです。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
