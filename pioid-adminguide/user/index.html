@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1664,16 +1664,20 @@
 <p class="admonition-title">Info</p>
 <ul>
 <li>
-<p><strong>アカウント番号</strong>の列
-顧客管理者ポータルのヘッダー部分にある<strong>アカウント番号</strong>（８桁の数字）を定義します。顧客管理者ポータルのヘッダー部分にある<strong>アカウント番号</strong>とCSVファイルに定義した<strong>アカウント番号</strong>が一致しない場合には、ユーザは登録できません。</p>
+<p><strong>アカウント番号</strong>の列</p>
+<p>顧客管理者ポータルのヘッダー部分にある<strong>アカウント番号</strong>（8桁の数字）を定義します。顧客管理者ポータルのヘッダー部分にある<strong>アカウント番号</strong>とCSVファイルに定義した<strong>アカウント番号</strong>が一致しない場合には、ユーザは登録できません。</p>
 </li>
 <li>
-<p><strong>パスワードメール送信</strong>の列
-パスワード設定リンクをメールで送信する場合は、<strong>1</strong>を定義します。パスワードを明示的に指定する場合は0を定義します。パスワード設定リンクはメールで送信されません。</p>
+<p><strong>パスワードメール送信</strong>の列</p>
+<ul>
+<li>0：パスワード列で指定した値をそのまま設定します。</li>
+<li>1：パスワード再設定メールを送信します。</li>
+<li>2：既存ユーザの更新時のみ利用できます。現行のパスワードを保持し、再設定メールも送信しません。新規ユーザ行で 2 を指定するとエラーになります。</li>
+</ul>
 </li>
 <li>
-<p><strong>グループ</strong>の列
-    カンマ区切りで複数のグループを定義できます。存在しないグループを定義した場合には、ユーザ登録およびユーザ更新はできません。</p>
+<p><strong>グループ</strong>の列</p>
+<p>カンマ区切りで複数のグループを定義できます。存在しないグループを定義した場合には、ユーザ登録およびユーザ更新はできません。</p>
 </li>
 </ul>
 </div>
