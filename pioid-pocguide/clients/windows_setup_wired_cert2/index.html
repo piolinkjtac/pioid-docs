@@ -18,7 +18,7 @@
     
     
       
-        <title>Windows: クライアント証明書で有線LANアクセスの認証 - PIO-ID マニュアル</title>
+        <title>Windows: クライアント証明書で有線LANアクセスの認証（詳細設定） - PIO-ID マニュアル</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-クライアント証明書で有線lanアクセスの認証" class="md-skip">
+        <a href="#windows-クライアント証明書で有線lanアクセスの認証詳細設定" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows: クライアント証明書で有線LANアクセスの認証
+              Windows: クライアント証明書で有線LANアクセスの認証（詳細設定）
             
           </span>
         </div>
@@ -1148,13 +1148,13 @@
 
 
 
-<h1 id="windows-クライアント証明書で有線lanアクセスの認証">Windows: クライアント証明書で有線LANアクセスの認証<a class="headerlink" href="#windows-クライアント証明書で有線lanアクセスの認証" title="Permanent link"></a></h1>
+<h1 id="windows-クライアント証明書で有線lanアクセスの認証詳細設定">Windows: クライアント証明書で有線LANアクセスの認証（詳細設定）<a class="headerlink" href="#windows-クライアント証明書で有線lanアクセスの認証詳細設定" title="Permanent link"></a></h1>
 <p>以下、NICに認証設定する方法です。</p>
 <ol>
 <li>Windowsの<strong>スタートメニュー＞アプリ、設定、ドキュメントの検索</strong>より、<strong>ncpa.cpl</strong>を入力し、Enterキーを押下します。</li>
 <li><strong>ネットワーク接続</strong>画面が表示されるので、該当の有線認証用NICを右クリックし<strong>プロパティ</strong>を選択します。<strong>イーサネットのプロパティ</strong>画面が表示されます。</li>
 <li>
-<p><strong>認証</strong>タブへ移動し、以下を設定します。 </p>
+<p><strong>認証</strong>タブ画面で、以下を設定し、<strong>設定</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1173,12 +1173,13 @@
 </tr>
 </tbody>
 </table>
+<p><a href="/images/2025-10-22_8-59-04.png"><img alt="Screenshot" src="/images/2025-10-22_8-59-04.png" /></a></p>
 </li>
 <li>
-<p><strong>設定</strong>ボタンをクリックします。<strong>スマートカードまたはその他の証明書のプロパティ</strong>画面が表示されます。</p>
+<p><strong>スマートカードまたはその他の証明書のプロパティ</strong>画面が表示されます。</p>
 </li>
 <li>
-<p>以下情報を設定します。 </p>
+<p>以下情報を設定し、<strong>OK</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1205,13 +1206,17 @@
 </tr>
 </tbody>
 </table>
+<p><a href="/images/2025-10-22_9-08-19.png"><img alt="Screenshot" src="/images/2025-10-22_9-08-19.png" /></a></p>
 </li>
 <li>
-<p><strong>OK</strong>ボタンをクリックします。<strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。</p>
+<p><strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。</p>
 </li>
-<li><strong>追加の設定</strong>ボタンをクリックします。<strong>詳細設定</strong>画面の<strong>802.1Xの設定</strong>タブが表示されます。</li>
 <li>
-<p>以下情報を設定します。 </p>
+<p><strong>追加の設定</strong>ボタンをクリックします。<strong>詳細設定</strong>画面の<strong>802.1Xの設定</strong>タブが表示されます。</p>
+<p><a href="/images/2025-10-22_9-19-48.png"><img alt="Screenshot" src="/images/2025-10-22_9-19-48.png" /></a></p>
+</li>
+<li>
+<p>以下情報を設定し、<strong>OK</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1230,9 +1235,10 @@
 </tr>
 </tbody>
 </table>
+<p><a href="/images/2025-10-22_9-12-15.png"><img alt="Screenshot" src="/images/2025-10-22_9-12-15.png" /></a></p>
 </li>
 <li>
-<p><strong>OK</strong>ボタンをクリックします。<strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。
+<p><strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。
 <strong>OK</strong>ボタンをクリックします。<strong>ネットワーク接続</strong>画面を閉じます。 </p>
 </li>
 <li>以上で有線端末のIEEE802.1X認証 (証明書) 設定は完了です。</li>
