@@ -1492,7 +1492,7 @@
 
 
 <h1 id="リモートアクセスvpn-パスワード認証">リモートアクセスVPN-パスワード認証<a class="headerlink" href="#リモートアクセスvpn-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-09</p>
+<p>文書更新日:2026-01-16</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、YAMAHA RTXへVPNを使ってリモートアクセスします。</li>
@@ -1636,14 +1636,7 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p>YAMAHA RTXの設定については、<a href="https://network.yamaha.com/setting/router_firewall/vpn/vpn_client/vpn-smartphone-setup-rtx1210" target="_blank"><strong>L2TP/IPsecを使用したリモートアクセス : Web GUI設定</strong></a>を参考にさせていただきました。</p>
 </div>
 <h3 id="サイト識別する属性の確認方法">サイト識別する属性の確認方法<a class="headerlink" href="#サイト識別する属性の確認方法" title="Permanent link"></a></h3>
-<p>YAMAHA RTXが送信するNAS-IP-Address属性およびNAS-Identifier属性の属性値を確認します。</p>
-<ol>
-<li><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</li>
-<li>認証が失敗します。</li>
-<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
-<li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<p>YAMAHA RTXが送信するNAS-IP-Address属性の属性値を確認します。</p>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
@@ -1672,11 +1665,50 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>の手順で確認できた属性を選択します。</td>
+<td style="text-align: left;"><strong>NAS-IP-Address</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+<td style="text-align: left;"><strong>127.0.0.1</strong>を一時的に設定します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>VPNアクセスの認証</strong>タブへ移動します。</p>
+</li>
+<li><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
+</li>
+<li>
+<p><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</p>
+</li>
+<li>認証が失敗します。</li>
+<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
+<li>認証失敗したログのNAS-IPの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
+<li><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で登録したサイトの<strong>編集</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。</td>
 </tr>
 </tbody>
 </table>
@@ -1684,15 +1716,13 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p class="admonition-title">Danger</p>
 <ul>
 <li><strong>サイト識別する属性</strong>にNAS-IP-Addressを設定したときには、<strong>属性値</strong>に、グローバルIPアドレスを設定しないでください。</li>
-<li><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>の手順で、NAS-IP-AddressとNAS-Identifierのどちらの属性も確認できた場合には、どちらかの設定のみ行ってください。どちらかの設定を行うときには、NAS-Identifier属性の設定を行うことをお勧めします。NAS-IP-Address属性は、機器の設定によっては動的に変わってしまう場合があります。</li>
+<li><strong>サイト識別する属性</strong>にNAS-IP-Addressを設定したときには、NAS-IP-Address属性は、機器の設定によっては動的に変わってしまう場合があります。</li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>VPNアクセスの認証</strong>タブへ移動します。</p>
+<p><strong>更新</strong>ボタンをクリックします。</p>
 </li>
-<li><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</li>
-<li><strong>登録</strong>ボタンをクリックします。</li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
 <p>Windows端末からパスワードによるリモートアクセスVPNの認証が可能なことを確認します。</p>
