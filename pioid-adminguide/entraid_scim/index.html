@@ -1,0 +1,2267 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-adminguide/entraid_scim/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期 - PIO-ID マニュアル</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsoft-entra-idscimによる-pio-id-ユーザーグループ同期" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-header__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIO-ID マニュアル
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-nav__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PIO-ID マニュアル
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HOME
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理者ガイド
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    管理者ガイド
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ログ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ログ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radius_authlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS認証ログ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operation_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作ログ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    グループ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    認証
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    認証
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    証明書
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ連携
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    アプリ連携
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ一覧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ診断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accountinfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本情報（組織アカウント）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理者
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    詳細設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザガイド
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ユーザガイド
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アカウント
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    パスワード
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/authenticator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    オーセンティケーター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セッション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-appguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ連携ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-pocguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク機器連携の設定例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-security-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ診断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくある質問
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リリースノート
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    リリースノート
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-release-notes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    製品版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-目的と概要" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 目的と概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-前提条件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 前提条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 前提条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#対応エディションmicrosoft-entra-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対応エディション（Microsoft Entra ID）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-全体構成参考" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 全体構成（参考）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. PIO-ID 側の設定（SCIM エンドポイント用のシークレット トークン発行）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. PIO-ID 側の設定（SCIM エンドポイント用のシークレット トークン発行）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pio-id-テクニカルサポートへ提供する情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 PIO-ID テクニカルサポートへ提供する情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pio-id-から提供される情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 PIO-ID から提供される情報
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 PIO-ID から提供される情報">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scim-エンドポイントurl環境別" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCIM エンドポイントURL（環境別）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-microsoft-entra-id-側の設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Microsoft Entra ID 側の設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Microsoft Entra ID 側の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-エンタープライズ-アプリケーションの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 エンタープライズ アプリケーションの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-プロパティの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 プロパティの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-プロビジョニングの有効化" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 プロビジョニングの有効化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-属性マッピング" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 属性マッピング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 属性マッピング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-ユーザー属性マッピングusers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 ユーザー属性マッピング（Users）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 ユーザー属性マッピング（Users）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pio-idへ同期されるユーザー項目" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDへ同期されるユーザー項目
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-グループ属性マッピングgroups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 グループ属性マッピング（Groups）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-アプリケーションへの割り当て" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. アプリケーションへの割り当て
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. アプリケーションへの割り当て">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-ユーザーグループの割り当て" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 ユーザー／グループの割り当て
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-プロビジョニングの開始" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 プロビジョニングの開始
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-プロビジョニング動作仕様" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. プロビジョニング動作仕様
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. プロビジョニング動作仕様">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#80-同期のキー重要" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.0 同期のキー（重要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#81-同期される操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 同期される操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-同期タイミング" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 同期タイミング
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-レート制限と処理遅延について重要" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. レート制限と処理遅延について（重要）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. レート制限と処理遅延について（重要）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-pio-id-の基本方針" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 PIO-ID の基本方針
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-一時的な障害時の挙動" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 一時的な障害時の挙動
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-トラブルシューティング設定時" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. トラブルシューティング（設定時）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. トラブルシューティング（設定時）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-よくある設定ミス" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 よくある設定ミス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-初回セットアップ時の推奨手順" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 初回セットアップ時の推奨手順
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="microsoft-entra-idscimによる-pio-id-ユーザーグループ同期">Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期<a class="headerlink" href="#microsoft-entra-idscimによる-pio-id-ユーザーグループ同期" title="Permanent link"></a></h1>
+<h2 id="1-目的と概要">1. 目的と概要<a class="headerlink" href="#1-目的と概要" title="Permanent link"></a></h2>
+<p>本マニュアルは、Microsoft Entra ID（旧 Azure Active Directory）の <strong>SCIM プロビジョニング機能</strong> を利用して、<strong>PIO-ID</strong> にユーザーおよびグループを自動同期するための設定手順書です。</p>
+<p>本書は以下の利用者を想定しています。</p>
+<ul>
+<li>Microsoft Entra ID 管理者</li>
+<li>SIer / 販売店経由で PIO-ID を導入するエンドユーザー管理者</li>
+</ul>
+<p>※ 運用ポリシーや障害対応フローは本書には含めません。</p>
+<hr />
+<h2 id="2-前提条件">2. 前提条件<a class="headerlink" href="#2-前提条件" title="Permanent link"></a></h2>
+<p>以下の条件を満たしている必要があります。</p>
+<ul>
+<li>Microsoft Entra ID（Microsoft Entra テナント）が利用可能であること</li>
+<li>PIO-ID にて <strong>SCIM エンドポイントが有効化</strong> されていること</li>
+<li>Microsoft Entra ID にて <strong>エンタープライズ アプリケーションを作成できる権限</strong> を有していること</li>
+</ul>
+<h3 id="対応エディションmicrosoft-entra-id">対応エディション（Microsoft Entra ID）<a class="headerlink" href="#対応エディションmicrosoft-entra-id" title="Permanent link"></a></h3>
+<p>PIO-ID の SCIM 連携機能は、以下の Microsoft Entra ID エディションを前提として設計・検証されています。</p>
+<ul>
+<li>Microsoft Entra ID P1</li>
+<li>Microsoft Entra ID P2</li>
+<li>Microsoft Entra ID Governance</li>
+<li>Microsoft Entra Suite（P1 / P2 機能を含む）</li>
+</ul>
+<p>以下は動作保証外（サポート対象外）です。</p>
+<ul>
+<li>Microsoft Entra ID Free</li>
+</ul>
+<p>参考（Microsoft Learn）</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/fundamentals/licensing" target="_blank">Microsoft Entra ID ライセンス比較</a></li>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/how-provisioning-works" target="_blank">How application provisioning works in Microsoft Entra ID</a></li>
+</ul>
+<hr />
+<h2 id="3-全体構成参考">3. 全体構成（参考）<a class="headerlink" href="#3-全体構成参考" title="Permanent link"></a></h2>
+<div class="highlight"><pre><span></span><code>Microsoft Entra ID（SCIM クライアント）
+        |
+        |  SCIM 2.0 (HTTPS)
+        v
+PIO-ID SCIM エンドポイント
+        |
+        v
+PIO-ID ユーザー／グループ管理
+</code></pre></div>
+<hr />
+<h2 id="4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行">4. PIO-ID 側の設定（SCIM エンドポイント用のシークレット トークン発行）<a class="headerlink" href="#4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行" title="Permanent link"></a></h2>
+<p>PIO-ID の SCIM 連携は、必要なパラメータを PIO-ID 側へ提示いただき、PIO-ID 側で SCIM エンドポイント用のシークレット トークンを発行します。</p>
+<h3 id="41-pio-id-テクニカルサポートへ提供する情報">4.1 PIO-ID テクニカルサポートへ提供する情報<a class="headerlink" href="#41-pio-id-テクニカルサポートへ提供する情報" title="Permanent link"></a></h3>
+<p>以下の情報を <strong>PIO-ID テクニカルサポート</strong>へ提供してください。</p>
+<ul>
+<li>PIO-ID のアカウント番号</li>
+<li>Microsoft Entra ID のテナント ID</li>
+</ul>
+<h3 id="42-pio-id-から提供される情報">4.2 PIO-ID から提供される情報<a class="headerlink" href="#42-pio-id-から提供される情報" title="Permanent link"></a></h3>
+<p>PIO-ID から、以下の情報が提供されます（Microsoft Entra ID 側の設定で利用します）。</p>
+<ul>
+<li><strong>シークレット トークン</strong></li>
+</ul>
+<h4 id="scim-エンドポイントurl環境別">SCIM エンドポイントURL（環境別）<a class="headerlink" href="#scim-エンドポイントurl環境別" title="Permanent link"></a></h4>
+<ul>
+<li>PoC環境：<code>https://scim-02-0001.poc.singleid.jp/scim/v2</code></li>
+<li>本番環境：<code>https://scim-00-0001.service.singleid.jp/scim/v2</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>シークレット トークンを再発行した場合、既存のシークレット トークンは利用できなくなります。運用中に再発行する際は、Microsoft Entra ID 側の設定も更新してください。</p>
+</div>
+<hr />
+<h2 id="5-microsoft-entra-id-側の設定">5. Microsoft Entra ID 側の設定<a class="headerlink" href="#5-microsoft-entra-id-側の設定" title="Permanent link"></a></h2>
+<h3 id="51-エンタープライズ-アプリケーションの作成">5.1 エンタープライズ アプリケーションの作成<a class="headerlink" href="#51-エンタープライズ-アプリケーションの作成" title="Permanent link"></a></h3>
+<ol>
+<li><a href="https://portal.azure.com" target="_blank">Azureポータル</a>へ管理者でログインします。</li>
+<li><strong>Microsoft Entra ID</strong>管理画面に移動します。（画面上部の検索ボックスに「<strong>entra</strong>」と入力し、表示された<strong>Microsoft Entra ID</strong>をクリックします。）</li>
+<li>サイドメニューから<strong>エンタープライズ アプリケーション</strong>をクリックします。</li>
+<li><strong>新しいアプリケーション</strong>ボタンをクリックします。</li>
+<li><strong>独自のアプリケーションの作成</strong>ボタンをクリックします。</li>
+<li>アプリ名を入力します（例：<code>PIO-ID SCIM</code>）。</li>
+<li><strong>ギャラリーに見つからないその他のアプリケーションを統合します (ギャラリー以外)</strong>を選択します。</li>
+<li><strong>作成</strong>ボタンをクリックします。</li>
+</ol>
+<hr />
+<h3 id="52-プロパティの設定">5.2 プロパティの設定<a class="headerlink" href="#52-プロパティの設定" title="Permanent link"></a></h3>
+<ol>
+<li>作成したアプリケーションを開きます。</li>
+<li>サイドメニューから<strong>プロパティ</strong>をクリックします。</li>
+<li>
+<p>以下を設定し、<strong>保存</strong>をクリックします。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ユーザーのサインインが有効になっていますか?</strong></td>
+<td><strong>いいえ</strong></td>
+</tr>
+<tr>
+<td><strong>割り当てが必要ですか?</strong></td>
+<td><strong>はい</strong></td>
+</tr>
+<tr>
+<td><strong>ユーザーに表示しますか?</strong></td>
+<td><strong>いいえ</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p>設定理由：</p>
+<ul>
+<li>本アプリは SCIM 同期用途のため、エンドユーザーのサインインや表示は不要です。</li>
+<li>同期対象をアプリに割り当てたユーザー／グループに限定するため、<strong>割り当てが必要</strong>は <strong>はい</strong>のままにします。</li>
+</ul>
+<hr />
+<h3 id="53-プロビジョニングの有効化">5.3 プロビジョニングの有効化<a class="headerlink" href="#53-プロビジョニングの有効化" title="Permanent link"></a></h3>
+<ol>
+<li>サイドメニューから<strong>プロビジョニング</strong>をクリックします。</li>
+<li><strong>新しい構成</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>新しいプロビジョニング構成</strong>画面で、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>認証方法の選択</td>
+<td><strong>ベアラー認証</strong></td>
+</tr>
+<tr>
+<td>テナントのURL</td>
+<td>本書記載の <a href="#4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行"><strong>SCIM エンドポイントURL</strong></a></td>
+</tr>
+<tr>
+<td>シークレット トークン</td>
+<td>PIO-ID から提供された <strong>シークレット トークン</strong></td>
+</tr>
+<tr>
+<td>4. <strong>テスト接続</strong>ボタンをクリックし、接続テストが成功することを確認します。</td>
+<td></td>
+</tr>
+<tr>
+<td>5. <strong>作成</strong>ボタンをクリックします。</td>
+<td></td>
+</tr>
+<tr>
+<td>6. 作成完了後、アプリの<strong>概要（プレビュー）</strong>画面が表示されます。</td>
+<td></td>
+</tr>
+<tr>
+<td>7. 画面上部に<strong>プロビジョニングの開始</strong>ボタンが表示されていることを確認します。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>プロビジョニングの開始</strong>は、属性マッピングとユーザー／グループの割り当てが完了してから実行してください。</p>
+</div>
+<hr />
+<h2 id="6-属性マッピング">6. 属性マッピング<a class="headerlink" href="#6-属性マッピング" title="Permanent link"></a></h2>
+<h3 id="61-ユーザー属性マッピングusers">6.1 ユーザー属性マッピング（Users）<a class="headerlink" href="#61-ユーザー属性マッピングusers" title="Permanent link"></a></h3>
+<p>マッピングは、サイドメニューの<strong>属性マッピング（プレビュー）</strong>から設定します。</p>
+<ol>
+<li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
+<li>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。</li>
+</ol>
+<p>Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザー属性にマッピングします。</p>
+<p>PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
+<table>
+<thead>
+<tr>
+<th>customappsso 属性</th>
+<th>Microsoft Entra ID 属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userName</td>
+<td>userPrincipalName</td>
+</tr>
+<tr>
+<td>active</td>
+<td><code>Switch([IsSoftDeleted], , "False", "True", "True", "False")</code></td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>displayName</td>
+</tr>
+<tr>
+<td>title</td>
+<td>jobTitle</td>
+</tr>
+<tr>
+<td>emails[type eq "work"].value</td>
+<td>mail</td>
+</tr>
+<tr>
+<td>preferredLanguage</td>
+<td>preferredLanguage</td>
+</tr>
+<tr>
+<td>name.givenName</td>
+<td>givenName</td>
+</tr>
+<tr>
+<td>name.familyName</td>
+<td>surname</td>
+</tr>
+<tr>
+<td>name.formatted</td>
+<td><code>Join(" ", [givenName], [surname])</code></td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].formatted</td>
+<td>physicalDeliveryOfficeName</td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].streetAddress</td>
+<td>streetAddress</td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].locality</td>
+<td>city</td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].region</td>
+<td>state</td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].postalCode</td>
+<td>postalCode</td>
+</tr>
+<tr>
+<td>addresses[type eq "work"].country</td>
+<td>country</td>
+</tr>
+<tr>
+<td>phoneNumbers[type eq "work"].value</td>
+<td>telephoneNumber</td>
+</tr>
+<tr>
+<td>phoneNumbers[type eq "mobile"].value</td>
+<td>mobile</td>
+</tr>
+<tr>
+<td>phoneNumbers[type eq "fax"].value</td>
+<td>facsimileTelephoneNumber</td>
+</tr>
+<tr>
+<td>externalId</td>
+<td>mailNickname</td>
+</tr>
+<tr>
+<td>urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber</td>
+<td>employeeId</td>
+</tr>
+<tr>
+<td>urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department</td>
+<td>department</td>
+</tr>
+<tr>
+<td>urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager</td>
+<td>manager</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pio-idへ同期されるユーザー項目">PIO-IDへ同期されるユーザー項目<a class="headerlink" href="#pio-idへ同期されるユーザー項目" title="Permanent link"></a></h4>
+<ul>
+<li>ユーザー名：Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>の<code>@</code>より前の部分</li>
+<li>名：<code>givenName</code></li>
+<li>姓：<code>surname</code></li>
+<li>メールアドレス：<code>mail</code></li>
+<li>携帯電話：<code>mobile</code></li>
+<li>勤務先の電話番号：<code>telephoneNumber</code></li>
+<li>郵便番号：<code>postalCode</code></li>
+<li>都道府県：<code>state</code></li>
+<li>市区町村：<code>city</code></li>
+<li>番地：<code>streetAddress</code></li>
+<li>部署：<code>department</code></li>
+<li>役職：<code>jobTitle</code></li>
+<li>アカウントの有効/無効：<code>active</code></li>
+</ul>
+<hr />
+<h3 id="62-グループ属性マッピングgroups">6.2 グループ属性マッピング（Groups）<a class="headerlink" href="#62-グループ属性マッピングgroups" title="Permanent link"></a></h3>
+<ol>
+<li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
+<li>一覧から <strong>Provision Microsoft Entra ID Groups</strong> をクリックします。</li>
+</ol>
+<p>Microsoft Entra ID のグループ属性を PIO-ID の SCIM グループ属性にマッピングします。</p>
+<p>PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
+<table>
+<thead>
+<tr>
+<th>customappsso 属性</th>
+<th>Microsoft Entra ID 属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>displayName</td>
+<td>displayName</td>
+</tr>
+<tr>
+<td>externalId</td>
+<td>objectId</td>
+</tr>
+<tr>
+<td>members</td>
+<td>members</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ul>
+<li>Microsoft Entra ID の SCIM では、グループの入れ子（グループのメンバーに別グループが含まれる状態）は<strong>展開されません</strong>。</li>
+<li>PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。</li>
+</ul>
+<hr />
+<h2 id="7-アプリケーションへの割り当て">7. アプリケーションへの割り当て<a class="headerlink" href="#7-アプリケーションへの割り当て" title="Permanent link"></a></h2>
+<h3 id="71-ユーザーグループの割り当て">7.1 ユーザー／グループの割り当て<a class="headerlink" href="#71-ユーザーグループの割り当て" title="Permanent link"></a></h3>
+<ol>
+<li>サイドメニューから<strong>ユーザーとグループ</strong>をクリックします。</li>
+<li><strong>ユーザーまたはグループの追加</strong>ボタンをクリックします。</li>
+<li>同期したい <strong>ユーザーまたはグループ</strong> を選択します。</li>
+<li><strong>割り当て</strong>ボタンをクリックします。</li>
+</ol>
+<blockquote>
+<p>⚠️ 割り当てられていないユーザー／グループは SCIM 同期されません。</p>
+</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>グループを含むグループ（入れ子になっているグループ）</strong>を割り当て対象に選択しないでください。PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。グループを割り当てる場合は、メンバーが<strong>ユーザーのみ</strong>のグループを選択してください。</p>
+</div>
+<hr />
+<h3 id="72-プロビジョニングの開始">7.2 プロビジョニングの開始<a class="headerlink" href="#72-プロビジョニングの開始" title="Permanent link"></a></h3>
+<p>属性マッピングとユーザー／グループの割り当てが完了したら、プロビジョニングを開始します。</p>
+<ol>
+<li>サイドメニューから<strong>概要（プレビュー）</strong>をクリックします。</li>
+<li>画面上部の<strong>プロビジョニングの開始</strong>ボタンをクリックします。</li>
+<li>画面上部の表示が<strong>プロビジョニングを一時停止</strong>に切り替わることを確認します。</li>
+</ol>
+<hr />
+<h2 id="8-プロビジョニング動作仕様">8. プロビジョニング動作仕様<a class="headerlink" href="#8-プロビジョニング動作仕様" title="Permanent link"></a></h2>
+<h3 id="80-同期のキー重要">8.0 同期のキー（重要）<a class="headerlink" href="#80-同期のキー重要" title="Permanent link"></a></h3>
+<p>PIO-ID の SCIM プロキシ実装では、Microsoft Entra ID からの SCIM リクエストに含まれる <strong>userName（通常は UPN）</strong> を、PIO-ID の <strong>username</strong> として取り込み、これを既存ユーザー判定のキーとして利用します。</p>
+<ul>
+<li>既存ユーザー判定：<code>GET /Users?filter=userName eq "xxx@domain"</code> の <code>userName</code> を参照し、PIO-ID 側では <code>xxx</code>（<code>@</code> 以降を除いた値）で検索します。</li>
+<li>ユーザー作成：リクエストボディの <code>userName</code> が PIO-ID の <code>username</code> にマッピングされます（<code>@</code> 以降は除外）。</li>
+<li>ユーザー更新/無効化：作成・検索結果として返却された PIO-ID の <code>id</code>（<code>/Users/{id}</code>）をキーに処理します。</li>
+<li><code>externalId</code>：本同期処理では参照しません。</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>@</code> 以降が切り捨てられるため、<code>userName</code> のローカル部（<code>@</code> より前）が重複するユーザーが存在すると、意図しないユーザーに紐づく可能性があります。Microsoft Entra ID 側で <code>userName</code>（UPN）の運用ルールを確認してください。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Microsoft Entra ID 側で <code>userName</code>（UPN）を変更した場合、PIO-ID 側ではユーザ名（username）の変更が許可されていないため、不整合が発生します。運用上、同期対象ユーザーの UPN を変更しないでください。</p>
+</div>
+<h3 id="81-同期される操作">8.1 同期される操作<a class="headerlink" href="#81-同期される操作" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>Microsoft Entra ID 操作</th>
+<th>PIO-ID 側の動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ユーザー追加</td>
+<td>ユーザー作成</td>
+</tr>
+<tr>
+<td>ユーザー属性変更</td>
+<td>ユーザー更新</td>
+</tr>
+<tr>
+<td>ユーザー割当解除 / ユーザー無効化 / ユーザー論理削除</td>
+<td>ユーザー無効化</td>
+</tr>
+<tr>
+<td>ユーザー物理削除</td>
+<td>ユーザー削除</td>
+</tr>
+<tr>
+<td>グループ作成</td>
+<td>グループ作成</td>
+</tr>
+<tr>
+<td>メンバー追加/削除</td>
+<td>グループメンバー更新</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="82-同期タイミング">8.2 同期タイミング<a class="headerlink" href="#82-同期タイミング" title="Permanent link"></a></h3>
+<ul>
+<li>初回同期：プロビジョニング有効化後に自動実行</li>
+<li>定期同期／反映タイミング：Microsoft Entra ID 側の仕様に従います（最新情報は Microsoft の公式ドキュメントを参照してください）</li>
+</ul>
+<p>参考：<a href="https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/" target="_blank">Microsoft Entra ID のプロビジョニングに関する公式ドキュメント</a></p>
+<hr />
+<h2 id="9-レート制限と処理遅延について重要">9. レート制限と処理遅延について（重要）<a class="headerlink" href="#9-レート制限と処理遅延について重要" title="Permanent link"></a></h2>
+<h3 id="91-pio-id-の基本方針">9.1 PIO-ID の基本方針<a class="headerlink" href="#91-pio-id-の基本方針" title="Permanent link"></a></h3>
+<p>PIO-ID の SCIM 実装では、以下の方針を採用しています。</p>
+<ul>
+<li><strong>HTTP 429（Too Many Requests）は返しません</strong></li>
+<li><strong>キューイング処理は行いません</strong></li>
+<li>リクエストが集中した場合は、内部で <strong>処理を遅延</strong> させることで<strong>処理速度を自動的に調整</strong> します</li>
+</ul>
+<p>この設計により、Microsoft Entra ID 側の SCIM クライアントがレート制限応答を解釈できない場合でも、
+プロビジョニングジョブがエラーや隔離（Quarantine）状態になることを防ぎます。</p>
+<hr />
+<h3 id="92-一時的な障害時の挙動">9.2 一時的な障害時の挙動<a class="headerlink" href="#92-一時的な障害時の挙動" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>状態</th>
+<th>PIO-ID の対応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一時的な高負荷</td>
+<td>内部リトライ／遅延処理</td>
+</tr>
+<tr>
+<td>上流 API 障害</td>
+<td>503 / 504 を返却</td>
+</tr>
+<tr>
+<td>致命的エラー</td>
+<td>500 を返却</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-トラブルシューティング設定時">10. トラブルシューティング（設定時）<a class="headerlink" href="#10-トラブルシューティング設定時" title="Permanent link"></a></h2>
+<h3 id="101-よくある設定ミス">10.1 よくある設定ミス<a class="headerlink" href="#101-よくある設定ミス" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>事象</th>
+<th>原因</th>
+<th>確認ポイント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ユーザーが同期されない</td>
+<td>割り当て漏れ</td>
+<td>アプリにユーザー／グループが割り当てられているか</td>
+</tr>
+<tr>
+<td>メールが反映されない</td>
+<td>属性マッピング不備</td>
+<td><code>mail → emails[type=work]</code> が設定されているか</td>
+</tr>
+<tr>
+<td>グループメンバーが欠落</td>
+<td>ネストグループ</td>
+<td>直接メンバーのみが割り当てられているか</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-初回セットアップ時の推奨手順">11. 初回セットアップ時の推奨手順<a class="headerlink" href="#11-初回セットアップ時の推奨手順" title="Permanent link"></a></h2>
+<ul>
+<li>最初は <strong>少数ユーザー（1〜2名）で接続テスト</strong> を行う</li>
+<li>問題がなければ、段階的にグループ割り当てを追加する</li>
+<li>大規模同期を行う前に、属性マッピング画面を必ず確認する</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; PIOLINK, Inc. All rights reserved.
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
