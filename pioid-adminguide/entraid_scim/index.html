@@ -1354,6 +1354,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#必要な権限準備" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必要な権限・準備
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upn-の運用重要" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPN の運用（重要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#対応エディションmicrosoft-entra-id" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1507,23 +1529,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.1 ユーザー属性マッピング（Users）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pio-idへ同期されるユーザー項目" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIO-IDへ同期されるユーザー項目
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1594,10 +1599,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#80-同期のキー重要" class="md-nav__link">
+  <a href="#80-pio-idへ同期されるユーザー項目" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.0 同期のキー（重要）
+        8.0 PIO-IDへ同期されるユーザー項目
       
     </span>
   </a>
@@ -1605,10 +1610,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#81-同期される操作" class="md-nav__link">
+  <a href="#81-同期のキー重要" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.1 同期される操作
+        8.1 同期のキー（重要）
       
     </span>
   </a>
@@ -1616,10 +1621,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-同期タイミング" class="md-nav__link">
+  <a href="#82-同期される操作" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.2 同期タイミング
+        8.2 同期される操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-同期タイミング" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 同期タイミング
       
     </span>
   </a>
@@ -1727,6 +1743,7 @@
 
 
 <h1 id="microsoft-entra-idscimによる-pio-id-ユーザーグループ同期">Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期<a class="headerlink" href="#microsoft-entra-idscimによる-pio-id-ユーザーグループ同期" title="Permanent link"></a></h1>
+<p>文書更新日:2026-01-19</p>
 <h2 id="1-目的と概要">1. 目的と概要<a class="headerlink" href="#1-目的と概要" title="Permanent link"></a></h2>
 <p>本マニュアルは、Microsoft Entra ID（旧 Azure Active Directory）の <strong>SCIM プロビジョニング機能</strong> を利用して、<strong>PIO-ID</strong> にユーザーおよびグループを自動同期するための設定手順書です。</p>
 <p>本書は以下の利用者を想定しています。</p>
@@ -1737,12 +1754,29 @@
 <p>※ 運用ポリシーや障害対応フローは本書には含めません。</p>
 <hr />
 <h2 id="2-前提条件">2. 前提条件<a class="headerlink" href="#2-前提条件" title="Permanent link"></a></h2>
-<p>以下の条件を満たしている必要があります。</p>
+<p>この手順を実施する前に、以下を確認してください。</p>
+<h3 id="必要な権限準備">必要な権限・準備<a class="headerlink" href="#必要な権限準備" title="Permanent link"></a></h3>
 <ul>
 <li>Microsoft Entra ID（Microsoft Entra テナント）が利用可能であること</li>
-<li>PIO-ID にて <strong>SCIM エンドポイントが有効化</strong> されていること</li>
-<li>Microsoft Entra ID にて <strong>エンタープライズ アプリケーションを作成できる権限</strong> を有していること</li>
+<li>Microsoft Entra ID にて、<strong>エンタープライズ アプリケーションの作成</strong>および<strong>プロビジョニング設定</strong>ができる権限を有していること</li>
+<li>PIO-ID テクニカルサポートへ連絡できること（シークレット トークン発行のため）</li>
+<li>PIO-ID のアカウント番号、Microsoft Entra ID のテナント ID を確認できること</li>
 </ul>
+<h3 id="upn-の運用重要">UPN の運用（重要）<a class="headerlink" href="#upn-の運用重要" title="Permanent link"></a></h3>
+<p>PIO-ID では、Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>を元にユーザーを識別します（PIO-ID 側のユーザー名は UPN の<code>@</code>より前の部分が利用されます）。</p>
+<ul>
+<li>
+<p>同期対象ユーザーの UPN の<code>@</code>より前の部分が、テナント内で重複していないこと</p>
+<p>例：<code>user1@a.example</code> と <code>user1@b.example</code> は重複扱い</p>
+</li>
+<li>
+<p>同期開始後に、同期対象ユーザーの UPN を変更しない運用にできること</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>上記が満たせない場合、SCIM 連携が正常に動作しない（または意図しないユーザーに紐づく）可能性があります。</p>
+</div>
 <h3 id="対応エディションmicrosoft-entra-id">対応エディション（Microsoft Entra ID）<a class="headerlink" href="#対応エディションmicrosoft-entra-id" title="Permanent link"></a></h3>
 <p>PIO-ID の SCIM 連携機能は、以下の Microsoft Entra ID エディションを前提として設計・検証されています。</p>
 <ul>
@@ -1751,10 +1785,7 @@
 <li>Microsoft Entra ID Governance</li>
 <li>Microsoft Entra Suite（P1 / P2 機能を含む）</li>
 </ul>
-<p>以下は動作保証外（サポート対象外）です。</p>
-<ul>
-<li>Microsoft Entra ID Free</li>
-</ul>
+<p>Microsoft Entra ID Free については、グループ プロビジョニングが利用できないため、本書の前提（ユーザー／グループ同期）を満たしません。ユーザー プロビジョニングは可能な場合がありますが、PIO-ID では Free エディションでの検証を行っていないため推奨しません（検証予定）。</p>
 <p>参考（Microsoft Learn）</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/entra/fundamentals/licensing" target="_blank">Microsoft Entra ID ライセンス比較</a></li>
@@ -1836,13 +1867,15 @@ PIO-ID ユーザー／グループ管理
 </tr>
 </tbody>
 </table>
-</li>
-</ol>
-<p>設定理由：</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <ul>
 <li>本アプリは SCIM 同期用途のため、エンドユーザーのサインインや表示は不要です。</li>
 <li>同期対象をアプリに割り当てたユーザー／グループに限定するため、<strong>割り当てが必要</strong>は <strong>はい</strong>のままにします。</li>
 </ul>
+</div>
+</li>
+</ol>
 <hr />
 <h3 id="53-プロビジョニングの有効化">5.3 プロビジョニングの有効化<a class="headerlink" href="#53-プロビジョニングの有効化" title="Permanent link"></a></h3>
 <ol>
@@ -1859,36 +1892,26 @@ PIO-ID ユーザー／グループ管理
 </thead>
 <tbody>
 <tr>
-<td>認証方法の選択</td>
-<td><strong>ベアラー認証</strong></td>
+<td><strong>認証方法の選択</strong></td>
+<td><strong>ベアラー認証</strong>を選択します。</td>
 </tr>
 <tr>
-<td>テナントのURL</td>
-<td>本書記載の <a href="#4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行"><strong>SCIM エンドポイントURL</strong></a></td>
+<td><strong>テナントのURL</strong></td>
+<td>本書記載の <a href="#4-pio-id-側の設定scim-エンドポイント用のシークレット-トークン発行"><strong>SCIM エンドポイントURL</strong></a>を設定します。</td>
 </tr>
 <tr>
-<td>シークレット トークン</td>
-<td>PIO-ID から提供された <strong>シークレット トークン</strong></td>
-</tr>
-<tr>
-<td>4. <strong>テスト接続</strong>ボタンをクリックし、接続テストが成功することを確認します。</td>
-<td></td>
-</tr>
-<tr>
-<td>5. <strong>作成</strong>ボタンをクリックします。</td>
-<td></td>
-</tr>
-<tr>
-<td>6. 作成完了後、アプリの<strong>概要（プレビュー）</strong>画面が表示されます。</td>
-<td></td>
-</tr>
-<tr>
-<td>7. 画面上部に<strong>プロビジョニングの開始</strong>ボタンが表示されていることを確認します。</td>
-<td></td>
+<td><strong>シークレット トークン</strong></td>
+<td>PIO-ID から提供された <strong>シークレット トークン</strong>を設定します。</td>
 </tr>
 </tbody>
 </table>
 </li>
+<li>
+<p><strong>テスト接続</strong>ボタンをクリックし、接続テストが成功することを確認します。</p>
+</li>
+<li><strong>作成</strong>ボタンをクリックします。</li>
+<li>作成完了後、アプリの<strong>概要（プレビュー）</strong>画面が表示されます。</li>
+<li>画面上部に<strong>プロビジョニングの開始</strong>ボタンが表示されていることを確認します。</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1900,10 +1923,8 @@ PIO-ID ユーザー／グループ管理
 <p>マッピングは、サイドメニューの<strong>属性マッピング（プレビュー）</strong>から設定します。</p>
 <ol>
 <li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
-<li>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。</li>
-</ol>
-<p>Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザー属性にマッピングします。</p>
-<p>PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
+<li>
+<p>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザー属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
 <table>
 <thead>
 <tr>
@@ -2002,30 +2023,14 @@ PIO-ID ユーザー／グループ管理
 </tr>
 </tbody>
 </table>
-<h4 id="pio-idへ同期されるユーザー項目">PIO-IDへ同期されるユーザー項目<a class="headerlink" href="#pio-idへ同期されるユーザー項目" title="Permanent link"></a></h4>
-<ul>
-<li>ユーザー名：Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>の<code>@</code>より前の部分</li>
-<li>名：<code>givenName</code></li>
-<li>姓：<code>surname</code></li>
-<li>メールアドレス：<code>mail</code></li>
-<li>携帯電話：<code>mobile</code></li>
-<li>勤務先の電話番号：<code>telephoneNumber</code></li>
-<li>郵便番号：<code>postalCode</code></li>
-<li>都道府県：<code>state</code></li>
-<li>市区町村：<code>city</code></li>
-<li>番地：<code>streetAddress</code></li>
-<li>部署：<code>department</code></li>
-<li>役職：<code>jobTitle</code></li>
-<li>アカウントの有効/無効：<code>active</code></li>
-</ul>
+</li>
+</ol>
 <hr />
 <h3 id="62-グループ属性マッピングgroups">6.2 グループ属性マッピング（Groups）<a class="headerlink" href="#62-グループ属性マッピングgroups" title="Permanent link"></a></h3>
 <ol>
 <li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
-<li>一覧から <strong>Provision Microsoft Entra ID Groups</strong> をクリックします。</li>
-</ol>
-<p>Microsoft Entra ID のグループ属性を PIO-ID の SCIM グループ属性にマッピングします。</p>
-<p>PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
+<li>
+<p>一覧から <strong>Provision Microsoft Entra ID Groups</strong> をクリックします。Microsoft Entra ID のグループ属性を PIO-ID の SCIM グループ属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
 <table>
 <thead>
 <tr>
@@ -2048,11 +2053,15 @@ PIO-ID ユーザー／グループ管理
 </tr>
 </tbody>
 </table>
-<p><strong>注意：</strong></p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul>
 <li>Microsoft Entra ID の SCIM では、グループの入れ子（グループのメンバーに別グループが含まれる状態）は<strong>展開されません</strong>。</li>
 <li>PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。</li>
 </ul>
+</div>
 <hr />
 <h2 id="7-アプリケーションへの割り当て">7. アプリケーションへの割り当て<a class="headerlink" href="#7-アプリケーションへの割り当て" title="Permanent link"></a></h2>
 <h3 id="71-ユーザーグループの割り当て">7.1 ユーザー／グループの割り当て<a class="headerlink" href="#71-ユーザーグループの割り当て" title="Permanent link"></a></h3>
@@ -2062,9 +2071,10 @@ PIO-ID ユーザー／グループ管理
 <li>同期したい <strong>ユーザーまたはグループ</strong> を選択します。</li>
 <li><strong>割り当て</strong>ボタンをクリックします。</li>
 </ol>
-<blockquote>
-<p>⚠️ 割り当てられていないユーザー／グループは SCIM 同期されません。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>割り当てられていないユーザー／グループは SCIM 同期されません。</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>グループを含むグループ（入れ子になっているグループ）</strong>を割り当て対象に選択しないでください。PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。グループを割り当てる場合は、メンバーが<strong>ユーザーのみ</strong>のグループを選択してください。</p>
@@ -2079,23 +2089,35 @@ PIO-ID ユーザー／グループ管理
 </ol>
 <hr />
 <h2 id="8-プロビジョニング動作仕様">8. プロビジョニング動作仕様<a class="headerlink" href="#8-プロビジョニング動作仕様" title="Permanent link"></a></h2>
-<h3 id="80-同期のキー重要">8.0 同期のキー（重要）<a class="headerlink" href="#80-同期のキー重要" title="Permanent link"></a></h3>
-<p>PIO-ID の SCIM プロキシ実装では、Microsoft Entra ID からの SCIM リクエストに含まれる <strong>userName（通常は UPN）</strong> を、PIO-ID の <strong>username</strong> として取り込み、これを既存ユーザー判定のキーとして利用します。</p>
+<p>この章では、同期の動作（どの項目が同期されるか／どの操作が反映されるか）を説明します。</p>
+<h3 id="80-pio-idへ同期されるユーザー項目">8.0 PIO-IDへ同期されるユーザー項目<a class="headerlink" href="#80-pio-idへ同期されるユーザー項目" title="Permanent link"></a></h3>
+<p>PIO-ID に同期される主なユーザー項目は以下です。</p>
 <ul>
-<li>既存ユーザー判定：<code>GET /Users?filter=userName eq "xxx@domain"</code> の <code>userName</code> を参照し、PIO-ID 側では <code>xxx</code>（<code>@</code> 以降を除いた値）で検索します。</li>
-<li>ユーザー作成：リクエストボディの <code>userName</code> が PIO-ID の <code>username</code> にマッピングされます（<code>@</code> 以降は除外）。</li>
-<li>ユーザー更新/無効化：作成・検索結果として返却された PIO-ID の <code>id</code>（<code>/Users/{id}</code>）をキーに処理します。</li>
-<li><code>externalId</code>：本同期処理では参照しません。</li>
+<li>ユーザー名：Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>の<code>@</code>より前の部分</li>
+<li>名：<code>givenName</code></li>
+<li>姓：<code>surname</code></li>
+<li>メールアドレス：<code>mail</code></li>
+<li>携帯電話：<code>mobile</code></li>
+<li>勤務先の電話番号：<code>telephoneNumber</code></li>
+<li>郵便番号：<code>postalCode</code></li>
+<li>都道府県：<code>state</code></li>
+<li>市区町村：<code>city</code></li>
+<li>番地：<code>streetAddress</code></li>
+<li>部署：<code>department</code></li>
+<li>役職：<code>jobTitle</code></li>
+<li>アカウントの有効/無効：<code>active</code></li>
 </ul>
+<h3 id="81-同期のキー重要">8.1 同期のキー（重要）<a class="headerlink" href="#81-同期のキー重要" title="Permanent link"></a></h3>
+<p>PIO-ID では、Microsoft Entra ID から同期されるユーザーを <strong>ユーザー プリンシパル名（UPN）</strong> を元に識別します。PIO-ID 側のユーザー名は、UPN の <code>@</code> より前の部分が利用されます。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>@</code> 以降が切り捨てられるため、<code>userName</code> のローカル部（<code>@</code> より前）が重複するユーザーが存在すると、意図しないユーザーに紐づく可能性があります。Microsoft Entra ID 側で <code>userName</code>（UPN）の運用ルールを確認してください。</p>
+<p>UPN の <code>@</code> より前の部分が同じユーザーが複数いると、意図しないユーザーに紐づく可能性があります。UPN の運用ルール（重複しないこと）を確認してください。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Microsoft Entra ID 側で <code>userName</code>（UPN）を変更した場合、PIO-ID 側ではユーザ名（username）の変更が許可されていないため、不整合が発生します。運用上、同期対象ユーザーの UPN を変更しないでください。</p>
+<p>UPN を変更すると、PIO-ID 側のユーザー名と一致しなくなり不整合が発生します。運用上、同期対象ユーザーの UPN は変更しないでください。</p>
 </div>
-<h3 id="81-同期される操作">8.1 同期される操作<a class="headerlink" href="#81-同期される操作" title="Permanent link"></a></h3>
+<h3 id="82-同期される操作">8.2 同期される操作<a class="headerlink" href="#82-同期される操作" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -2131,7 +2153,7 @@ PIO-ID ユーザー／グループ管理
 </tbody>
 </table>
 <hr />
-<h3 id="82-同期タイミング">8.2 同期タイミング<a class="headerlink" href="#82-同期タイミング" title="Permanent link"></a></h3>
+<h3 id="83-同期タイミング">8.3 同期タイミング<a class="headerlink" href="#83-同期タイミング" title="Permanent link"></a></h3>
 <ul>
 <li>初回同期：プロビジョニング有効化後に自動実行</li>
 <li>定期同期／反映タイミング：Microsoft Entra ID 側の仕様に従います（最新情報は Microsoft の公式ドキュメントを参照してください）</li>
