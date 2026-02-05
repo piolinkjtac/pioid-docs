@@ -1645,10 +1645,13 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </table>
 </li>
 <li>
-<p>一時的に適当な<strong>名前</strong>と<strong>パスワード</strong>でユーザを登録します。<strong>次へ</strong>ボタンをクリックします。<strong>入力内容の確認</strong>画面へ移動します。</p>
+<p>一時的に任意の<strong>名前</strong>と<strong>パスワード</strong>でユーザを登録します（<strong>名前</strong>はPIO-IDに登録したユーザ名と重複しないものにします）。<strong>次へ</strong>ボタンをクリックします。<strong>入力内容の確認</strong>画面へ移動します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>PIO-IDに登録されたユーザでリモートアクセスを行いますが、YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも１ユーザのユーザ登録が必要です。ここで登録したユーザは、後で、CLIから削除してもよいですし、削除しない場合には、複雑なパスワードを設定しておくことをお勧めします。</p>
+<p>PIO-IDに登録されたユーザでリモートアクセスを行いますが、YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも１ユーザのユーザ登録が必要です。ここで登録したユーザは、後で、トンネル設定に登録されたユーザ情報（<code>pp auth username</code>）のみをCLIから削除してもよいですし、削除しない場合には、複雑なパスワードを設定しておくことをお勧めします。</p>
+<p>削除コマンド例：</p>
+<div class="highlight"><pre><span></span><code>no pp auth username &lt;username&gt; &lt;password&gt;
+</code></pre></div>
 </div>
 </li>
 <li>
