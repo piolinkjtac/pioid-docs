@@ -1351,6 +1351,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="事前作業">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entra-id-ユーザー属性の前提" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entra ID ユーザー属性の前提
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1448,10 +1465,34 @@
 
 
 <h1 id="windows-10-以降のデバイス構成プロファイルの作成方法">Windows 10 以降のデバイス構成プロファイルの作成方法<a class="headerlink" href="#windows-10-以降のデバイス構成プロファイルの作成方法" title="Permanent link"></a></h1>
+<p>文書更新日:2026-02-26</p>
 <h2 id="pio-idのクライアント証明書の配布手順">PIO-IDのクライアント証明書の配布手順<a class="headerlink" href="#pio-idのクライアント証明書の配布手順" title="Permanent link"></a></h2>
 <h3 id="事前作業">事前作業<a class="headerlink" href="#事前作業" title="Permanent link"></a></h3>
 <p>PIO-IDのルートCA証明書ファイルと中間CA証明書ファイルを取得します。</p>
 <p><a href="../../pki/#基本情報">取得方法</a></p>
+<h4 id="entra-id-ユーザー属性の前提">Entra ID ユーザー属性の前提<a class="headerlink" href="#entra-id-ユーザー属性の前提" title="Permanent link"></a></h4>
+<p>SCEP 証明書プロファイルで <code>CN={{UserName}}</code> や <code>E={{EmailAddress}}</code> を使用する場合、Microsoft Entra ID 側の属性値が参照されます。以下の値は PIO-ID 側のユーザー情報と一致させてください。不一致または未設定（空値）の場合、証明書発行が失敗します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">SCEP で使用する値</th>
+<th style="text-align: left;">Microsoft Entra ID で参照される属性</th>
+<th style="text-align: left;">前提</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{{UserName}}</code></td>
+<td style="text-align: left;"><code>userPrincipalName</code> の <code>@</code> より前の部分</td>
+<td style="text-align: left;">PIO-ID のユーザー名と一致していること</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{{EmailAddress}}</code></td>
+<td style="text-align: left;"><code>mail</code></td>
+<td style="text-align: left;">PIO-ID のメールアドレスと一致していること</td>
+</tr>
+</tbody>
+</table>
 <h3 id="pio-idのルートca証明書">PIO-IDのルートCA証明書<a class="headerlink" href="#pio-idのルートca証明書" title="Permanent link"></a></h3>
 <ol>
 <li><strong>Microsoft Intune 管理センター＞デバイス＞デバイスの管理＞構成＞ポリシー</strong>タブへ移動します。</li>

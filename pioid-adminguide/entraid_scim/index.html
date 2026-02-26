@@ -1376,6 +1376,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ユーザー属性の前提scim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザー属性の前提（SCIM）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#対応エディションmicrosoft-entra-id" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1743,7 +1754,7 @@
 
 
 <h1 id="microsoft-entra-idscimによる-pio-id-ユーザーグループ同期">Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期<a class="headerlink" href="#microsoft-entra-idscimによる-pio-id-ユーザーグループ同期" title="Permanent link"></a></h1>
-<p>文書更新日:2026-01-19</p>
+<p>文書更新日:2026-02-26</p>
 <h2 id="1-目的と概要">1. 目的と概要<a class="headerlink" href="#1-目的と概要" title="Permanent link"></a></h2>
 <p>本マニュアルは、Microsoft Entra ID（旧 Azure Active Directory）の <strong>SCIM プロビジョニング機能</strong> を利用して、<strong>PIO-ID</strong> にユーザーおよびグループを自動同期するための設定手順書です。</p>
 <p>本書は以下の利用者を想定しています。</p>
@@ -1777,6 +1788,39 @@
 <p class="admonition-title">Warning</p>
 <p>上記が満たせない場合、SCIM 連携が正常に動作しない（または意図しないユーザーに紐づく）可能性があります。</p>
 </div>
+<h3 id="ユーザー属性の前提scim">ユーザー属性の前提（SCIM）<a class="headerlink" href="#ユーザー属性の前提scim" title="Permanent link"></a></h3>
+<p>SCIM で PIO-ID のユーザーを作成・更新するため、以下の属性が Microsoft Entra ID 側で設定されていることを事前に確認してください。未設定（空値）の場合、対象ユーザーのプロビジョニングは失敗します。</p>
+<table>
+<thead>
+<tr>
+<th>PIO-ID の必須項目</th>
+<th>SCIM 属性</th>
+<th>Microsoft Entra ID 属性（デフォルト）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ユーザー名</td>
+<td><code>userName</code></td>
+<td><code>userPrincipalName</code>（<code>@</code> より前の部分を利用）</td>
+</tr>
+<tr>
+<td>名</td>
+<td><code>name.givenName</code></td>
+<td><code>givenName</code></td>
+</tr>
+<tr>
+<td>姓</td>
+<td><code>name.familyName</code></td>
+<td><code>surname</code></td>
+</tr>
+<tr>
+<td>メールアドレス</td>
+<td><code>emails[type eq "work"].value</code></td>
+<td><code>mail</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="対応エディションmicrosoft-entra-id">対応エディション（Microsoft Entra ID）<a class="headerlink" href="#対応エディションmicrosoft-entra-id" title="Permanent link"></a></h3>
 <p>PIO-ID の SCIM 連携機能は、以下の Microsoft Entra ID エディションを前提として設計・検証されています。</p>
 <ul>
@@ -1923,8 +1967,8 @@ PIO-ID ユーザー／グループ管理
 <p>マッピングは、サイドメニューの<strong>属性マッピング（プレビュー）</strong>から設定します。</p>
 <ol>
 <li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
-<li>
-<p>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザー属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
+<li>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザー属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -2023,8 +2067,6 @@ PIO-ID ユーザー／グループ管理
 </tr>
 </tbody>
 </table>
-</li>
-</ol>
 <hr />
 <h3 id="62-グループ属性マッピングgroups">6.2 グループ属性マッピング（Groups）<a class="headerlink" href="#62-グループ属性マッピングgroups" title="Permanent link"></a></h3>
 <ol>
@@ -2210,6 +2252,11 @@ PIO-ID ユーザー／グループ管理
 <td>ユーザーが同期されない</td>
 <td>割り当て漏れ</td>
 <td>アプリにユーザー／グループが割り当てられているか</td>
+</tr>
+<tr>
+<td>ユーザー作成/更新が失敗する</td>
+<td>PIO-ID 必須項目が未設定</td>
+<td><code>userPrincipalName</code> / <code>givenName</code> / <code>surname</code> / <code>mail</code> の値とマッピングを確認</td>
 </tr>
 <tr>
 <td>メールが反映されない</td>

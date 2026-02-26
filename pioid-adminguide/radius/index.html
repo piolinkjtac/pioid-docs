@@ -653,6 +653,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#証明書失効crlの反映タイミング" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        証明書失効（CRL）の反映タイミング
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2種類のradiusサーバについて" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1530,6 +1541,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#証明書失効crlの反映タイミング" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        証明書失効（CRL）の反映タイミング
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2種類のradiusサーバについて" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1676,7 +1698,8 @@
 
   <h1>RADIUS</h1>
 
-<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。</p>
+<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。
+文書更新日:2026-02-26</p>
 <h2 id="サポートする認証方式について">サポートする認証方式について<a class="headerlink" href="#サポートする認証方式について" title="Permanent link"></a></h2>
 <p>以下の認証方式をサポートしています。</p>
 <ul>
@@ -1693,6 +1716,12 @@
 <li>PAP</li>
 <li>EAP-TTLS-PAP</li>
 </ul>
+<h2 id="証明書失効crlの反映タイミング">証明書失効（CRL）の反映タイミング<a class="headerlink" href="#証明書失効crlの反映タイミング" title="Permanent link"></a></h2>
+<p>クラウドRADIUSが参照する証明書失効リスト（CRL）は、<strong>毎時更新</strong>されます。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>証明書を失効させてからクラウドRADIUSの認証へ反映されるまで、最大で1時間かかります。</p>
+</div>
 <h2 id="2種類のradiusサーバについて">2種類のRADIUSサーバについて<a class="headerlink" href="#2種類のradiusサーバについて" title="Permanent link"></a></h2>
 <p>それぞれのRADIUSサーバには以下のような違いがあります。</p>
 <table>
@@ -1844,7 +1873,7 @@
 <ol>
 <li><strong>簡易設定</strong>タブをクリックします。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックすると<strong>ネットワーク機器連携カタログ</strong>が表示されます。</li>
-<li>設定したいネットワーク機器の<strong>設定ガイド</strong>のリンクをクリックします。クラウドRADIOUSおよびネットワーク機器の詳細な設定ガイドが表示されます。<strong>設定ガイドを参考に設定を進めます。</strong></li>
+<li>設定したいネットワーク機器の<strong>設定ガイド</strong>のリンクをクリックします。クラウドRADIUSおよびネットワーク機器の詳細な設定ガイドが表示されます。<strong>設定ガイドを参考に設定を進めます。</strong></li>
 <li>設定したいネットワーク機器の<strong>登録</strong>ボタンをクリックします。<strong>簡易設定</strong>画面がポップアップします。</li>
 <li>
 <p><strong>基本情報</strong>タブでは、以下の項目を設定します。</p>
