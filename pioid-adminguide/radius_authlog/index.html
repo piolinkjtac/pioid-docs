@@ -504,6 +504,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eap_tls-tls-alert-readfatalunknown-ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) Alert read:fatal:unknown CA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1592,6 +1603,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eap_tls-tls-alert-readfatalunknown-ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) Alert read:fatal:unknown CA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1728,6 +1750,8 @@
 <h3 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h3>
 <h4 id="eap_peap-tls-alert-readfatalinternal-error"><code>eap_peap: TLS Alert read:fatal:internal error</code><a class="headerlink" href="#eap_peap-tls-alert-readfatalinternal-error" title="Permanent link"></a></h4>
 <p>Android11において、EAP方式が、PEAPまたはTLSの場合に、<strong>ドメイン</strong>への入力内容が正しくない場合に発生します。<strong>ドメイン</strong>には、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</p>
+<h4 id="eap_tls-tls-alert-readfatalunknown-ca"><code>eap_tls: (TLS) Alert read:fatal:unknown CA</code><a class="headerlink" href="#eap_tls-tls-alert-readfatalunknown-ca" title="Permanent link"></a></h4>
+<p>接続デバイス側で、RADIUSサーバ証明書の検証に使用するCAの設定が誤っている場合に発生します。RADIUSサーバ証明書は<a href="https://letsencrypt.org/certificates/" target="_blank">Let's Encrypt</a>（サブジェクト: ISRG Root X1）のCAで発行されているため、接続デバイス側でも同CAで検証するよう設定してください。</p>
 <h4 id="no-auth-type-found-rejecting-the-user-via-post-auth-type--reject"><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject</code><a class="headerlink" href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" title="Permanent link"></a></h4>
 <p>以下の場合に発生します。</p>
 <ul>
