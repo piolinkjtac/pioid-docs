@@ -1808,7 +1808,7 @@
 <ol>
 <li>
 <p><strong>Wireless service</strong>を登録します。</p>
-<div class="highlight"><pre><span></span><code>system-view
+<p><code>system-view
 wlan service-template 20 &lt;= 任意の文字列を設定します。（例: 20）
 ssid h3c &lt;= 任意の文字列を設定します。（例: h3c）
 akm mode dot1x
@@ -1819,23 +1819,20 @@ client-security authentication-mode dot1x
 dot1x domain example.com &lt;= 先ほど登録した**ISP Domain**を選択します。（例: example.com）
 bss transition-management enable
 service-template enable
-exit
-</code></pre></div>
+exit</code></p>
 </li>
 <li>
 <p><strong>Wireless service</strong>に<strong>周波数帯域</strong>を関連付けます。</p>
-<div class="highlight"><pre><span></span><code>interface WLAN-Radio1/0/1 &lt;= SSIDに関連付ける周波数帯のインターフェース
+<p><code>interface WLAN-Radio1/0/1 &lt;= SSIDに関連付ける周波数帯のインターフェース
 service-template 20 &lt;= 先ほど登録したWireless service
 exit
 interface WLAN-Radio1/0/2 &lt;= SSIDに関連付ける周波数帯のインターフェース
 service-template 20 &lt;= 先ほど登録したWireless service
-exit
-</code></pre></div>
+exit</code></p>
 </li>
 <li>
 <p>設定を保存します。</p>
-<div class="highlight"><pre><span></span><code>save force
-</code></pre></div>
+<p><code>save force</code></p>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>

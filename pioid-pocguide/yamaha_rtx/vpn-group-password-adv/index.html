@@ -1573,14 +1573,11 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>radius auth on
+<p><code>linenums="1"
+radius auth on
 radius auth server &lt;RADIUSサーバのプライマリIPアドレス&gt; &lt;RADIUSサーバのセカンダリIPアドレス&gt;
 radius auth port &lt;RADIUSサーバのポート番号&gt;
-radius secret &lt;RADIUSクライアントのシークレット&gt;
-</code></pre></div></td></tr></table></div>
+radius secret &lt;RADIUSクライアントのシークレット&gt;</code></p>
 </li>
 </ol>
 <h3 id="yamaha-rtxのリモートアクセスユーザの認証の設定">YAMAHA RTXのリモートアクセスユーザの認証の設定<a class="headerlink" href="#yamaha-rtxのリモートアクセスユーザの認証の設定" title="Permanent link"></a></h3>
@@ -1626,8 +1623,7 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p class="admonition-title">Warning</p>
 <p>PIO-IDに登録されたユーザでリモートアクセスを行いますが、YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも１ユーザのユーザ登録が必要です。ここで登録したユーザは、後で、トンネル設定に登録されたユーザ情報（<code>pp auth username</code>）のみをCLIから削除してもよいですし、削除しない場合には、複雑なパスワードを設定しておくことをお勧めします。</p>
 <p>削除コマンド例：</p>
-<div class="highlight"><pre><span></span><code>no pp auth username &lt;username&gt; &lt;password&gt;
-</code></pre></div>
+<p><code>no pp auth username &lt;username&gt; &lt;password&gt;</code></p>
 </div>
 </li>
 <li>

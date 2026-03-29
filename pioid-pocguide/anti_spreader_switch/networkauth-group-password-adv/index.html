@@ -1535,8 +1535,7 @@
 <p class="admonition-title">Info</p>
 <p>mac-floodingが有効の状態では、802.1x認証を有効にできません。</p>
 </div>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#no mds mac-flooding enable
-</code></pre></div>
+<p><code>SG2412G(config)#no mds mac-flooding enable</code></p>
 </li>
 <li>
 <p><strong>送信元のIPアドレス</strong>と<strong>デフォルトルート</strong>の設定を行います。PIO-IDのクラウドRADIUSと通信するために、デフォルトVLAN(vlan1.1)に送信元となるIPアドレス　および　デフォルトルートを設定します。送信元となるIPアドレスおよびデフォルトルートは、環境により異なるため適切なIPアドレスを設定します。</p>
@@ -1605,11 +1604,10 @@ SG2412G(config-if)##switchport trunk allowed vlan add &lt;VLAN ID&gt;
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#aaa system-aaa-ctrl
+<p><code>SG2412G(config)#aaa system-aaa-ctrl
 SG2412G(config)#radius-server host &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
 SG2412G(config)#radius-server host &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
-SG2412G(config)#ip radius source-interface &lt;送信元のIPアドレス&gt; 1023
-</code></pre></div>
+SG2412G(config)#ip radius source-interface &lt;送信元のIPアドレス&gt; 1023</code></p>
 </li>
 <li>
 <p><strong>802.1x認証</strong>を<strong>有効化</strong>します。</p>
@@ -1646,8 +1644,7 @@ SG2412G(config-if-range)#dot1x extension dynamic-vlan
 </li>
 <li>
 <p>設定を保存します。</p>
-<div class="highlight"><pre><span></span><code>SG2412G(config)#write memory
-</code></pre></div>
+<p><code>SG2412G(config)#write memory</code></p>
 </li>
 </ol>
 <p><a class="md-button md-button--primary" href="../networkauth-antispreader-switch-sampleconfig.txt" target="_blank">Anti Spreader セキュアスイッチのサンプルコンフィグ1 ダウンロード</a></p>

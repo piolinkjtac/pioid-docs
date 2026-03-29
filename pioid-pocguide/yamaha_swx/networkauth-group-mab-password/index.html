@@ -1531,75 +1531,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#サンプルコンフィグ" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        サンプルコンフィグ
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#動作確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        動作確認方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="動作確認方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ネットワーク接続の認証peapmschapv2方式のパスワード認証" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ネットワーク接続の認証（PEAP(MSCHAPv2)方式のパスワード認証）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ネットワーク接続の認証（PEAP(MSCHAPv2)方式のパスワード認証）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ネットワークへ接続windows-11-の場合" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ネットワークへ接続（Windows 11 の場合）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#macアドレス認証バイパス" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MACアドレス認証バイパス
-      
-    </span>
-  </a>
   
 </li>
         
@@ -1859,22 +1792,21 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>(config)#radius-server host &lt;1つめのRADIUSサーバのIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
-(config)#radius-server host &lt;2つめのRADIUSサーバのIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
-</code></pre></div>
+<p><code>(config)#radius-server host &lt;1つめのRADIUSサーバのIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
+(config)#radius-server host &lt;2つめのRADIUSサーバのIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;</code></p>
 <h4 id="8021x認証の有効化">802.1x認証の有効化<a class="headerlink" href="#8021x認証の有効化" title="Permanent link"></a></h4>
 <p><a href="#yamaha-swxのポート"><strong>YAMAHA SWXのポート</strong></a>に従い、802.1x認証の設定を行います。</p>
-<div class="highlight"><pre><span></span><code>(config)#aaa authentication dot1x
+<p><code>(config)#aaa authentication dot1x
 (config)#aaa authentication auth-mac
 (config)#auth-mac auth-user unformatted lower-case
 (config)#interface &lt;802.1x認証の有効化する物理ポート名（例：ポート1.1～ポート1.6の物理ポートの場合、`port1.1-6`のように指定する。）&gt;
 (config-if)#dot1x port-control auto
 (config-if)#auth host-mode multi-supplicant
-(config-if)#auth-mac enable
-</code></pre></div>
+(config-if)#auth-mac enable</code></p>
 <h4 id="設定を保存">設定を保存<a class="headerlink" href="#設定を保存" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span></span><code>#save
-</code></pre></div>
+<p>```</p>
+<h1 id="save">save<a class="headerlink" href="#save" title="Permanent link"></a></h1>
+<p>```</p>
 <h4 id="サンプルコンフィグ">サンプルコンフィグ<a class="headerlink" href="#サンプルコンフィグ" title="Permanent link"></a></h4>
 <p><a class="md-button md-button--primary" href="../networkauth-yamaha_swx-switch-sampleconfig-mab.txt" target="_blank">ダウンロード</a></p>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
