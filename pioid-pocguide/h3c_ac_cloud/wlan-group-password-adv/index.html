@@ -1845,7 +1845,7 @@
 <ol>
 <li>
 <p><strong>Wireless service</strong>を登録します。</p>
-<p><code>system-view
+<div class="highlight"><pre><span></span><code>system-view
 wlan service-template h3c &lt;= 任意の文字列を設定します。（例: h3c）
 ssid h3c &lt;= 任意の文字列を設定します。（例: h3c）
 akm mode dot1x
@@ -1856,11 +1856,12 @@ client-security authentication-mode dot1x
 dot1x domain example.com &lt;= 先ほど登録した**ISP Domain**を選択します。（例: example.com）
 bss transition-management enable
 service-template enable
-exit</code></p>
+exit
+</code></pre></div>
 </li>
 <li>
 <p>APグループ（例: default-group）の<strong>周波数帯域</strong>に<strong>Wireless service</strong>を関連付けます。</p>
-<p><code>system-view
+<div class="highlight"><pre><span></span><code>system-view
 wlan ap-group default-group
 radio 2.4
 service-template h3c-wpa3
@@ -1868,11 +1869,13 @@ exit
 radio 5g
 service-template h3c-wpa3
 exit
-exit</code></p>
+exit
+</code></pre></div>
 </li>
 <li>
 <p>設定を保存します。</p>
-<p><code>save force</code></p>
+<div class="highlight"><pre><span></span><code>save force
+</code></pre></div>
 </li>
 </ol>
 <h4 id="nas-idの設定">NAS-IDの設定<a class="headerlink" href="#nas-idの設定" title="Permanent link"></a></h4>
