@@ -695,23 +695,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="拡張RADIUSサーバの登録">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#radiusクライアントのサイト識別する属性の確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RADIUSクライアントのサイト識別する属性の確認方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -730,6 +713,17 @@
   
     <nav class="md-nav" aria-label="簡易設定">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiusクライアントのサイト識別する属性の確認方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RADIUSクライアントのサイト識別する属性の確認方法
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#radiusのサイトの登録" class="md-nav__link">
@@ -1583,23 +1577,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="拡張RADIUSサーバの登録">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#radiusクライアントのサイト識別する属性の確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RADIUSクライアントのサイト識別する属性の確認方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1618,6 +1595,17 @@
   
     <nav class="md-nav" aria-label="簡易設定">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiusクライアントのサイト識別する属性の確認方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RADIUSクライアントのサイト識別する属性の確認方法
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#radiusのサイトの登録" class="md-nav__link">
@@ -1724,6 +1712,7 @@
 </div>
 <h2 id="2種類のradiusサーバについて">2種類のRADIUSサーバについて<a class="headerlink" href="#2種類のradiusサーバについて" title="Permanent link"></a></h2>
 <p>それぞれのRADIUSサーバには以下のような違いがあります。</p>
+<p>標準RADIUSサーバと拡張RADIUSサーバのどちらを使うか迷う場合は、<a href="../radius_server_selection/">標準RADIUSサーバと拡張RADIUSサーバの選び方</a>を参照してください。</p>
 <table>
 <thead>
 <tr>
@@ -1858,17 +1847,63 @@
 <p class="admonition-title">Info</p>
 <p>登録可能な拡張RADIUSサーバは１つです。拡張RADIUSサーバを追加で登録したい場合には、販売店までご相談ください。</p>
 </div>
+<h2 id="簡易設定">簡易設定<a class="headerlink" href="#簡易設定" title="Permanent link"></a></h2>
+<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面では、標準RADIUSサーバおよび拡張RADIUSサーバのサイト設定を行うことができます。</p>
+<p>標準RADIUSサーバを利用する場合には、RADIUS属性を意識することなく、RADIUSをサポートする無線LANやファイアウォールと簡単に連携できます。</p>
+<p>拡張RADIUSサーバを利用する場合には、ネットワーク機器が送信する<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>の属性値を確認して設定する必要があります。</p>
 <h4 id="radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法<a class="headerlink" href="#radiusクライアントのサイト識別する属性の確認方法" title="Permanent link"></a></h4>
 <p>拡張RADIUSサーバを利用してサイトを作成する際には、<strong>サイト識別する属性</strong>の<strong>属性値</strong>をPIO-IDへ設定する必要があります。<strong>サイト識別する属性</strong>としては、RADIUS属性の<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>を選択可能です。</p>
 <p>PIO-IDと連携する機器から送信されるNAS-IP-AddressおよびNAS-Identifierがどのような属性値をもつかについて、連携機器のマニュアルをご確認ください。属性値が不明な場合には、以下の手順で確認することができます。</p>
 <ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面へ移動します。</li>
+<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
+<li>設定対象のネットワーク機器の<strong>登録</strong>ボタンをクリックします。設定画面がポップアップします。</li>
+<li>
+<p><strong>基本情報</strong>タブで、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ</strong></td>
+<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;"><a href="#拡張radiusサーバの登録">拡張RADIUSサーバの登録</a>の手順で登録したサーバ番号を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
+<td style="text-align: left;">確認したい属性を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;">ダミー値を一時的に設定します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>認証</strong>タブで、許可したい<strong>ユーザ</strong>または<strong>グループ</strong>を設定します。</p>
+</li>
+<li><strong>登録</strong>ボタンをクリックします。</li>
 <li>RADIUSクライアント（PIO-IDと連携する機器）に、拡張RADIUSサーバの<strong>認証ポート番号</strong>、<strong>シークレット</strong>を設定します。</li>
 <li>RADIUSクライアントで認証処理を行います。</li>
 <li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
 <li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
 </ol>
-<h2 id="簡易設定">簡易設定<a class="headerlink" href="#簡易設定" title="Permanent link"></a></h2>
-<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面では、RADIUSサーバの設定を行います。RADIUSをサポートする無線LANやファイアウォールと連携をするために、RADIUSの属性の知識は必要ありません。RADIUS属性を意識することなく、RADIUSサーバの設定を簡単に行うことができます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>RADIUS認証ログの表示には、認証実行後から5分程度時間がかかる場合があります。</p>
+</div>
 <h3 id="radiusのサイトの登録">RADIUSのサイトの登録<a class="headerlink" href="#radiusのサイトの登録" title="Permanent link"></a></h3>
 <ol>
 <li><strong>簡易設定</strong>タブをクリックします。</li>

@@ -493,6 +493,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eap_peap-tls-alert-readfatalinternal-error" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1592,6 +1603,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eap_peap-tls-alert-readfatalinternal-error" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1745,9 +1767,22 @@
 <p class="admonition-title">Warning</p>
 <p>RADIUSに設定したRADIUSクライアントのIPおよび共有シークレットが誤っている場合には、RADIUSリクエストがあってもRADIUS認証ログには表示されません。</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>RADIUS認証ログの表示には、認証実行後から5分程度時間がかかる場合があります。</p>
+</div>
 <h3 id="ログのダウンロード">ログのダウンロード<a class="headerlink" href="#ログのダウンロード" title="Permanent link"></a></h3>
 <p><strong>ログ表示期間</strong>を設定し、<strong>CSVダウンロード</strong>または<strong>EXCELダウンロード</strong>ボタンをクリックします。</p>
 <h3 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h3>
+<h4 id="rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier"><code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code><a class="headerlink" href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" title="Permanent link"></a></h4>
+<p>拡張RADIUSサーバを利用している場合に、<strong>サイト識別する属性</strong>または<strong>属性値</strong>が、実際にネットワーク機器から送信された<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>と一致しない場合に発生します。</p>
+<p>以下を確認してください。</p>
+<ul>
+<li><strong>認証＞RADIUS＞簡易設定</strong>で登録したサイトの<strong>サイト識別する属性</strong>が適切か</li>
+<li><strong>属性値</strong>が、実際に送信された<strong>NAS-IP</strong>または<strong>NAS-ID</strong>と一致しているか</li>
+<li><strong>NAS-Identifier</strong>を利用している場合には、部分一致で吸収できる安定した共通文字列を設定できないか</li>
+</ul>
+<p>詳細な確認方法については、<a href="../radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照してください。</p>
 <h4 id="eap_peap-tls-alert-readfatalinternal-error"><code>eap_peap: TLS Alert read:fatal:internal error</code><a class="headerlink" href="#eap_peap-tls-alert-readfatalinternal-error" title="Permanent link"></a></h4>
 <p>Android11において、EAP方式が、PEAPまたはTLSの場合に、<strong>ドメイン</strong>への入力内容が正しくない場合に発生します。<strong>ドメイン</strong>には、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</p>
 <h4 id="eap_tls-tls-alert-readfatalunknown-ca"><code>eap_tls: (TLS) Alert read:fatal:unknown CA</code><a class="headerlink" href="#eap_tls-tls-alert-readfatalunknown-ca" title="Permanent link"></a></h4>

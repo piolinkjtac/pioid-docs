@@ -1398,17 +1398,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#サイト識別する属性の確認方法" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        サイト識別する属性の確認方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1548,15 +1537,15 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>IPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面の<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面の<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ポート</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順4の<strong>サーバ番号</strong>に対応したポート番号です。</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面の<strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>のポート番号です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順4の<strong>シークレット</strong>に設定した文字列です。</td>
+<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順で設定した<strong>シークレット</strong>です。</td>
 </tr>
 </tbody>
 </table>
@@ -1564,14 +1553,6 @@
 <li>
 <p><strong>保存</strong>ボタンをクリックします。</p>
 </li>
-</ol>
-<h3 id="サイト識別する属性の確認方法">サイト識別する属性の確認方法<a class="headerlink" href="#サイト識別する属性の確認方法" title="Permanent link"></a></h3>
-<p>PIOLINK TiFRONT-APが送信するNAS-IP-Address属性およびNAS-Identifier属性の属性値を確認します。</p>
-<ol>
-<li><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</li>
-<li>認証が失敗します。</li>
-<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
-<li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
 </ol>
 <h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
 <ol>
@@ -1602,14 +1583,21 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性を選択します。</td>
+<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。</td>
+<td style="text-align: left;"><code>AR-WF</code>を設定します。実際にネットワーク機器から送信される<strong>NAS-Identifier</strong>の属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>NAS-ID</strong>として<code>AR-WF6-254I</code>のような値が送信される場合があります。ただし、ハードウェアリビジョンや機種差分により末尾が異なる可能性があるため、初期値としては共通接頭辞である<code>AR-WF</code>を設定することをお勧めします。</li>
+<li>認証が失敗し、<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面のエラーメッセージが <code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code> の場合には、<a href="../../../pioid-adminguide/radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照して<strong>属性値</strong>を見直してください。</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
