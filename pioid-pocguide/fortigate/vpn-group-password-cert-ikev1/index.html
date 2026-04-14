@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/fortigate/vpn-group-otp_new2/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/fortigate/vpn-group-password-cert-ikev1/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証） - PIO-ID マニュアル</title>
+        <title>リモートアクセスVPN-2要素認証（パスワード認証＋クライアント証明書認証）（IKEv1） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" class="md-skip">
+        <a href="#リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）
+              リモートアクセスVPN-2要素認証（パスワード認証＋クライアント証明書認証）（IKEv1）
             
           </span>
         </div>
@@ -1376,10 +1376,76 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pio-idのクライアント証明書の発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのクライアント証明書の発行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのサーバ証明書の発行とダウンロード" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのサーバ証明書の発行とダウンロード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idの中間ca証明書のダウンロード" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDの中間CA証明書のダウンロード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
         PIO-IDのRADIUSサイトの登録
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fortigateへ中間ca証明書を追加" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FortiGateへ中間CA証明書を追加
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fortigateへ証明書失効リストcrlの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FortiGateへ証明書失効リスト（CRL）の設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fortigateへサーバ証明書を追加" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FortiGateへサーバ証明書を追加
       
     </span>
   </a>
@@ -1437,10 +1503,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ソフトウェアトークンのインストール" class="md-nav__link">
+  <a href="#クライアント証明書のダウンロード" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ソフトウェアトークンのインストール
+        クライアント証明書のダウンロード
       
     </span>
   </a>
@@ -1448,10 +1514,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pio-idへソフトウェアトークンの登録" class="md-nav__link">
+  <a href="#クライアント証明書のインストール" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIO-IDへソフトウェアトークンの登録
+        クライアント証明書のインストール
       
     </span>
   </a>
@@ -1513,12 +1579,13 @@
 
 
 
-<h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-03-09</p>
+<h1 id="リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev1">リモートアクセスVPN-2要素認証（パスワード認証＋クライアント証明書認証）（IKEv1）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev1" title="Permanent link"></a></h1>
+<p>文書更新日:2026-04-14</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、FortiGateへVPNを使ってリモートアクセスします。</li>
-<li>接続する際の認証方式は、2要素認証（パスワード認証＋ワンタイムパスワード認証）です。</li>
+<li>接続する際の認証方式は、2要素認証（パスワード認証＋クライアント証明書認証）です。</li>
+<li>VPNトンネルは、<strong>IKEv1</strong>を利用します。</li>
 <li>PIO-IDの標準RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
@@ -1536,6 +1603,68 @@
 <li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
 <li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
 </ol>
+<h3 id="pio-idのクライアント証明書の発行">PIO-IDのクライアント証明書の発行<a class="headerlink" href="#pio-idのクライアント証明書の発行" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
+<li>クライアント証明書を発行したいユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書の発行</strong>を選択します。</li>
+<li><strong>証明書発行</strong>画面がポップアップします。</li>
+<li><strong>プロファイル</strong>（例：デフォルト）および<strong>配布形式</strong>（例：一般）を選択します。</li>
+<li><strong>発行</strong>ボタンをクリックして、クライアント証明書を発行します。ユーザのメールアドレス宛に発行されたクライアント証明書のダウンロードリンクが送信されます。</li>
+</ol>
+<h3 id="pio-idのサーバ証明書の発行とダウンロード">PIO-IDのサーバ証明書の発行とダウンロード<a class="headerlink" href="#pio-idのサーバ証明書の発行とダウンロード" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞証明書＞証明書</strong>タブへ移動します。</li>
+<li><strong>発行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>サーバ証明書</strong>を選択します。</li>
+<li><strong>サーバ証明書の発行</strong>画面がポップアップします。</li>
+<li>
+<p>以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>サーバ名</strong></td>
+<td style="text-align: left;">VPNクライアントが接続するIPアドレスまたはホスト名（FQDN）です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サブジェクトの代替名</strong></td>
+<td style="text-align: left;">サーバ名にIPアドレスを設定した場合には、IPを選択します。サーバ名にホスト名を設定した場合には、DNSを選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>有効期間</strong></td>
+<td style="text-align: left;">1年、5年、10年から選択します。（例：10年）</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>発行</strong>ボタンをクリックして、サーバ証明書を発行します。</p>
+</li>
+<li>発行されたサーバ証明書の行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書のダウンロード</strong>を選択します。</li>
+<li>
+<p>ZIP圧縮されたP12形式のサーバ証明書がダウンロードされます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>発行された証明書をデバイスへインストールする場合には、パスワードの入力が要求されます。パスワードは、サーバ名と同一です。（例：サーバ名が10.10.10.10の場合、サーバ証明書のパスワードは、10.10.10.10です。）</p>
+</div>
+</li>
+</ol>
+<h3 id="pio-idの中間ca証明書のダウンロード">PIO-IDの中間CA証明書のダウンロード<a class="headerlink" href="#pio-idの中間ca証明書のダウンロード" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞証明書＞基本情報</strong>タブへ移動します。</li>
+<li><strong>中間CA</strong>ブロックの中間CAのタイトル文字の隣の<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M144 480C64.5 480 0 415.5 0 336c0-63.4 41-117.2 97.9-136.5C96.6 191.8 96 184 96 176c0-79.5 64.5-144 144-144 55.4 0 103.5 31.3 127.6 77.1C381.8 100.8 398.4 96 416 96c53 0 96 43 96 96 0 15.7-3.8 30.6-10.5 43.7C545.5 256 576 300.4 576 352c0 70.7-57.3 128-128 128zm233-167c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-31 31V208c0-13.3-10.7-24-24-24s-24 10.7-24 24v102.1l-31-31c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c9.4 9.4 24.6 9.4 33.9 0l72-72z"/></svg></span>をクリックします。<strong>ダウンロード</strong>画面がポップアップします。</li>
+<li><strong>ダウンロード</strong>ボタンをクリックして、PIO-IDの中間CA証明書をダウンロードします。</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>誤って、ルートCA証明書をダウンロードしないようにご注意ください。ルートCA証明書のダウンロードは必要ありません。</p>
+</div>
 <h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
@@ -1577,15 +1706,120 @@
 <li>
 <p><strong>VPNアクセスの認証</strong>タブへ移動します。</p>
 </li>
+<li><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</li>
+<li><strong>登録</strong>ボタンをクリックします。</li>
+</ol>
+<h3 id="fortigateへ中間ca証明書を追加">FortiGateへ中間CA証明書を追加<a class="headerlink" href="#fortigateへ中間ca証明書を追加" title="Permanent link"></a></h3>
+<ol>
 <li>
-<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<p><strong>FortiGate 管理GUI＞システム＞証明書</strong>画面へ移動します。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>2要素認証（OTP）のみ許可</strong>を<strong>有効</strong>にすると、2要素認証（OTP）以外の認証方式のアクセスを拒否します。</p>
+<p>メニューに<strong>証明書</strong>がない場合には、<strong>FortiGate 管理GUI＞システム＞表示機能設定</strong>画面で、<strong>証明書</strong>の表示を有効にします。</p>
 </div>
 </li>
 <li>
-<p><strong>登録</strong>ボタンをクリックします。</p>
+<p><strong>作成/インポート＞CA証明書</strong>ボタンをクリックします。<strong>CA証明書をインポート</strong>画面が表示されます。</p>
+</li>
+<li>
+<p>以下を設定し、<strong>OK</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>タイプ</strong></td>
+<td style="text-align: left;"><strong>ファイル</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アップロード</strong></td>
+<td style="text-align: left;"><a href="#pio-idの中間ca証明書のダウンロード">PIO-IDの中間CA証明書のダウンロード</a>の手順でダウンロードしたファイルを選択します。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>PIO-IDのルートCA証明書をFortiGateへインポートしないようにしてください。意図しないVPN接続の認証が成功してしまいます。</strong></p>
+<p>リモートアクセスクライアントからFortiGateへのVPN接続時、PIO-IDのルートCA証明書がFortiGateにインポートされていると、PIO-IDのルートCAを発行元とするどんな中間CAが発行したクライアント証明書であっても、証明書のパスの検証に成功してしまいます。</p>
+</div>
+<p><a href="/images/fortigate-19.png"><img alt="Screenshot" src="/images/fortigate-19.png" /></a></p>
+</li>
+</ol>
+<h3 id="fortigateへ証明書失効リストcrlの設定">FortiGateへ証明書失効リスト（CRL）の設定<a class="headerlink" href="#fortigateへ証明書失効リストcrlの設定" title="Permanent link"></a></h3>
+<ol>
+<li><strong>FortiGate 管理GUI＞システム＞証明書</strong>画面へ移動します。</li>
+<li><strong>作成/インポート＞CRL</strong>ボタンをクリックします。<strong>CRLをインポート</strong>画面が表示されます。</li>
+<li>
+<p>以下を設定し、<strong>OK</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>インポート方式</strong></td>
+<td style="text-align: left;"><strong>オンライン更新</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HTTPサーバのURL</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞証明書＞基本情報</strong>タブの<strong>中間CAの失効リストの配布ポイント</strong>です。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/fortigate-20.png"><img alt="Screenshot" src="/images/fortigate-20.png" /></a></p>
+</li>
+<li>
+<p>定期的（1時間ごと）に証明書失効リスト（CRL）を更新するために、FortiGate CLIから<strong>set update-interval 3600</strong>を以下のように設定します。</p>
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config vpn certificate crl
+    edit &quot;CRL_1&quot;
+        set update-interval 3600
+    next
+end
+</code></pre></div>
+<h3 id="fortigateへサーバ証明書を追加">FortiGateへサーバ証明書を追加<a class="headerlink" href="#fortigateへサーバ証明書を追加" title="Permanent link"></a></h3>
+<ol>
+<li><strong>FortiGate 管理GUI＞システム＞証明書</strong>画面へ移動します。</li>
+<li><strong>作成/インポート＞証明書</strong>ボタンをクリックします。<strong>証明書の作成</strong>画面が表示されます。</li>
+<li><strong>証明書をインポート</strong>ボタンをクリックします。</li>
+<li>以下を設定し、<strong>作成</strong>ボタンをクリックします。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>タイプ</strong></td>
+<td style="text-align: left;"><strong>PKCS12証明書</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>キーファイルのある証明書</strong></td>
+<td style="text-align: left;"><a href="#pio-idのサーバ証明書の発行とダウンロード">PIO-IDのサーバ証明書の発行とダウンロード</a>の手順でダウンロードしたZIPファイルを解凍します。そして、拡張子がP12のファイルを選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>パスワード</strong></td>
+<td style="text-align: left;">証明書ファイルの拡張子を除いた部分がパスワードです。（例：10.10.10.10.p12というファイルの場合には、パスワードは、10.10.10.10です。）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>証明書名</strong></td>
+<td style="text-align: left;">証明書ファイルを選択しアップロードすると自動で入力されます。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2025-03-08_17-30-50.png"><img alt="Screenshot" src="/images/2025-03-08_17-30-50.png" /></a></p>
+</li>
+<li>
+<p><strong>OK</strong>ボタンをクリックします。</p>
 </li>
 </ol>
 <h3 id="fortigateのradiusサーバの設定">FortiGateのRADIUSサーバの設定<a class="headerlink" href="#fortigateのradiusサーバの設定" title="Permanent link"></a></h3>
@@ -1605,10 +1839,6 @@
 <tr>
 <td style="text-align: left;"><strong>名前</strong></td>
 <td style="text-align: left;">任意の文字列を設定します。（例：PIO-ID_RADIUS）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>認証方式</strong></td>
-<td style="text-align: left;"><strong>指定 PAP</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>プライマリサーバ</strong></td>
@@ -1648,7 +1878,7 @@
 <p class="admonition-title">Warning</p>
 <p>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、<strong>ユーザクレデンシャルをテスト</strong>ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p>
 </div>
-<p><a href="/images/fortigate-10.png"><img alt="Screenshot" src="/images/fortigate-10.png" /></a></p>
+<p><a href="/images/fortigate-1.png"><img alt="Screenshot" src="/images/fortigate-1.png" /></a></p>
 </li>
 <li>
 <p><strong>OK</strong>ボタンをクリックします。</p>
@@ -1733,19 +1963,23 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証方式</strong></td>
-<td style="text-align: left;"><strong>事前共有鍵</strong>を選択します。</td>
+<td style="text-align: left;"><strong>シグネチャ</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>事前共有鍵</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。</td>
+<td style="text-align: left;"><strong>証明書名</strong></td>
+<td style="text-align: left;"><a href="#fortigateへサーバ証明書を追加">FortiGateへサーバ証明書を追加</a>で追加したサーバ証明書を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザグループ</strong></td>
 <td style="text-align: left;"><a href="#fortigateのユーザグループの設定">FortiGateのユーザグループの設定</a>の手順で設定したユーザグループの名前を選択します。（例：PIO-ID）</td>
 </tr>
+<tr>
+<td style="text-align: left;"><strong>ピア証明書CA</strong></td>
+<td style="text-align: left;"><a href="#fortigateへ中間ca証明書を追加">FortiGateへ中間CA証明書を追加</a>の手順で追加した中間CAの証明書を選択します。</td>
+</tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-4.png"><img alt="Screenshot" src="/images/fortigate-4.png" /></a></p>
+<p><a href="/images/2025-03-08_18-12-01.png"><img alt="Screenshot" src="/images/2025-03-08_18-12-01.png" /></a></p>
 </li>
 <li>
 <p>以下の項目を設定し、<strong>次へ</strong>ボタンを クリックします。</p>
@@ -1786,47 +2020,45 @@
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<p>Windows端末から2要素認証（パスワード＋ワンタイムパスワード）によるリモートアクセスVPNの認証が可能なことを確認します。</p>
-<h3 id="ソフトウェアトークンのインストール">ソフトウェアトークンのインストール<a class="headerlink" href="#ソフトウェアトークンのインストール" title="Permanent link"></a></h3>
-<p>ソフトウェアトークンとして、以下のiPhoneおよびAndroidのモバイルアプリが利用できます。どちらかのアプリをスマートフォンまたはタブレットへインストールします。</p>
-<ul>
-<li>FreeOTP</li>
-<li>Google Authenticator</li>
-</ul>
-<h3 id="pio-idへソフトウェアトークンの登録">PIO-IDへソフトウェアトークンの登録<a class="headerlink" href="#pio-idへソフトウェアトークンの登録" title="Permanent link"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>PIO-IDへソフトウェアトークンの登録</strong>を行っていないユーザは、ワンタイムパスワードは無効となり、パスワードでの認証となります。</p>
-</div>
+<p>Windows端末から2要素認証（クライアント証明書＋パスワード）によるリモートアクセスVPNの認証が可能なことを確認します。</p>
+<h3 id="クライアント証明書のダウンロード">クライアント証明書のダウンロード<a class="headerlink" href="#クライアント証明書のダウンロード" title="Permanent link"></a></h3>
 <ol>
-<li>[PIO-IDのユーザの作成]の手順で作成したユーザで、PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html"><strong>ユーザポータル</strong></a>へログインします。</li>
-<li><strong>PIO-ID ユーザポータル＞オーセンティケーター</strong>画面へ移動します。</li>
+<li><strong>PIO-IDシステム管理</strong>から届いたメールを開きます。</li>
 <li>
-<p><strong>QRコード</strong>が表示されていることを確認します。</p>
-<p><a href="/images/image-account-1.png"><img alt="Screenshot" src="/images/image-account-1.png" /></a></p>
+<p><strong>ダウンロード</strong>リンクをクリックします。P12形式のクライアント証明書がダウンロードされます。</p>
+<p><a href="/images/2021-09-02_19-10-04-1024x489-1.png"><img alt="Screenshot" src="/images/2021-09-02_19-10-04-1024x489-1.png" /></a></p>
 </li>
-<li>
-<p>スマートフォンまたはタブレットへインストールしたソフトウェアトークンアプリを起動します。（ここでは、<strong>Google Authenticator</strong>を利用します。）</p>
-</li>
-<li>
-<p><strong>＋</strong>をクリックし、新規アカウントを追加します。</p>
-<p><a href="/images/image-token-1.png"><img alt="Screenshot" src="/images/image-token-1.png" /></a></p>
-</li>
-<li>
-<p><strong>QRコードをスキャン</strong>をクリックし、ユーザポータルに表示されているQRコードを読み取ります。</p>
-<p><a href="/images/image-token-2.png"><img alt="Screenshot" src="/images/image-token-2.png" /></a></p>
-</li>
-<li>
-<p><strong>アカウントを追加</strong>をクリックし、アカウントを追加します。</p>
-<p><a href="/images/image-token-3.png"><img alt="Screenshot" src="/images/image-token-3.png" /></a></p>
-</li>
-<li>
-<p><strong>表示されている数字</strong>を<strong>PIO-ID ユーザポータル＞オーセンティケーター</strong>画面の<strong>ワンタイムコード</strong>へ入力し、<strong>保存</strong>ボタンをクリックし、オーセンティケーターを登録します。</p>
-<p><a href="/images/image-token-4.png"><img alt="Screenshot" src="/images/image-token-4.png" /></a></p>
+</ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>ソフトウェアトークンの6桁の数字の表示は、30秒ごとに変わります。変わる前に、オーセンティケーターの登録を完了させる必要があります。登録する途中で、ソフトウェアトークンの数字が変わってしまった場合には、変わった数字を登録します。</p>
+<p>もし、PCでメールを受信し、スマートフォンやタブレットにクライアント証明書をインストールしたい場合には、メールに添付されているQRコードを スマートフォンやタブレットで読み取ります。クライアント証明書のダウンロードURLを認識しますので、そのURLへアクセスすることで、 スマートフォンやタブレット にもクライアント証明書をダウンロードできます。</p>
 </div>
+<h3 id="クライアント証明書のインストール">クライアント証明書のインストール<a class="headerlink" href="#クライアント証明書のインストール" title="Permanent link"></a></h3>
+<ol>
+<li>ダウンロードしたP12形式のクライアント証明書ファイルをダブルクリックします。</li>
+<li>
+<p>保存場所として<strong>現在のユーザー</strong>を選択し、<strong>次へ</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-certinstall-1.png"><img alt="Screenshot" src="/images/image-certinstall-1.png" /></a></p>
+</li>
+<li>
+<p>ダウンロードしたP12形式のファイル名とパスが正しく入力されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-certinstall-2.png"><img alt="Screenshot" src="/images/image-certinstall-2.png" /></a></p>
+</li>
+<li>
+<p><strong>パスワード</strong>に、クライアント証明書のパスワードを入力します。クライアント証明書のパスワードは、ユーザ名と同一です。（例：ユーザ名が、user1の場合、クライアント証明書のパスワードは、user1です。）<strong>次へ</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-certinstall-3.png"><img alt="Screenshot" src="/images/image-certinstall-3.png" /></a></p>
+</li>
+<li>
+<p><strong>証明書の種類に基づいて、自動に証明書ストアを選択する</strong>が選択されていることを確認し、<strong>次へ</strong>ボタンをクリックします。</p>
+<p><a href="/images/image-certinstall-4.png"><img alt="Screenshot" src="/images/image-certinstall-4.png" /></a></p>
+</li>
+<li>
+<p><strong>完了</strong>ボタンをクリックし、証明書をインストールします。</p>
+<p><a href="/images/image-certinstall-5.png"><img alt="Screenshot" src="/images/image-certinstall-5.png" /></a></p>
+</li>
+<li>
+<p>クライアント証明書のインストールが成功しました。</p>
+<p><a href="/images/image-certinstall-6.png"><img alt="Screenshot" src="/images/image-certinstall-6.png" /></a></p>
 </li>
 </ol>
 <h3 id="リモートアクセスクライアントのインストール">リモートアクセスクライアントのインストール<a class="headerlink" href="#リモートアクセスクライアントのインストール" title="Permanent link"></a></h3>
@@ -1850,7 +2082,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>接続名</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。（例：PIO-ID）</td>
+<td style="text-align: left;">任意の文字列を設定します。（例：PIO-ID_Cert）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>リモートGW</strong></td>
@@ -1858,19 +2090,19 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証方法</strong></td>
-<td style="text-align: left;"><strong>事前共有鍵</strong>を選択します。</td>
+<td style="text-align: left;"><strong>X.509証明書</strong>を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>事前共有鍵</strong></td>
-<td style="text-align: left;"><a href="#fortigateのvpnの設定">FortiGateのVPNの設定</a>の手順で設定した事前共有鍵です。</td>
+<td style="text-align: left;"><strong>クライアント証明書</strong></td>
+<td style="text-align: left;"><a href="#クライアント証明書のインストール">クライアント証明書のインストール</a>の手順でインストールしたクライアント証明書を選択します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>認証（XAuth）</strong></td>
+<td style="text-align: left;"><strong>認証(XAuth)</strong></td>
 <td style="text-align: left;"><strong>ユーザ名入力</strong>を選択します。</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-7.png"><img alt="Screenshot" src="/images/fortigate-7.png" /></a></p>
+<p><a href="/images/2025-03-09_12-59-45.pngg"><img alt="Screenshot" src="/images/2025-03-09_12-59-45.png" /></a></p>
 </li>
 <li>
 <p><strong>保存</strong>ボタンをクリックします。</p>
@@ -1890,7 +2122,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>VPN名称</strong></td>
-<td style="text-align: left;"><a href="#vpn接続">接続先の設定</a>の手順で作成した接続先を選択します。（例：PIO-ID）</td>
+<td style="text-align: left;"><a href="#vpn接続">接続先の設定</a>の手順で作成した接続先を選択します。（例：PIO-ID_Cert）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザ名</strong></td>
@@ -1898,15 +2130,19 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;"><strong>ユーザのパスワード</strong>と<strong>ソフトウェアトークンに表示されたワンタイムパスワード</strong>を:（コロン）でつなげた文字列を入力します。（例：password:123456）</td>
+<td style="text-align: left;"><strong>ユーザのパスワード</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>クライアント証明書</strong></td>
+<td style="text-align: left;"><a href="#クライアント証明書のインストール">クライアント証明書のインストール</a>の手順でインストールしたクライアント証明書を選択します。</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-8.png"><img alt="Screenshot" src="/images/fortigate-8.png" /></a></p>
+<p><a href="/images/fortigate-27.png"><img alt="Screenshot" src="/images/fortigate-27.png" /></a></p>
 </li>
 <li>
 <p>ログインが成功することを確認します。</p>
-<p><a href="/images/fortigate-9.png"><img alt="Screenshot" src="/images/fortigate-9.png" /></a></p>
+<p><a href="/images/fortigate-25.png"><img alt="Screenshot" src="/images/fortigate-25.png" /></a></p>
 </li>
 </ol>
 

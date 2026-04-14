@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/fortigate/vpn-group-otp_new2-adv/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/fortigate/vpn-group-otp-ikev2-adv/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証） - PIO-ID マニュアル</title>
+        <title>リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）（IKEv2自動トランスポートモード） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" class="md-skip">
+        <a href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証ikev2自動トランスポートモード" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）
+              リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）（IKEv2自動トランスポートモード）
             
           </span>
         </div>
@@ -1524,12 +1524,18 @@
 
 
 
-<h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-03-09</p>
+<h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証ikev2自動トランスポートモード">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）（IKEv2自動トランスポートモード）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証ikev2自動トランスポートモード" title="Permanent link"></a></h1>
+<p>文書更新日:2026-04-14</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本設定ガイドは、FortiGate v7.6.6およびFortiClient 7.4.3.4726を用いて動作確認した内容に基づいて作成しています。
+IKEv2の自動トランスポートモードでTCPへのフォールバックを利用するには、FortiClient 7.4.1以降が必要です。</p>
+</div>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、FortiGateへVPNを使ってリモートアクセスします。</li>
 <li>接続する際の認証方式は、2要素認証（パスワード認証＋ワンタイムパスワード認証）です。</li>
+<li>VPNトンネルは、<strong>IKEv2の自動トランスポートモード</strong>を利用します。</li>
 <li>PIO-IDの拡張RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
@@ -1579,7 +1585,7 @@
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>FortiGate NGFW</strong>の<strong>登録</strong>ボタンをクリックします。<strong>FortiGate NGFW</strong>画面がポップアップします。</li>
+<li>カタログから<strong>FortiGate NGFW(IPsec IKEv2対応)</strong>の<strong>登録</strong>ボタンをクリックします。<strong>FortiGate NGFW(IPsec IKEv2対応)</strong>画面がポップアップします。</li>
 <li>
 <p><strong>基本情報</strong>タブに、以下を設定します。</p>
 <table>
@@ -1704,7 +1710,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>ホスト名</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サイトを識別する属性</strong>の<strong>属性値</strong>に設定した文字列です。（例：fortigate）</td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>属性値</strong>に設定した文字列です。（例：fortigate）</td>
 </tr>
 </tbody>
 </table>
@@ -1776,10 +1782,14 @@ end
 </li>
 </ol>
 <h3 id="fortigateのvpnの設定">FortiGateのVPNの設定<a class="headerlink" href="#fortigateのvpnの設定" title="Permanent link"></a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>IKEv2の自動トランスポートモードの設定は、Fortinet公式ドキュメントの「<a href="https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/442351/ldap-authentication-with-ikev2-using-udp-or-tcp-as-transport">LDAP authentication with IKEv2 using UDP or TCP as transport</a>」および「<a href="https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/567401/dialup-ipsec-vpn-using-custom-tcp-port">Dialup IPsec VPN using custom TCP port</a>」を参考にしています。</p>
+</div>
 <ol>
-<li><strong>FortiGate 管理GUI＞VPN＞IPsecウィザード</strong>画面へ移動します。</li>
+<li><strong>FortiGate 管理GUI＞VPN＞VPNウィザード</strong>画面へ移動します。</li>
 <li>
-<p>以下の項目を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<p>以下の項目を設定し、<strong>開始</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1793,19 +1803,14 @@ end
 <td style="text-align: left;">任意の文字列を設定します。（例：IPsecVPN）</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>テンプレートタイプ</strong></td>
+<td style="text-align: left;"><strong>テンプレートを選択</strong></td>
 <td style="text-align: left;"><strong>リモートアクセス</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>リモートデバイスタイプ</strong></td>
-<td style="text-align: left;"><strong>クライアントベース</strong>　<strong>FortiClient</strong>を選択します。</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-3.png"><img alt="Screenshot" src="/images/fortigate-3.png" /></a></p>
 </li>
 <li>
-<p>以下の項目を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<p>以下の項目を設定し、<strong>次</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1815,8 +1820,8 @@ end
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>着信インターフェース</strong></td>
-<td style="text-align: left;">FortiGateのWAN側のインターフェースです。環境により異なります。</td>
+<td style="text-align: left;"><strong>VPN クライアントの種類</strong></td>
+<td style="text-align: left;"><strong>FortiClient</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証方式</strong></td>
@@ -1827,15 +1832,35 @@ end
 <td style="text-align: left;">任意の文字列を設定します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ユーザグループ</strong></td>
-<td style="text-align: left;"><a href="#fortigateのユーザグループの設定">FortiGateのユーザグループの設定</a>の手順で設定したユーザグループの名前を選択します。（例：PIO-ID）</td>
+<td style="text-align: left;"><strong>IKE</strong></td>
+<td style="text-align: left;"><strong>バージョン2</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>トランスポート</strong></td>
+<td style="text-align: left;"><strong>自動</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fortinet カプセル化を使用する</strong></td>
+<td style="text-align: left;"><strong>無効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NAT トラバーサル</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EAP ピアの識別</strong></td>
+<td style="text-align: left;"><strong>EAP ID要求</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ユーザー認証方法</strong></td>
+<td style="text-align: left;"><strong>フェーズ1インターフェース</strong>を選択します。<a href="#fortigateのユーザグループの設定">FortiGateのユーザグループの設定</a>の手順で設定したユーザグループの名前を選択します。（例：PIO-ID）</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-4.png"><img alt="Screenshot" src="/images/fortigate-4.png" /></a></p>
+<p><a href="/images/2026-04-13_18-56-57.png"><img alt="Screenshot" src="/images/2026-04-13_18-56-57.png" /></a></p>
 </li>
 <li>
-<p>以下の項目を設定し、<strong>次へ</strong>ボタンを クリックします。</p>
+<p>以下の項目を設定し、<strong>次</strong>ボタンを クリックします。</p>
 <table>
 <thead>
 <tr>
@@ -1845,31 +1870,71 @@ end
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>ローカルインターフェース</strong></td>
-<td style="text-align: left;">FortiGateのLAN側のインターフェースです。環境により異なります。</td>
+<td style="text-align: left;"><strong>接続されたエンドポイントに割り当てるアドレス</strong></td>
+<td style="text-align: left;">VPNクライアントに割り当てるIPアドレスの範囲です。環境により異なります。（例：192.168.100.200-192.168.100.210）</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ローカルアドレス</strong></td>
-<td style="text-align: left;">LAN側ネットワークを指定します。（例：internal）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>クライアントアドレス範囲</strong></td>
-<td style="text-align: left;">VPNクライアントに割り当てるIPアドレスの範囲です。環境により異なります。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サブネットマスク</strong></td>
+<td style="text-align: left;"><strong>接続されたエンドポイントのサブネット</strong></td>
 <td style="text-align: left;"><strong>255.255.255.255</strong>を設定します。</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-5.png"><img alt="Screenshot" src="/images/fortigate-5.png" /></a></p>
+<p><a href="/images/2026-04-13_19-34-47.png"><img alt="Screenshot" src="/images/2026-04-13_19-34-47.png" /></a></p>
 </li>
 <li>
-<p><strong>次へ</strong>ボタンをクリックします。</p>
-<p><a href="/images/fortigate-6.png"><img alt="Screenshot" src="/images/fortigate-6.png" /></a></p>
+<p>以下の項目を設定し、<strong>次</strong>ボタンを クリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>トンネルにバインドする着信インターフェイス</strong></td>
+<td style="text-align: left;">FortiGateのWAN側のインターフェースです。環境により異なります。（例：wan1）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ローカルインターフェース</strong></td>
+<td style="text-align: left;">FortiGateのLAN側のインターフェースです。環境により異なります。（例：internal）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ローカルアドレス</strong></td>
+<td style="text-align: left;">LAN側ネットワークを指定します。（例：all）</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2026-04-13_19-42-11.png"><img alt="Screenshot" src="/images/2026-04-13_19-42-11.png" /></a></p>
 </li>
 <li>
-<p>設定を確認し、<strong>作成</strong>ボタンをクリックします。</p>
+<p>設定を確認し、<strong>サブミット</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>FortiGate v7.6.6のVPNウィザードで作成した設定例は、以下を参照してください。<br><a href="../vpn-group-password-ikev2-phase1-sample.txt">ウィザード作成後のphase1-interface設定サンプル</a><br><a href="../vpn-group-password-ikev2-phase2-sample.txt">ウィザード作成後のphase2-interface設定サンプル</a></p>
+</div>
+</li>
+<li>
+<p>自動モードでは、通常はUDPを使用し、UDPが利用できない場合にTCPへフォールバックします。デフォルト設定のまま利用する場合は、UDP側が<strong>500</strong>、TCP側が<strong>443</strong>であることを確認します。</p>
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>show full-configuration system settings | grep ike-
+    set ike-port 500
+    set ike-tcp-port 443
+</code></pre></div>
+</li>
+<li>
+<p>自動モードではFortiGateがIKE用にTCPポート443を待ち受けるため、GUI管理ポートもポート443を使用していると、IPsecトンネルにバインドされているインターフェースのGUIアクセスに影響が出る可能性があります。必要に応じて管理アクセスポートを変更します。（例：10443）</p>
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config system global
+    set admin-sport 10443
+end
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>管理GUIへのアクセスが拒否されるため、管理GUIにアクセスするには、<code>https://&lt;FortiGateの管理IPアドレス&gt;:10443/</code> でログインしなおします。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>TCPポート443は、GUI管理アクセスのほか、ZTNAやAgentless VPNなど他の機能と競合する場合があります。FortiGateで利用している受信ポートとの競合がないか事前に確認してください。</p>
+</div>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
@@ -1952,12 +2017,46 @@ end
 <td style="text-align: left;"><a href="#fortigateのvpnの設定">FortiGateのVPNの設定</a>の手順で設定した事前共有鍵です。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>認証（XAuth）</strong></td>
+<td style="text-align: left;"><strong>認証（EAP）</strong></td>
 <td style="text-align: left;"><strong>ユーザ名入力</strong>を選択します。</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-7.png"><img alt="Screenshot" src="/images/fortigate-7.png" /></a></p>
+<p><a href="/images/2026-04-14_5-49-19.png"><img alt="Screenshot" src="/images/2026-04-14_5-49-19.png" /></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>IKE</strong></td>
+<td style="text-align: left;"><strong>バージョン2</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Address Assignment</strong></td>
+<td style="text-align: left;"><strong>モードコンフィグ</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Encapsulation</strong></td>
+<td style="text-align: left;"><strong>Auto</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IKE UDP Port</strong></td>
+<td style="text-align: left;"><strong>500</strong>を設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IKE TCP Port</strong></td>
+<td style="text-align: left;"><strong>443</strong>を設定します。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/2026-04-14_5-49-55.png"><img alt="Screenshot" src="/images/2026-04-14_5-49-55.png" /></a></p>
+<p>フェーズ1およびフェーズ2の設定値は、FortiGate側のVPN設定に合わせてください。</p>
+<p><a href="/images/2026-04-14_5-50-24.png"><img alt="Screenshot" src="/images/2026-04-14_5-50-24.png" /></a>
+<a href="/images/2026-04-14_5-50-49.png"><img alt="Screenshot" src="/images/2026-04-14_5-50-49.png" /></a></p>
 </li>
 <li>
 <p><strong>保存</strong>ボタンをクリックします。</p>
@@ -1977,7 +2076,7 @@ end
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>VPN名称</strong></td>
-<td style="text-align: left;"><a href="#vpn接続">接続先の設定</a>の手順で作成した接続先を選択します。（例：PIO-ID）</td>
+<td style="text-align: left;"><a href="#接続先の設定">接続先の設定</a>の手順で作成した接続先を選択します。（例：PIO-ID）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザ名</strong></td>
@@ -1985,15 +2084,25 @@ end
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;"><strong>ユーザのパスワード</strong>と<strong>ソフトウェアトークンに表示されたワンタイムパスワード</strong>を:（コロン）でつなげた文字列を入力します。（例：password:123456）</td>
+<td style="text-align: left;"><strong>ユーザのパスワード</strong>と<strong>ソフトウェアトークンに表示されたワンタイムパスワード</strong>を<code>:</code>（コロン）でつなげた文字列を入力します。（例：<code>password:123456</code>）</td>
 </tr>
 </tbody>
 </table>
-<p><a href="/images/fortigate-8.png"><img alt="Screenshot" src="/images/fortigate-8.png" /></a></p>
+<p><a href="/images/2026-04-14_8-54-48.png"><img alt="Screenshot" src="/images/2026-04-14_8-54-48.png" /></a></p>
 </li>
 <li>
 <p>ログインが成功することを確認します。</p>
-<p><a href="/images/fortigate-9.png"><img alt="Screenshot" src="/images/fortigate-9.png" /></a></p>
+<p><a href="/images/2026-04-14_6-00-01.png"><img alt="Screenshot" src="/images/2026-04-14_6-00-01.png" /></a></p>
+</li>
+<li>
+<p>FortiGate CLIで以下のコマンドを実行し、接続中のセッションが<strong>UDP</strong>か<strong>TCP</strong>かを確認します。</p>
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>diagnose vpn ike gateway list
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>通常は<code>transport: UDP</code>となり、UDPが利用できないネットワーク環境では<code>transport: TCP</code>へ自動で切り替わります。
+サンプル出力は、<a href="../vpn-group-password-ikev2-diagnose-udp-sample.txt">UDP接続時の出力例</a> および <a href="../vpn-group-password-ikev2-diagnose-tcp-sample.txt">TCP接続時の出力例</a> を参照してください。</p>
+</div>
 </li>
 </ol>
 
