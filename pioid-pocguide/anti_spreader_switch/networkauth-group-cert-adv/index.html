@@ -1676,13 +1676,6 @@ SG2412G(config-if-range)#dot1x extension dynamic-vlan
 <h3 id="サイト識別する属性の確認方法">サイト識別する属性の確認方法<a class="headerlink" href="#サイト識別する属性の確認方法" title="Permanent link"></a></h3>
 <p>Anti Spreader セキュアスイッチが送信するNAS-IP-Address属性およびNAS-Identifier属性の属性値を確認します。</p>
 <ol>
-<li><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</li>
-<li>認証が失敗します。</li>
-<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
-<li>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
-<ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
 <li><strong>カタログ表示</strong>ボタンをクリックします。</li>
 <li>カタログから<strong>Anti Spreader セキュアスイッチ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Anti Spreader セキュアスイッチ</strong>画面がポップアップします。</li>
@@ -1710,11 +1703,11 @@ SG2412G(config-if-range)#dot1x extension dynamic-vlan
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性を選択します。</td>
+<td style="text-align: left;">確認したい属性を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+<td style="text-align: left;">ダミー値を一時的に設定します。</td>
 </tr>
 </tbody>
 </table>
@@ -1744,6 +1737,51 @@ SG2412G(config-if-range)#dot1x extension dynamic-vlan
 </li>
 <li>
 <p><strong>登録</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
+</li>
+<li>
+<p><a href="#動作確認方法">動作確認方法</a>に従って、認証を試みます。</p>
+</li>
+<li>認証が失敗します。</li>
+<li><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面へ移動します。</li>
+<li>
+<p>認証失敗したログのNAS-IPまたはNAS-IDの項目を確認します。NAS-IPが、NAS-IP-Address属性の属性値です。NAS-IDが、NAS-Identifier属性の属性値です。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>RADIUS認証ログの表示には、認証実行後から5分程度時間がかかる場合があります。</p>
+</div>
+</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面へ移動します。</li>
+<li><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で登録したサイトの<strong>編集</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;"><a href="#サイト識別する属性の確認方法">サイト識別する属性の確認方法</a>で確認できた属性の属性値を設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>更新</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>

@@ -1601,7 +1601,13 @@ IKEv2の自動トランスポートモードでTCPへのフォールバックを
 <p><strong>VPNアクセスの認証</strong>タブへ移動します。</p>
 </li>
 <li><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</li>
-<li><strong>登録</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
+</li>
 </ol>
 <h3 id="fortigateのradiusサーバの設定">FortiGateのRADIUSサーバの設定<a class="headerlink" href="#fortigateのradiusサーバの設定" title="Permanent link"></a></h3>
 <ol>
@@ -1647,18 +1653,6 @@ IKEv2の自動トランスポートモードでTCPへのフォールバックを
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><strong>接続をテスト</strong>ボタンをクリックし、接続が成功しない場合には、以下をご確認ください。</p>
-<ul>
-<li>設定内容が間違いないこと</li>
-<li>FortiGateからPIO-IDのRADIUSサーバのIPアドレスへ接続可能であること</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、<strong>ユーザクレデンシャルをテスト</strong>ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p>
-</div>
 <p><a href="/images/fortigate-1.png"><img alt="Screenshot" src="/images/fortigate-1.png" /></a></p>
 </li>
 <li>
@@ -1711,6 +1705,18 @@ IKEv2の自動トランスポートモードでTCPへのフォールバックを
     next
 end
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>RADIUS認証の通信ポート番号を設定した後に、FortiGateのRADIUSサーバ設定画面で<strong>接続をテスト</strong>ボタンをクリックします。接続が成功しない場合には、以下をご確認ください。</p>
+<ul>
+<li>設定内容が間違いないこと</li>
+<li>FortiGateからPIO-IDのRADIUSサーバのIPアドレスおよびRADIUS認証の通信ポート番号へ接続可能であること</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、<strong>ユーザクレデンシャルをテスト</strong>ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p>
+</div>
 </li>
 </ol>
 <h3 id="fortigateのユーザグループの設定">FortiGateのユーザグループの設定<a class="headerlink" href="#fortigateのユーザグループの設定" title="Permanent link"></a></h3>

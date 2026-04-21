@@ -1637,22 +1637,54 @@
 </tr>
 </tbody>
 </table>
+<p><a href="/images/fortigate-10.png"><img alt="Screenshot" src="/images/fortigate-10.png" /></a></p>
+</li>
+<li>
+<p><strong>OK</strong>ボタンをクリックします。</p>
+</li>
+<li>
+<p><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>で<strong>サーバ番号2～10</strong>を選択した場合は、FortiGate CLIからRADIUS認証の通信ポート番号を設定します。<strong>サーバ番号1</strong>を選択した場合は、FortiGateの初期値であるUDP 1812を使用するため、この手順は不要です。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RADIUSサーバの名前</strong></td>
+<td style="text-align: left;">手順3で設定した名前です。（例：PIO-ID_RADIUS）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUS認証の通信ポート番号</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>で選択したサーバ番号のポート番号です。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞RADIUSポート番号</strong>を確認してください。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
+    edit &quot;&lt;RADIUSサーバの名前&gt;&quot;
+        set radius-port &lt;RADIUS認証の通信ポート番号&gt;
+    next
+end
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>接続をテスト</strong>ボタンをクリックし、接続が成功しない場合には、以下をご確認ください。</p>
+<p>FortiGateのRADIUSサーバ設定画面で<strong>接続をテスト</strong>ボタンをクリックします。実行するタイミングは、選択したサーバ番号により異なります。</p>
+<ul>
+<li><strong>サーバ番号1</strong>を選択した場合：RADIUSサーバを作成した後</li>
+<li><strong>サーバ番号2～10</strong>を選択した場合：RADIUS認証の通信ポート番号を設定した後</li>
+</ul>
+<p>接続が成功しない場合には、以下をご確認ください。</p>
 <ul>
 <li>設定内容が間違いないこと</li>
-<li>FortiGateからPIO-IDのRADIUSサーバのIPアドレスへ接続可能であること</li>
+<li>FortiGateからPIO-IDのRADIUSサーバのIPアドレスおよびRADIUS認証の通信ポート番号へ接続可能であること</li>
 </ul>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>PIO-IDのRADIUSサーバでは、FortiGateのVPNアクセスや管理アクセスのみ認証可能となるように制限をかけているため、<strong>ユーザクレデンシャルをテスト</strong>ボタンをクリックし、正しいユーザ情報を入力しても成功となりませんが、問題ではありません。</p>
 </div>
-<p><a href="/images/fortigate-10.png"><img alt="Screenshot" src="/images/fortigate-10.png" /></a></p>
-</li>
-<li>
-<p><strong>OK</strong>ボタンをクリックします。</p>
 </li>
 </ol>
 <h3 id="fortigateのユーザグループの設定">FortiGateのユーザグループの設定<a class="headerlink" href="#fortigateのユーザグループの設定" title="Permanent link"></a></h3>
