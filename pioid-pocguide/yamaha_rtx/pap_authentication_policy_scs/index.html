@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/yamaha_rtx/faq/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/yamaha_rtx/pap_authentication_policy_scs/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>FAQ｜YAMAHA RTX × PIO-ID（リモートアクセスVPNの認証強化） - PIO-ID マニュアル</title>
+        <title>SCS評価制度におけるリモートアクセスVPN認証強化の考え方 - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化" class="md-skip">
+        <a href="#scs評価制度におけるリモートアクセスvpn認証強化の考え方" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ｜YAMAHA RTX × PIO-ID（リモートアクセスVPNの認証強化）
+              SCS評価制度におけるリモートアクセスVPN認証強化の考え方
             
           </span>
         </div>
@@ -1331,10 +1331,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#関連ドキュメント" class="md-nav__link">
+  <a href="#結論" class="md-nav__link">
     <span class="md-ellipsis">
       
-        関連ドキュメント
+        結論
       
     </span>
   </a>
@@ -1342,10 +1342,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q1-リモートアクセスvpnでクライアント証明書eap-tlsによる端末認証は可能ですかikev2ipsec希望" class="md-nav__link">
+  <a href="#scs評価制度との関係" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q1. リモートアクセスVPNで、クライアント証明書（EAP-TLS）による端末認証は可能ですか？（IKEv2/IPsec希望）
+        SCS評価制度との関係
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SCS評価制度との関係">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#関連する要求事項とコメント" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連する要求事項とコメント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scs評価制度の観点での説明例" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCS評価制度の観点での説明例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ローカル認証dbとの比較" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ローカル認証DBとの比較
       
     </span>
   </a>
@@ -1353,10 +1392,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q2-パスワードを事前保存して運用しています例-yms-vpn8otpを追加するとユーザーにパスワードを開示する必要がありますか" class="md-nav__link">
+  <a href="#判断時のポイント" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q2. パスワードを事前保存して運用しています（例: YMS-VPN8）。OTPを追加すると、ユーザーにパスワードを開示する必要がありますか？
+        判断時のポイント
       
     </span>
   </a>
@@ -1364,10 +1403,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q3-wlxのプライベートca自己caのような仕組みでpio-id-のようにrtxのリモートアクセスvpnを2要素認証できる予定はありますか" class="md-nav__link">
+  <a href="#認証情報の保護に関する補足" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q3. WLXのプライベートCA（自己CA）のような仕組みで、PIO-ID のようにRTXのリモートアクセスVPNを2要素認証できる予定はありますか？
+        認証情報の保護に関する補足
       
     </span>
   </a>
@@ -1375,109 +1414,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q4-pap平文でもパスワードが盗み見られないと言える理由を技術的に教えてください" class="md-nav__link">
+  <a href="#参考情報" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q4. PAP（平文）でもパスワードが盗み見られないと言える理由を、技術的に教えてください。
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q5-2要素認証なのに入力が1回に見えます2段階認証2回入力は可能ですか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q5. 2要素認証なのに入力が1回に見えます。「2段階認証（2回入力）」は可能ですか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q6-アクセスログはどのくらいの期間保存されますか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q6. アクセスログはどのくらいの期間保存されますか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q7-複数拠点のリモートアクセスvpnで拠点ごとに接続可否を制御できますか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q7. 複数拠点のリモートアクセスVPNで、拠点ごとに接続可否を制御できますか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q8-20-名程度の小規模事業所でも導入できるコスト感でしょうか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q8. 20 名程度の小規模事業所でも導入できるコスト感でしょうか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q9-多要素認証でsms-や-メールによる認証は可能でしょうか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q9. 多要素認証で、SMS や メールによる認証は可能でしょうか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q10-windows-標準のリモートアクセスvpn-クライアントスマホの-authenticator-で利用するイメージで合っていますか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q10. Windows 標準のリモートアクセスVPN クライアント＋スマホの Authenticator で利用するイメージで合っていますか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q11-デバイス認証社用デバイスに限定した利用は可能ですか関連ドキュメントはありますか" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q11. デバイス認証（社用デバイスに限定した利用）は可能ですか？関連ドキュメントはありますか？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q12-otp-はどこに入力しますか入力形式は" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q12. OTP はどこに入力しますか？（入力形式は？）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#補足全体の前提" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        補足（全体の前提）
+        参考情報
       
     </span>
   </a>
@@ -1501,105 +1441,316 @@
 
 
 
-<h1 id="faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化">FAQ｜YAMAHA RTX × PIO-ID（リモートアクセスVPNの認証強化）<a class="headerlink" href="#faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化" title="Permanent link"></a></h1>
-<p>文書更新日: 2026-01-30</p>
-<p>本 FAQ は、YAMAHA × PIO-ID 共同セミナー等で実際にいただいたご質問と、その回答を整理したものです。<br />
-YAMAHA RTX と PIO-ID を組み合わせた「リモートアクセスVPNの認証強化」を検討する際の、よくある疑問点をまとめています。</p>
-<h2 id="関連ドキュメント">関連ドキュメント<a class="headerlink" href="#関連ドキュメント" title="Permanent link"></a></h2>
-<ul>
-<li>設定例（パスワード認証）: <a href="../vpn-group-password/">リモートアクセスVPN-パスワード認証</a></li>
-<li>設定例（2要素認証）: <a href="../vpn-group-otp/">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）</a></li>
-<li>技術解説: <a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a></li>
-<li>SCS評価制度向け解説: <a href="../pap_authentication_policy_scs/">SCS評価制度におけるリモートアクセスVPN認証強化の考え方</a></li>
-<li>事例・解説: <a href="https://www.singleid.jp/yamaha-rtx-fan-two-factor-auth/" target="_blank">YAMAHA RTX向け2要素認証</a></li>
-<li>導入事例: <a href="https://www.singleid.jp/rescuenow-case-study/" target="_blank">RescueNow 導入事例</a></li>
-</ul>
-<hr />
-<h2 id="q1-リモートアクセスvpnでクライアント証明書eap-tlsによる端末認証は可能ですかikev2ipsec希望">Q1. リモートアクセスVPNで、クライアント証明書（EAP-TLS）による端末認証は可能ですか？（IKEv2/IPsec希望）<a class="headerlink" href="#q1-リモートアクセスvpnでクライアント証明書eap-tlsによる端末認証は可能ですかikev2ipsec希望" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-現時点では対応していません。<br />
-YAMAHA RTX シリーズは、リモートアクセスVPN接続におけるクライアント証明書認証（例: EAP-TLS）をサポートしていないため、PIO-ID を組み合わせても「証明書による端末認証」は実現できません。<br />
-また、IKEv2/IPsec を選択する場合でも、リモートアクセスVPNでクライアント証明書による認証を RTX がサポートしていない点は同様です。</p>
-<hr />
-<h2 id="q2-パスワードを事前保存して運用しています例-yms-vpn8otpを追加するとユーザーにパスワードを開示する必要がありますか">Q2. パスワードを事前保存して運用しています（例: YMS-VPN8）。OTPを追加すると、ユーザーにパスワードを開示する必要がありますか？<a class="headerlink" href="#q2-パスワードを事前保存して運用しています例-yms-vpn8otpを追加するとユーザーにパスワードを開示する必要がありますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-OTP（ワンタイムパスワード）を追加する運用では、原則として<strong>ユーザーが自分のパスワードを入力できる</strong>必要があります。<br />
-また、OTP は都度変わるため、<strong>リモートアクセスVPN クライアント側にパスワードを「事前保存」したまま運用する前提とは相性が良くありません</strong>（OTP の入力が必要になるため）。</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>RTX × PIO-ID の 2 要素認証（パスワード＋OTP）では、リモートアクセスVPN クライアントの入力例として <code>password:123456</code> のように、パスワードと OTP を <code>:</code>（コロン）で連結して入力します。<br />
-具体例は <a href="../vpn-group-otp/">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）</a> を参照してください。</p>
-</div>
-<hr />
-<h2 id="q3-wlxのプライベートca自己caのような仕組みでpio-id-のようにrtxのリモートアクセスvpnを2要素認証できる予定はありますか">Q3. WLXのプライベートCA（自己CA）のような仕組みで、PIO-ID のようにRTXのリモートアクセスVPNを2要素認証できる予定はありますか？<a class="headerlink" href="#q3-wlxのプライベートca自己caのような仕組みでpio-id-のようにrtxのリモートアクセスvpnを2要素認証できる予定はありますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-WLX に搭載されている RADIUS／自己 CA 機能は、PIO-ID 利用時のような OTP を用いた 2 要素認証を提供するものではありません。<br />
-YAMAHA 単体でのリモートアクセスVPN への適用可否や将来計画については、YAMAHA 様へ直接お問い合わせください。</p>
-<hr />
-<h2 id="q4-pap平文でもパスワードが盗み見られないと言える理由を技術的に教えてください">Q4. PAP（平文）でもパスワードが盗み見られないと言える理由を、技術的に教えてください。<a class="headerlink" href="#q4-pap平文でもパスワードが盗み見られないと言える理由を技術的に教えてください" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-PIO-ID のクラウド RADIUS はインターネット経由で利用しますが、<strong>PAP 認証が「そのまま平文で流れるため危険」という理解は正確ではありません。</strong></p>
-<p>RADIUS における PAP は、<strong>共有シークレットとランダム値（Request Authenticator）を用いてパスワードを保護する仕様</strong>であり、単純に平文のまま送信されるわけではありません。</p>
-<p>この点については、<strong>世界的に最も広く利用されているオープンソース RADIUS 実装である FreeRADIUS</strong> の開発・メンテナンスを行っている <strong>InkBridge Networks</strong> も、「PAP はよく誤解されているが、RADIUS の文脈では適切に保護されている」と技術的に解説しています。  </p>
-<ul>
-<li>参考: <a href="https://www.inkbridgenetworks.com/blog/blog-10/is-pap-secure-54" target="_blank">Is PAP secure? Yes. Yes it is.（InkBridge Networks）</a>  </li>
-</ul>
-<p>PIO-ID では、この前提を踏まえたうえで、<strong>PAP 単体に依存せず、ワンタイムパスワード（OTP）を組み合わせた多要素認証を前提</strong>としています。これにより、万が一にパスワード情報が漏洩した場合でも、不正認証が困難な状況となります。</p>
-<p>この考え方については、PIO-ID の公式ドキュメント <a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a> で技術的に整理しています。SCS評価制度の観点での説明は、<a href="../pap_authentication_policy_scs/">SCS評価制度におけるリモートアクセスVPN認証強化の考え方</a> を参照してください。</p>
-<hr />
-<h2 id="q5-2要素認証なのに入力が1回に見えます2段階認証2回入力は可能ですか">Q5. 2要素認証なのに入力が1回に見えます。「2段階認証（2回入力）」は可能ですか？<a class="headerlink" href="#q5-2要素認証なのに入力が1回に見えます2段階認証2回入力は可能ですか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-本構成の 2 要素認証は、<strong>「パスワード」＋「OTP」</strong>を検証することで成立します。<br />
-入力回数としては、設定例では <strong>1 回の入力</strong>で行います（例: <code>password:123456</code>）。</p>
+<h1 id="scs評価制度におけるリモートアクセスvpn認証強化の考え方">SCS評価制度におけるリモートアクセスVPN認証強化の考え方<a class="headerlink" href="#scs評価制度におけるリモートアクセスvpn認証強化の考え方" title="Permanent link"></a></h1>
+<p>文書更新日: 2026-05-16</p>
+<p>参照資料: IPA「SCS評価制度 ★3・★4 要求事項・評価基準」（2026-05-16参照）</p>
+<p>本書は、YAMAHA RTX のリモートアクセスVPNで PIO-ID のクラウドRADIUSを利用する場合に、SCS評価制度の観点でどのように説明できるかを整理した文書です。</p>
+<p>SCS評価制度への適合を単独で保証するものではありませんが、リモートアクセスVPNの認証強化を説明する際の判断材料として利用することを目的としています。</p>
+<h2 id="結論">結論<a class="headerlink" href="#結論" title="Permanent link"></a></h2>
+<p>YAMAHA RTX と PIO-ID を組み合わせたリモートアクセスVPNの2要素認証は、SCS評価制度における認証強度、多要素認証、パスワード設定ルール、ネットワーク境界防護の考え方に沿った対策として説明できます。</p>
+<p>SCS評価制度の公開要求事項では、現時点でリモートアクセスVPNそのものを名指しした要求は確認できません。ただし、★4では「インターネットを経由して社内環境へ接続する場合」に多要素認証を使用する要求が示されており、リモートアクセスVPNを説明しやすい項目になっています。</p>
+<p>本構成では、パスワードに加えてワンタイムパスワード（OTP）を利用します。これにより、静的パスワードのみを利用するVPN認証と比較して、パスワード漏えい、使い回し、リスト型攻撃に対するリスクを低減できます。</p>
+<h2 id="scs評価制度との関係">SCS評価制度との関係<a class="headerlink" href="#scs評価制度との関係" title="Permanent link"></a></h2>
+<p>本書では、IPAが公開している「SCS評価制度 ★3・★4 要求事項・評価基準」（2026-05-16参照）のうち、YAMAHA RTX のリモートアクセスVPN認証と関係する項目を整理します。</p>
+<p>SCS評価制度の公開要求事項では、現時点でリモートアクセスVPNそのものを名指しした要求は確認できません。ただし、認証の強度、多要素認証、パスワード設定ルール、ネットワーク境界防護、ログ取得に関する項目は、リモートアクセスVPNの認証方式を評価する際の判断材料になります。</p>
+<p>本構成は、SCS評価制度への適合を単独で保証するものではありません。SCS評価制度では、認証方式だけでなく、資産管理、ログ管理、ネットワーク境界防護、運用ルールなども含めて評価されます。そのため、本構成は「SCS評価制度の認証強度や多要素認証の考え方に沿った対策」として位置づけるのが適切です。</p>
+<h3 id="関連する要求事項とコメント">関連する要求事項とコメント<a class="headerlink" href="#関連する要求事項とコメント" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>レベル</th>
+<th>要求事項の要点</th>
+<th>RTXのローカル認証のみの場合</th>
+<th>PIO-IDを併用する場合の説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4-1-1-1</td>
+<td>★3</td>
+<td>ユーザIDの付与・変更・削除を申請・承認制にすること。</td>
+<td>VPNユーザをRTXのローカル設定で個別に管理するため、申請・承認の記録や他システムとの整合を別途管理する必要があります。</td>
+<td>PIO-ID側でユーザを管理することで、VPN利用者の追加・変更・削除をID管理の運用に寄せやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-1-2</td>
+<td>★3</td>
+<td>ユーザIDを共有しないこと。共有が必要な場合は利用者を特定できるようにすること。</td>
+<td>共有VPNアカウントで運用すると、誰が接続したかを特定しにくくなります。</td>
+<td>ユーザごとのPIO-IDアカウントでVPN認証することで、共有IDを避け、利用者単位の認証として説明できます。</td>
+</tr>
+<tr>
+<td>4-1-1-3</td>
+<td>★3</td>
+<td>不要になったユーザIDを速やかに削除または無効化すること。</td>
+<td>RTXのローカル認証DBに残ったVPNユーザの削除漏れが発生しやすくなります。</td>
+<td>PIO-ID側でユーザを無効化・削除することで、VPN利用権限も合わせて停止しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-1-4</td>
+<td>★3</td>
+<td>不要になったアクセス権を速やかに削除または無効化すること。</td>
+<td>拠点や機器ごとにVPNユーザを管理している場合、権限変更時の反映漏れが起きやすくなります。</td>
+<td>PIO-IDのグループや認証ルールを使うことで、VPNアクセス権の変更を集中管理しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-1</td>
+<td>★3</td>
+<td>すべてのサーバおよびネットワーク機器について、システム管理者および責任者を定めること。</td>
+<td>RTXを管理する責任者を機器ごとに明確にする必要があります。</td>
+<td>PIO-IDは責任者の指定そのものを代替するものではありませんが、管理者ログインをユーザ単位にすることで、責任者・管理者の整理をしやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-2</td>
+<td>★3</td>
+<td>管理者IDを共有しないこと。共有が必要な場合は利用者を特定できるようにすること。</td>
+<td>RTX管理者アカウントを共有すると、管理操作を行った個人を特定しにくくなります。</td>
+<td>RTXの管理者ログインもPIO-IDで認証する構成にすれば、管理者ごとの認証として説明しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-3</td>
+<td>★3</td>
+<td>管理者IDには用途に応じた必要最低限の権限のみを付与すること。</td>
+<td>RTX本体側だけで管理者権限を運用する場合、管理対象者の棚卸や権限管理を別途行う必要があります。</td>
+<td>PIO-ID側のユーザ・グループ管理と組み合わせることで、管理者を限定する運用に寄せやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-5</td>
+<td>★3</td>
+<td>誰が管理者IDを持っているかを把握する仕組みを整備すること。</td>
+<td>機器ごとのローカル管理では、管理者の一覧化や棚卸が煩雑になります。</td>
+<td>PIO-IDに管理者認証を集約することで、管理者IDの把握と棚卸を行いやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-6</td>
+<td>★3</td>
+<td>不要になった管理者IDを速やかに削除または無効化すること。</td>
+<td>RTX側に管理者アカウントが残ると、退職・異動後の削除漏れがリスクになります。</td>
+<td>PIO-ID側で管理者を無効化・削除することで、管理アクセスの停止を集中管理しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-7</td>
+<td>★3</td>
+<td>管理者IDの付与・変更・削除を申請・承認制にすること。</td>
+<td>機器ごとに手動で管理する場合、申請・承認と実設定の対応を別途確認する必要があります。</td>
+<td>PIO-ID側の管理プロセスに寄せることで、管理者IDの付与・変更・削除を統制しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-2-8</td>
+<td>★3</td>
+<td>管理者IDの付与・変更・削除やネットワーク機器の設定変更を行う権限を、業務上必要な者に限定すること。</td>
+<td>RTXの設定変更権限をローカル管理だけで運用すると、対象者の限定や棚卸を別途行う必要があります。</td>
+<td>管理者ログインをPIO-ID認証に寄せることで、設定変更できる管理者をユーザ・グループ単位で整理しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-3-1</td>
+<td>★3</td>
+<td>アクセス許可前に、ユーザIDごとの認証情報でユーザを認証すること。</td>
+<td>ローカル認証DBでも実現できますが、共有IDや削除漏れがあるとユーザ単位の認証として弱くなります。</td>
+<td>ユーザごとのPIO-IDアカウントでVPN認証することで、利用者単位の認証として説明できます。</td>
+</tr>
+<tr>
+<td>4-1-3-3</td>
+<td>★3</td>
+<td>多要素認証では、知識情報、所有情報、生体情報、その他の情報から2種類以上を利用すること。</td>
+<td>RTXのローカルパスワード認証のみでは、知識情報だけの認証になります。</td>
+<td>パスワードを知識情報、OTPを所有情報として扱うことで、多要素認証として説明できます。</td>
+</tr>
+<tr>
+<td>4-1-3-4</td>
+<td>★3</td>
+<td>多要素認証の知識情報として用いるパスワードは8文字以上とすること。</td>
+<td>RTX側だけでパスワードルールを組織全体に合わせて維持するには、別途運用管理が必要です。</td>
+<td>PIO-ID側のパスワードポリシーを利用し、VPN利用者にも同じ方針を適用しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-3-5</td>
+<td>★4</td>
+<td>インターネット経由で社内環境へ接続する場合などは、多要素認証を使用すること。</td>
+<td>リモートアクセスVPNが静的パスワードのみの場合、この考え方に対する説明が弱くなります。</td>
+<td>VPN接続にOTPを追加することで、インターネット経由の社内接続に多要素認証を適用する対策として説明できます。</td>
+</tr>
+<tr>
+<td>4-1-5-1</td>
+<td>★3</td>
+<td>デフォルトパスワードを変更するルールを定めること。</td>
+<td>RTXの初期管理パスワードやローカルユーザの初期設定を個別に管理する必要があります。</td>
+<td>PIO-ID認証へ寄せる場合でも、RTX本体の管理パスワード変更は別途必要です。PIO-IDは利用者認証・管理者認証の集中管理を補完します。</td>
+</tr>
+<tr>
+<td>4-1-5-2</td>
+<td>★3</td>
+<td>推測されやすい単語のパスワード設定を禁止すること。</td>
+<td>RTX側のローカルパスワードだけで組織のパスワードポリシーを徹底するには、運用確認が必要です。</td>
+<td>PIO-ID側のパスワードポリシーに寄せることで、VPN認証にも推測されにくいパスワード運用を適用しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-5-3</td>
+<td>★3</td>
+<td>パスワード認証では、多要素認証または試行回数制限を組み合わせたうえで8文字以上とすること。</td>
+<td>静的パスワードのみのVPN認証では、多要素認証の説明ができません。</td>
+<td>PIO-IDのOTPを追加することで、パスワード認証に多要素認証を組み合わせる構成として説明できます。</td>
+</tr>
+<tr>
+<td>4-1-5-4</td>
+<td>★3</td>
+<td>情報機器およびサービス間でパスワードを使い回さないようにすること。</td>
+<td>VPN専用のローカルパスワードをユーザが個別に管理するため、使い回しの確認が難しくなります。</td>
+<td>PIO-ID側のID管理・パスワードポリシーに寄せることで、利用者ごとのパスワード管理を統制しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-5-5</td>
+<td>★3</td>
+<td>パスワード設定ルールを利用者に周知すること。</td>
+<td>VPNだけ別ルールになると、利用者への周知や運用が分散しやすくなります。</td>
+<td>PIO-IDの利用ルールとして、VPN認証を含めたパスワード・OTP利用方針を周知しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-6-1</td>
+<td>★3</td>
+<td>パスワードを安全に保管するルールを定めること。</td>
+<td>VPN専用パスワードを端末やメモに保存する運用になりやすく、管理が分散します。</td>
+<td>PIO-IDの認証に寄せることで、VPN専用のローカルパスワード管理を減らし、OTP併用で漏えい時のリスクも下げられます。</td>
+</tr>
+<tr>
+<td>4-1-6-2</td>
+<td>★3</td>
+<td>パスワード漏えい時、速やかに変更する手順を定めること。</td>
+<td>RTXローカル認証では、機器ごとに該当ユーザのパスワード変更や無効化が必要になります。</td>
+<td>PIO-ID側でパスワード変更、ユーザ無効化、OTP再設定などを集中して行いやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-6-3</td>
+<td>★3</td>
+<td>パスワード管理ルールを利用者に周知すること。</td>
+<td>VPN専用の例外運用があると、周知内容が複雑になります。</td>
+<td>PIO-IDの利用ルールにVPN認証を含めることで、認証ルールの周知を一本化しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-1</td>
+<td>★3</td>
+<td>アクセス権の発行・変更・削除、範囲限定、棚卸、台帳管理のルールを定めること。</td>
+<td>RTXごとのローカル認証では、VPNアクセス権の台帳管理や棚卸を別途行う必要があります。</td>
+<td>PIO-IDのユーザ・グループでVPN利用可否を管理することで、アクセス権の発行・変更・削除を整理しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-2</td>
+<td>★4</td>
+<td>年1回以上、付与したアクセス権の棚卸を実施すること。</td>
+<td>RTXに登録されたローカルユーザを機器ごとに確認する必要があります。</td>
+<td>PIO-ID側のグループやユーザ一覧を基準に、VPNアクセス権の棚卸を行いやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-3</td>
+<td>★4</td>
+<td>重要な機密情報を扱うシステムは、アクセス権付与の条件を定めること。</td>
+<td>VPN接続後に重要システムへ到達できる場合、VPN利用条件を別途明確にする必要があります。</td>
+<td>PIO-IDのグループ条件を用いて、VPN利用を許可する対象者を定義しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-4</td>
+<td>★4</td>
+<td>重要な機密情報を扱うシステムのアクセス権設定について、システム管理者の要件および設定手順を定めること。</td>
+<td>VPN接続が重要システムへの入口になる場合、誰がVPNアクセス権を設定するか、どの手順で設定するかを明確にする必要があります。</td>
+<td>PIO-ID側のユーザ・グループ設定手順とRTX側のVPN設定手順を分けて整理し、運用手順として明文化しやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-5</td>
+<td>★4</td>
+<td>ユーザおよび管理者ごとに必要最小限の権限を付与すること。</td>
+<td>共有VPNアカウントや広いアクセス許可では、最小権限の説明が難しくなります。</td>
+<td>ユーザ・グループ単位でVPN利用可否や管理アクセス可否を分けることで、最小権限の考え方に寄せやすくなります。</td>
+</tr>
+<tr>
+<td>4-1-7-6</td>
+<td>★4</td>
+<td>付与したアクセス権の運用・利用状況を監視する仕組みを整備すること。</td>
+<td>RTX側の接続ログだけでは、利用者管理や認証失敗状況の確認が分散しやすくなります。</td>
+<td>PIO-IDの認証ログとRTX側のVPN接続ログを組み合わせることで、VPN利用状況を確認しやすくなります。</td>
+</tr>
+<tr>
+<td>4-5-1-3</td>
+<td>★3</td>
+<td>ファイアウォールまたはルータの認証は、パスワード設定等に関する評価基準を満たすこと。</td>
+<td>RTXはルータであり、VPN利用者や管理者の認証も評価時の確認対象になり得ます。</td>
+<td>VPN利用者認証や管理者ログインをPIO-IDに寄せることで、パスワードポリシーやOTPの適用を説明しやすくなります。</td>
+</tr>
+<tr>
+<td>4-5-1-4</td>
+<td>★3</td>
+<td>認証されていないインバウンド通信を遮断すること。</td>
+<td>VPN公開ポートはインターネット側の入口になるため、認証前通信と認証後通信の扱いをRTX側で適切に設計する必要があります。</td>
+<td>PIO-IDは認証強化を担います。境界防護そのものはRTX側のVPN設定、ファイアウォール設定と合わせて確認します。</td>
+</tr>
+<tr>
+<td>4-5-1-7</td>
+<td>★3</td>
+<td>インターネット経由でファイアウォール・ルールを変更する場合は、多要素認証または信頼できるIPアドレス制限を適用すること。</td>
+<td>RTXの管理画面をインターネット経由で利用する場合、ローカルパスワードのみでは説明が弱くなります。</td>
+<td>RTXの管理者ログインもPIO-IDで認証する構成にすれば、管理アクセスへの多要素認証として説明できます。</td>
+</tr>
+<tr>
+<td>4-4-3-1</td>
+<td>★4</td>
+<td>ファイアウォール、プロキシサーバ、認証サーバなどのログを取得・保管すること。</td>
+<td>RTX側のVPNログだけでは、認証サーバ側の成功・失敗やユーザID単位の確認が不足する場合があります。</td>
+<td>PIO-IDの認証ログとRTX側のVPN接続ログを組み合わせることで、認証結果と接続状況を確認しやすくなります。保存期間や取得項目は別途確認が必要です。</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>「2段階認証（2回入力）」のように、UI 上で入力を 2 回に分けられるかどうかは、リモートアクセスVPN クライアントの実装や連携方式に依存します。運用要件が明確な場合は個別にご相談ください。</p>
+<p>4-1-3-2は、重要な機密情報を取り扱うクラウドサービスへのアクセスを対象とした項目です。本書ではリモートアクセスVPN認証の説明資料として扱うため、関連項目には含めていません。</p>
 </div>
-<hr />
-<h2 id="q6-アクセスログはどのくらいの期間保存されますか">Q6. アクセスログはどのくらいの期間保存されますか？<a class="headerlink" href="#q6-アクセスログはどのくらいの期間保存されますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-原則として 30 日間保存されます（プランや個別契約により異なる場合があります）。</p>
-<hr />
-<h2 id="q7-複数拠点のリモートアクセスvpnで拠点ごとに接続可否を制御できますか">Q7. 複数拠点のリモートアクセスVPNで、拠点ごとに接続可否を制御できますか？<a class="headerlink" href="#q7-複数拠点のリモートアクセスvpnで拠点ごとに接続可否を制御できますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-はい、可能です。<br />
-PIO-ID 側でユーザー／グループ単位に許可を分けることで、拠点（接続先）ごとにアクセス可否を制御できます。</p>
-<hr />
-<h2 id="q8-20-名程度の小規模事業所でも導入できるコスト感でしょうか">Q8. 20 名程度の小規模事業所でも導入できるコスト感でしょうか？<a class="headerlink" href="#q8-20-名程度の小規模事業所でも導入できるコスト感でしょうか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-PIO-ID はオープンプライスのため価格の明示はできません。<br />
-最小契約ユーザー数は 10 名から利用可能で、小規模事業所でも導入しやすい構成です。</p>
-<p>なお、他社クラウド RADIUS サービスでは、最小契約が 100 名以上となるケースもあります。<br />
-費用は要件（利用ユーザー数）により異なるため、個別にお見積りいたします。</p>
-<p><a href="https://www.singleid.jp/contact/">PIO-IDのお問い合わせフォーム</a> からお気軽にお見積りをご依頼ください。</p>
-<hr />
-<h2 id="q9-多要素認証でsms-や-メールによる認証は可能でしょうか">Q9. 多要素認証で、SMS や メールによる認証は可能でしょうか？<a class="headerlink" href="#q9-多要素認証でsms-や-メールによる認証は可能でしょうか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-対応していません。</p>
-<hr />
-<h2 id="q10-windows-標準のリモートアクセスvpn-クライアントスマホの-authenticator-で利用するイメージで合っていますか">Q10. Windows 標準のリモートアクセスVPN クライアント＋スマホの Authenticator で利用するイメージで合っていますか？<a class="headerlink" href="#q10-windows-標準のリモートアクセスvpn-クライアントスマホの-authenticator-で利用するイメージで合っていますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-はい、その認識で問題ありません。<br />
-（設定例では）Windows 標準のリモートアクセスVPN クライアントと、スマートフォンの Authenticator アプリ（ソフトウェアトークン）を組み合わせて利用します。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>YAMAHA 公式のリモートアクセスVPN クライアントは YMS-VPN8 です。</p>
-</div>
-<hr />
-<h2 id="q11-デバイス認証社用デバイスに限定した利用は可能ですか関連ドキュメントはありますか">Q11. デバイス認証（社用デバイスに限定した利用）は可能ですか？関連ドキュメントはありますか？<a class="headerlink" href="#q11-デバイス認証社用デバイスに限定した利用は可能ですか関連ドキュメントはありますか" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-本構成（RTX × PIO-ID）では、リモートアクセスVPN 認証のレイヤで「特定デバイスだけを識別して許可する」ことは難しいです。<br />
-理由は、RTX がクライアント証明書認証をサポートしていないため、証明書などで端末を強固に紐づけた認証が行えないためです。</p>
-<hr />
-<h2 id="q12-otp-はどこに入力しますか入力形式は">Q12. OTP はどこに入力しますか？（入力形式は？）<a class="headerlink" href="#q12-otp-はどこに入力しますか入力形式は" title="Permanent link"></a></h2>
-<p><strong>A.</strong><br />
-設定例では、リモートアクセスVPN クライアントの<strong>パスワード欄</strong>に、<strong>パスワードと OTP を <code>:</code>（コロン）で連結</strong>して入力します。<br />
-例: <code>password:123456</code></p>
-<hr />
-<h2 id="補足全体の前提">補足（全体の前提）<a class="headerlink" href="#補足全体の前提" title="Permanent link"></a></h2>
+<h3 id="scs評価制度の観点での説明例">SCS評価制度の観点での説明例<a class="headerlink" href="#scs評価制度の観点での説明例" title="Permanent link"></a></h3>
+<p>YAMAHA RTX と PIO-ID を組み合わせたリモートアクセスVPNの2要素認証は、SCS評価制度における認証強度、多要素認証、パスワード設定ルール、ネットワーク境界防護の考え方に沿った対策として説明できます。</p>
+<p>特に、リモートアクセスVPNはインターネット経由で社内環境へ接続する入口になるため、静的パスワードのみで認証するのではなく、パスワードとOTPを組み合わせることにより、認証強度を高めることができます。</p>
+<p>一方で、SCS評価制度は認証方式だけで評価されるものではありません。SCS評価制度の観点で説明する場合は、以下も合わせて確認してください。</p>
 <ul>
-<li>RTX × PIO-ID 構成では、<strong>「ユーザー ID ＋ 2 要素認証（パスワード＋OTP）」</strong>によるリモートアクセスVPN 認証強化が中心となります。</li>
-<li>クライアント証明書による端末識別・デバイス認証は、RTX の仕様上サポート対象外です。</li>
+<li>PIO-ID側のパスワードポリシー</li>
+<li>OTPの利用対象ユーザ</li>
+<li>YAMAHA RTX側のVPN設定と管理アクセス設定</li>
+<li>RADIUS共有シークレットの強度</li>
+<li>VPN装置とRADIUSサーバ間の通信経路制限</li>
+<li>認証ログおよびVPN接続ログの取得・保管</li>
+<li>管理者IDの管理手順</li>
+</ul>
+<h2 id="ローカル認証dbとの比較">ローカル認証DBとの比較<a class="headerlink" href="#ローカル認証dbとの比較" title="Permanent link"></a></h2>
+<p>YAMAHA RTX のローカル認証DBで静的パスワードのみを利用する場合、RADIUS通信によるパスワード送信は発生しません。</p>
+<p>一方で、静的パスワードのみの認証では、次のリスクが残ります。</p>
+<ul>
+<li>パスワードの使い回し</li>
+<li>漏えい済みパスワードを使ったリスト型攻撃</li>
+<li>弱いパスワードに対する総当たり攻撃</li>
+<li>退職者や異動者のアカウント管理漏れ</li>
+<li>拠点や機器ごとの認証情報管理のばらつき</li>
+</ul>
+<p>PIO-ID のクラウドRADIUSを利用した2要素認証では、パスワードに加えてOTPを要求できます。そのため、パスワードが漏えいした場合でも、それだけでVPN接続が成立しにくくなります。</p>
+<p>この点で、VPN全体の認証リスクを比較して判断することが重要です。</p>
+<h2 id="判断時のポイント">判断時のポイント<a class="headerlink" href="#判断時のポイント" title="Permanent link"></a></h2>
+<p>SCS評価制度の観点で確認する場合は、次の観点で整理すると判断しやすくなります。</p>
+<ul>
+<li>認証情報がそのまま平文で送信されていないこと</li>
+<li>VPN通信が暗号化されていること</li>
+<li>RADIUS共有シークレットが十分に強固であること</li>
+<li>パスワードのみではなくOTPを組み合わせていること</li>
+<li>管理者が利用者の追加、削除、無効化を適切に管理できること</li>
+<li>認証ログを確認できること</li>
+<li>VPN装置やRADIUS設定の変更権限が適切に管理されていること</li>
+</ul>
+<h2 id="認証情報の保護に関する補足">認証情報の保護に関する補足<a class="headerlink" href="#認証情報の保護に関する補足" title="Permanent link"></a></h2>
+<p>SCS評価制度の観点では、多要素認証の有無、パスワードポリシー、ログ取得、ネットワーク境界防護を中心に整理するのが適切です。</p>
+<p>一方で、社内確認の過程で「認証情報が平文で送信されるのか」が論点になる場合があります。その場合は、次のように説明できます。</p>
+<p>YAMAHA RTX と PIO-ID を組み合わせたリモートアクセスVPNの2要素認証では、RADIUSのPAP認証を利用します。ただし、RADIUSにおけるPAPでは、パスワードはRADIUS共有シークレットとRequest Authenticatorを用いて暗号化されます。そのため、パスワードがそのまま平文で送信されるわけではありません。</p>
+<p>なお、ここでいう暗号化は、RADIUSパケット全体ではなく、パスワード情報に対する暗号化です。通信全体をTLSで保護するRadSecとは異なります。</p>
+<h2 id="参考情報">参考情報<a class="headerlink" href="#参考情報" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://www.ipa.go.jp/security/scs/index.html" target="_blank">SCS評価制度（IPA）</a>（2026-05-16参照）</li>
+<li><a href="https://www.ipa.go.jp/security/scs/requirements-criteria.html" target="_blank">SCS評価制度 要求事項・評価基準（IPA）</a>（2026-05-16参照）</li>
+<li><a href="https://www.ipa.go.jp/security/scs/rcu1hd0000007a2i-att/20260327001-c.xlsx" target="_blank">SCS評価制度 ★3・★4 要求事項・評価基準（IPA）</a>（2026-05-16参照）</li>
+<li><a href="https://www.meti.go.jp/press/2025/03/20260327001/20260327001-gr.pdf" target="_blank">SCS評価制度に関するFAQ（経済産業省）</a>（2026-05-16参照）</li>
+<li><a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a></li>
 </ul>
 
 

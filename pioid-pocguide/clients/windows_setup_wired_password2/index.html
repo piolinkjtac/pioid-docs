@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/android/setup_wifi/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/clients/windows_setup_wired_password2/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Wi-FiのEAP-TLS認証の接続設定（Android OS） - PIO-ID マニュアル</title>
+        <title>Windows: パスワードで有線LANアクセスの認証（詳細設定） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wi-fiのeap-tls認証の接続設定android-os" class="md-skip">
+        <a href="#windows-パスワードで有線lanアクセスの認証詳細設定" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wi-FiのEAP-TLS認証の接続設定（Android OS）
+              Windows: パスワードで有線LANアクセスの認証（詳細設定）
             
           </span>
         </div>
@@ -1339,49 +1339,106 @@
 
 
 
-<h1 id="wi-fiのeap-tls認証の接続設定android-os">Wi-FiのEAP-TLS認証の接続設定（Android OS）<a class="headerlink" href="#wi-fiのeap-tls認証の接続設定android-os" title="Permanent link"></a></h1>
+<h1 id="windows-パスワードで有線lanアクセスの認証詳細設定">Windows: パスワードで有線LANアクセスの認証（詳細設定）<a class="headerlink" href="#windows-パスワードで有線lanアクセスの認証詳細設定" title="Permanent link"></a></h1>
+<p>以下、NICに認証設定する方法です。</p>
 <ol>
-<li>SSIDをクリックします。</li>
+<li>Windowsの<strong>スタートメニュー＞アプリ、設定、ドキュメントの検索</strong>より、<strong>ncpa.cpl</strong>を入力し、Enterキーを押下します。</li>
+<li><strong>ネットワーク接続</strong>画面が表示されるので、該当の有線認証用NICを右クリックし<strong>プロパティ</strong>を選択します。<strong>イーサネットのプロパティ</strong>画面が表示されます。</li>
 <li>
-<p>SSIDの設定画面が表示されたら、下記を設定し、<strong>接続</strong>をクリックします。</p>
+<p><strong>認証</strong>タブ画面で、以下を設定し、<strong>設定</strong>ボタンをクリックします。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>設定値</strong></th>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>EAP方式</strong></td>
-<td style="text-align: left;"><strong>TLS</strong>を選択</td>
+<td style="text-align: left;"><strong>IEEE802.1X認証を有効にする</strong></td>
+<td style="text-align: left;">チェックを入れます。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>CA証明書</strong></td>
-<td style="text-align: left;"><strong>システム証明書を使用</strong>を選択</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>証明書のオンライン検証</strong></td>
-<td style="text-align: left;"><strong>検証しない</strong>を選択</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>ドメイン</strong></td>
-<td style="text-align: left;">Android11以降: <strong>顧客管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブ画面の<strong>ホスト名</strong>を入力（例: radius-02-0001.poc.singleid.jp）<br>Android10以前: 空白</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>ユーザ証明書</strong></td>
-<td style="text-align: left;">インストールしたPIO-IDのクライアント証明書を選択</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>ID</strong></td>
-<td style="text-align: left;">ユーザ名を入力</td>
+<td style="text-align: left;"><strong>ネットワークの認証方法の選択</strong></td>
+<td style="text-align: left;"><strong>Microsoft: 保護された EAP (PEAP)</strong>を選択します。</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>SSIDが<strong>接続済み</strong>となったら、Wi-Fi接続の設定は完了です。</p>
+<p><strong>保護された EAP のプロパティ</strong>画面で、以下情報を設定し、<strong>構成</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>証明書を検証してサーバーのIDを検証する</strong></td>
+<td style="text-align: left;">チェックします。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>次のサーバーに接続する</strong></td>
+<td style="text-align: left;">チェックし、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>信頼されたルート証明機関</strong></td>
+<td style="text-align: left;"><strong>ISRG Root X1</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証方法を選択する</strong></td>
+<td style="text-align: left;"><strong>セキュリティで保護されたパスワード (EAP-MSCHAP v2)</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高速再接続を有効にする</strong></td>
+<td style="text-align: left;">必要に応じてチェックします。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。<strong>次のサーバーに接続する</strong>にRADIUSサーバのホスト名を入力することで、証明書更新後も同じホスト名のサーバ証明書として検証できます。</p>
+</div>
 </li>
+<li>
+<p><strong>EAP MSCHAPv2 のプロパティ</strong>画面で、<strong>Windows のログオン名とパスワードを自動的に使う</strong>のチェックを外し、<strong>OK</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>このチェックを外すことで、Windowsのログオン情報ではなく、接続時に入力するPIO-IDのユーザ名とパスワードで認証できます。</p>
+</div>
+</li>
+<li>
+<p><strong>保護された EAP のプロパティ</strong>画面で、<strong>OK</strong>ボタンをクリックします。</p>
+</li>
+<li><strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。<strong>追加の設定</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>802.1Xの設定</strong>タブで、以下情報を設定し、<strong>OK</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>認証モードを指定する</strong></td>
+<td style="text-align: left;">チェックします。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証モード</strong></td>
+<td style="text-align: left;"><strong>ユーザ認証</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>イーサネットのプロパティ</strong>画面で、<strong>OK</strong>ボタンをクリックします。<strong>ネットワーク接続</strong>画面を閉じます。</p>
+</li>
+<li>認証情報の入力画面が表示された場合は、PIO-IDの<strong>ユーザ名</strong>と<strong>パスワード</strong>を入力します。</li>
+<li>接続成功したことを確認します。</li>
 </ol>
 
 

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/android/install_cert/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/clients/windows_setup_wlan_password2/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Wi-FiのEAP-TLS認証で利用する証明書をインストール（Android OS） - PIO-ID マニュアル</title>
+        <title>Windows: パスワードで無線LANアクセスの認証（詳細設定） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wi-fiのeap-tls認証で利用する証明書をインストールandroid-os" class="md-skip">
+        <a href="#windows-パスワードで無線lanアクセスの認証詳細設定" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wi-FiのEAP-TLS認証で利用する証明書をインストール（Android OS）
+              Windows: パスワードで無線LANアクセスの認証（詳細設定）
             
           </span>
         </div>
@@ -1339,16 +1339,145 @@
 
 
 
-<h1 id="wi-fiのeap-tls認証で利用する証明書をインストールandroid-os">Wi-FiのEAP-TLS認証で利用する証明書をインストール（Android OS）<a class="headerlink" href="#wi-fiのeap-tls認証で利用する証明書をインストールandroid-os" title="Permanent link"></a></h1>
+<h1 id="windows-パスワードで無線lanアクセスの認証詳細設定">Windows: パスワードで無線LANアクセスの認証（詳細設定）<a class="headerlink" href="#windows-パスワードで無線lanアクセスの認証詳細設定" title="Permanent link"></a></h1>
+<p>以下、Windowsに無線LANの802.1X認証設定を手動で追加する方法です。</p>
 <ol>
-<li>証明書発行通知メールにあるURLリンクまたはQRコードからP12形式の証明書をダウンロードします。</li>
-<li>ダウンロードした証明書（ZIP圧縮）ファイルを開きます。 </li>
-<li>解凍された P12形式のファイル (ユーザ名.p12) を選択します。</li>
-<li>証明書の抽出用パスワードを求められるので、<strong>ユーザ名</strong>を入力し、<strong>OK</strong>をクリックします。</li>
-<li><strong>証明書の種類の選択</strong>にて、<strong>Wi-Fi証明書</strong>を選択し、<strong>OK</strong>をクリックします。</li>
-<li>証明書の名前を尋ねられるので、<strong>わかりやすい名称</strong>を設定し、<strong>OK</strong>をクリックします。</li>
+<li>Windowsの<strong>スタートメニュー＞アプリ、設定、ドキュメントの検索</strong>より、<strong>control</strong>を入力し、Enterキーを押下します。</li>
+<li><strong>コントロール パネル</strong>が表示されます。<strong>ネットワークとインターネット＞ネットワークと共有センター</strong>をクリックします。</li>
+<li><strong>新しい接続またはネットワークのセットアップ</strong>をクリックします。</li>
+<li><strong>ワイヤレス ネットワークに手動で接続します</strong>を選択し、<strong>次へ</strong>ボタンをクリックします。</li>
+<li>
+<p>以下情報を設定し、<strong>次へ</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ネットワーク名</strong></td>
+<td style="text-align: left;">接続する無線LANアクセスポイントのSSIDを入力します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>セキュリティの種類</strong></td>
+<td style="text-align: left;">無線LANアクセスポイント側の設定に合わせます。（例：<strong>WPA2-エンタープライズ</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>暗号化の種類</strong></td>
+<td style="text-align: left;">無線LANアクセスポイント側の設定に合わせます。（例：<strong>AES</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>この接続を自動的に開始します</strong></td>
+<td style="text-align: left;">必要に応じてチェックします。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>接続の設定を変更します</strong>をクリックします。</p>
+</li>
+<li>
+<p><strong>ワイヤレス ネットワークのプロパティ</strong>画面の<strong>セキュリティ</strong>タブで、以下を設定し、<strong>設定</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>セキュリティの種類</strong></td>
+<td style="text-align: left;">手順5で設定した内容が表示されていることを確認します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>暗号化の種類</strong></td>
+<td style="text-align: left;">手順5で設定した内容が表示されていることを確認します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ネットワークの認証方法の選択</strong></td>
+<td style="text-align: left;"><strong>Microsoft: 保護された EAP (PEAP)</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>保護された EAP のプロパティ</strong>画面で、以下情報を設定し、<strong>構成</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>証明書を検証してサーバーのIDを検証する</strong></td>
+<td style="text-align: left;">チェックします。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>次のサーバーに接続する</strong></td>
+<td style="text-align: left;">チェックし、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>信頼されたルート証明機関</strong></td>
+<td style="text-align: left;"><strong>ISRG Root X1</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証方法を選択する</strong></td>
+<td style="text-align: left;"><strong>セキュリティで保護されたパスワード (EAP-MSCHAP v2)</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高速再接続を有効にする</strong></td>
+<td style="text-align: left;">必要に応じてチェックします。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。<strong>次のサーバーに接続する</strong>にRADIUSサーバのホスト名を入力することで、証明書更新後も同じホスト名のサーバ証明書として検証できます。</p>
+</div>
+</li>
+<li>
+<p><strong>EAP MSCHAPv2 のプロパティ</strong>画面で、<strong>Windows のログオン名とパスワードを自動的に使う</strong>のチェックを外し、<strong>OK</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>このチェックを外すことで、Windowsのログオン情報ではなく、接続時に入力するPIO-IDのユーザ名とパスワードで認証できます。</p>
+</div>
+</li>
+<li>
+<p><strong>保護された EAP のプロパティ</strong>画面で、<strong>OK</strong>ボタンをクリックします。</p>
+</li>
+<li><strong>ワイヤレス ネットワークのプロパティ</strong>画面の<strong>セキュリティ</strong>タブに戻ります。<strong>詳細設定</strong>ボタンをクリックします。</li>
+<li>
+<p><strong>802.1Xの設定</strong>タブで、以下情報を設定し、<strong>OK</strong>ボタンをクリックします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>認証モードを指定する</strong></td>
+<td style="text-align: left;">チェックします。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証モード</strong></td>
+<td style="text-align: left;"><strong>ユーザ認証</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>ワイヤレス ネットワークのプロパティ</strong>画面で、<strong>OK</strong>ボタンをクリックします。</p>
+</li>
+<li>無線LANアクセスポイントのSSIDを選択し、接続します。認証情報の入力画面が表示された場合は、PIO-IDの<strong>ユーザ名</strong>と<strong>パスワード</strong>を入力します。</li>
+<li>接続成功したことを確認します。</li>
 </ol>
-<p>以上でWi-Fi認証利用のための証明書のインストールは完了です。 </p>
 
 
 
