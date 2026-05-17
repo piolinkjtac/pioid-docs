@@ -1510,7 +1510,7 @@ YAMAHA RTX と PIO-ID を組み合わせた「リモートアクセスVPNの認�
 <li>設定例（パスワード認証）: <a href="../vpn-group-password/">リモートアクセスVPN-パスワード認証</a></li>
 <li>設定例（2要素認証）: <a href="../vpn-group-otp/">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）</a></li>
 <li>技術解説: <a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a></li>
-<li>SCS評価制度向け解説: <a href="../pap_authentication_policy_scs/">SCS評価制度におけるリモートアクセスVPN認証強化の考え方</a></li>
+<li>SCS評価制度向け解説: <a href="../scs_authentication_policy/">SCS評価制度におけるYAMAHA RTXのVPN認証・管理者認証強化の考え方</a></li>
 <li>事例・解説: <a href="https://www.singleid.jp/yamaha-rtx-fan-two-factor-auth/" target="_blank">YAMAHA RTX向け2要素認証</a></li>
 <li>導入事例: <a href="https://www.singleid.jp/rescuenow-case-study/" target="_blank">RescueNow 導入事例</a></li>
 </ul>
@@ -1545,7 +1545,7 @@ PIO-ID のクラウド RADIUS はインターネット経由で利用します�
 <li>参考: <a href="https://www.inkbridgenetworks.com/blog/blog-10/is-pap-secure-54" target="_blank">Is PAP secure? Yes. Yes it is.（InkBridge Networks）</a>  </li>
 </ul>
 <p>PIO-ID では、この前提を踏まえたうえで、<strong>PAP 単体に依存せず、ワンタイムパスワード（OTP）を組み合わせた多要素認証を前提</strong>としています。これにより、万が一にパスワード情報が漏洩した場合でも、不正認証が困難な状況となります。</p>
-<p>この考え方については、PIO-ID の公式ドキュメント <a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a> で技術的に整理しています。SCS評価制度の観点での説明は、<a href="../pap_authentication_policy_scs/">SCS評価制度におけるリモートアクセスVPN認証強化の考え方</a> を参照してください。</p>
+<p>この考え方については、PIO-ID の公式ドキュメント <a href="../pap_authentication_risk_misunderstanding/">誤解されている「PAP認証のリスク」</a> で技術的に整理しています。SCS評価制度の観点での説明は、<a href="../scs_authentication_policy/">SCS評価制度におけるYAMAHA RTXのVPN認証・管理者認証強化の考え方</a> を参照してください。</p>
 <hr />
 <h2 id="q5-2要素認証なのに入力が1回に見えます2段階認証2回入力は可能ですか">Q5. 2要素認証なのに入力が1回に見えます。「2段階認証（2回入力）」は可能ですか？<a class="headerlink" href="#q5-2要素認証なのに入力が1回に見えます2段階認証2回入力は可能ですか" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
