@@ -21,7 +21,7 @@
     
     
       
-        <title>Windows: パスワードで無線LANアクセスの認証（詳細設定） - PIO-ID マニュアル</title>
+        <title>Windows: パスワードで無線LANアクセスの認証（CAとホスト名を指定して検証） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-パスワードで無線lanアクセスの認証詳細設定" class="md-skip">
+        <a href="#windows-パスワードで無線lanアクセスの認証caとホスト名を指定して検証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows: パスワードで無線LANアクセスの認証（詳細設定）
+              Windows: パスワードで無線LANアクセスの認証（CAとホスト名を指定して検証）
             
           </span>
         </div>
@@ -1339,8 +1339,12 @@
 
 
 
-<h1 id="windows-パスワードで無線lanアクセスの認証詳細設定">Windows: パスワードで無線LANアクセスの認証（詳細設定）<a class="headerlink" href="#windows-パスワードで無線lanアクセスの認証詳細設定" title="Permanent link"></a></h1>
-<p>以下、Windowsに無線LANの802.1X認証設定を手動で追加する方法です。</p>
+<h1 id="windows-パスワードで無線lanアクセスの認証caとホスト名を指定して検証">Windows: パスワードで無線LANアクセスの認証（CAとホスト名を指定して検証）<a class="headerlink" href="#windows-パスワードで無線lanアクセスの認証caとホスト名を指定して検証" title="Permanent link"></a></h1>
+<p>この手順では、CAとRADIUSサーバのホスト名を指定して、Windowsに無線LANの802.1X認証設定を追加します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。証明書そのものを都度信頼するのではなく、CAとホスト名でサーバ証明書を検証します。</p>
+</div>
 <ol>
 <li>Windowsの<strong>スタートメニュー＞アプリ、設定、ドキュメントの検索</strong>より、<strong>control</strong>を入力し、Enterキーを押下します。</li>
 <li><strong>コントロール パネル</strong>が表示されます。<strong>ネットワークとインターネット＞ネットワークと共有センター</strong>をクリックします。</li>
@@ -1435,10 +1439,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。<strong>次のサーバーに接続する</strong>にRADIUSサーバのホスト名を入力することで、証明書更新後も同じホスト名のサーバ証明書として検証できます。</p>
-</div>
 </li>
 <li>
 <p><strong>EAP MSCHAPv2 のプロパティ</strong>画面で、<strong>Windows のログオン名とパスワードを自動的に使う</strong>のチェックを外し、<strong>OK</strong>ボタンをクリックします。</p>

@@ -21,7 +21,7 @@
     
     
       
-        <title>Windows: クライアント証明書で有線LANアクセスの認証（詳細設定） - PIO-ID マニュアル</title>
+        <title>Windows: クライアント証明書で有線LANアクセスの認証（CAとホスト名を指定して検証） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-クライアント証明書で有線lanアクセスの認証詳細設定" class="md-skip">
+        <a href="#windows-クライアント証明書で有線lanアクセスの認証caとホスト名を指定して検証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows: クライアント証明書で有線LANアクセスの認証（詳細設定）
+              Windows: クライアント証明書で有線LANアクセスの認証（CAとホスト名を指定して検証）
             
           </span>
         </div>
@@ -1339,8 +1339,13 @@
 
 
 
-<h1 id="windows-クライアント証明書で有線lanアクセスの認証詳細設定">Windows: クライアント証明書で有線LANアクセスの認証（詳細設定）<a class="headerlink" href="#windows-クライアント証明書で有線lanアクセスの認証詳細設定" title="Permanent link"></a></h1>
-<p>以下、NICに認証設定する方法です。</p>
+<h1 id="windows-クライアント証明書で有線lanアクセスの認証caとホスト名を指定して検証">Windows: クライアント証明書で有線LANアクセスの認証（CAとホスト名を指定して検証）<a class="headerlink" href="#windows-クライアント証明書で有線lanアクセスの認証caとホスト名を指定して検証" title="Permanent link"></a></h1>
+<p>この手順では、CAとRADIUSサーバのホスト名を指定して、Windowsの有線LAN 802.1X証明書認証設定を追加します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>事前に、認証で使用するクライアント証明書をWindowsへインストールしてください。</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。証明書そのものを都度信頼するのではなく、CAとホスト名でサーバ証明書を検証します。</p>
+</div>
 <ol>
 <li>Windowsの<strong>スタートメニュー＞アプリ、設定、ドキュメントの検索</strong>より、<strong>ncpa.cpl</strong>を入力し、Enterキーを押下します。</li>
 <li><strong>ネットワーク接続</strong>画面が表示されるので、該当の有線認証用NICを右クリックし<strong>プロパティ</strong>を選択します。<strong>イーサネットのプロパティ</strong>画面が表示されます。</li>
@@ -1397,10 +1402,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。<strong>これらのサーバーに接続する</strong>にRADIUSサーバのホスト名を入力することで、証明書更新後も同じホスト名のサーバ証明書として検証できます。</p>
-</div>
 </li>
 <li>
 <p><strong>イーサネットのプロパティ</strong>画面の<strong>認証</strong>タブに戻ります。<strong>追加の設定</strong>ボタンをクリックします。</p>

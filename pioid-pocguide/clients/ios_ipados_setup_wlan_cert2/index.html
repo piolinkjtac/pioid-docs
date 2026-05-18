@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/clients/ios_ipados_setup_wlan_cert/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/clients/ios_ipados_setup_wlan_cert2/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（接続時に確認） - PIO-ID マニュアル</title>
+        <title>iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（CAとホスト名を指定して検証） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iosipados-クライアント証明書で無線lanアクセスの認証接続時に確認" class="md-skip">
+        <a href="#iosipados-クライアント証明書で無線lanアクセスの認証caとホスト名を指定して検証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（接続時に確認）
+              iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（CAとホスト名を指定して検証）
             
           </span>
         </div>
@@ -1324,6 +1324,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#証明書ペイロードの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        証明書ペイロードの設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wi-fiペイロードの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wi-Fiペイロードの設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#設定後の確認" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定後の確認
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1339,44 +1380,84 @@
 
 
 
-<h1 id="iosipados-クライアント証明書で無線lanアクセスの認証接続時に確認">iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（接続時に確認）<a class="headerlink" href="#iosipados-クライアント証明書で無線lanアクセスの認証接続時に確認" title="Permanent link"></a></h1>
-<p>この手順では、iOS/iPadOSで無線LANへ接続し、接続時に表示されるRADIUSサーバ証明書の名前を確認して信頼します。</p>
+<h1 id="iosipados-クライアント証明書で無線lanアクセスの認証caとホスト名を指定して検証">iOS/iPadOS: クライアント証明書で無線LANアクセスの認証（CAとホスト名を指定して検証）<a class="headerlink" href="#iosipados-クライアント証明書で無線lanアクセスの認証caとホスト名を指定して検証" title="Permanent link"></a></h1>
+<p>この手順では、Apple ConfiguratorでCAとRADIUSサーバ名を指定するWi-Fi構成プロファイルを作成します。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>事前に、認証で使用するクライアント証明書をiOS/iPadOSへインストールしてください。CAとRADIUSサーバのホスト名を構成プロファイルで指定して検証する場合は、<a href="../ios_ipados_setup_wlan_cert2/">CAとホスト名を指定して検証する場合</a>を使用してください。</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。証明書そのものを都度信頼するのではなく、CAとホスト名でサーバ証明書を検証します。</p>
 </div>
-<ol>
-<li>SSIDをタップします。</li>
-<li>
-<p>SSIDの設定画面が表示されたら、下記を設定し、<strong>接続</strong>をタップします。</p>
+<h2 id="証明書ペイロードの設定">証明書ペイロードの設定<a class="headerlink" href="#証明書ペイロードの設定" title="Permanent link"></a></h2>
+<p>Apple Configuratorの構成プロファイルに、以下の証明書を追加します。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>設定値</strong></th>
+<th style="text-align: left;"><strong>証明書</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: left;">PIO-IDのクライアント証明書</td>
+<td style="text-align: left;">Wi-Fi認証で利用する端末または利用者のID証明書です。秘密鍵を含む証明書を追加します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">ISRG Root X1</td>
+<td style="text-align: left;">PIO-IDのRADIUSサーバ証明書を検証するための信頼するCAです。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ISRG Root X1は、Let's Encryptの<a href="https://letsencrypt.org/certificates/" target="_blank">証明書一覧</a>からダウンロードできます。Apple Configuratorで証明書ペイロードに追加する場合は、必要に応じて証明書ファイルの拡張子を<code>.cer</code>に変更して登録してください。</p>
+</div>
+<h2 id="wi-fiペイロードの設定">Wi-Fiペイロードの設定<a class="headerlink" href="#wi-fiペイロードの設定" title="Permanent link"></a></h2>
+<p>Wi-Fiペイロードで以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SSID</strong></td>
+<td style="text-align: left;">接続する無線LANのSSIDを指定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>セキュリティの種類</strong></td>
+<td style="text-align: left;">無線LANアクセスポイント側の設定に合わせます。（例：<strong>WPA2-エンタープライズ</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EAPの種類</strong></td>
+<td style="text-align: left;"><strong>TLS</strong>を選択します。</td>
+</tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザ名</strong></td>
 <td style="text-align: left;">PIO-IDの<strong>ユーザ名</strong>を入力します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ID</strong></td>
-<td style="text-align: left;">インストールしたPIO-IDの<strong>クライアント証明書</strong>を選択します。</td>
+<td style="text-align: left;"><strong>ID証明書</strong></td>
+<td style="text-align: left;">PIO-IDのクライアント証明書を指定します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>モード</strong></td>
-<td style="text-align: left;"><strong>EAP-TLS</strong>を選択します。</td>
+<td style="text-align: left;"><strong>信頼する証明書</strong></td>
+<td style="text-align: left;"><strong>ISRG Root X1</strong>を指定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>信頼するサーバ証明書の名前</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</td>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>RADIUSサーバ証明書の確認画面が表示されたら、証明書に表示される名前が、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>と一致していることを確認してください。接続先が正しければ、画面右上の<strong>信頼</strong>をタップします。</p>
-</li>
-</ol>
-<p>Wi-Fi接続の設定は完了です。</p>
+<h2 id="設定後の確認">設定後の確認<a class="headerlink" href="#設定後の確認" title="Permanent link"></a></h2>
+<p>既存のWi-Fiプロファイルが端末に残っている場合は、旧Wi-Fiプロファイルを削除してから新しいWi-Fiプロファイルを適用してください。</p>
+<p>設定後、以下を確認します。</p>
+<ul>
+<li>Wi-Fi接続時に<strong>証明書を受け入れる</strong>確認画面が表示されないこと</li>
+<li>Wi-Fi接続が正常に行えること</li>
+<li>端末再起動後も確認画面が表示されないこと</li>
+</ul>
 
 
 

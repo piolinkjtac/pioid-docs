@@ -21,7 +21,7 @@
     
     
       
-        <title>Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証 - PIO-ID マニュアル</title>
+        <title>Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証（CAとホスト名を指定して検証） - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-クライアント証明書wi-fi証明書で無線lanアクセスの認証" class="md-skip">
+        <a href="#android-クライアント証明書wi-fi証明書で無線lanアクセスの認証caとホスト名を指定して検証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証
+              Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証（CAとホスト名を指定して検証）
             
           </span>
         </div>
@@ -1339,7 +1339,13 @@
 
 
 
-<h1 id="android-クライアント証明書wi-fi証明書で無線lanアクセスの認証">Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証<a class="headerlink" href="#android-クライアント証明書wi-fi証明書で無線lanアクセスの認証" title="Permanent link"></a></h1>
+<h1 id="android-クライアント証明書wi-fi証明書で無線lanアクセスの認証caとホスト名を指定して検証">Android: クライアント証明書（Wi-Fi証明書）で無線LANアクセスの認証（CAとホスト名を指定して検証）<a class="headerlink" href="#android-クライアント証明書wi-fi証明書で無線lanアクセスの認証caとホスト名を指定して検証" title="Permanent link"></a></h1>
+<p>この手順では、AndroidでCAとRADIUSサーバのホスト名を指定して、無線LANの802.1X証明書認証を設定します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>事前に、認証で使用するクライアント証明書をAndroidへインストールしてください。</p>
+<p>PIO-IDのRADIUSサーバ証明書はLet's Encryptで発行されるため、短い周期で定期的に更新されます。証明書そのものを都度信頼するのではなく、CAとホスト名でサーバ証明書を検証します。</p>
+</div>
 <ol>
 <li>SSIDをタップします。</li>
 <li>
@@ -1366,7 +1372,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ドメイン</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブ画面の<strong>ホスト名</strong>を入力します。（例: radius-02-0001.poc.singleid.jp）</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ユーザ証明書</strong></td>
@@ -1380,7 +1386,7 @@
 </table>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>証明書のオンライン検証</strong>は、サーバ証明書の失効状態をオンラインで確認するかどうかの設定です。Let's Encryptの証明書ではOCSP URLが含まれないため、本手順では<strong>検証しない</strong>を選択します。<strong>検証しない</strong>を選択しても、サーバ証明書の検証自体を無効にするわけではありません。<strong>CA証明書</strong>にシステム証明書を使用し、<strong>ドメイン</strong>にRADIUSサーバのホスト名を入力することで、サーバ証明書を検証します。</p>
+<p><strong>証明書のオンライン検証</strong>は、サーバ証明書の失効状態をオンラインで確認するかどうかの設定です。Let's Encryptの証明書ではOCSP URLが含まれないため、本手順では<strong>検証しない</strong>を選択します。<strong>検証しない</strong>を選択しても、サーバ証明書の検証自体を無効にするわけではありません。</p>
 <p>Android 11以降では、Enterprise Wi-Fiのサーバ証明書検証が厳格化され、RADIUSサーバの証明書を検証するために<strong>ドメイン</strong>の指定が必要です。Android 10以前では、<strong>ドメイン</strong>を空白にしても接続できる場合があります。ただし、サーバ証明書の検証をより確実にするため、設定画面に<strong>ドメイン</strong>項目がある場合は、RADIUSサーバのホスト名を入力してください。</p>
 </div>
 </li>
