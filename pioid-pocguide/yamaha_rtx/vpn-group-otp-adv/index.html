@@ -1514,7 +1514,7 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2026-01-16</p>
+<p>文書更新日:2026-05-26</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、YAMAHA RTXへVPNを使ってリモートアクセスします。</li>
@@ -1522,6 +1522,18 @@
 <li>PIO-IDの拡張RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本手順のVPN接続端末は、Windows端末を前提としています。スマートフォンやタブレットは、ソフトウェアトークンアプリを表示する端末として利用できます。</p>
+<p>本構成でVPN接続端末として利用するには、次の2点を満たす必要があります。</p>
+<ul>
+<li>L2TP/IPsecを利用できること</li>
+<li>PAP認証を利用できること</li>
+</ul>
+<p>YAMAHA RTXでRADIUS連携によるリモートアクセスVPNを利用する場合、VPN方式はL2TP/IPsecです。また、本構成ではYAMAHA RTX側のユーザ認証方式としてPAPを選択します。L2TP/IPsecまたはPAP認証を利用できないVPNクライアントは対象外です。</p>
+<p>iPhone/iPadの標準VPNクライアントは、PAPを明示的に選択できないため対象外です。</p>
+<p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。Android 11以前は、RTX側をPAPのみに設定した状態で実機検証してください。</p>
+</div>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
 <h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
 <ol>
@@ -1646,7 +1658,9 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p>一時的に任意の<strong>名前</strong>と<strong>パスワード</strong>でユーザを登録します（<strong>名前</strong>はPIO-IDに登録したユーザ名と重複しないものにします）。<strong>次へ</strong>ボタンをクリックします。<strong>入力内容の確認</strong>画面へ移動します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>PIO-IDに登録されたユーザでリモートアクセスを行いますが、YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも１ユーザのユーザ登録が必要です。ここで登録したユーザは、後で、トンネル設定に登録されたユーザ情報（<code>pp auth username</code>）のみをCLIから削除してもよいですし、削除しない場合には、複雑なパスワードを設定しておくことをお勧めします。</p>
+<p>YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも1ユーザの登録が必要です。このユーザ名は、PIO-IDに登録したユーザ名と重複しないものにしてください。</p>
+<p>PIO-ID連携ではRADIUSサーバで認証するため、PIO-ID利用ユーザ分の<code>pp auth username</code>をRTXに登録する必要はありません。同じユーザ名がRTXのローカルユーザに登録されていると、PIO-IDのRADIUS認証ではなくローカルユーザ認証で処理される場合があります。</p>
+<p>GUIで登録した一時ユーザは、後でトンネル設定に登録されたユーザ情報（<code>pp auth username</code>）のみをCLIから削除してもかまいません。</p>
 <p>削除コマンド例：</p>
 <div class="highlight"><pre><span></span><code>no pp auth username &lt;username&gt; &lt;password&gt;
 </code></pre></div>
@@ -1654,6 +1668,16 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 </li>
 <li>
 <p>設定内容を確認し、<strong>設定の確定</strong>ボタンをクリックし、設定を完了します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>L2TP/IPsecで複数ユーザを同時接続させる場合は、想定する同時接続数分のトンネルを<code>anonymous</code> PPにバインドします。GUIで作成された設定を確認し、必要に応じて同時接続数に合わせて調整してください。たとえば、10同時接続を想定する場合は、以下のように設定します。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>pp select anonymous
+pp bind tunnel1-tunnel10
+pp auth request pap
+</code></pre></div></td></tr></table></div>
+</div>
 </li>
 </ol>
 <div class="admonition info">
