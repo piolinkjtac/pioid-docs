@@ -1754,7 +1754,7 @@
 
 
 <h1 id="microsoft-entra-idscimによる-pio-id-ユーザーグループ同期">Microsoft Entra ID（SCIM）による PIO-ID ユーザー／グループ同期<a class="headerlink" href="#microsoft-entra-idscimによる-pio-id-ユーザーグループ同期" title="Permanent link"></a></h1>
-<p>文書更新日:2026-02-26</p>
+<p>文書更新日:2026-06-11</p>
 <h2 id="1-目的と概要">1. 目的と概要<a class="headerlink" href="#1-目的と概要" title="Permanent link"></a></h2>
 <p>本マニュアルは、Microsoft Entra ID（旧 Azure Active Directory）の <strong>SCIM プロビジョニング機能</strong> を利用して、<strong>PIO-ID</strong> にユーザーおよびグループを自動同期するための設定手順書です。</p>
 <p>本書は以下の利用者を想定しています。</p>
@@ -1776,18 +1776,15 @@
 <h3 id="upn-の運用重要">UPN の運用（重要）<a class="headerlink" href="#upn-の運用重要" title="Permanent link"></a></h3>
 <p>PIO-ID では、Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>を元にユーザーを識別します（PIO-ID 側のユーザー名は UPN の<code>@</code>より前の部分が利用されます）。</p>
 <ul>
+<li>同期対象にできる UPN サフィックスは1つであること</li>
 <li>
-<p>同期対象ユーザーの UPN の<code>@</code>より前の部分が、テナント内で重複していないこと</p>
-<p>例：<code>user1@a.example</code> と <code>user1@b.example</code> は重複扱い</p>
+<p>同期対象ユーザーの UPN サフィックスを、PIO-ID 側へ事前に登録していること</p>
+<p>UPN サフィックスは、UPN の<code>@</code>より右側の文字列です。例：<code>user1@example.com</code> を同期する場合、<code>example.com</code> の登録が必要です。</p>
 </li>
 <li>
 <p>同期開始後に、同期対象ユーザーの UPN を変更しない運用にできること</p>
 </li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>上記が満たせない場合、SCIM 連携が正常に動作しない（または意図しないユーザーに紐づく）可能性があります。</p>
-</div>
 <h3 id="ユーザー属性の前提scim">ユーザー属性の前提（SCIM）<a class="headerlink" href="#ユーザー属性の前提scim" title="Permanent link"></a></h3>
 <p>SCIM で PIO-ID のユーザーを作成・更新するため、以下の属性が Microsoft Entra ID 側で設定されていることを事前に確認してください。未設定（空値）の場合、対象ユーザーのプロビジョニングは失敗します。</p>
 <table>
@@ -1826,10 +1823,8 @@
 <ul>
 <li>Microsoft Entra ID P1</li>
 <li>Microsoft Entra ID P2</li>
-<li>Microsoft Entra ID Governance</li>
-<li>Microsoft Entra Suite（P1 / P2 機能を含む）</li>
 </ul>
-<p>Microsoft Entra ID Free については、グループ プロビジョニングが利用できないため、本書の前提（ユーザー／グループ同期）を満たしません。ユーザー プロビジョニングは可能な場合がありますが、PIO-ID では Free エディションでの検証を行っていないため推奨しません（検証予定）。</p>
+<p>Microsoft Entra ID Free については、2026年6月11日時点で、ユーザー プロビジョニングが動作することを確認しています。ただし、グループ プロビジョニングが利用できないため、本書の前提（ユーザー／グループ同期）を満たしません。また、無償版の仕様は Microsoft 側で変更される可能性があるため、本番運用では Microsoft Entra ID P1 以上の利用を推奨します。</p>
 <p>参考（Microsoft Learn）</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/entra/fundamentals/licensing" target="_blank">Microsoft Entra ID ライセンス比較</a></li>
@@ -1854,6 +1849,7 @@ PIO-ID ユーザー／グループ管理
 <ul>
 <li>PIO-ID のアカウント番号</li>
 <li>Microsoft Entra ID のテナント ID</li>
+<li>同期対象ユーザーの UPN サフィックス（1つ）</li>
 </ul>
 <h3 id="42-pio-id-から提供される情報">4.2 PIO-ID から提供される情報<a class="headerlink" href="#42-pio-id-から提供される情報" title="Permanent link"></a></h3>
 <p>PIO-ID から、以下の情報が提供されます（Microsoft Entra ID 側の設定で利用します）。</p>
@@ -2151,10 +2147,7 @@ PIO-ID ユーザー／グループ管理
 </ul>
 <h3 id="81-同期のキー重要">8.1 同期のキー（重要）<a class="headerlink" href="#81-同期のキー重要" title="Permanent link"></a></h3>
 <p>PIO-ID では、Microsoft Entra ID から同期されるユーザーを <strong>ユーザー プリンシパル名（UPN）</strong> を元に識別します。PIO-ID 側のユーザー名は、UPN の <code>@</code> より前の部分が利用されます。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>UPN の <code>@</code> より前の部分が同じユーザーが複数いると、意図しないユーザーに紐づく可能性があります。UPN の運用ルール（重複しないこと）を確認してください。</p>
-</div>
+<p>UPN の <code>@</code> より右側の UPN サフィックスが PIO-ID 側に登録されていない場合、そのユーザーの SCIM 同期は失敗します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>UPN を変更すると、PIO-ID 側のユーザー名と一致しなくなり不整合が発生します。運用上、同期対象ユーザーの UPN は変更しないでください。</p>
@@ -2249,24 +2242,29 @@ PIO-ID ユーザー／グループ管理
 </thead>
 <tbody>
 <tr>
-<td>ユーザーが同期されない</td>
+<td>ユーザー／グループが同期されない</td>
 <td>割り当て漏れ</td>
 <td>アプリにユーザー／グループが割り当てられているか</td>
 </tr>
 <tr>
 <td>ユーザー作成/更新が失敗する</td>
-<td>PIO-ID 必須項目が未設定</td>
+<td>UPN サフィックス未登録</td>
+<td>同期対象ユーザーの UPN サフィックスが PIO-ID 側に登録されているか</td>
+</tr>
+<tr>
+<td>ユーザー作成/更新が失敗する</td>
+<td>必須属性が未設定</td>
 <td><code>userPrincipalName</code> / <code>givenName</code> / <code>surname</code> / <code>mail</code> の値とマッピングを確認</td>
 </tr>
 <tr>
-<td>メールが反映されない</td>
+<td>メールアドレスが反映されない</td>
 <td>属性マッピング不備</td>
-<td><code>mail → emails[type=work]</code> が設定されているか</td>
+<td><code>mail</code> が <code>emails[type eq "work"].value</code> にマッピングされているか</td>
 </tr>
 <tr>
-<td>グループメンバーが欠落</td>
+<td>グループメンバーが欠落する</td>
 <td>ネストグループ</td>
-<td>直接メンバーのみが割り当てられているか</td>
+<td>割り当てたグループの直下にユーザーが含まれているか</td>
 </tr>
 </tbody>
 </table>

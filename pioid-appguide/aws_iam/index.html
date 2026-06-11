@@ -1603,6 +1603,10 @@ PIO-IDのSAML認証設定は、AWSの以下のSAMLメタデータに基づいて
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>AWSの画面によっては、<strong>プログラムと AWS マネジメントコンソールへのアクセスを許可する</strong>が表示されない場合があります。作成後のIAMロールの信頼ポリシーに、<code>sts:AssumeRoleWithSAML</code>と<code>SAML:aud</code>が設定されていれば、SAMLフェデレーション用ロールとして利用できます。</p>
+</div>
 <p><a href="/images/2022-09-18_19-21-11.png"><img alt="Screenshot" src="/images/2022-09-18_19-21-11.png" /></a></p>
 </li>
 <li>
