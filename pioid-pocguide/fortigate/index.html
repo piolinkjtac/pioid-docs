@@ -1416,13 +1416,16 @@
 <h2 id="２要素認証パスワード認証ワンタイムパスワード認証">２要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#２要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h2>
 <ul>
 <li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv1） <a href="vpn-group-otp-ikev1/">標準</a>/<a href="vpn-group-otp-ikev1-adv/">拡張</a> <sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv2自動トランスポートモード） <a href="vpn-group-otp-ikev2/">標準</a>/<a href="vpn-group-otp-ikev2-adv/">拡張</a> <sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>管理者ログイン グループによるアクセス制限 <a href="adminlogin-group-otp_new2/">標準</a>/<a href="adminlogin-group-otp_new2-adv/">拡張</a> <sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>管理者ログイン グループによるアクセス制限 <a href="adminlogin-group-otp_new2/">標準</a>/<a href="adminlogin-group-otp_new2-adv/">拡張</a> <sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>リモートアクセスVPN(IPSec) の <strong>IKEv2自動トランスポートモード</strong>では、PAP 認証を利用できないため、PIO-ID の 2要素認証（パスワード認証＋ワンタイムパスワード認証）は利用できません。</p>
+</div>
 <h2 id="２要素認証パスワードクライアント証明書認証">２要素認証（パスワード＋クライアント証明書認証）<a class="headerlink" href="#２要素認証パスワードクライアント証明書認証" title="Permanent link"></a></h2>
 <ul>
-<li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv1） <a href="vpn-group-password-cert-ikev1/">標準</a>/<a href="vpn-group-password-cert-ikev1-adv/">拡張</a> <sup id="fnref7:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv2自動トランスポートモード） <a href="vpn-group-password-cert-ikev2/">標準</a>/<a href="vpn-group-password-cert-ikev2-adv/">拡張</a> <sup id="fnref8:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv1） <a href="vpn-group-password-cert-ikev1/">標準</a>/<a href="vpn-group-password-cert-ikev1-adv/">拡張</a> <sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>リモートアクセスVPN(IPSec) グループによるアクセス制限（IKEv2自動トランスポートモード） <a href="vpn-group-password-cert-ikev2/">標準</a>/<a href="vpn-group-password-cert-ikev2-adv/">拡張</a> <sup id="fnref7:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 <h2 id="検証メモ">検証メモ<a class="headerlink" href="#検証メモ" title="Permanent link"></a></h2>
 <ul>
@@ -1437,7 +1440,7 @@
 <li>拡張：拡張RADIUSサーバを利用した設定方法です。</li>
 <li>固定グローバルIPをもたないインターネット接続環境の場合には、拡張RADIUSサーバを利用した設定方法を参考にしてください。</li>
 </ul>
-<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref8:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
