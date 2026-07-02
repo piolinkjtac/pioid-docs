@@ -613,6 +613,50 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) OpenSSL says error 66 : EE certificate key too weak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-user-name-contains-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: User-Name contains whitespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-the-reject-rule-is-matched" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: The reject rule is matched.
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1723,6 +1767,50 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eap_tls: (TLS) OpenSSL says error 66 : EE certificate key too weak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-user-name-contains-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: User-Name contains whitespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-the-reject-rule-is-matched" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected: The reject rule is matched.
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1775,7 +1863,10 @@
 <p><strong>ログ表示期間</strong>を設定し、<strong>CSVダウンロード</strong>または<strong>EXCELダウンロード</strong>ボタンをクリックします。</p>
 <h3 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h3>
 <h4 id="rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier"><code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code><a class="headerlink" href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" title="Permanent link"></a></h4>
-<p>拡張RADIUSサーバを利用している場合に、<strong>サイト識別する属性</strong>または<strong>属性値</strong>が、実際にネットワーク機器から送信された<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>と一致しない場合に発生します。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>拡張RADIUSサーバを利用している場合に、<strong>サイト識別する属性</strong>または<strong>属性値</strong>が、実際にネットワーク機器から送信された<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>と一致しない場合</li>
+</ul>
 <p>以下を確認してください。</p>
 <ul>
 <li><strong>認証＞RADIUS＞簡易設定</strong>で登録したサイトの<strong>サイト識別する属性</strong>が適切か</li>
@@ -1784,9 +1875,17 @@
 </ul>
 <p>詳細な確認方法については、<a href="../radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照してください。</p>
 <h4 id="eap_peap-tls-alert-readfatalinternal-error"><code>eap_peap: TLS Alert read:fatal:internal error</code><a class="headerlink" href="#eap_peap-tls-alert-readfatalinternal-error" title="Permanent link"></a></h4>
-<p>Android11において、EAP方式が、PEAPまたはTLSの場合に、<strong>ドメイン</strong>への入力内容が正しくない場合に発生します。<strong>ドメイン</strong>には、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>Android11において、EAP方式が、PEAPまたはTLSの場合に、<strong>ドメイン</strong>への入力内容が正しくない場合</li>
+</ul>
+<p><strong>ドメイン</strong>には、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</p>
 <h4 id="eap_tls-tls-alert-readfatalunknown-ca"><code>eap_tls: (TLS) Alert read:fatal:unknown CA</code><a class="headerlink" href="#eap_tls-tls-alert-readfatalunknown-ca" title="Permanent link"></a></h4>
-<p>接続デバイス側で、RADIUSサーバ証明書の検証に使用するCAの設定が誤っている場合に発生します。RADIUSサーバ証明書は<a href="https://letsencrypt.org/certificates/" target="_blank">Let's Encrypt</a>（サブジェクト: ISRG Root X1）のCAで発行されているため、接続デバイス側でも同CAで検証するよう設定してください。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>接続デバイス側で、RADIUSサーバ証明書の検証に使用するCAの設定が誤っている場合</li>
+</ul>
+<p>RADIUSサーバ証明書は<a href="https://letsencrypt.org/certificates/" target="_blank">Let's Encrypt</a>（サブジェクト: ISRG Root X1）のCAで発行されているため、接続デバイス側でも同CAで検証するよう設定してください。</p>
 <h4 id="no-auth-type-found-rejecting-the-user-via-post-auth-type--reject"><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject</code><a class="headerlink" href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" title="Permanent link"></a></h4>
 <p>以下の場合に発生します。</p>
 <ul>
@@ -1794,7 +1893,10 @@
 <li>ユーザが無効化されている場合</li>
 </ul>
 <h4 id="pap-cleartext-password-does-not-match-known-good-password"><code>pap: Cleartext password does not match "known good" password</code><a class="headerlink" href="#pap-cleartext-password-does-not-match-known-good-password" title="Permanent link"></a></h4>
-<p>PAP認証を試み、そのユーザのパスワードが間違っている場合に発生します。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>PAP認証を試み、そのユーザのパスワードが間違っている場合</li>
+</ul>
 <h4 id="chap-controlcleartext-password-is-required-for-authentication"><code>chap: &amp;control:Cleartext-Password is required for authentication</code><a class="headerlink" href="#chap-controlcleartext-password-is-required-for-authentication" title="Permanent link"></a></h4>
 <p>以下の場合に発生します。</p>
 <ul>
@@ -1802,7 +1904,10 @@
 <li>ユーザが無効化されている場合</li>
 </ul>
 <h4 id="chap-password-comparison-failed-password-is-incorrect"><code>chap: Password comparison failed: password is incorrect</code><a class="headerlink" href="#chap-password-comparison-failed-password-is-incorrect" title="Permanent link"></a></h4>
-<p>CHAP認証を試み、そのユーザのパスワードが間違っている場合に発生します。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>CHAP認証を試み、そのユーザのパスワードが間違っている場合</li>
+</ul>
 <h4 id="mschap-failed-no-nt-password-cannot-perform-authentication"><code>mschap: FAILED: No NT-Password. Cannot perform authentication</code><a class="headerlink" href="#mschap-failed-no-nt-password-cannot-perform-authentication" title="Permanent link"></a></h4>
 <p>以下の場合に発生します。</p>
 <ul>
@@ -1810,17 +1915,40 @@
 <li>ユーザが無効化されている場合</li>
 </ul>
 <h4 id="mschap-ms-chap2-response-is-incorrect"><code>mschap: MS-CHAP2-Response is incorrect</code><a class="headerlink" href="#mschap-ms-chap2-response-is-incorrect" title="Permanent link"></a></h4>
-<p>MS-CHAP認証を試み、そのユーザのパスワードが間違っている場合に発生します。</p>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>MS-CHAP認証を試み、そのユーザのパスワードが間違っている場合</li>
+</ul>
 <h4 id="eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed"><code>eap_tls: Program returned code (2) and output 'error /var/run/radiusd/radiusd.client.XXXXXXXX: verification failed'</code><a class="headerlink" href="#eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed" title="Permanent link"></a></h4>
-<p>クライアント証明書の検証に失敗した場合に発生します。以下の場合に、検証に失敗します。</p>
+<p>以下の場合に発生します。</p>
 <ul>
 <li>適切な中間証明書で署名されていないクライアント証明書</li>
 <li>失効されたクライアント証明書</li>
 </ul>
 <h4 id="eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate"><code>eap_tls: (TLS) OpenSSL says error 20 : unable to get local issuer certificate</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate" title="Permanent link"></a></h4>
-<p>クライアント証明書の検証に失敗した場合に発生します。以下の場合に、検証に失敗します。</p>
+<p>以下の場合に発生します。</p>
 <ul>
 <li>適切な中間証明書で署名されていないクライアント証明書</li>
+</ul>
+<h4 id="eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain"><code>eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain" title="Permanent link"></a></h4>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>適切な中間証明書で署名されていないクライアント証明書</li>
+</ul>
+<h4 id="eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak"><code>eap_tls: (TLS) OpenSSL says error 66 : EE certificate key too weak</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak" title="Permanent link"></a></h4>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>適切な中間証明書で署名されていないクライアント証明書</li>
+</ul>
+<h4 id="rejected-user-name-contains-whitespace"><code>Rejected: User-Name contains whitespace</code><a class="headerlink" href="#rejected-user-name-contains-whitespace" title="Permanent link"></a></h4>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>RADIUSリクエストの <code>User-Name</code> 属性に空白文字が含まれている場合</li>
+</ul>
+<h4 id="rejected-the-reject-rule-is-matched"><code>Rejected: The reject rule is matched.</code><a class="headerlink" href="#rejected-the-reject-rule-is-matched" title="Permanent link"></a></h4>
+<p>以下の場合に発生します。</p>
+<ul>
+<li>PIO-ID側の拒否ルールに一致した場合</li>
 </ul>
 
 
