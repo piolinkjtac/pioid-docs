@@ -1612,7 +1612,7 @@
 <p>グローバル管理者が、シングルサインオンするカスタムドメインにしかいない場合、フェデレーション（SAML）による認証ができない状況に陥ると、グローバル管理者としてM365にログインすることができなくなってしまいます。そのため、必ず、緊急アクセス用アカウントとして、<strong>xxxxx.onmicrosoft.comドメインにグローバル管理者のロールを割当てたユーザを作成</strong>しておきます。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>緊急アクセス用アカウントには、様々な要件があります。詳しくは、<a href="https://learn.microsoft.com/ja-jp/azure/active-directory/roles/security-emergency-access" target="_blank">Azure AD で緊急アクセス用管理者アカウントを管理する</a>を参照してください。</p>
+<p>緊急アクセス用アカウントには、様々な要件があります。詳しくは、<a href="https://learn.microsoft.com/ja-jp/azure/active-directory/roles/security-emergency-access" target="_blank">Microsoft Entra ID で緊急アクセス用管理者アカウントを管理する</a>を参照してください。</p>
 </div>
 <h2 id="シングルサインオンおよびプロビジョニング設定">シングルサインオンおよびプロビジョニング設定<a class="headerlink" href="#シングルサインオンおよびプロビジョニング設定" title="Permanent link"></a></h2>
 <h3 id="m365のアプリ登録">M365のアプリ登録<a class="headerlink" href="#m365のアプリ登録" title="Permanent link"></a></h3>
@@ -1836,7 +1836,7 @@
 <h3 id="m365のフェデレーションsaml設定">M365のフェデレーション（SAML）設定<a class="headerlink" href="#m365のフェデレーションsaml設定" title="Permanent link"></a></h3>
 <ol>
 <li>
-<p>PowerShellで、グローバル管理者としてAzure ADにログインします。</p>
+<p>PowerShellで、グローバル管理者としてMicrosoft Entra IDにログインします。</p>
 <div class="highlight"><span class="filename">PowerShell</span><pre><span></span><code><span class="nb">Connect-MsolService</span>
 </code></pre></div>
 </li>

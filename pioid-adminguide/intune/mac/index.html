@@ -1432,7 +1432,7 @@
 <p>PIO-IDのルートCA証明書ファイルと中間CA証明書ファイルを取得します。</p>
 <p><a href="../../pki/#基本情報">取得方法</a></p>
 <h4 id="entra-id-ユーザー属性の前提">Entra ID ユーザー属性の前提<a class="headerlink" href="#entra-id-ユーザー属性の前提" title="Permanent link"></a></h4>
-<p>SCEP 証明書プロファイルで <code>CN={{UserName}}</code> や <code>E={{EmailAddress}}</code> を使用する場合、Microsoft Entra ID 側の属性値が参照されます。以下の値は PIO-ID 側のユーザー情報と一致させてください。不一致または未設定（空値）の場合、証明書発行が失敗します。</p>
+<p>SCEP 証明書プロファイルで <code>CN={{UserName}}</code> や <code>E={{EmailAddress}}</code> を使用する場合、Microsoft Entra ID 側の属性値が参照されます。以下の値は PIO-ID 側のユーザ情報と一致させてください。不一致または未設定（空値）の場合、証明書発行が失敗します。</p>
 <table>
 <thead>
 <tr>
@@ -1445,7 +1445,7 @@
 <tr>
 <td style="text-align: left;"><code>{{UserName}}</code></td>
 <td style="text-align: left;"><code>userPrincipalName</code> の <code>@</code> より前の部分</td>
-<td style="text-align: left;">PIO-ID のユーザー名と一致していること</td>
+<td style="text-align: left;">PIO-ID のユーザ名と一致していること</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>{{EmailAddress}}</code></td>
@@ -1559,7 +1559,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>名前</strong></td>
-<td style="text-align: left;">任意です。（例: PIO-IDユーザー証明書-macOS）</td>
+<td style="text-align: left;">任意です。（例: PIO-IDユーザ証明書-macOS）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>プラットフォーム</strong></td>
