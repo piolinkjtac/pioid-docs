@@ -397,6 +397,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -439,6 +441,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -447,40 +451,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#radius認証ログ" class="md-nav__link">
+  <a href="#ログの検索表示" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RADIUS認証ログ
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RADIUS認証ログ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ログの表示" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ログの表示
+        ログの検索・表示
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ログのダウンロード" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#csvエクスポート" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ログのダウンロード
+        CSVエクスポート
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#認証エラーのトラブルシューティング" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -654,11 +646,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1593,6 +1580,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1601,40 +1590,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#radius認証ログ" class="md-nav__link">
+  <a href="#ログの検索表示" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RADIUS認証ログ
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RADIUS認証ログ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ログの表示" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ログの表示
+        ログの検索・表示
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ログのダウンロード" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#csvエクスポート" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ログのダウンロード
+        CSVエクスポート
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#認証エラーのトラブルシューティング" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1815,11 +1792,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
@@ -1838,31 +1810,76 @@
 
 
 
-  <h1>RADIUS認証ログ</h1>
-
-<p><strong>PIO-ID 管理者ポータル＞ログ</strong>画面では、以下のログに関する操作を行うことができます。</p>
+<h1 id="radius認証ログ">RADIUS認証ログ<a class="headerlink" href="#radius認証ログ" title="Permanent link"></a></h1>
+<p>文書更新日:2026-07-10</p>
+<p><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面では、RADIUS認証ログの検索、表示、CSVエクスポートを行うことができます。</p>
+<h2 id="ログの検索表示">ログの検索・表示<a class="headerlink" href="#ログの検索表示" title="Permanent link"></a></h2>
+<p><strong>ログ表示期間</strong>と検索条件を設定し、<strong>表示</strong>ボタンをクリックします。主に以下の項目で検索できます。</p>
 <ul>
-<li>RADIUS認証ログの表示/ダウンロード</li>
+<li>ユーザ名</li>
+<li>RADIUSクライアントIP</li>
+<li>NAS ID</li>
+<li>SSID</li>
+<li>認証タイプ</li>
+<li>エラーメッセージ</li>
 </ul>
-<h2 id="radius認証ログ">RADIUS認証ログ<a class="headerlink" href="#radius認証ログ" title="Permanent link"></a></h2>
-<h3 id="ログの表示">ログの表示<a class="headerlink" href="#ログの表示" title="Permanent link"></a></h3>
-<p><strong>ログ表示期間</strong>を設定し、<strong>表示</strong>ボタンをクリックします。</p>
+<p>検索結果はページ単位で表示されます。ページ送りを行うことで、前後の認証ログを確認できます。</p>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>少なくとも１か月分のログを表示可能です。</p>
+<p class="admonition-title">ログ表示に関する注意</p>
+<ul>
+<li>少なくとも1か月分のログを表示できます。</li>
+<li>RADIUS認証ログが表示されるまで、認証実行後から5分程度かかる場合があります。</li>
+<li>RADIUSクライアントのIPアドレスまたは共有シークレットが誤っている場合、RADIUSリクエストがあってもログには表示されません。</li>
+</ul>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>RADIUSに設定したRADIUSクライアントのIPおよび共有シークレットが誤っている場合には、RADIUSリクエストがあってもRADIUS認証ログには表示されません。</p>
-</div>
+<h2 id="csvエクスポート">CSVエクスポート<a class="headerlink" href="#csvエクスポート" title="Permanent link"></a></h2>
+<p><strong>ログ表示期間</strong>を設定し、<strong>CSVエクスポート</strong>ボタンをクリックします。</p>
+<p>指定したログ表示期間内のRADIUS認証ログを対象に、CSVファイルが非同期で作成されます。処理状況は、<strong>エクスポート履歴</strong>ボタンから確認できます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>項目</strong></th>
+<th style="text-align: left;"><strong>説明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>作成日時</strong></td>
+<td style="text-align: left;">CSVエクスポートを開始した日時</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>日付範囲</strong></td>
+<td style="text-align: left;">エクスポート対象のログ表示期間</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>状態</strong></td>
+<td style="text-align: left;">待機中、作成中、完了、失敗、期限切れ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>件数</strong></td>
+<td style="text-align: left;">処理済み件数と対象件数</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ファイル名</strong></td>
+<td style="text-align: left;">作成されたCSVファイル名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>操作</strong></td>
+<td style="text-align: left;">キャンセルまたはダウンロード</td>
+</tr>
+</tbody>
+</table>
+<p><strong>待機中</strong>のエクスポートはキャンセルできます。<strong>完了</strong>したエクスポートは、<strong>ダウンロード</strong>ボタンからCSVファイルをダウンロードできます。</p>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>RADIUS認証ログの表示には、認証実行後から5分程度時間がかかる場合があります。</p>
+<p class="admonition-title">CSVエクスポートに関する注意</p>
+<ul>
+<li>CSVエクスポートできるRADIUS認証ログは最大100万件です。</li>
+<li>作成されたエクスポートファイルのダウンロード有効期限は7日間です。</li>
+<li>CSVエクスポートは検索条件を引き継ぎません。ログ表示期間内の全件を対象に作成します。</li>
+</ul>
 </div>
-<h3 id="ログのダウンロード">ログのダウンロード<a class="headerlink" href="#ログのダウンロード" title="Permanent link"></a></h3>
-<p><strong>ログ表示期間</strong>を設定し、<strong>CSVダウンロード</strong>または<strong>EXCELダウンロード</strong>ボタンをクリックします。</p>
-<h3 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h3>
-<h4 id="rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier"><code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code><a class="headerlink" href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" title="Permanent link"></a></h4>
+<h2 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h2>
+<h3 id="rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier"><code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code><a class="headerlink" href="#rejected-there-is-no-sites-assosiated-with-sent-nas-ip-addressnas-identifier" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>拡張RADIUSサーバを利用している場合に、<strong>サイト識別する属性</strong>または<strong>属性値</strong>が、実際にネットワーク機器から送信された<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>と一致しない場合</li>
@@ -1874,78 +1891,78 @@
 <li><strong>NAS-Identifier</strong>を利用している場合には、部分一致で吸収できる安定した共通文字列を設定できないか</li>
 </ul>
 <p>詳細な確認方法については、<a href="../radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照してください。</p>
-<h4 id="eap_peap-tls-alert-readfatalinternal-error"><code>eap_peap: TLS Alert read:fatal:internal error</code><a class="headerlink" href="#eap_peap-tls-alert-readfatalinternal-error" title="Permanent link"></a></h4>
+<h3 id="eap_peap-tls-alert-readfatalinternal-error"><code>eap_peap: TLS Alert read:fatal:internal error</code><a class="headerlink" href="#eap_peap-tls-alert-readfatalinternal-error" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>Android11において、EAP方式が、PEAPまたはTLSの場合に、<strong>ドメイン</strong>への入力内容が正しくない場合</li>
 </ul>
 <p><strong>ドメイン</strong>には、<strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面の<strong>基本情報</strong>タブの<strong>ホスト名</strong>を入力します。</p>
-<h4 id="eap_tls-tls-alert-readfatalunknown-ca"><code>eap_tls: (TLS) Alert read:fatal:unknown CA</code><a class="headerlink" href="#eap_tls-tls-alert-readfatalunknown-ca" title="Permanent link"></a></h4>
+<h3 id="eap_tls-tls-alert-readfatalunknown-ca"><code>eap_tls: (TLS) Alert read:fatal:unknown CA</code><a class="headerlink" href="#eap_tls-tls-alert-readfatalunknown-ca" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>接続デバイス側で、RADIUSサーバ証明書の検証に使用するCAの設定が誤っている場合</li>
 </ul>
 <p>RADIUSサーバ証明書は<a href="https://letsencrypt.org/certificates/" target="_blank">Let's Encrypt</a>（サブジェクト: ISRG Root X1）のCAで発行されているため、接続デバイス側でも同CAで検証するよう設定してください。</p>
-<h4 id="no-auth-type-found-rejecting-the-user-via-post-auth-type--reject"><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject</code><a class="headerlink" href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" title="Permanent link"></a></h4>
+<h3 id="no-auth-type-found-rejecting-the-user-via-post-auth-type--reject"><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject</code><a class="headerlink" href="#no-auth-type-found-rejecting-the-user-via-post-auth-type--reject" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>PAP認証を試み、そのユーザが存在しない場合</li>
 <li>ユーザが無効化されている場合</li>
 </ul>
-<h4 id="pap-cleartext-password-does-not-match-known-good-password"><code>pap: Cleartext password does not match "known good" password</code><a class="headerlink" href="#pap-cleartext-password-does-not-match-known-good-password" title="Permanent link"></a></h4>
+<h3 id="pap-cleartext-password-does-not-match-known-good-password"><code>pap: Cleartext password does not match "known good" password</code><a class="headerlink" href="#pap-cleartext-password-does-not-match-known-good-password" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>PAP認証を試み、そのユーザのパスワードが間違っている場合</li>
 </ul>
-<h4 id="chap-controlcleartext-password-is-required-for-authentication"><code>chap: &amp;control:Cleartext-Password is required for authentication</code><a class="headerlink" href="#chap-controlcleartext-password-is-required-for-authentication" title="Permanent link"></a></h4>
+<h3 id="chap-controlcleartext-password-is-required-for-authentication"><code>chap: &amp;control:Cleartext-Password is required for authentication</code><a class="headerlink" href="#chap-controlcleartext-password-is-required-for-authentication" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>CHAP認証を試み、そのユーザが存在しない場合</li>
 <li>ユーザが無効化されている場合</li>
 </ul>
-<h4 id="chap-password-comparison-failed-password-is-incorrect"><code>chap: Password comparison failed: password is incorrect</code><a class="headerlink" href="#chap-password-comparison-failed-password-is-incorrect" title="Permanent link"></a></h4>
+<h3 id="chap-password-comparison-failed-password-is-incorrect"><code>chap: Password comparison failed: password is incorrect</code><a class="headerlink" href="#chap-password-comparison-failed-password-is-incorrect" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>CHAP認証を試み、そのユーザのパスワードが間違っている場合</li>
 </ul>
-<h4 id="mschap-failed-no-nt-password-cannot-perform-authentication"><code>mschap: FAILED: No NT-Password. Cannot perform authentication</code><a class="headerlink" href="#mschap-failed-no-nt-password-cannot-perform-authentication" title="Permanent link"></a></h4>
+<h3 id="mschap-failed-no-nt-password-cannot-perform-authentication"><code>mschap: FAILED: No NT-Password. Cannot perform authentication</code><a class="headerlink" href="#mschap-failed-no-nt-password-cannot-perform-authentication" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>MS-CHAP認証を試み、そのユーザが存在しない場合</li>
 <li>ユーザが無効化されている場合</li>
 </ul>
-<h4 id="mschap-ms-chap2-response-is-incorrect"><code>mschap: MS-CHAP2-Response is incorrect</code><a class="headerlink" href="#mschap-ms-chap2-response-is-incorrect" title="Permanent link"></a></h4>
+<h3 id="mschap-ms-chap2-response-is-incorrect"><code>mschap: MS-CHAP2-Response is incorrect</code><a class="headerlink" href="#mschap-ms-chap2-response-is-incorrect" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>MS-CHAP認証を試み、そのユーザのパスワードが間違っている場合</li>
 </ul>
-<h4 id="eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed"><code>eap_tls: Program returned code (2) and output 'error /var/run/radiusd/radiusd.client.XXXXXXXX: verification failed'</code><a class="headerlink" href="#eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed" title="Permanent link"></a></h4>
+<h3 id="eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed"><code>eap_tls: Program returned code (2) and output 'error /var/run/radiusd/radiusd.client.XXXXXXXX: verification failed'</code><a class="headerlink" href="#eap_tls-program-returned-code-2-and-output-error-varrunradiusdradiusdclientxxxxxxxx-verification-failed" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>適切な中間証明書で署名されていないクライアント証明書</li>
 <li>失効されたクライアント証明書</li>
 </ul>
-<h4 id="eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate"><code>eap_tls: (TLS) OpenSSL says error 20 : unable to get local issuer certificate</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate" title="Permanent link"></a></h4>
+<h3 id="eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate"><code>eap_tls: (TLS) OpenSSL says error 20 : unable to get local issuer certificate</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-20--unable-to-get-local-issuer-certificate" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>適切な中間証明書で署名されていないクライアント証明書</li>
 </ul>
-<h4 id="eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain"><code>eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain" title="Permanent link"></a></h4>
+<h3 id="eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain"><code>eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-19--self-signed-certificate-in-certificate-chain" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>適切な中間証明書で署名されていないクライアント証明書</li>
 </ul>
-<h4 id="eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak"><code>eap_tls: (TLS) OpenSSL says error 66 : EE certificate key too weak</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak" title="Permanent link"></a></h4>
+<h3 id="eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak"><code>eap_tls: (TLS) OpenSSL says error 66 : EE certificate key too weak</code><a class="headerlink" href="#eap_tls-tls-openssl-says-error-66--ee-certificate-key-too-weak" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
-<li>適切な中間証明書で署名されていないクライアント証明書</li>
+<li>接続デバイスが、PIO-ID以外で発行された鍵長の弱いクライアント証明書を提示した場合</li>
 </ul>
-<h4 id="rejected-user-name-contains-whitespace"><code>Rejected: User-Name contains whitespace</code><a class="headerlink" href="#rejected-user-name-contains-whitespace" title="Permanent link"></a></h4>
+<h3 id="rejected-user-name-contains-whitespace"><code>Rejected: User-Name contains whitespace</code><a class="headerlink" href="#rejected-user-name-contains-whitespace" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>RADIUSリクエストの <code>User-Name</code> 属性に空白文字が含まれている場合</li>
 </ul>
-<h4 id="rejected-the-reject-rule-is-matched"><code>Rejected: The reject rule is matched.</code><a class="headerlink" href="#rejected-the-reject-rule-is-matched" title="Permanent link"></a></h4>
+<h3 id="rejected-the-reject-rule-is-matched"><code>Rejected: The reject rule is matched.</code><a class="headerlink" href="#rejected-the-reject-rule-is-matched" title="Permanent link"></a></h3>
 <p>以下の場合に発生します。</p>
 <ul>
 <li>PIO-ID側の拒否ルールに一致した場合</li>

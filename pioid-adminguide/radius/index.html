@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#サポートする認証方式について" class="md-skip">
+        <a href="#radius" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -592,6 +592,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -633,6 +635,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="目次">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1516,6 +1520,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1684,10 +1690,9 @@
 
 
 
-  <h1>RADIUS</h1>
-
-<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。
-文書更新日:2026-02-26</p>
+<h1 id="radius">RADIUS<a class="headerlink" href="#radius" title="Permanent link"></a></h1>
+<p>文書更新日:2026-07-10</p>
+<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。</p>
 <h2 id="サポートする認証方式について">サポートする認証方式について<a class="headerlink" href="#サポートする認証方式について" title="Permanent link"></a></h2>
 <p>以下の認証方式をサポートしています。</p>
 <ul>
@@ -1705,11 +1710,7 @@
 <li>EAP-TTLS-PAP</li>
 </ul>
 <h2 id="証明書失効crlの反映タイミング">証明書失効（CRL）の反映タイミング<a class="headerlink" href="#証明書失効crlの反映タイミング" title="Permanent link"></a></h2>
-<p>クラウドRADIUSが参照する証明書失効リスト（CRL）は、<strong>毎時更新</strong>されます。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>証明書を失効させてからクラウドRADIUSの認証へ反映されるまで、最大で1時間かかります。</p>
-</div>
+<p>クラウドRADIUSが参照する証明書失効リスト（CRL）は<strong>毎時更新</strong>されるため、証明書の失効が認証へ反映されるまで最大で1時間かかります。</p>
 <h2 id="2種類のradiusサーバについて">2種類のRADIUSサーバについて<a class="headerlink" href="#2種類のradiusサーバについて" title="Permanent link"></a></h2>
 <p>それぞれのRADIUSサーバには以下のような違いがあります。</p>
 <p>標準RADIUSサーバと拡張RADIUSサーバのどちらを使うか迷う場合は、<a href="../radius_server_selection/">標準RADIUSサーバと拡張RADIUSサーバの選び方</a>を参照してください。</p>
@@ -1781,10 +1782,6 @@
 <li>標準RADIUSサーバと拡張RADIUSサーバは併用することができます。</li>
 </ul>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>標準RADIUSサーバを利用するサイトと拡張RADIUSサーバを利用するサイトは、<strong>合計10サイトまでに登録が制限</strong>されています。</p>
-</div>
 <h2 id="基本情報">基本情報<a class="headerlink" href="#基本情報" title="Permanent link"></a></h2>
 <p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面では、RADIUSクライアントを設定するために必要な情報が記載されています。</p>
 <table>
@@ -1839,18 +1836,23 @@
 <p><strong>シークレット</strong>を設定します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>拡張RADIUSサーバは、RADIUSクライアントのIPアドレスによる接続制限は行われません。シークレットによってのみ接続が制限がされます。そのため、<strong>ここで設定するシークレットには、英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</strong></p>
+<p>拡張RADIUSサーバでは、RADIUSクライアントのIPアドレスによる接続制限を行いません。接続はシークレットによって制限されます。</p>
+<ul>
+<li>英大文字、英小文字、数字、記号を組み合わせた14文字以上の文字列を推奨します。</li>
+<li>50文字以内で設定してください。</li>
+<li>登録可能な拡張RADIUSサーバは1つです。追加で登録したい場合には、販売店までご相談ください。</li>
+</ul>
 </div>
 </li>
 </ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>登録可能な拡張RADIUSサーバは１つです。拡張RADIUSサーバを追加で登録したい場合には、販売店までご相談ください。</p>
-</div>
 <h2 id="簡易設定">簡易設定<a class="headerlink" href="#簡易設定" title="Permanent link"></a></h2>
 <p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面では、標準RADIUSサーバおよび拡張RADIUSサーバのサイト設定を行うことができます。</p>
 <p>標準RADIUSサーバを利用する場合には、RADIUS属性を意識することなく、RADIUSをサポートする無線LANやファイアウォールと簡単に連携できます。</p>
 <p>拡張RADIUSサーバを利用する場合には、ネットワーク機器が送信する<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>の属性値を確認して設定する必要があります。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>RADIUSサイトの登録、編集、削除がシステムへ反映されるまで、最大で15分かかります。</p>
+</div>
 <h4 id="radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法<a class="headerlink" href="#radiusクライアントのサイト識別する属性の確認方法" title="Permanent link"></a></h4>
 <p>拡張RADIUSサーバを利用してサイトを作成する際には、<strong>サイト識別する属性</strong>の<strong>属性値</strong>をPIO-IDへ設定する必要があります。<strong>サイト識別する属性</strong>としては、RADIUS属性の<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>を選択可能です。</p>
 <p>PIO-IDと連携する機器から送信されるNAS-IP-AddressおよびNAS-Identifierがどのような属性値をもつかについて、連携機器のマニュアルをご確認ください。属性値が不明な場合には、以下の手順で確認することができます。</p>
@@ -1938,7 +1940,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>シークレット</strong></td>
-<td style="text-align: left;">RADIUSクライアントとRADIUSサーバで共通で使用する共有シークレットです。</td>
+<td style="text-align: left;">RADIUSクライアントとRADIUSサーバで共通で使用する共有シークレットです。50文字以内で設定してください。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>IP or ホスト名</strong></td>
@@ -1961,9 +1963,7 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<ul>
-<li>設定がシステムへ反映されるまでに、最大で15分かかります。</li>
-</ul>
+<p><strong>サイト識別する属性</strong>に<strong>NAS-IP</strong>を選択し、属性値に <code>0.0.0.0</code> を設定すると、任意のIPv4 NAS-IPアドレスに一致します。複数サイトを登録している場合は、意図しないサイト判定にならないように、設定内容を確認してください。</p>
 </div>
 <h3 id="radiusのサイトの編集">RADIUSのサイトの編集<a class="headerlink" href="#radiusのサイトの編集" title="Permanent link"></a></h3>
 <ol>
@@ -1971,20 +1971,12 @@
 <li><strong>設定画面</strong>がポップアップします。</li>
 <li>項目を変更して、<strong>更新</strong>ボタンをクリックして、変更を保存します。</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>設定がシステムへ反映されるまでに、最大で15分かかります。</p>
-</div>
 <h3 id="radiusのサイトの削除">RADIUSのサイトの削除<a class="headerlink" href="#radiusのサイトの削除" title="Permanent link"></a></h3>
 <ol>
 <li>削除したいサイトの列にある<strong>削除</strong>ボタンをクリックします。</li>
 <li><strong>簡易設定削除</strong>画面がポップアップします。</li>
 <li><strong>削除</strong>ボタンをクリックして、サイトを削除します。</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>設定がシステムへ反映されるまでに、最大で15分かかります。</p>
-</div>
 <h3 id="制限">制限<a class="headerlink" href="#制限" title="Permanent link"></a></h3>
 <ul>
 <li>RADIUSサイトは最大10個まで登録できます。</li>
@@ -1992,7 +1984,11 @@
 <li>ネットワークスイッチ用RADIUSサイトでMACアドレス認証バイパスとして登録できるMACアドレスは最大20個です。</li>
 </ul>
 <h2 id="高度な設定">高度な設定<a class="headerlink" href="#高度な設定" title="Permanent link"></a></h2>
-<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞高度な設定</strong>画面では、RADIUSサーバのサイト、クライアント、ルールの設定を手動で設定します。特に、ルールの作成については、RADIUSの属性と値を指定する必要があるため、RADIUSに関する高度な知識が要求されます。簡易設定ではできない複雑なルールを定義したい場合のみ使用してください。</p>
+<p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞高度な設定</strong>画面では、RADIUSサーバのサイト、クライアント、ルールを手動で設定します。RADIUSの属性と値を指定する必要があるため、RADIUSに関する高度な知識が必要です。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>高度な設定を利用する場合は、事前にPIO-ID テクニカルサポートへご相談ください。</p>
+</div>
 
 
 
