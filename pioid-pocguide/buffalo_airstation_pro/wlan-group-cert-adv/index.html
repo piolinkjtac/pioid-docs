@@ -1453,7 +1453,7 @@
 
 
 <h1 id="無線lanアクセス-クライアント証明書認証">無線LANアクセス-クライアント証明書認証<a class="headerlink" href="#無線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-09</p>
+<p>文書更新日:2026-07-11</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、Buffalo AirStation Proの無線LANアクセスポイントへアクセスします。</li>
@@ -1671,7 +1671,7 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
-<li>BuffaloのAirStation Proは、NAS-Identifier属性の属性値に機器のMACアドレス（小文字ハイフンなし）を設定し、RADIUSサーバへ送信しています。すべてのBuffalo製品に同一のルール設定を行いたい場合には、<strong>サイト識別する属性</strong>に、NAS-Identifierを設定し、<strong>属性値</strong>に、<code>**BUFFALO**</code>を設定します。<code>**BUFFALO**</code>は、Buffaloのベンダーコードにマッチさせるための特別な値です。</li>
+<li>BuffaloのAirStation Proは、NAS-Identifier属性の属性値に機器のMACアドレス（小文字ハイフンなし）を設定し、RADIUSサーバへ送信しています。対応するBUFFALO製品に同一のルールを設定する場合は、<strong>サイト識別する属性</strong>に<strong>NAS-Identifier</strong>、<strong>属性値</strong>に <code>**BUFFALO**</code> を設定します。対応するベンダーコードと、一覧にない機器の設定方法は、<a href="../../../pioid-adminguide/radius/#buffaloで判定できるベンダーコード">RADIUS管理者ガイド</a>を参照してください。</li>
 </ul>
 </div>
 </li>

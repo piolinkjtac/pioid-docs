@@ -4676,18 +4676,19 @@
 <h3 id="新機能または改善">新機能または改善<a class="headerlink" href="#新機能または改善" title="Permanent link"></a></h3>
 <p><strong>PIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>ログ＞RADIUS認証ログ 画面で、大量のRADIUS認証ログをCSVファイルとして非同期にエクスポートできるように改善</li>
-<li>認証＞RADIUS で、RADIUSシークレットの入力上限を50文字に統一</li>
+<li><strong>ログ＞RADIUS認証ログ</strong>画面で、大量のRADIUS認証ログをCSVファイルとして非同期にエクスポートできるように改善</li>
+<li><strong>認証＞RADIUS</strong>画面で、RADIUSシークレットの入力上限を50文字に統一</li>
 </ul>
 <p><strong>RADIUS</strong></p>
 <ul>
-<li>RADIUSサイト判定で、NAS-IPアドレスに <code>0.0.0.0</code> を指定した場合に、任意のIPv4 NAS-IPアドレスに一致するよう改善</li>
+<li>RADIUSサイト判定で、NAS-IP-Addressに <code>0.0.0.0</code> を指定した場合に、任意のIPv4 NAS-IP-Addressに一致するよう改善</li>
+<li>RADIUSサイト判定で、NAS-Identifierに <code>**BUFFALO**</code> を指定した場合に判定対象となるBUFFALO製ネットワーク機器を追加（追加ベンダーコード: <code>4c858a</code>、<code>7498f4</code>、<code>88c22d</code>、<code>d056f2</code>、<code>ec5a31</code>、<code>f89497</code>）</li>
 </ul>
 <h3 id="修正">修正<a class="headerlink" href="#修正" title="Permanent link"></a></h3>
 <p><strong>PIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>ユーザ一覧 画面で、グループ追加またはグループ削除を行った後に、一覧上のグループ表示が更新されないことがある問題を修正</li>
-<li>管理者編集時に、一時ロック状態の管理者アカウントが恒久的に無効化されることがある問題を修正</li>
+<li><strong>ユーザ一覧</strong>画面で、<strong>グループへ追加</strong>または<strong>グループから削除</strong>を行った後に、一覧上のグループ表示が更新されないことがある問題を修正</li>
+<li><strong>管理＞管理者</strong>画面で一時ロック状態の管理者を編集した場合に、管理者アカウントが恒久的に無効化されることがある問題を修正</li>
 </ul>
 <h2 id="2026-06-21">2026-06-21<a class="headerlink" href="#2026-06-21" title="Permanent link"></a></h2>
 <!--
@@ -5166,7 +5167,7 @@
 <h3 id="修正_12">修正<a class="headerlink" href="#修正_12" title="Permanent link"></a></h3>
 <p><strong>MSP用のPIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>PIO-ID 管理者ポータル＞ポイント管理＞ポイント履歴画面が表示できない問題を修正</li>
+<li><strong>PIO-ID 管理者ポータル＞ポイント管理＞ポイント履歴</strong>画面が表示できない問題を修正</li>
 </ul>
 <h2 id="2025-03-30">2025-03-30<a class="headerlink" href="#2025-03-30" title="Permanent link"></a></h2>
 <!--
@@ -5194,16 +5195,16 @@
 </ul>
 <p><strong>PIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>認証＞証明書＞証明書タブにおいて、サーバ証明書を登録する画面の有効期間のデフォルト値を10年に変更</li>
+<li><strong>認証＞証明書＞証明書</strong>タブにおいて、サーバ証明書を登録する画面の有効期間のデフォルト値を10年に変更</li>
 </ul>
 <p><strong>MSP用のPIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>アカウント管理＞顧客アカウント一覧およびMSPアカウント一覧画面において、解約ボタンをクリックしときに、解約予定日に現在の日付をセットするように変更</li>
+<li><strong>アカウント管理＞顧客アカウント一覧</strong>画面および<strong>アカウント管理＞MSPアカウント一覧</strong>画面において、解約ボタンをクリックしときに、解約予定日に現在の日付をセットするように変更</li>
 </ul>
 <h3 id="修正_13">修正<a class="headerlink" href="#修正_13" title="Permanent link"></a></h3>
 <p><strong>PIO-ID 管理者ポータル</strong></p>
 <ul>
-<li>管理＞管理者画面において、管理者登録画面から通知メールアドレスの項目を削除</li>
+<li><strong>管理＞管理者</strong>画面において、管理者登録画面から通知メールアドレスの項目を削除</li>
 </ul>
 <h2 id="2025-02-15">2025-02-15<a class="headerlink" href="#2025-02-15" title="Permanent link"></a></h2>
 <!--
@@ -5296,13 +5297,13 @@
 <p><strong>RADIUS</strong></p>
 <ul>
 <li>
-<p>認証＞RADIUS画面＞簡易設定画面で、RADIUSサイトが11個登録できた問題を修正（RADIUSサイトは10個まで登録可能）</p>
+<p><strong>認証＞RADIUS＞簡易設定</strong>画面で、RADIUSサイトが11個登録できた問題を修正（RADIUSサイトは10個まで登録可能）</p>
 </li>
 <li>
-<p>認証＞RADIUS画面＞基本情報画面で、拡張RADIUSサーバのポート登録時に必須項目のシークレットの設定がなくても登録できてしまう問題を修正</p>
+<p><strong>認証＞RADIUS＞基本情報</strong>画面で、拡張RADIUSサーバのポート登録時に必須項目のシークレットの設定がなくても登録できてしまう問題を修正</p>
 </li>
 <li>
-<p>認証＞RADIUS＞簡易設定画面で、拡張RADIUSサーバのサイト登録時に登録できない場合があったことを改善</p>
+<p><strong>認証＞RADIUS＞簡易設定</strong>画面で、拡張RADIUSサーバのサイト登録時に登録できない場合があったことを改善</p>
 </li>
 </ul>
 <h2 id="2024-09-28">2024-09-28<a class="headerlink" href="#2024-09-28" title="Permanent link"></a></h2>
@@ -5931,11 +5932,11 @@
 <h3 id="修正_27">修正<a class="headerlink" href="#修正_27" title="Permanent link"></a></h3>
 <p><strong>LDAP</strong></p>
 <ul>
-<li>認証＞LDAP＞基本情報タブの内容を変更</li>
+<li><strong>認証＞LDAP＞基本情報</strong>タブの内容を変更</li>
 </ul>
 <p><strong>証明書</strong></p>
 <ul>
-<li>認証＞証明書＞証明書タブで証明書のダウンロードの挙動を修正</li>
+<li><strong>認証＞証明書＞証明書</strong>タブで証明書のダウンロードの挙動を修正</li>
 </ul>
 <p><strong>RADIUS</strong></p>
 <ul>
@@ -6078,7 +6079,7 @@
 </ul>
 <p><strong>PKI</strong></p>
 <ul>
-<li>認証＞証明書＞証明書タブ画面で、サーバ証明書が発行可能（VPNゲートウェイ機器によっては、クライアント証明書認証をする場合に、同じCA局で発行したサーバ証明書をインストールする必要があるため）
+<li><strong>認証＞証明書＞証明書</strong>タブで、サーバ証明書が発行可能（VPNゲートウェイ機器によっては、クライアント証明書認証をする場合に、同じCA局で発行したサーバ証明書をインストールする必要があるため）
 <a href="/images/2023-08-17_13-19-31.png"><img alt="Screenshot" src="/images/2023-08-17_13-19-31.png" /></a></li>
 </ul>
 <p><strong>MSP用のPIO-ID 管理者ポータル</strong></p>
@@ -6241,7 +6242,7 @@
 <h3 id="修正_32">修正<a class="headerlink" href="#修正_32" title="Permanent link"></a></h3>
 <p><strong>RADIUS</strong></p>
 <ul>
-<li>認証＞RADIUS＞簡易設定のYAMAHA WLXの設定時、クライアント重複のエラーメッセージが正しく表示されない問題を修正</li>
+<li><strong>認証＞RADIUS＞簡易設定</strong>画面でYAMAHA WLXを設定した際に、クライアント重複のエラーメッセージが正しく表示されない問題を修正</li>
 </ul>
 <h2 id="2023-05-31">2023-05-31<a class="headerlink" href="#2023-05-31" title="Permanent link"></a></h2>
 <!--
@@ -6266,11 +6267,11 @@
 <ul>
 <li>RADIUSのログを定期的に削除 S/DF#9</li>
 <li>
-<p>ログ＞操作ログ画面で、管理者の操作内容をログへ出力</p>
+<p><strong>ログ＞操作ログ</strong>画面で、管理者の操作内容をログへ出力</p>
 <p><a href="/images/2023-03-11_19-35-36.png"><img alt="Screenshot" src="/images/2023-03-11_19-35-36.png" /></a></p>
 </li>
 <li>
-<p>管理＞詳細設定画面で、操作ログの集計を有効にすることで、管理者および管理＞詳細設定画面の通知メールアドレスあてに操作の集計通知を１日１回送信</p>
+<p><strong>管理＞詳細設定</strong>画面で、操作ログの集計を有効にすることで、管理者および<strong>管理＞詳細設定</strong>画面の通知メールアドレスあてに操作の集計通知を１日１回送信</p>
 <p><a href="/images/2023-03-11_19-39-42.png"><img alt="Screenshot" src="/images/2023-03-11_19-39-42.png" /></a></p>
 </li>
 </ul>
@@ -6357,14 +6358,14 @@
 <p><strong>MSP用のPIO-ID 管理者ポータル</strong></p>
 <ul>
 <li>
-<p>MSP用のPIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧画面で、顧客アカウント登録時に、販売店情報の入力項目を追加</p>
+<p>MSP用の<strong>PIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧</strong>画面で、顧客アカウント登録時に、販売店情報の入力項目を追加</p>
 <p><a href="/images/2023-03-11_19-46-10.png"><img alt="Screenshot" src="/images/2023-03-11_19-46-10.png" /></a></p>
 </li>
 <li>
-<p>MSP用のPIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧画面で、顧客アカウントを選択し、選択実行＞納品通知を選択することで、顧客担当者および販売店担当者のメールアドレスへ納品通知メールを送信</p>
+<p>MSP用の<strong>PIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧</strong>画面で、顧客アカウントを選択し、<strong>選択実行＞納品通知</strong>を選択することで、顧客担当者および販売店担当者のメールアドレスへ納品通知メールを送信</p>
 </li>
 <li>
-<p>MSP用のPIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧画面で、顧客アカウントの情報をCSVまたはEXCEL形式でエクスポート</p>
+<p>MSP用の<strong>PIO-ID 管理者ポータル＞管理アカウント＞顧客アカウント一覧</strong>画面で、顧客アカウントの情報をCSVまたはEXCEL形式でエクスポート</p>
 <p><a href="/images/2023-03-11_19-44-50.png"><img alt="Screenshot" src="/images/2023-03-11_19-44-50.png" /></a></p>
 </li>
 <li>

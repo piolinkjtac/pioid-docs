@@ -730,6 +730,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#サイト判定に指定できる特別な値" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイト判定に指定できる特別な値
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サイト判定に指定できる特別な値">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffaloで判定できるベンダーコード" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **BUFFALO**で判定できるベンダーコード
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#radiusのサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1614,6 +1642,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#サイト判定に指定できる特別な値" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイト判定に指定できる特別な値
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サイト判定に指定できる特別な値">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffaloで判定できるベンダーコード" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **BUFFALO**で判定できるベンダーコード
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#radiusのサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1691,7 +1747,7 @@
 
 
 <h1 id="radius">RADIUS<a class="headerlink" href="#radius" title="Permanent link"></a></h1>
-<p>文書更新日:2026-07-10</p>
+<p>文書更新日:2026-07-11</p>
 <p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。</p>
 <h2 id="サポートする認証方式について">サポートする認証方式について<a class="headerlink" href="#サポートする認証方式について" title="Permanent link"></a></h2>
 <p>以下の認証方式をサポートしています。</p>
@@ -1853,7 +1909,7 @@
 <p class="admonition-title">Info</p>
 <p>RADIUSサイトの登録、編集、削除がシステムへ反映されるまで、最大で15分かかります。</p>
 </div>
-<h4 id="radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法<a class="headerlink" href="#radiusクライアントのサイト識別する属性の確認方法" title="Permanent link"></a></h4>
+<h3 id="radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法<a class="headerlink" href="#radiusクライアントのサイト識別する属性の確認方法" title="Permanent link"></a></h3>
 <p>拡張RADIUSサーバを利用してサイトを作成する際には、<strong>サイト識別する属性</strong>の<strong>属性値</strong>をPIO-IDへ設定する必要があります。<strong>サイト識別する属性</strong>としては、RADIUS属性の<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>を選択可能です。</p>
 <p>PIO-IDと連携する機器から送信されるNAS-IP-AddressおよびNAS-Identifierがどのような属性値をもつかについて、連携機器のマニュアルをご確認ください。属性値が不明な場合には、以下の手順で確認することができます。</p>
 <ol>
@@ -1906,6 +1962,50 @@
 <p class="admonition-title">Info</p>
 <p>RADIUS認証ログの表示には、認証実行後から5分程度時間がかかる場合があります。</p>
 </div>
+<h3 id="サイト判定に指定できる特別な値">サイト判定に指定できる特別な値<a class="headerlink" href="#サイト判定に指定できる特別な値" title="Permanent link"></a></h3>
+<p><strong>サイト識別する属性</strong>と<strong>属性値</strong>に以下の組み合わせを設定すると、特別な条件でRADIUSサイトを判定できます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>サイト識別する属性</strong></th>
+<th style="text-align: left;"><strong>属性値</strong></th>
+<th style="text-align: left;"><strong>判定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>NAS-IP-Address</strong></td>
+<td style="text-align: left;"><code>0.0.0.0</code></td>
+<td style="text-align: left;">任意のIPv4 NAS-IP-Addressに一致します。IPv6アドレスには一致しません。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NAS-Identifier</strong></td>
+<td style="text-align: left;"><code>**MACADDR**</code></td>
+<td style="text-align: left;">NAS-Identifierの値が、区切り文字のない12桁のMACアドレス形式である場合に一致します。（一致例: <code>001122aabbcc</code>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NAS-Identifier</strong></td>
+<td style="text-align: left;"><code>**BUFFALO**</code></td>
+<td style="text-align: left;">NAS-Identifierの値が、対応するBUFFALO製ネットワーク機器のMACアドレス形式である場合に、ベンダーコード部分をもとに一致します。（一致例: <code>4c858a112233</code>）</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NAS-IP-Addressに <code>0.0.0.0</code> を設定し、複数のRADIUSサイトを登録している場合は、意図しないサイトが判定されないように設定内容を確認してください。</p>
+</div>
+<p><code>**MACADDR**</code> は、機器ごとに異なるMACアドレスがNAS-Identifierとして送信される場合に、個別のMACアドレスを指定せずまとめて判定するために使用します。</p>
+<p><code>**BUFFALO**</code> は、対応するBUFFALO製ネットワーク機器をまとめて判定するために使用します。</p>
+<h4 id="buffaloで判定できるベンダーコード"><code>**BUFFALO**</code>で判定できるベンダーコード<a class="headerlink" href="#buffaloで判定できるベンダーコード" title="Permanent link"></a></h4>
+<p><strong>サイト識別する属性</strong>に<strong>NAS-Identifier</strong>を選択し、<strong>属性値</strong>に <code>**BUFFALO**</code> を設定すると、以下のベンダーコードに該当するBUFFALO製ネットワーク機器を判定できます。</p>
+<div class="highlight"><pre><span></span><code>000740, 000d0b, 001601, 001d73, 0024a5, 002bf5, 004026
+00e5f1, 106f3f, 18c2bf, 18ece7, 343dc4, 4c858a
+4ce676, 50c4dd, 58278c, 6084bd, 68e1dc, 7403bd
+7498f4, 84afec, 84e8cb, 8857ee, 88c22d, 9096f3
+b0c745, c436c0, c43cea, cce1d5, d056f2, d42c46
+dcfb02, ec5a31, f0f84a, f89497
+</code></pre></div>
+<p>利用する機器のベンダーコードが一覧に含まれていない場合、<code>**BUFFALO**</code> では判定できません。RADIUS認証ログで機器が送信するNAS-Identifierを確認し、実際のNAS-Identifierまたは判定に使用できる共通文字列を<strong>属性値</strong>へ手動で設定してください。</p>
 <h3 id="radiusのサイトの登録">RADIUSのサイトの登録<a class="headerlink" href="#radiusのサイトの登録" title="Permanent link"></a></h3>
 <ol>
 <li><strong>簡易設定</strong>タブをクリックします。</li>
@@ -1961,10 +2061,6 @@
 <p><strong>認証</strong>タブをクリックし、RADIUSクライアントとなる機器へのアクセスを許可する<strong>ユーザ</strong>/<strong>グループ</strong>を設定します。</p>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>サイト識別する属性</strong>に<strong>NAS-IP</strong>を選択し、属性値に <code>0.0.0.0</code> を設定すると、任意のIPv4 NAS-IPアドレスに一致します。複数サイトを登録している場合は、意図しないサイト判定にならないように、設定内容を確認してください。</p>
-</div>
 <h3 id="radiusのサイトの編集">RADIUSのサイトの編集<a class="headerlink" href="#radiusのサイトの編集" title="Permanent link"></a></h3>
 <ol>
 <li>変更したいサイトの列にある<strong>編集</strong>ボタンをクリックします。</li>
