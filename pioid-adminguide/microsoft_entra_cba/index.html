@@ -1,0 +1,1807 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-adminguide/microsoft_entra_cba/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>PIO-IDクライアント証明書によるMicrosoft Entra証明書ベース認証 - PIO-ID マニュアル</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pio-idクライアント証明書によるmicrosoft-entra証明書ベース認証" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-header__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIO-ID マニュアル
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PIO-IDクライアント証明書によるMicrosoft Entra証明書ベース認証
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.piolink.co.jp/" title="PIO-ID マニュアル" class="md-nav__button md-logo" aria-label="PIO-ID マニュアル" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PIO-ID マニュアル
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HOME
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理者ガイド
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    管理者ガイド
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ログ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ログ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radius_authlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS認証ログ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operation_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作ログ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    グループ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    認証
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    認証
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    証明書
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ連携
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    アプリ連携
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ一覧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security_check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ診断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accountinfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本情報（組織アカウント）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理者
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    詳細設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザガイド
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ユーザガイド
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アカウント
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    パスワード
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/authenticator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    オーセンティケーター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-userguide/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セッション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-appguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリ連携ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-pocguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク機器連携の設定例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-security-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ診断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくある質問
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リリースノート
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    リリースノート
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pioid-release-notes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    製品版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#設定概要" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#前提条件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前提条件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pio-idのca証明書とcrl情報の取得" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのCA証明書とCRL情報の取得
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#クライアント証明書の発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クライアント証明書の発行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クライアント証明書の発行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#証明書プロファイルの確認" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        証明書プロファイルの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ユーザへの証明書発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザへの証明書発行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsoft-entra-idへのca登録" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Entra IDへのCA登録
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsoft-entra-cbaの有効化" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Entra CBAの有効化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsoft-entra-cbaの構成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Entra CBAの構成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#動作確認" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        動作確認
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#運用上の注意" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        運用上の注意
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#参考情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考情報
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pio-idクライアント証明書によるmicrosoft-entra証明書ベース認証">PIO-IDクライアント証明書によるMicrosoft Entra証明書ベース認証<a class="headerlink" href="#pio-idクライアント証明書によるmicrosoft-entra証明書ベース認証" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-02</p>
+<p>本書では、PIO-IDで発行したクライアント証明書を使用して、Microsoft Entra証明書ベース認証（CBA）を設定する手順を説明します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>MicrosoftのFAQでは、Microsoft Entra CBAは無料の機能であり、Microsoft Entra IDのすべてのエディションに含まれると案内されています（2026-08-02参照）。最新のライセンス要件は、<a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/certificate-based-authentication-faq" target="_blank">Microsoft Entra CBA FAQ（Microsoft）</a>を確認してください。</li>
+<li>本書では、PIO-IDクライアント証明書のサブジェクト代替名（SAN）に設定されたメールアドレスを、Microsoft Entra IDのユーザー プリンシパル名（UPN）へ対応付けます。</li>
+</ul>
+</div>
+<p>本書では、クライアント証明書を単一要素認証として使用します。パスワードとクライアント証明書を組み合わせる構成の検証情報は、<a href="../microsoft_entra_cba_mfa/">Microsoft EntraでパスワードとPIO-IDクライアント証明書による2要素認証を検証する</a>を参照してください。</p>
+<h2 id="設定概要">設定概要<a class="headerlink" href="#設定概要" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定対象</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Microsoft Entra IDの信頼するCA</strong></td>
+<td style="text-align: left;">PIO-IDのルートCAと中間CA</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>中間CAの設定</strong></td>
+<td style="text-align: left;">PIO-IDの中間CAに表示される<strong>失効リストの配布ポイント</strong>をCRLのURLに指定し、<strong>発行者ヒント</strong>を有効化</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CBAの対象</strong></td>
+<td style="text-align: left;">有効なPIO-IDクライアント証明書を利用できるテストユーザーのグループ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CRL検証</strong></td>
+<td style="text-align: left;"><strong>CRL 検証を必須にする（推奨）</strong>を有効化し、PIO-IDのルートCAのみを検証対象から除外</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>認証バインド</strong></td>
+<td style="text-align: left;"><strong>単一要素認証</strong>、<strong>低アフィニティ バインド</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ユーザー名バインド</strong></td>
+<td style="text-align: left;">証明書フィールドの<strong>RFC822Name</strong>をユーザー属性の<strong>userPrincipalName</strong>にバインド</td>
+</tr>
+</tbody>
+</table>
+<h2 id="前提条件">前提条件<a class="headerlink" href="#前提条件" title="Permanent link"></a></h2>
+<ul>
+<li>Microsoft Entra IDのユーザー プリンシパル名（UPN）と、PIO-IDユーザのメールアドレスが一致していること</li>
+<li>Microsoft Entra CBAを利用するユーザーを登録したMicrosoft Entra IDのグループがあること</li>
+<li>Microsoft Entra IDのグローバル管理者アカウントを利用できること</li>
+<li>PIO-IDで発行した有効なクライアント証明書を、利用するデバイスへインストールできること</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>最初からすべてのユーザーをCBAの対象にしないでください。クライアント証明書を利用できるテストユーザーのグループから段階的に適用してください。また、CBA設定の影響を受けない緊急アクセス用アカウントを用意してください。</p>
+</div>
+<h2 id="pio-idのca証明書とcrl情報の取得">PIO-IDのCA証明書とCRL情報の取得<a class="headerlink" href="#pio-idのca証明書とcrl情報の取得" title="Permanent link"></a></h2>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞証明書</strong>画面の<strong>基本情報</strong>タブへ移動します。</li>
+<li><strong>ルートCA</strong>のダウンロードアイコンをクリックし、ルートCA証明書をダウンロードします。</li>
+<li><strong>中間CA</strong>のダウンロードアイコンをクリックし、中間CA証明書をダウンロードします。</li>
+<li><strong>中間CA</strong>に表示されている<strong>失効リストの配布ポイント</strong>を記録します。Microsoft Entra IDへ中間CAを登録するときに、証明書失効リスト（CRL）のURLとして使用します。</li>
+</ol>
+<h2 id="クライアント証明書の発行">クライアント証明書の発行<a class="headerlink" href="#クライアント証明書の発行" title="Permanent link"></a></h2>
+<h3 id="証明書プロファイルの確認">証明書プロファイルの確認<a class="headerlink" href="#証明書プロファイルの確認" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞証明書</strong>画面の<strong>プロファイル</strong>タブへ移動します。</li>
+<li>
+<p>クライアント証明書の発行に使用するプロファイルで、以下の項目を確認します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>拡張キー使用法（EKU）</strong></td>
+<td style="text-align: left;"><strong>クライアント認証</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サブジェクトの代替名</strong></td>
+<td style="text-align: left;"><strong>メールアドレス</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="ユーザへの証明書発行">ユーザへの証明書発行<a class="headerlink" href="#ユーザへの証明書発行" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ一覧</strong>画面へ移動します。</li>
+<li>対象ユーザのメールアドレスが、Microsoft Entra IDのUPNと一致していることを確認します。</li>
+<li>対象ユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、<strong>証明書の発行</strong>を選択します。</li>
+<li>CBA用の証明書プロファイルを選択し、<strong>発行</strong>ボタンをクリックします。</li>
+<li>発行されたPKCS#12形式のクライアント証明書を、利用するデバイスへインストールします。</li>
+</ol>
+<p>Windowsへのインストール手順は、<a href="../../pioid-pocguide/clients/windows_install_cert/">Windows: クライアント証明書のインストール</a>を参照してください。</p>
+<h2 id="microsoft-entra-idへのca登録">Microsoft Entra IDへのCA登録<a class="headerlink" href="#microsoft-entra-idへのca登録" title="Permanent link"></a></h2>
+<ol>
+<li><a href="https://entra.microsoft.com/" target="_blank">Microsoft Entra 管理センター</a>へ、グローバル管理者でログインします。</li>
+<li><strong>Entra ID＞セキュリティ＞管理＞公開キー基盤</strong>画面へ移動します。</li>
+<li><strong>PKIの作成</strong>ボタンをクリックします。</li>
+<li><strong>表示名</strong>に任意の名前（例：<code>PIO-ID PKI</code>）を入力し、<strong>作成</strong>ボタンをクリックします。</li>
+<li>作成したPKIを開き、<strong>証明機関の追加</strong>ボタンをクリックします。</li>
+<li>
+<p>PIO-IDのルートCA証明書を選択し、以下を設定して保存します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ルート証明書</strong></td>
+<td style="text-align: left;"><strong>はい</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>発行者ヒント</strong></td>
+<td style="text-align: left;"><strong>無効</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>再度<strong>証明機関の追加</strong>ボタンをクリックし、PIO-IDの中間CA証明書を選択します。</p>
+</li>
+<li>
+<p>中間CAを追加するときは、以下を設定して保存します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ルート証明書</strong></td>
+<td style="text-align: left;"><strong>いいえ</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>証明書失効リストのURL</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞証明書＞基本情報</strong>タブの<strong>中間CAの失効リストの配布ポイント</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>発行者ヒント</strong></td>
+<td style="text-align: left;"><strong>有効</strong></td>
+</tr>
+</tbody>
+</table>
+<p>PIO-IDの中間CAを発行者ヒントの対象にし、CBAの構成画面でも発行者ヒントを有効にすると、接続デバイスへPIO-IDの中間CA情報が送信され、証明書選択画面に表示するクライアント証明書を絞り込めます。発行者ヒントは、証明書の信頼性や失効を検証する設定ではありません。</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>Microsoft Entra IDがCRLへアクセスできない場合、CBAによる認証は失敗します。CRLのURLは、インターネットから参照できるURLを設定してください。</li>
+<li>Microsoft Entra IDへCAを登録すると、そのCAが発行した証明書がCBAの信頼対象になります。CBA用の証明書プロファイルと証明書の発行対象を適切に管理してください。</li>
+</ul>
+</div>
+<h2 id="microsoft-entra-cbaの有効化">Microsoft Entra CBAの有効化<a class="headerlink" href="#microsoft-entra-cbaの有効化" title="Permanent link"></a></h2>
+<ol>
+<li>Microsoft Entra CBAを利用するテストユーザーを、CBA対象グループへ追加します。</li>
+<li><a href="https://entra.microsoft.com/" target="_blank">Microsoft Entra 管理センター</a>へ、グローバル管理者でログインします。</li>
+<li><strong>Microsoft Entra 管理センター＞Entra ID＞セキュリティ＞管理＞認証方法＞証明書ベースの認証</strong>画面へ移動します。</li>
+<li><strong>有効化とターゲット</strong>でCBAを有効にします。</li>
+<li><strong>グループの選択</strong>でCBA対象グループを追加します。</li>
+<li>確認項目を選択し、<strong>保存</strong>ボタンをクリックします。</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>CBAの対象ユーザーは、Microsoft Entra ID上でMFAを実行可能なユーザーとして扱われます。有効なクライアント証明書を利用できないユーザーを対象にすると、MFAを完了できず、ほかの認証方法の登録やサインインができなくなる場合があります。CBAの対象は、有効なクライアント証明書を利用できるユーザーに限定してください。</p>
+</div>
+<h2 id="microsoft-entra-cbaの構成">Microsoft Entra CBAの構成<a class="headerlink" href="#microsoft-entra-cbaの構成" title="Permanent link"></a></h2>
+<ol>
+<li><strong>Microsoft Entra 管理センター＞Entra ID＞セキュリティ＞管理＞認証方法＞証明書ベースの認証</strong>画面で、<strong>構成</strong>をクリックします。</li>
+<li><strong>CRL 検証を必須にする（推奨）</strong>を有効にします。</li>
+<li><strong>CA を CRL 検証から除外する</strong>で、PIO-IDのルートCAを追加します。</li>
+<li><strong>発行者ヒント</strong>を有効にします。</li>
+<li>
+<p>認証バインドを以下のように設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>保護レベル</strong></td>
+<td style="text-align: left;"><strong>単一要素認証</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アフィニティ バインド</strong></td>
+<td style="text-align: left;"><strong>低</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>ユーザー名バインドへ以下の規則を追加します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>証明書フィールド</strong></th>
+<th style="text-align: left;"><strong>ユーザー属性</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RFC822Name</strong></td>
+<td style="text-align: left;"><strong>userPrincipalName</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>設定を保存します。</p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>PIO-IDの中間CAは、CRL検証から除外しないでください。失効したクライアント証明書は、中間CAのCRLを使用して検証されます。</li>
+<li>PIO-IDクライアント証明書のSANに設定されたメールアドレスと、Microsoft Entra IDのUPNが一致するユーザーを認証します。一致しない場合、CBAによるサインインは失敗します。</li>
+<li>Microsoft Entra IDでは認証方法ポリシーがキャッシュされるため、CBA設定の変更が反映されるまでに最大1時間かかる場合があります。設定直後に動作を確認できない場合は、時間をおいて再度確認してください。</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本書では、PKCS#12形式で配布するクライアント証明書を単独で使用するため、<strong>単一要素認証</strong>に設定します。</p>
+</div>
+<h2 id="動作確認">動作確認<a class="headerlink" href="#動作確認" title="Permanent link"></a></h2>
+<ol>
+<li>CBA対象ユーザーのクライアント証明書がインストールされたデバイスで新しいブラウザー セッションを開始し、<a href="https://myapps.microsoft.com/" target="_blank">マイ アプリ ポータル</a>へアクセスします。</li>
+<li>Microsoft Entra IDのUPNを入力し、<strong>次へ</strong>ボタンをクリックします。</li>
+<li><strong>証明書を使用してサインイン</strong>を選択します。</li>
+<li>PIO-IDで発行したクライアント証明書を選択します。</li>
+<li>マイ アプリ ポータルへサインインできることを確認します。</li>
+<li><strong>Microsoft Entra 管理センター＞Entra ID＞監視＞サインイン ログ</strong>画面で、対象ユーザーの認証結果と証明書情報を確認します。</li>
+</ol>
+<h2 id="運用上の注意">運用上の注意<a class="headerlink" href="#運用上の注意" title="Permanent link"></a></h2>
+<ul>
+<li>PIO-IDユーザを無効化しても、発行済みのクライアント証明書は失効しません。CBAによるサインインを停止する場合は、PIO-IDでクライアント証明書を失効してください。</li>
+<li>クライアント証明書を更新した場合は、新しい証明書を利用するデバイスへインストールしてください。</li>
+<li>CBA対象グループ、証明書の発行状況、証明書の有効期限および失効状況を定期的に確認してください。</li>
+<li>Microsoft Entra CBAでは、通常のサインイン先である<code>login.microsoftonline.com</code>とは別に、クライアント証明書を提示するための<code>*.certauth.login.microsoftonline.com</code>を使用します。プロキシやファイアウォールで通信先を制限している場合は、このドメインへのHTTPS通信も許可してください。また、TLS検査を行うとクライアント証明書のやり取りが成立しない場合があるため、TLS検査の対象から除外してください。通信先制限やTLS検査を使用していない場合、追加設定は不要です。</li>
+</ul>
+<h2 id="参考情報">参考情報<a class="headerlink" href="#参考情報" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-certificate-based-authentication" target="_blank">Microsoft Entra CBAを設定する（Microsoft）</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-configure-certificate-authorities" target="_blank">Microsoft Entra証明書ベース認証用に証明機関を構成する（Microsoft）</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication" target="_blank">Microsoft Entra CBAの概要（Microsoft）</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/certificate-based-authentication-faq" target="_blank">Microsoft Entra CBAに関するFAQ（Microsoft）</a></li>
+<li><a href="../pki/">証明書の管理</a></li>
+<li><a href="../user/#証明書の発行失効">クライアント証明書の発行</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; PIOLINK, Inc. All rights reserved.
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
