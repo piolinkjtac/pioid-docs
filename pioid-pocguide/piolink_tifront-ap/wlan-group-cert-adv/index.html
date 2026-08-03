@@ -1398,10 +1398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#piolink-tifront-apの設定" class="md-nav__link">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIOLINK TiFRONT-APの設定
+        PIO-IDのRADIUSサイトの登録
       
     </span>
   </a>
@@ -1409,10 +1409,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
+  <a href="#piolink-tifront-apの設定" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIO-IDのRADIUSサイトの登録
+        PIOLINK TiFRONT-APの設定
       
     </span>
   </a>
@@ -1453,6 +1453,7 @@
 
 
 <h1 id="無線lanアクセス-クライアント証明書認証">無線LANアクセス-クライアント証明書認証<a class="headerlink" href="#無線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-03</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、PIOLINK TiFRONT-APの無線LANアクセスポイントへアクセスします。</li>
@@ -1485,7 +1486,7 @@
 </ol>
 <h3 id="pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録<a class="headerlink" href="#pio-idの拡張radiusサーバの登録" title="Permanent link"></a></h3>
 <ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本設定</strong>画面へ移動します。</li>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本設定</strong>タブへ移動します。</li>
 <li>
 <p><strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>の<strong>登録</strong>ボタンをクリックします。<strong>拡張RADIUSサーバの登録</strong>画面がポップアップします。</p>
 <table>
@@ -1498,7 +1499,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>使用するプロトコル</strong></td>
-<td style="text-align: left;">UDP</td>
+<td style="text-align: left;"><strong>UDP</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>シークレット</strong></td>
@@ -1508,7 +1509,73 @@
 </table>
 </li>
 <li>
+<p><strong>登録</strong>ボタンをクリックします。専用のRADIUSポート番号が割り当てられます。</p>
+</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
+<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
+<li>カタログから<strong>PIOLINK TiFRONT-APシリーズ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>PIOLINK TiFRONT-APシリーズ</strong>画面がポップアップします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ</strong></td>
+<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>で登録したサーバ番号を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
+<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;"><code>AR-WF</code>を設定します。実際にネットワーク機器から送信される<strong>NAS-Identifier</strong>の属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>NAS-Identifier</strong>として<code>AR-WF6-254I</code>のような値が送信される場合があります。ただし、ハードウェアリビジョンや機種差分により末尾が異なる可能性があるため、初期値としては共通接頭辞である<code>AR-WF</code>を設定することをお勧めします。</li>
+<li>認証が失敗し、<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面のエラーメッセージが <code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code> の場合には、<a href="../../../pioid-adminguide/radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照して<strong>属性値</strong>を見直してください。</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
+</li>
+<li>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>証明書認証（EAP-TLS）のみ許可</strong>を<strong>有効</strong>にすると、クライアント証明書認証以外の認証方式のアクセスを拒否します。</li>
+<li>接続可能なSSIDを制限したい場合には、SSID入力欄に、接続を許可したいSSIDを入力します。</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>登録</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
 </li>
 </ol>
 <h3 id="piolink-tifront-apの設定">PIOLINK TiFRONT-APの設定<a class="headerlink" href="#piolink-tifront-apの設定" title="Permanent link"></a></h3>
@@ -1533,7 +1600,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>選択</strong></td>
-<td style="text-align: left;">有効</td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>無線LAN（SSID）</strong></td>
@@ -1541,15 +1608,15 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証セキュリティ設定</strong></td>
-<td style="text-align: left;">WPA2&amp;WPA3 または WPA3</td>
+<td style="text-align: left;"><strong>WPA2&amp;WPA3</strong>または<strong>WPA3</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>WPA Mode</strong></td>
-<td style="text-align: left;">Enterprise(RADIUS)</td>
+<td style="text-align: left;"><strong>Enterprise(RADIUS)</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>WPA暗号</strong></td>
-<td style="text-align: left;">AES</td>
+<td style="text-align: left;"><strong>AES</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>認証サーバー設定</strong></td>
@@ -1557,11 +1624,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>IPアドレス</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面の<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ポート</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>画面の<strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>のポート番号です。</td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>拡張RADIUSサーバ＞RADIUSポート番号</strong>のポート番号です。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>パスワード</strong></td>
@@ -1572,72 +1639,6 @@
 </li>
 <li>
 <p><strong>保存</strong>ボタンをクリックします。</p>
-</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面へ移動します。</li>
-<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>PIOLINK TiFRONT-APシリーズ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>PIOLINK TiFRONT-APシリーズ</strong>画面がポップアップします。</li>
-<li>
-<p><strong>基本情報</strong>タブに、以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;">有効</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;">拡張</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ番号</strong></td>
-<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>で登録したサーバ番号を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><code>AR-WF</code>を設定します。実際にネットワーク機器から送信される<strong>NAS-Identifier</strong>の属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<ul>
-<li><strong>NAS-ID</strong>として<code>AR-WF6-254I</code>のような値が送信される場合があります。ただし、ハードウェアリビジョンや機種差分により末尾が異なる可能性があるため、初期値としては共通接頭辞である<code>AR-WF</code>を設定することをお勧めします。</li>
-<li>認証が失敗し、<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面のエラーメッセージが <code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code> の場合には、<a href="../../../pioid-adminguide/radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照して<strong>属性値</strong>を見直してください。</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
-</li>
-<li>
-<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<ul>
-<li><strong>証明書認証（EAP-TLS）のみ許可</strong>を<strong>有効</strong>にすると、クライアント証明書認証以外の認証方式のアクセスを拒否します。</li>
-<li>接続可能なSSIDを制限したい場合には、SSID入力欄に、接続を許可したいSSIDを入力します。</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>登録</strong>ボタンをクリックします。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>設定がシステムに反映されるまで最大で15分かかります。</p>
-</div>
 </li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>

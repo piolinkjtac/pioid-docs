@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/cisco_meraki_security/vpn-group-otp/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-adminguide/microsoft_entra/best_practices/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>リモートアクセスVPN(L2TP/IPsec)-2要素認証（パスワード認証＋ワンタイムパスワード認証） - PIO-ID マニュアル</title>
+        <title>MicrosoftクラウドとPIO-IDの連携 - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#リモートアクセスvpnl2tpipsec-2要素認証パスワード認証ワンタイムパスワード認証" class="md-skip">
+        <a href="#microsoftクラウドとpio-idの連携" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              リモートアクセスVPN(L2TP/IPsec)-2要素認証（パスワード認証＋ワンタイムパスワード認証）
+              MicrosoftクラウドとPIO-IDの連携
             
           </span>
         </div>
@@ -308,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -383,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/radius_authlog/" class="md-nav__link">
+      <a href="../../radius_authlog/" class="md-nav__link">
         
   
   
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/operation_log/" class="md-nav__link">
+      <a href="../../operation_log/" class="md-nav__link">
         
   
   
@@ -447,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/user/" class="md-nav__link">
+      <a href="../../user/" class="md-nav__link">
         
   
   
@@ -475,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/group/" class="md-nav__link">
+      <a href="../../group/" class="md-nav__link">
         
   
   
@@ -550,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/ldap/" class="md-nav__link">
+      <a href="../../ldap/" class="md-nav__link">
         
   
   
@@ -578,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/radius/" class="md-nav__link">
+      <a href="../../radius/" class="md-nav__link">
         
   
   
@@ -606,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/pki/" class="md-nav__link">
+      <a href="../../pki/" class="md-nav__link">
         
   
   
@@ -689,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/app_integration/" class="md-nav__link">
+      <a href="../../app_integration/" class="md-nav__link">
         
   
   
@@ -725,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/security_check/" class="md-nav__link">
+      <a href="../../security_check/" class="md-nav__link">
         
   
   
@@ -800,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/accountinfo/" class="md-nav__link">
+      <a href="../../accountinfo/" class="md-nav__link">
         
   
   
@@ -828,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/admin/" class="md-nav__link">
+      <a href="../../admin/" class="md-nav__link">
         
   
   
@@ -856,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/network/" class="md-nav__link">
+      <a href="../../network/" class="md-nav__link">
         
   
   
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pioid-adminguide/setting/" class="md-nav__link">
+      <a href="../../setting/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../../pioid-pocguide/" class="md-nav__link">
         
   
   
@@ -1331,10 +1331,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#目的" class="md-nav__link">
+  <a href="#推奨構成" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目的
+        推奨構成
       
     </span>
   </a>
@@ -1342,124 +1342,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#設定方法" class="md-nav__link">
+  <a href="#認証先の分担" class="md-nav__link">
     <span class="md-ellipsis">
       
-        設定方法
+        認証先の分担
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="設定方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのグループの作成" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIO-IDのグループの作成
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのユーザの作成" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIO-IDのユーザの作成
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIO-IDのRADIUSサイトの登録
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#動作確認方法" class="md-nav__link">
+  <a href="#ユーザー属性の設計" class="md-nav__link">
     <span class="md-ellipsis">
       
-        動作確認方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="動作確認方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ソフトウェアトークンのインストール" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ソフトウェアトークンのインストール
+        ユーザー属性の設計
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#pio-idへソフトウェアトークンの登録" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#グループの設計" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIO-IDへソフトウェアトークンの登録
+        グループの設計
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#vpnの設定" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#ユーザーデバイスに関する操作" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VPNの設定
+        ユーザー・デバイスに関する操作
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#vpnの接続" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#監視と定期確認" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VPNの接続
+        監視と定期確認
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#関連する設定ガイド" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連する設定ガイド
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#参考情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考情報
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1480,317 +1435,189 @@
 
 
 
-<h1 id="リモートアクセスvpnl2tpipsec-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN(L2TP/IPsec)-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpnl2tpipsec-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-08-24</p>
-<h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
-<ul>
-<li>PIO-IDのユーザで、Cisco Meraki セキュリティ&amp;SD-WANへVPN(L2TP/IPsec)を使ってリモートアクセスします。</li>
-<li>接続する際の認証方式は、2要素認証（パスワード認証＋ワンタイムパスワード認証）です。</li>
-<li>PIO-IDの標準RADIUSサーバを利用します。</li>
-<li>ユーザ/グループによるアクセス制限をします。</li>
-</ul>
-<h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
-<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
-<li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
-<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
-</ol>
-<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
-<li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
-<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
-<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
-<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>Cisco Meraki セキュリティ&amp;SD-WANシリーズ</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Cisco Meraki セキュリティ&amp;SD-WANシリーズ</strong>画面がポップアップします。</li>
-<li>
-<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<h1 id="microsoftクラウドとpio-idの連携">MicrosoftクラウドとPIO-IDの連携<a class="headerlink" href="#microsoftクラウドとpio-idの連携" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-02</p>
+<p>本書は、Microsoft Entra IDで管理するユーザーとグループをPIO-IDへ同期し、PIO-IDが発行するクライアント証明書をアプリ認証とネットワーク認証に使用する場合の設計と運用を説明します。</p>
+<p>個別の設定手順は、<a href="#関連する設定ガイド">関連する設定ガイド</a>を参照してください。</p>
+<h2 id="推奨構成">推奨構成<a class="headerlink" href="#推奨構成" title="Permanent link"></a></h2>
+<p>推奨構成では、Microsoft Entra IDをユーザーとグループの管理元とします。アプリの認証はMicrosoft Entra CBA、ネットワーク機器の認証はPIO-IDのクラウドRADIUSで行います。</p>
+<p><a href="/images/microsoft-entra-pioid-auth-architecture.png"><img alt="Microsoft Entra IDとPIO-IDを組み合わせた認証構成" src="/images/microsoft-entra-pioid-auth-architecture.png" /></a></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
+<th style="text-align: left;">機能</th>
+<th style="text-align: left;">役割</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+<td style="text-align: left;">Microsoft Entra ID</td>
+<td style="text-align: left;">ユーザー情報、グループ、在籍状態を管理し、Microsoft Entra CBAでアプリの認証を行います。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;"><strong>標準</strong>を選択します。</td>
+<td style="text-align: left;">SCIMプロビジョニング</td>
+<td style="text-align: left;">Microsoft Entra IDのユーザーとグループをPIO-IDへ同期します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>サーバ番号</strong></td>
-<td style="text-align: left;">適切なサーバ番号を選択します。選択するサーバの番号により、RADIUSサーバのポート番号が異なります。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</td>
+<td style="text-align: left;">Microsoft Intune</td>
+<td style="text-align: left;">PIO-IDのCA証明書、SCEP証明書プロファイル、Windows向けWi-Fi構成プロファイルを管理デバイスへ配布します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>IP or ホスト名</strong></td>
-<td style="text-align: left;"><strong>Cisco Meraki セキュリティ&amp;SD-WAN</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。グローバルIPアドレスが、動的の場合には、Cisco MerakiのDDNS（ダイナミックDNS）を利用して<strong>ホスト名（FQDN）</strong>を設定します。</td>
+<td style="text-align: left;">PIO-ID PKI/SCEP</td>
+<td style="text-align: left;">アプリ認証とネットワーク認証に使用するクライアント証明書を発行し、失効情報をCRLで公開します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>シークレット</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
+<td style="text-align: left;">PIO-IDクラウドRADIUS</td>
+<td style="text-align: left;">ネットワーク機器から受信したEAP-TLS認証を処理し、RADIUSサイトに設定したユーザまたはグループの利用を許可します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">ネットワーク機器</td>
+<td style="text-align: left;">端末から802.1Xなどの認証要求を受け付け、PIO-IDへRADIUS認証を要求します。認証後のVLAN、アクセス範囲、フィルタなどはネットワーク機器側で制御します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">アプリ</td>
+<td style="text-align: left;">Microsoft Entra IDの認証結果に基づいて利用を許可します。アプリの割り当てやアクセス制御はMicrosoft Entra IDおよび各アプリで設定します。</td>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p><strong>VPNアクセスの認証</strong>タブへ移動します。</p>
-</li>
-<li>
-<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<h2 id="認証先の分担">認証先の分担<a class="headerlink" href="#認証先の分担" title="Permanent link"></a></h2>
+<p>アプリとネットワークでは、同じクライアント証明書を使用しますが、認証先が異なります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">対象</th>
+<th style="text-align: left;">認証先</th>
+<th style="text-align: left;">認証方式</th>
+<th style="text-align: left;">確認するログ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Microsoft Entra IDと連携するアプリ</td>
+<td style="text-align: left;">Microsoft Entra ID</td>
+<td style="text-align: left;">Microsoft Entra CBA</td>
+<td style="text-align: left;">Microsoft Entra IDのサインイン ログ</td>
+</tr>
+<tr>
+<td style="text-align: left;">無線LAN、有線LANなどのネットワーク</td>
+<td style="text-align: left;">PIO-IDクラウドRADIUS</td>
+<td style="text-align: left;">RADIUSによるEAP-TLS認証</td>
+<td style="text-align: left;">PIO-IDのRADIUS認証ログ</td>
+</tr>
+</tbody>
+</table>
+<p>アプリ認証では、Microsoft Entra IDがPIO-IDのCAとCRLを使用してクライアント証明書を検証します。ネットワーク認証では、ネットワーク機器がPIO-IDへRADIUS認証を要求し、PIO-IDがクライアント証明書とユーザ・グループを確認します。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>2要素認証（OTP）のみ許可</strong>を<strong>有効</strong>にすると、2要素認証（OTP）以外の認証方式のアクセスを拒否します。</p>
+<p>Microsoft Entra IDのパスワードは、SCIMでPIO-IDへ同期されません。アプリの認証情報はMicrosoft Entra IDで管理します。PIO-IDによるネットワーク認証ではクライアント証明書を使用するため、Microsoft Entra IDとPIO-IDのパスワードを一致させる必要はありません。</p>
 </div>
-</li>
-<li>
-<p><strong>登録</strong>ボタンをクリックします。</p>
-</li>
-</ol>
-<h3 id="cisco-meraki-セキュリティsd-wanのradiusサーバの設定">Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定<a class="headerlink" href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定" title="Permanent link"></a></h3>
-<ol>
-<li>Cisco Merakiの管理画面へログインします。</li>
-<li><strong>Security &amp; SD-WAN＞Client VPN＞IPsec Settings</strong>タブへ移動します。</li>
-<li>
-<p>以下を設定します。</p>
+<h2 id="ユーザー属性の設計">ユーザー属性の設計<a class="headerlink" href="#ユーザー属性の設計" title="Permanent link"></a></h2>
+<p>PIO-IDへ同期するユーザーについて、Microsoft Entra IDで以下の属性を設定します。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
+<th style="text-align: left;">Microsoft Entra IDの属性</th>
+<th style="text-align: left;">Microsoft Entra IDでの設定</th>
+<th style="text-align: left;">PIO-IDへの反映</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Client VPN server</strong></td>
-<td style="text-align: left;"><strong>Enabled</strong>を選択します。</td>
+<td style="text-align: left;">ユーザー プリンシパル名（UPN）</td>
+<td style="text-align: left;">PIO-IDに登録したUPNサフィックスを使用します。同期開始後は変更しません。同期対象にできるUPNサフィックスは1つです。</td>
+<td style="text-align: left;">UPNの<code>@</code>より前の部分がPIO-IDのユーザ名になります。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Hostname</strong></td>
-<td style="text-align: left;">グローバルIPが動的の場合には、ここに表示されているホスト名を<a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>IP or ホスト名</strong>に設定します。</td>
+<td style="text-align: left;">メールアドレス</td>
+<td style="text-align: left;">UPNと同じ値を設定します。また、ユーザーが受信できるメールアドレスであることを確認します。</td>
+<td style="text-align: left;">PIO-IDのメールアドレスおよびSCEP証明書のサブジェクト代替名になります。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Subnet</strong></td>
-<td style="text-align: left;">VPNクライアントに割り当てるIPアドレスのネットワークです。必要に応じて、ネットワークを作成してください。</td>
+<td style="text-align: left;">姓</td>
+<td style="text-align: left;">同期対象ユーザーの姓を設定します。</td>
+<td style="text-align: left;">PIO-IDの姓になります。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Shared secret</strong></td>
-<td style="text-align: left;">IPsec事前共有鍵として任意の文字列を設定します。</td>
+<td style="text-align: left;">名</td>
+<td style="text-align: left;">同期対象ユーザーの名を設定します。</td>
+<td style="text-align: left;">PIO-IDの名になります。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Authentication</strong></td>
-<td style="text-align: left;"><strong>RADIUS</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUS servers</strong></td>
-<td style="text-align: left;"><strong>Add server</strong>をクリックし、<strong>プライマリ</strong>および<strong>セカンダリ</strong>のRADIUSサーバを登録します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Host</strong></td>
-<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>および<strong>セカンダリ</strong>です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Port</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Secret</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>RADIUS timeout</strong></td>
-<td style="text-align: left;"><strong>10秒</strong>を設定します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Retry Count</strong></td>
-<td style="text-align: left;"><strong>3回</strong>を設定します。</td>
+<td style="text-align: left;">グループ</td>
+<td style="text-align: left;">同期対象グループへユーザーを直接所属させます。ネストされたグループのメンバーは同期されません。</td>
+<td style="text-align: left;">PIO-IDへグループとメンバーが同期され、RADIUSサイトの許可グループとして使用できます。</td>
 </tr>
 </tbody>
 </table>
-</li>
-</ol>
-<h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
-<p>Windows端末から2要素認証（パスワード＋ワンタイムパスワード）によるリモートアクセスVPNの認証が可能なことを確認します。</p>
-<h3 id="ソフトウェアトークンのインストール">ソフトウェアトークンのインストール<a class="headerlink" href="#ソフトウェアトークンのインストール" title="Permanent link"></a></h3>
-<p>ソフトウェアトークンとして、以下のiPhoneおよびAndroidのモバイルアプリが利用できます。どちらかのアプリをスマートフォンまたはタブレットへインストールします。</p>
+<h2 id="グループの設計">グループの設計<a class="headerlink" href="#グループの設計" title="Permanent link"></a></h2>
+<p>Microsoft Entra IDでは、次の対象をグループで管理します。</p>
 <ul>
-<li>FreeOTP</li>
-<li>Google Authenticator</li>
+<li>PIO-IDへSCIM同期するユーザーとグループ</li>
+<li>SCEP証明書を配布するユーザーまたはデバイス</li>
+<li>ネットワーク利用を許可するユーザー</li>
+<li>Microsoft Entra CBAの対象グループ</li>
 </ul>
-<h3 id="pio-idへソフトウェアトークンの登録">PIO-IDへソフトウェアトークンの登録<a class="headerlink" href="#pio-idへソフトウェアトークンの登録" title="Permanent link"></a></h3>
+<p>同じグループを複数の用途に使用できますが、同期、証明書配布、ネットワーク利用の対象を個別に変更する場合は、用途ごとにグループを分けます。検証用と本番用のグループも分け、少数のユーザーとデバイスで動作確認してから対象を拡大します。</p>
+<p>PIO-IDでは、SCIMで同期されたグループをRADIUSサイトの許可グループに設定します。ネットワーク機器側では、認証後に許可するVLANやアクセス範囲を別途設定します。</p>
+<h2 id="ユーザーデバイスに関する操作">ユーザー・デバイスに関する操作<a class="headerlink" href="#ユーザーデバイスに関する操作" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">場面</th>
+<th style="text-align: left;">Microsoft Entra ID / Intuneで行う操作</th>
+<th style="text-align: left;">PIO-IDで行う操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">利用開始</td>
+<td style="text-align: left;">UPN、メールアドレス、姓、名を設定し、ユーザーをSCIM同期、Microsoft Entra CBA、ネットワーク利用の対象グループへ追加します。Intuneでは、CA証明書、SCEP証明書、Wi-Fi構成プロファイルを対象ユーザーまたはデバイスのグループへ割り当てます。</td>
+<td style="text-align: left;">個別のユーザ登録は不要です。ユーザとグループはSCIMで同期され、クライアント証明書はSCEPで発行されます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">異動・権限変更</td>
+<td style="text-align: left;">対象グループへの所属を変更します。</td>
+<td style="text-align: left;">個別の変更は不要です。グループの変更はSCIMで同期されます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">退職・利用停止</td>
+<td style="text-align: left;">ユーザーを削除します。</td>
+<td style="text-align: left;">SCIMにより、Microsoft Entra IDでの論理削除時にユーザが無効化され、物理削除時にユーザが削除され、関連する証明書が失効します。論理削除後すぐに証明書の利用を停止する場合は、発行済みのクライアント証明書を失効させます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">デバイス紛失・交換</td>
+<td style="text-align: left;">Intuneで該当デバイスをワイプまたは廃止します。</td>
+<td style="text-align: left;">該当デバイスへ配布したクライアント証明書を失効します。</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>PIO-IDへソフトウェアトークンの登録</strong>を行っていないユーザは、ワンタイムパスワードは無効となり、パスワードでの認証となります。</p>
+<p>PIO-IDのユーザを無効化しても、発行済みのクライアント証明書は失効しません。ユーザを削除すると、そのユーザに関連する証明書はすべて失効します。</p>
 </div>
-<ol>
-<li>[PIO-IDのユーザの作成]の手順で作成したユーザで、PIO-IDの<a href="https://www.piolink.co.jp/sec1/pioid.html"><strong>ユーザポータル</strong></a>へログインします。</li>
-<li><strong>PIO-ID ユーザポータル＞オーセンティケーター</strong>画面へ移動します。</li>
-<li>
-<p><strong>QRコード</strong>が表示されていることを確認します。</p>
-<p><a href="/images/image-account-1.png"><img alt="Screenshot" src="/images/image-account-1.png" /></a></p>
-</li>
-<li>
-<p>スマートフォンまたはタブレットへインストールしたソフトウェアトークンアプリを起動します。（ここでは、<strong>Google Authenticator</strong>を利用します。）</p>
-</li>
-<li>
-<p><strong>＋</strong>をクリックし、新規アカウントを追加します。</p>
-<p><a href="/images/image-token-1.png"><img alt="Screenshot" src="/images/image-token-1.png" /></a></p>
-</li>
-<li>
-<p><strong>QRコードをスキャン</strong>をクリックし、ユーザポータルに表示されているQRコードを読み取ります。</p>
-<p><a href="/images/image-token-2.png"><img alt="Screenshot" src="/images/image-token-2.png" /></a></p>
-</li>
-<li>
-<p><strong>アカウントを追加</strong>をクリックし、アカウントを追加します。</p>
-<p><a href="/images/image-token-3.png"><img alt="Screenshot" src="/images/image-token-3.png" /></a></p>
-</li>
-<li>
-<p><strong>表示されている数字</strong>を<strong>PIO-ID ユーザポータル＞オーセンティケーター</strong>画面の<strong>ワンタイムコード</strong>へ入力し、<strong>保存</strong>ボタンをクリックし、オーセンティケーターを登録します。</p>
-<p><a href="/images/image-token-4.png"><img alt="Screenshot" src="/images/image-token-4.png" /></a></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>ソフトウェアトークンの6桁の数字の表示は、30秒ごとに変わります。変わる前に、オーセンティケーターの登録を完了させる必要があります。登録する途中で、ソフトウェアトークンの数字が変わってしまった場合には、変わった数字を登録します。</p>
-</div>
-</li>
-</ol>
-<h3 id="vpnの設定">VPNの設定<a class="headerlink" href="#vpnの設定" title="Permanent link"></a></h3>
-<ol>
-<li><strong>Windowsの設定＞ネットワークとインターネット</strong>画面へ移動します。</li>
-<li><strong>VPN</strong>をクリックします。</li>
-<li>
-<p><strong>VPN接続を追加する</strong>をクリックします。</p>
-<p><a href="/images/image-win-vpn-1.png"><img alt="Screenshot" src="/images/image-win-vpn-1.png" /></a></p>
-</li>
-<li>
-<p>以下を設定します。<strong>保存</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>接続名</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。（例：PIO-ID）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバまたはアドレス</strong></td>
-<td style="text-align: left;">VPNクライアントが接続するIPアドレスまたはホスト名(FQDN)です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>VPNの種類</strong></td>
-<td style="text-align: left;"><strong>事前共有キーを使ったL2TP/IPsec</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>事前共有キー</strong></td>
-<td style="text-align: left;"><a href="#cisco-meraki-セキュリティsd-wanのradiusサーバの設定">Cisco Meraki セキュリティ&amp;SD-WANのRADIUSサーバの設定</a>の手順の<strong>Shared secret</strong>に設定した文字列です。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サインイン情報の種類</strong></td>
-<td style="text-align: left;"><strong>ユーザ名とパスワード</strong>を選択します。</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/images/image-win-vpn-2.png"><img alt="Screenshot" src="/images/image-win-vpn-2.png" /></a></p>
-</li>
-<li>
-<p>Windowsの<strong>ネットワーク接続の設定</strong>画面を開きます。</p>
-</li>
-<li>追加したVPN設定の<strong>プロパティ</strong>を開きます。</li>
-<li>
-<p><strong>オプション</strong>タブへ移動します。以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>資格情報を記憶する</strong></td>
-<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M384 80c8.8 0 16 7.2 16 16v320c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64z"/></svg></span></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>セキュリティ</strong>タブへ移動します。以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>次のプロトコルを許可する</strong></td>
-<td style="text-align: left;">選択</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>暗号化されていないパスワード（PAP）</strong></td>
-<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M384 32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96c0-35.3 28.7-64 64-64zM64 80c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h320c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16zm230.7 89.9c7.8-10.7 22.8-13.1 33.5-5.3s13.1 22.8 5.3 33.5l-122.1 168c-4.1 5.7-10.5 9.3-17.5 9.8s-13.9-2-18.8-6.9l-55.9-55.9c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l36 36L294.7 170z"/></svg></span></td>
-</tr>
-<tr>
-<td style="text-align: left;">チャレンジハンドシェイク認証プロトコル（CHAP）</td>
-<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M384 80c8.8 0 16 7.2 16 16v320c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64z"/></svg></span></td>
-</tr>
-<tr>
-<td style="text-align: left;">Microsoft CHAP Version2（MS-CHAP v2）</td>
-<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M384 80c8.8 0 16 7.2 16 16v320c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64z"/></svg></span></td>
-</tr>
-</tbody>
-</table>
-<p><a href="/images/image-win-vpn-7.png"><img alt="Screenshot" src="/images/image-win-vpn-7.png" /></a></p>
-</li>
-<li>
-<p><strong>OK</strong>をクリックし、VPNの設定は完了です。</p>
-</li>
-</ol>
-<h3 id="vpnの接続">VPNの接続<a class="headerlink" href="#vpnの接続" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p>設定したVPNの<strong>接続</strong>をクリックし、Cisco Meraki セキュリティ&amp;SD-WANへVPN接続を試みます。</p>
-<p><a href="/images/image-win-vpn-4.png"><img alt="Screenshot" src="/images/image-win-vpn-4.png" /></a></p>
-</li>
-<li>
-<p>認証情報を入力し、<strong>OK</strong>ボタンをクリックします。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>ユーザ名</strong></td>
-<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で許可したユーザです。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>パスワード</strong></td>
-<td style="text-align: left;"><strong>ユーザのパスワード</strong>と<strong>ソフトウェアトークンに表示されたワンタイムパスワード</strong>を:（コロン）でつなげた文字列を入力します。（例：password:123456）</td>
-</tr>
-</tbody>
-</table>
-<p><a href="/images/image-win-vpn-5.png"><img alt="Screenshot" src="/images/image-win-vpn-5.png" /></a></p>
-</li>
-<li>
-<p>接続成功したことを確認します。</p>
-<p><a href="/images/image-win-vpn-6.png"><img alt="Screenshot" src="/images/image-win-vpn-6.png" /></a></p>
-</li>
-</ol>
+<h2 id="監視と定期確認">監視と定期確認<a class="headerlink" href="#監視と定期確認" title="Permanent link"></a></h2>
+<p>以下を定期的に確認します。</p>
+<ul>
+<li>Microsoft Entra IDのプロビジョニングログで、SCIM同期の失敗や遅延がないこと</li>
+<li>Microsoft Intuneで、CA証明書、SCEP証明書プロファイル、Wi-Fi構成プロファイルの配布に失敗していないこと</li>
+<li>Microsoft Entra IDのサインイン ログで、CBAの失敗や不審なサインインが増加していないこと</li>
+<li>PIO-IDのRADIUS認証ログで、認証失敗や不審な認証試行が増加していないこと</li>
+<li>PIO-IDで、期限切れが近い証明書、失効した証明書、ユーザに紐づく証明書を確認できること</li>
+</ul>
+<h2 id="関連する設定ガイド">関連する設定ガイド<a class="headerlink" href="#関連する設定ガイド" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../scim/">Microsoft Entra ID（SCIM）によるPIO-IDユーザ／グループ同期</a></li>
+<li><a href="../intune/">IntuneによるSCEP証明書の配布手順</a></li>
+<li><a href="../../radius/">RADIUS</a></li>
+<li><a href="../../radius_authlog/">RADIUS認証ログ</a></li>
+<li><a href="../cba/">Microsoft Entra CBA（PIO-IDクライアント証明書）</a></li>
+</ul>
+<h2 id="参考情報">参考情報<a class="headerlink" href="#参考情報" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-provisioning-works" target="_blank">Microsoft Entra IDのアプリケーション プロビジョニングの動作</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/intune/device-configuration/certificates/scep-profiles" target="_blank">Microsoft IntuneでSCEP証明書プロファイルを作成して割り当てる</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-certificate-based-authentication" target="_blank">Microsoft Entra証明書ベース認証を設定する</a></li>
+</ul>
 
 
 

@@ -1442,7 +1442,7 @@
 
 
 <h1 id="無線lanアクセス-パスワード認証">無線LANアクセス-パスワード認証<a class="headerlink" href="#無線lanアクセス-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-08-24</p>
+<p>文書更新日:2026-08-03</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、Cisco Meraki 無線LANアクセスポイントへアクセスします。</li>
@@ -1521,11 +1521,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><strong>NAS-ID</strong>を選択します。</td>
+<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;">任意の文字列を設定します。(例: cisco_meraki_ap)<br>ここで設定した文字列を<a href="#cisco-meraki-無線lanアクセスポイントの設定">Cisco Meraki 無線LANアクセスポイントの設定</a>の手順で設定するNAS-IDにも設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-ID</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+<td style="text-align: left;">任意の文字列を設定します。(例: cisco_meraki_ap)<br>ここで設定した文字列を<a href="#cisco-meraki-無線lanアクセスポイントの設定">Cisco Meraki 無線LANアクセスポイントの設定</a>の手順で設定するNAS-IDにも設定します。<br><strong>サイト識別する属性</strong>に<strong>NAS-Identifier</strong>を選択した場合、実際にネットワーク機器から送信される属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
 </tr>
 </tbody>
 </table>
@@ -1637,7 +1637,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NAS-ID</strong></td>
-<td style="text-align: left;">デフォルトの設定に、<a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で設定したNAS-IDの文字列を<strong>Custom</strong>として追加します。(例: <strong>AP MAC Address</strong>、2. <strong>SSID number</strong>、3. <strong>Custom</strong>: cisco_meraki_ap)</td>
+<td style="text-align: left;">デフォルトの設定に、<a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順で設定したNAS-Identifierの属性値を<strong>Custom</strong>として追加します。(例: <strong>AP MAC Address</strong>、2. <strong>SSID number</strong>、3. <strong>Custom</strong>: cisco_meraki_ap)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Server timeout</strong></td>
