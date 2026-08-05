@@ -1514,7 +1514,7 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2026-05-26</p>
+<p>文書更新日:2026-08-05</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、YAMAHA RTXへVPNを使ってリモートアクセスします。</li>
@@ -1532,7 +1532,7 @@
 </ul>
 <p>YAMAHA RTXでRADIUS連携によるリモートアクセスVPNを利用する場合、VPN方式はL2TP/IPsecです。また、本構成ではYAMAHA RTX側のユーザ認証方式としてPAPを選択します。L2TP/IPsecまたはPAP認証を利用できないVPNクライアントは対象外です。</p>
 <p>iPhone/iPadの標準VPNクライアントは、PAPを明示的に選択できないため対象外です。</p>
-<p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。Android 11以前は、RTX側をPAPのみに設定した状態で実機検証してください。</p>
+<p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。</p>
 </div>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
 <h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
@@ -1577,6 +1577,10 @@
 </li>
 </ol>
 <h3 id="yamaha-rtxのradiusサーバの設定">YAMAHA RTXのRADIUSサーバの設定<a class="headerlink" href="#yamaha-rtxのradiusサーバの設定" title="Permanent link"></a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>既存のL2TP/IPsecリモートアクセスVPNをローカルユーザ認証で運用している場合は、リモートアクセスVPNを新規作成せず、<a href="../vpn-existing-local-auth-otp/">既存のYAMAHA RTXリモートアクセスVPNに2要素認証を設定する</a>を参照してください。</p>
+</div>
 <ol>
 <li>SSHまたはTelnetで、ローカル管理者でYAMAHA RTXのCLIにログインします。</li>
 <li>
@@ -1610,10 +1614,12 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>radius auth on
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>radius auth on
 radius auth server &lt;RADIUSサーバのプライマリIPアドレス&gt; &lt;RADIUSサーバのセカンダリIPアドレス&gt;
 radius auth port &lt;RADIUSサーバのポート番号&gt;
 radius secret &lt;RADIUSクライアントのシークレット&gt;
+save
 </code></pre></div></td></tr></table></div>
 </li>
 </ol>
@@ -1659,10 +1665,12 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>YAMAHA RTXでリモートアクセスVPNの設定をGUIで完了するには、少なくとも1ユーザの登録が必要です。このユーザ名は、PIO-IDに登録したユーザ名と重複しないものにしてください。</p>
-<p>PIO-ID連携ではRADIUSサーバで認証するため、PIO-ID利用ユーザ分の<code>pp auth username</code>をRTXに登録する必要はありません。同じユーザ名がRTXのローカルユーザに登録されていると、PIO-IDのRADIUS認証ではなくローカルユーザ認証で処理される場合があります。</p>
+<p>PIO-ID連携ではRADIUSサーバで認証するため、PIO-ID利用ユーザ分の<code>pp auth username</code>をYAMAHA RTXに登録する必要はありません。同じユーザ名がYAMAHA RTXのローカルユーザに登録されていると、PIO-IDのRADIUS認証ではなくローカルユーザ認証で処理される場合があります。</p>
 <p>GUIで登録した一時ユーザは、後でトンネル設定に登録されたユーザ情報（<code>pp auth username</code>）のみをCLIから削除してもかまいません。</p>
 <p>削除コマンド例：</p>
-<div class="highlight"><pre><span></span><code>no pp auth username &lt;username&gt; &lt;password&gt;
+<div class="highlight"><pre><span></span><code>pp select anonymous
+no pp auth username &lt;username&gt;
+save
 </code></pre></div>
 </div>
 </li>
@@ -1673,9 +1681,11 @@ radius secret &lt;RADIUSクライアントのシークレット&gt;
 <p>L2TP/IPsecで複数ユーザを同時接続させる場合は、想定する同時接続数分のトンネルを<code>anonymous</code> PPにバインドします。GUIで作成された設定を確認し、必要に応じて同時接続数に合わせて調整してください。たとえば、10同時接続を想定する場合は、以下のように設定します。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>pp select anonymous
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>pp select anonymous
 pp bind tunnel1-tunnel10
 pp auth request pap
+save
 </code></pre></div></td></tr></table></div>
 </div>
 </li>

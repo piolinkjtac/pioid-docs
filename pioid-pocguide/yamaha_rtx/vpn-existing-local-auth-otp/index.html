@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/wifiap/lists/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/yamaha_rtx/vpn-existing-local-auth-otp/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧 - PIO-ID マニュアル</title>
+        <title>既存のYAMAHA RTXリモートアクセスVPNに2要素認証を設定する - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" class="md-skip">
+        <a href="#既存のyamaha-rtxリモートアクセスvpnに2要素認証を設定する" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧
+              既存のYAMAHA RTXリモートアクセスVPNに2要素認証を設定する
             
           </span>
         </div>
@@ -1324,6 +1324,108 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#目的" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#認証先の動作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証先の動作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#設定方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yamaha-rtxのradiusサーバの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAMAHA RTXのRADIUSサーバの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamaha-rtxのリモートアクセスユーザの認証の設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAMAHA RTXのリモートアクセスユーザの認証の設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamaha-rtxのローカルユーザの削除" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAMAHA RTXのローカルユーザの削除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamaha-rtxの設定の保存" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAMAHA RTXの設定の保存
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#参考資料" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1339,14 +1441,136 @@
 
 
 
-<h1 id="カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧">カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧<a class="headerlink" href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" title="Permanent link"></a></h1>
-<p>以下のRADIUS対応のモデルによる動作実績があります。</p>
+<h1 id="既存のyamaha-rtxリモートアクセスvpnに2要素認証を設定する">既存のYAMAHA RTXリモートアクセスVPNに2要素認証を設定する<a class="headerlink" href="#既存のyamaha-rtxリモートアクセスvpnに2要素認証を設定する" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-05</p>
+<h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
-<li>Hypersonix クラウドアクセスポイント/網屋</li>
-<li>Juniper Mist/Juniper</li>
-<li>NETGEAR ワイヤレスアクセスポイント/NETGEAR</li>
-<li>RUCKUS ワイヤレス アクセスポイント/RUCKUS Networks</li>
-<li>ギガらくWi-Fi/NTT東日本</li>
+<li>YAMAHA RTXのL2TP/IPsecリモートアクセスVPNをローカルユーザ認証で運用している環境に、PIO-IDの2要素認証を設定します。</li>
+<li>既存のリモートアクセスVPN設定のうち、変更が必要な箇所だけを説明します。</li>
+<li>PIO-ID側の設定は、使用するRADIUSサーバに応じて、<a href="../vpn-group-otp/">標準RADIUSサーバの設定方法</a>または<a href="../vpn-group-otp-adv/">拡張RADIUSサーバの設定方法</a>を参照します。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本番環境で事前に検証する場合は、YAMAHA RTXのローカルユーザに登録されていない検証用ユーザをPIO-IDに作成し、ローカルユーザを削除せずに確認します。設定変更は既存ユーザにも影響するため、影響の少ない時間帯に実施してください。検証だけで終了する場合は、認証方式とRADIUS認証を検証前の設定へ戻します。</p>
+</div>
+<h2 id="認証先の動作">認証先の動作<a class="headerlink" href="#認証先の動作" title="Permanent link"></a></h2>
+<p><code>radius auth on</code>を設定すると、YAMAHA RTXのローカル認証とPIO-IDのRADIUS認証を併用できます。認証先は、接続時のユーザ名により次のように決まります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>状態</strong></th>
+<th style="text-align: left;"><strong>認証先と動作</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ユーザ名が<code>pp auth username</code>に登録されている</td>
+<td style="text-align: left;">YAMAHA RTXでローカル認証します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">ユーザ名が<code>pp auth username</code>に登録されていない</td>
+<td style="text-align: left;">PIO-IDへRADIUS認証を行います。</td>
+</tr>
+<tr>
+<td style="text-align: left;">同じユーザ名がYAMAHA RTXとPIO-IDの両方に登録されている</td>
+<td style="text-align: left;">YAMAHA RTXのローカル認証を使用します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">YAMAHA RTXに登録されたユーザのローカルパスワードが一致しない</td>
+<td style="text-align: left;">PIO-IDへフォールバックせず、認証に失敗します。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
+<h3 id="yamaha-rtxのradiusサーバの設定">YAMAHA RTXのRADIUSサーバの設定<a class="headerlink" href="#yamaha-rtxのradiusサーバの設定" title="Permanent link"></a></h3>
+<ol>
+<li>設定変更前に、YAMAHA RTXの設定情報をバックアップします。バックアップ方法は、使用する機種の<a href="https://network.yamaha.com/support/download" target="_blank">YAMAHA公式マニュアル</a>を参照してください。</li>
+<li>SSHまたはTelnetで、ローカル管理者でYAMAHA RTXのCLIにログインします。</li>
+<li>
+<p>コマンドで以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RADIUSサーバのプライマリIPアドレス</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの、使用するRADIUSサーバの<strong>IPアドレス＞プライマリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUSサーバのセカンダリIPアドレス</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの、使用するRADIUSサーバの<strong>IPアドレス＞セカンダリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUSサーバのポート番号</strong></td>
+<td style="text-align: left;">標準RADIUSサーバの場合は、RADIUSサイトで選択した<strong>サーバ番号</strong>に対応するポート番号です。拡張RADIUSサーバの場合は、拡張RADIUSサーバに割り当てられたポート番号です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RADIUSクライアントのシークレット</strong></td>
+<td style="text-align: left;">標準RADIUSサーバの場合は、RADIUSサイトの<strong>シークレット</strong>に設定した文字列です。拡張RADIUSサーバの場合は、拡張RADIUSサーバの登録時に設定した<strong>シークレット</strong>です。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>radius auth on
+radius auth server &lt;RADIUSサーバのプライマリIPアドレス&gt; &lt;RADIUSサーバのセカンダリIPアドレス&gt;
+radius auth port &lt;RADIUSサーバのポート番号&gt;
+radius secret &lt;RADIUSクライアントのシークレット&gt;
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+<h3 id="yamaha-rtxのリモートアクセスユーザの認証の設定">YAMAHA RTXのリモートアクセスユーザの認証の設定<a class="headerlink" href="#yamaha-rtxのリモートアクセスユーザの認証の設定" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>コマンドで、リモートアクセスVPNのユーザ認証方式をPAPに設定します。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>pp auth request pap</code>への変更は、同じリモートアクセスVPN設定を使用する既存ユーザにも影響します。VPNクライアント側でもPAPを許可してください。</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>pp select anonymous
+pp auth request pap
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+<h3 id="yamaha-rtxのローカルユーザの削除">YAMAHA RTXのローカルユーザの削除<a class="headerlink" href="#yamaha-rtxのローカルユーザの削除" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>PIO-IDへ移行するユーザを、YAMAHA RTXのローカルユーザから削除します。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>PIO-IDのRADIUSサイトで<strong>2要素認証（OTP）のみ許可</strong>を<strong>有効</strong>にしても、YAMAHA RTXのローカル認証には適用されません。PIO-IDへ移行したユーザが<code>pp auth username</code>に残っていると、PIO-IDの2要素認証を経由せずにローカル認証されます。</p>
+<p>ローカルユーザは切り替え期間だけ残し、切り替え完了後は一般ユーザの<code>pp auth username</code>をすべて削除してください。緊急時用のローカルユーザを残す場合は、通常のVPN接続には使用せず、利用条件、パスワードの保管方法、利用後の変更手順を定めてください。</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>pp select anonymous
+no pp auth username &lt;username&gt;
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+<h3 id="yamaha-rtxの設定の保存">YAMAHA RTXの設定の保存<a class="headerlink" href="#yamaha-rtxの設定の保存" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p><code>save</code>コマンドを実行し、設定を保存します。</p>
+<div class="highlight"><pre><span></span><code>save
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定後の動作確認は、使用するRADIUSサーバに応じて、<a href="../vpn-group-otp/#動作確認方法">標準RADIUSサーバの動作確認方法</a>または<a href="../vpn-group-otp-adv/#動作確認方法">拡張RADIUSサーバの動作確認方法</a>を参照してください。</p>
+</div>
+<h2 id="参考資料">参考資料<a class="headerlink" href="#参考資料" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://www.rtpro.yamaha.co.jp/RT/manual/rt-common/radius/radius_auth.html" target="_blank">RADIUSによる認証を使用するか否かの設定（YAMAHA）</a></li>
+<li><a href="https://www.rtpro.yamaha.co.jp/RT/manual/rt-common/ppp/ppp_pp_auth_request.html" target="_blank">要求する認証タイプの設定（YAMAHA）</a></li>
+<li><a href="https://www.rtpro.yamaha.co.jp/RT/manual/rt-common/ppp/pp_auth_username.html" target="_blank">相手の名前とパスワードの設定（YAMAHA）</a></li>
+<li><a href="https://www.rtpro.yamaha.co.jp/RT/manual/rt-common/operation/save.html" target="_blank">設定の保存（YAMAHA）</a></li>
 </ul>
 
 

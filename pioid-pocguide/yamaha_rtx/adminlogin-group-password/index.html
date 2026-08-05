@@ -1431,7 +1431,7 @@
 
 
 <h1 id="管理者ログイン-パスワード認証">管理者ログイン-パスワード認証<a class="headerlink" href="#管理者ログイン-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-09</p>
+<p>文書更新日:2026-08-05</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、YAMAHA RTXへ管理者権限でログインします。</li>
@@ -1543,11 +1543,13 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>login radius use on
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>login radius use on
 radius auth on
 radius auth server &lt;RADIUSサーバのプライマリIPアドレス&gt; &lt;RADIUSサーバのセカンダリIPアドレス&gt;
 radius auth port &lt;RADIUSサーバのポート番号&gt;
 radius secret &lt;RADIUSクライアントのシークレット&gt;
+save
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>

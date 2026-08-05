@@ -1364,10 +1364,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pio-idとrtxで分担する範囲" class="md-nav__link">
+  <a href="#pio-idとyamaha-rtxで分担する範囲" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIO-IDとRTXで分担する範囲
+        PIO-IDとYAMAHA RTXで分担する範囲
       
     </span>
   </a>
@@ -1397,10 +1397,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rtxローカル認証dbとの比較" class="md-nav__link">
+  <a href="#yamaha-rtxのローカル認証dbとの比較" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RTXローカル認証DBとの比較
+        YAMAHA RTXのローカル認証DBとの比較
       
     </span>
   </a>
@@ -1519,22 +1519,22 @@
 
 
 <h1 id="scs評価制度におけるyamaha-rtxのvpn認証管理者認証強化の考え方">SCS評価制度におけるYAMAHA RTXのVPN認証・管理者認証強化の考え方<a class="headerlink" href="#scs評価制度におけるyamaha-rtxのvpn認証管理者認証強化の考え方" title="Permanent link"></a></h1>
-<p>文書更新日: 2026-05-16</p>
+<p>文書更新日: 2026-08-05</p>
 <p>参照資料: IPA「SCS評価制度 ★3・★4 要求事項・評価基準」（2026-05-16参照）</p>
 <h2 id="この資料の目的">この資料の目的<a class="headerlink" href="#この資料の目的" title="Permanent link"></a></h2>
-<p>本書は、YAMAHA RTXのリモートアクセスVPN利用者認証、およびRTXへの管理者ログイン認証にPIO-IDを利用する場合に、SCS評価制度の観点でどのように整理・説明できるかをまとめた資料です。</p>
-<p>PIO-IDを利用することで、VPN利用者認証やRTX管理者認証について、次の観点を整理できます。</p>
+<p>本書は、YAMAHA RTXのリモートアクセスVPN利用者認証、およびYAMAHA RTXへの管理者ログイン認証にPIO-IDを利用する場合に、SCS評価制度の観点でどのように整理・説明できるかをまとめた資料です。</p>
+<p>PIO-IDを利用することで、VPN利用者認証やYAMAHA RTXの管理者認証について、次の観点を整理できます。</p>
 <ul>
 <li>ユーザ単位の認証</li>
 <li>パスワード認証とワンタイムパスワード認証の組み合わせ</li>
 <li>ユーザ・グループ単位のアクセス制御</li>
 <li>認証ログによる成功・失敗の確認</li>
 </ul>
-<p>一方で、本構成だけでSCS評価制度への適合を保証するものではありません。RTX本体の設定、管理アクセスの制限、ログの保管、緊急時運用、申請・承認フローなどは、顧客側の運用ルールとあわせて確認する必要があります。</p>
+<p>一方で、本構成だけでSCS評価制度への適合を保証するものではありません。YAMAHA RTX本体の設定、管理アクセスの制限、ログの保管、緊急時運用、申請・承認フローなどは、顧客側の運用ルールとあわせて確認する必要があります。</p>
 <div class="admonition summary">
 <p class="admonition-title">この資料の要約</p>
-<p>YAMAHA RTXとPIO-IDを組み合わせることで、VPN利用者認証とRTX管理者認証を、ユーザ単位の認証、多要素認証、アクセス制御、認証ログ確認の観点で整理できます。</p>
-<p>ただし、PIO-IDは認証強化のための構成要素です。SCS評価制度の観点では、RTX側の設定、顧客側の運用ルール、ログ管理、申請・承認フローなどもあわせて確認してください。</p>
+<p>YAMAHA RTXとPIO-IDを組み合わせることで、VPN利用者認証とYAMAHA RTXの管理者認証を、ユーザ単位の認証、多要素認証、アクセス制御、認証ログ確認の観点で整理できます。</p>
+<p>ただし、PIO-IDは認証強化のための構成要素です。SCS評価制度の観点では、YAMAHA RTX側の設定、顧客側の運用ルール、ログ管理、申請・承認フローなどもあわせて確認してください。</p>
 </div>
 <h2 id="想定読者">想定読者<a class="headerlink" href="#想定読者" title="Permanent link"></a></h2>
 <p>本書は、次の立場の方が、YAMAHA RTXとPIO-IDを組み合わせた構成を評価・説明するための資料です。</p>
@@ -1564,22 +1564,22 @@
 <td>リモートアクセスVPN接続時のユーザ認証。PIO-IDによるパスワード認証、ワンタイムパスワード認証、ユーザ・グループ制御を扱います。</td>
 </tr>
 <tr>
-<td>RTX管理者ログイン</td>
-<td>RTXへ管理者としてログインする際の認証。PIO-IDによるパスワード認証、ワンタイムパスワード認証、ユーザ・グループ制御を扱います。</td>
+<td>YAMAHA RTXの管理者ログイン</td>
+<td>YAMAHA RTXへ管理者としてログインする際の認証。PIO-IDによるパスワード認証、ワンタイムパスワード認証、ユーザ・グループ制御を扱います。</td>
 </tr>
 <tr>
 <td>管理アクセス制御</td>
-<td>PIO-IDの管理アクセス認証設定による権限割り当て、およびRTX側の管理アクセス制限を扱います。</td>
+<td>PIO-IDの管理アクセス認証設定による権限割り当て、およびYAMAHA RTX側の管理アクセス制限を扱います。</td>
 </tr>
 <tr>
 <td>認証ログ</td>
-<td>PIO-IDのRADIUS認証ログとRTX側ログを組み合わせた確認を扱います。</td>
+<td>PIO-IDのRADIUS認証ログとYAMAHA RTX側ログを組み合わせた確認を扱います。</td>
 </tr>
 </tbody>
 </table>
-<p>次の事項は、本書だけでは判断できません。RTX側の設定内容や顧客側の運用ルールとあわせて確認してください。</p>
+<p>次の事項は、本書だけでは判断できません。YAMAHA RTX側の設定内容や顧客側の運用ルールとあわせて確認してください。</p>
 <ul>
-<li>RTXのファームウェア管理</li>
+<li>YAMAHA RTXのファームウェア管理</li>
 <li>VPN暗号設定</li>
 <li>フィルタ設定</li>
 <li>管理アクセス経路の制限</li>
@@ -1590,14 +1590,14 @@
 <li>申請・承認フロー</li>
 <li>棚卸・台帳管理</li>
 </ul>
-<h2 id="pio-idとrtxで分担する範囲">PIO-IDとRTXで分担する範囲<a class="headerlink" href="#pio-idとrtxで分担する範囲" title="Permanent link"></a></h2>
-<p>SCS評価制度の観点では、PIO-IDの機能だけでなく、RTX側の設定と顧客側の運用ルールを組み合わせて確認する必要があります。</p>
+<h2 id="pio-idとyamaha-rtxで分担する範囲">PIO-IDとYAMAHA RTXで分担する範囲<a class="headerlink" href="#pio-idとyamaha-rtxで分担する範囲" title="Permanent link"></a></h2>
+<p>SCS評価制度の観点では、PIO-IDの機能だけでなく、YAMAHA RTX側の設定と顧客側の運用ルールを組み合わせて確認する必要があります。</p>
 <table>
 <thead>
 <tr>
 <th>項目</th>
 <th>PIO-IDで整理できること</th>
-<th>RTX側・顧客運用側で確認すること</th>
+<th>YAMAHA RTX側・顧客運用側で確認すること</th>
 </tr>
 </thead>
 <tbody>
@@ -1607,27 +1607,27 @@
 <td>VPN設定、暗号方式、到達可能範囲、ローカルVPNユーザの扱い</td>
 </tr>
 <tr>
-<td>RTX管理者ログイン</td>
+<td>YAMAHA RTXの管理者ログイン</td>
 <td>管理者ごとの認証、ワンタイムパスワード認証、許可ユーザ・許可グループ制御</td>
 <td>管理画面の公開範囲、接続元制限、ローカル管理者アカウントの扱い</td>
 </tr>
 <tr>
 <td>権限管理</td>
 <td>PIO-IDの管理アクセス認証設定による権限割り当て</td>
-<td>RTX側の管理アクセス方式、接続元制限</td>
+<td>YAMAHA RTX側の管理アクセス方式、接続元制限</td>
 </tr>
 <tr>
 <td>ログ確認</td>
 <td>認証ログによる成功・失敗の確認</td>
-<td>RTX側ログ、保存期間、監視頻度、インシデント時の確認手順</td>
+<td>YAMAHA RTX側ログ、保存期間、監視頻度、インシデント時の確認手順</td>
 </tr>
 </tbody>
 </table>
 <h2 id="scs評価制度との関係">SCS評価制度との関係<a class="headerlink" href="#scs評価制度との関係" title="Permanent link"></a></h2>
 <p>SCS評価制度では、認証方式だけでなく、ユーザID管理、管理者ID管理、アクセス権管理、ネットワーク境界防護、ログ管理、運用ルールなどを含めて評価されます。</p>
-<p>そのため、YAMAHA RTXとPIO-IDを組み合わせた構成は、SCS評価制度への適合を単独で保証するものではありません。位置づけとしては、VPN利用者認証とRTX管理者認証の認証強度を高めるための対策、または多要素認証・ユーザ単位管理・ログ確認を示すための構成要素と考えるのが適切です。</p>
+<p>そのため、YAMAHA RTXとPIO-IDを組み合わせた構成は、SCS評価制度への適合を単独で保証するものではありません。位置づけとしては、VPN利用者認証とYAMAHA RTXの管理者認証の認証強度を高めるための対策、または多要素認証・ユーザ単位管理・ログ確認を示すための構成要素と考えるのが適切です。</p>
 <p>特に、リモートアクセスVPNはインターネット経由で社内環境へ接続する入口になります。そのため、パスワードのみの認証ではなく、ワンタイムパスワードを組み合わせることで、認証強度を高める構成として示せます。</p>
-<p>また、RTX管理者ログインにもPIO-ID認証とワンタイムパスワード認証を適用することで、ネットワーク機器の管理者認証についても、ユーザ単位の管理、権限制御、認証ログの確認を整理できます。</p>
+<p>また、YAMAHA RTXの管理者ログインにもPIO-ID認証とワンタイムパスワード認証を適用することで、ネットワーク機器の管理者認証についても、ユーザ単位の管理、権限制御、認証ログの確認を整理できます。</p>
 <h2 id="関連する評価観点">関連する評価観点<a class="headerlink" href="#関連する評価観点" title="Permanent link"></a></h2>
 <p>YAMAHA RTXとPIO-IDの構成は、主に次の評価観点と関係します。</p>
 <table>
@@ -1641,49 +1641,49 @@
 <tbody>
 <tr>
 <td>ユーザID管理</td>
-<td>VPN利用者、RTX管理者</td>
+<td>VPN利用者、YAMAHA RTXの管理者</td>
 <td>ユーザ単位で認証し、退職・異動時の停止や権限変更を整理できます。</td>
 </tr>
 <tr>
 <td>管理者ID管理</td>
-<td>RTX管理者</td>
-<td>RTX管理者ログインの対象者、管理権限の割り当て、管理アクセスの範囲を整理できます。</td>
+<td>YAMAHA RTXの管理者</td>
+<td>YAMAHA RTXの管理者ログインの対象者、管理権限の割り当て、管理アクセスの範囲を整理できます。</td>
 </tr>
 <tr>
 <td>パスワード・多要素認証</td>
-<td>VPN利用者、RTX管理者</td>
+<td>VPN利用者、YAMAHA RTXの管理者</td>
 <td>パスワード認証にワンタイムパスワード認証を組み合わせることで、認証強度を示せます。</td>
 </tr>
 <tr>
 <td>アクセス権管理</td>
-<td>VPN利用者、RTX管理者</td>
-<td>PIO-IDのユーザ・グループ管理とRTX側設定を組み合わせて、必要最小限の権限を整理できます。</td>
+<td>VPN利用者、YAMAHA RTXの管理者</td>
+<td>PIO-IDのユーザ・グループ管理とYAMAHA RTX側の設定を組み合わせて、必要最小限の権限を整理できます。</td>
 </tr>
 <tr>
 <td>ネットワーク境界防護</td>
-<td>RTX設定、管理アクセス</td>
+<td>YAMAHA RTXの設定、管理アクセス</td>
 <td>管理画面の公開範囲、接続元制限、VPN設定、フィルタ設定を確認する観点になります。</td>
 </tr>
 <tr>
 <td>ログ取得・監視</td>
-<td>認証ログ、RTX側ログ</td>
-<td>PIO-IDの認証ログとRTX側ログを組み合わせて、認証成功・失敗や不審な試行を確認する観点になります。</td>
+<td>認証ログ、YAMAHA RTX側ログ</td>
+<td>PIO-IDの認証ログとYAMAHA RTX側ログを組み合わせて、認証成功・失敗や不審な試行を確認する観点になります。</td>
 </tr>
 </tbody>
 </table>
-<p>要求事項番号ごとのコメントは、以下のZIPファイルに含まれるCSVを確認してください。このCSVは、YAMAHA RTXのVPN利用者認証およびRTX管理者ログイン認証にPIO-IDを利用する構成について、SCS評価制度の要求事項との関連を整理した補助資料です。SCS評価制度への適合可否を判定するものではありません。</p>
+<p>要求事項番号ごとのコメントは、以下のZIPファイルに含まれるCSVを確認してください。このCSVは、YAMAHA RTXのVPN利用者認証およびYAMAHA RTXの管理者ログイン認証にPIO-IDを利用する構成について、SCS評価制度の要求事項との関連を整理した補助資料です。SCS評価制度への適合可否を判定するものではありません。</p>
 <p><a class="md-button md-button--primary" href="../scs_yamaha_rtx_pioid_related_requirements.zip">関連要求事項コメント表（ZIP）ダウンロード</a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>ZIPファイルには、CSVファイルとREADMEを含めています。CSVはExcelで直接開いた場合の文字化けを減らすため、UTF-8 BOM付きで作成しています。実際の確認では、CSVの内容に加えて、RTX側設定、顧客側運用、ログ保管、申請・承認フロー、棚卸、緊急時対応などもあわせて確認してください。</p>
+<p>ZIPファイルには、CSVファイルとREADMEを含めています。CSVはExcelで直接開いた場合の文字化けを減らすため、UTF-8 BOM付きで作成しています。実際の確認では、CSVの内容に加えて、YAMAHA RTX側の設定、顧客側運用、ログ保管、申請・承認フロー、棚卸、緊急時対応などもあわせて確認してください。</p>
 </div>
-<h2 id="rtxローカル認証dbとの比較">RTXローカル認証DBとの比較<a class="headerlink" href="#rtxローカル認証dbとの比較" title="Permanent link"></a></h2>
+<h2 id="yamaha-rtxのローカル認証dbとの比較">YAMAHA RTXのローカル認証DBとの比較<a class="headerlink" href="#yamaha-rtxのローカル認証dbとの比較" title="Permanent link"></a></h2>
 <p>YAMAHA RTXのローカル認証DBのみを利用する場合と、PIO-IDを併用する場合では、主に次の違いがあります。</p>
 <table>
 <thead>
 <tr>
 <th>観点</th>
-<th>RTXローカル認証DBのみの場合</th>
+<th>YAMAHA RTXのローカル認証DBのみの場合</th>
 <th>PIO-IDを併用する場合</th>
 </tr>
 </thead>
@@ -1695,7 +1695,7 @@
 </tr>
 <tr>
 <td>ユーザ管理</td>
-<td>VPN利用者やRTX管理者をRTX本体ごとに管理する必要がある。</td>
+<td>VPN利用者やYAMAHA RTXの管理者をYAMAHA RTX本体ごとに管理する必要がある。</td>
 <td>PIO-ID側でユーザを管理し、認証を集約できる。</td>
 </tr>
 <tr>
@@ -1715,23 +1715,23 @@
 </tr>
 <tr>
 <td>権限管理</td>
-<td>RTX側のローカル設定を機器ごとに管理する必要がある。</td>
-<td>PIO-IDのユーザ・グループ管理とRTX側設定を組み合わせて整理できる。</td>
+<td>YAMAHA RTX側のローカル設定を機器ごとに管理する必要がある。</td>
+<td>PIO-IDのユーザ・グループ管理とYAMAHA RTX側の設定を組み合わせて整理できる。</td>
 </tr>
 <tr>
 <td>認証ログ</td>
-<td>RTX側ログを中心に確認する必要がある。</td>
-<td>PIO-IDの認証ログとRTX側ログを組み合わせて確認できる。</td>
+<td>YAMAHA RTX側ログを中心に確認する必要がある。</td>
+<td>PIO-IDの認証ログとYAMAHA RTX側ログを組み合わせて確認できる。</td>
 </tr>
 </tbody>
 </table>
-<p>ただし、PIO-IDを併用する場合でも、RTX側のローカル管理者アカウント、緊急時運用、ログ保管、申請・承認フローは別途確認が必要です。</p>
+<p>ただし、PIO-IDを併用する場合でも、YAMAHA RTX側のローカル管理者アカウント、緊急時運用、ログ保管、申請・承認フローは別途確認が必要です。</p>
 <h2 id="確認時のポイント">確認時のポイント<a class="headerlink" href="#確認時のポイント" title="Permanent link"></a></h2>
 <p>SCS評価制度の観点で本構成を整理する場合は、次の項目を確認してください。</p>
 <h3 id="1-適用範囲">1. 適用範囲<a class="headerlink" href="#1-適用範囲" title="Permanent link"></a></h3>
 <ul>
 <li>PIO-IDをVPN利用者認証に適用するか</li>
-<li>PIO-IDをRTX管理者ログインに適用するか</li>
+<li>PIO-IDをYAMAHA RTXの管理者ログインに適用するか</li>
 <li>両方に適用する場合、それぞれの対象ユーザ・対象グループをどう定義するか</li>
 </ul>
 <h3 id="2-認証方式">2. 認証方式<a class="headerlink" href="#2-認証方式" title="Permanent link"></a></h3>
@@ -1743,7 +1743,7 @@
 <h3 id="3-権限管理">3. 権限管理<a class="headerlink" href="#3-権限管理" title="Permanent link"></a></h3>
 <ul>
 <li>PIO-ID側で管理権限・一般権限をどのユーザまたはグループに割り当てるか</li>
-<li>RTX側の管理アクセス方式をどう設定するか</li>
+<li>YAMAHA RTX側の管理アクセス方式をどう設定するか</li>
 <li>ローカル管理者アカウントを残す場合、利用条件と管理方法をどう定めるか</li>
 </ul>
 <h3 id="4-管理アクセス制御">4. 管理アクセス制御<a class="headerlink" href="#4-管理アクセス制御" title="Permanent link"></a></h3>
@@ -1755,12 +1755,12 @@
 <h3 id="5-ログ管理">5. ログ管理<a class="headerlink" href="#5-ログ管理" title="Permanent link"></a></h3>
 <ul>
 <li>PIO-IDの認証ログをどの頻度で確認するか</li>
-<li>RTX側ログをどの期間保管するか</li>
+<li>YAMAHA RTX側ログをどの期間保管するか</li>
 <li>認証失敗、不審な試行、設定変更をどのように確認するか</li>
 </ul>
 <h3 id="6-運用ルール">6. 運用ルール<a class="headerlink" href="#6-運用ルール" title="Permanent link"></a></h3>
 <ul>
-<li>RTX管理者ログインの緊急時アクセス手順を定めているか</li>
+<li>YAMAHA RTXの管理者ログインの緊急時アクセス手順を定めているか</li>
 <li>申請・承認フローを整備しているか</li>
 <li>利用者・管理者の棚卸を定期的に実施しているか</li>
 <li>台帳管理、変更管理、インシデント時の確認手順を定めているか</li>

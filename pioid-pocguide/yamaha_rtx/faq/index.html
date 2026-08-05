@@ -1364,10 +1364,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q3-wlxのradius自己ca機能でrtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか" class="md-nav__link">
+  <a href="#q3-wlxのradius自己ca機能でyamaha-rtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q3. WLXのRADIUS／自己CA機能で、RTXのリモートアクセスVPNをPIO-IDと同じように2要素認証できますか？
+        Q3. WLXのRADIUS／自己CA機能で、YAMAHA RTXのリモートアクセスVPNをPIO-IDと同じように2要素認証できますか？
       
     </span>
   </a>
@@ -1513,7 +1513,7 @@
 
 
 <h1 id="faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化">FAQ｜YAMAHA RTX × PIO-ID（リモートアクセスVPNの認証強化）<a class="headerlink" href="#faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化" title="Permanent link"></a></h1>
-<p>文書更新日: 2026-05-26</p>
+<p>文書更新日: 2026-08-05</p>
 <p>本FAQは、YAMAHA RTXとPIO-IDを組み合わせてリモートアクセスVPNの認証を強化する場合の、よくある疑問点を整理したものです。
 具体的な設定手順は、関連ドキュメントの設定例を参照してください。</p>
 <h2 id="関連ドキュメント">関連ドキュメント<a class="headerlink" href="#関連ドキュメント" title="Permanent link"></a></h2>
@@ -1529,8 +1529,8 @@
 <h2 id="q1-リモートアクセスvpnでクライアント証明書eap-tlsによる端末認証は可能ですかikev2ipsec希望">Q1. リモートアクセスVPNで、クライアント証明書（EAP-TLS）による端末認証は可能ですか？（IKEv2/IPsec希望）<a class="headerlink" href="#q1-リモートアクセスvpnでクライアント証明書eap-tlsによる端末認証は可能ですかikev2ipsec希望" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
 対応していません。</p>
-<p>YAMAHA RTXシリーズは、リモートアクセスVPN接続におけるクライアント証明書認証（例: EAP-TLS）をサポートしていません。そのため、PIO-IDを組み合わせても、RTXのリモートアクセスVPNでクライアント証明書による端末認証は実現できません。</p>
-<p>IKEv2/IPsecを選択する場合でも、RTXがリモートアクセスVPNでクライアント証明書認証をサポートしていない点は同様です。</p>
+<p>YAMAHA RTXシリーズは、リモートアクセスVPN接続におけるクライアント証明書認証（例: EAP-TLS）をサポートしていません。そのため、PIO-IDを組み合わせても、YAMAHA RTXのリモートアクセスVPNでクライアント証明書による端末認証は実現できません。</p>
+<p>IKEv2/IPsecを選択する場合でも、YAMAHA RTXがリモートアクセスVPNでクライアント証明書認証をサポートしていない点は同様です。</p>
 <hr />
 <h2 id="q2-パスワードを事前保存して運用しています例-yms-vpn8otpを追加するとユーザーにパスワードを開示する必要がありますか">Q2. パスワードを事前保存して運用しています（例: YMS-VPN8）。OTPを追加すると、ユーザーにパスワードを開示する必要がありますか？<a class="headerlink" href="#q2-パスワードを事前保存して運用しています例-yms-vpn8otpを追加するとユーザーにパスワードを開示する必要がありますか" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
@@ -1538,11 +1538,11 @@ OTP（ワンタイムパスワード）を追加する運用では、利用者�
 <p>OTPは都度変わるため、リモートアクセスVPNクライアント側にパスワードを事前保存したまま運用する方式とは相性が良くありません。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>RTX × PIO-IDの2要素認証（パスワード＋OTP）では、リモートアクセスVPNクライアントの入力例として <code>password:123456</code> のように、パスワードとOTPを <code>:</code>（コロン）で連結して入力します。
+<p>YAMAHA RTX × PIO-IDの2要素認証（パスワード＋OTP）では、リモートアクセスVPNクライアントの入力例として <code>password:123456</code> のように、パスワードとOTPを <code>:</code>（コロン）で連結して入力します。
 具体例は <a href="../vpn-group-otp/">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）</a> を参照してください。</p>
 </div>
 <hr />
-<h2 id="q3-wlxのradius自己ca機能でrtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか">Q3. WLXのRADIUS／自己CA機能で、RTXのリモートアクセスVPNをPIO-IDと同じように2要素認証できますか？<a class="headerlink" href="#q3-wlxのradius自己ca機能でrtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか" title="Permanent link"></a></h2>
+<h2 id="q3-wlxのradius自己ca機能でyamaha-rtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか">Q3. WLXのRADIUS／自己CA機能で、YAMAHA RTXのリモートアクセスVPNをPIO-IDと同じように2要素認証できますか？<a class="headerlink" href="#q3-wlxのradius自己ca機能でyamaha-rtxのリモートアクセスvpnをpio-idと同じように2要素認証できますか" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
 WLXに搭載されているRADIUS／自己CA機能は、PIO-ID利用時のようなOTPを用いた2要素認証を提供するものではありません。</p>
 <p>YAMAHA製品単体でのリモートアクセスVPNへの適用可否や将来計画については、YAMAHAの公式情報を確認してください。</p>
@@ -1600,7 +1600,7 @@ PIO-IDはオープンプライスのため、このFAQでは価格を明示し�
 </ul>
 <p>YAMAHA RTXでRADIUS連携によるリモートアクセスVPNを利用する場合、VPN方式はL2TP/IPsecです。また、本構成ではYAMAHA RTX側でPAP認証を利用します。そのため、L2TP/IPsecまたはPAP認証を利用できないVPNクライアントは対象外です。</p>
 <p>iPhone/iPadの標準VPNクライアントは、PAPを明示的に選択できないため対象外です。</p>
-<p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。Android 11以前は、RTX側をPAPのみに設定した状態で実機検証が必要です。</p>
+<p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Apple公式資料では、iOS/iPadOSのL2TP/IPsecは<strong>MS-CHAPV2パスワードによるユーザ認証</strong>として説明されています。YAMAHA公式資料では、Android 12以降でL2TP/IPsec機能を利用できないと説明されています。</p>
@@ -1609,8 +1609,8 @@ PIO-IDはオープンプライスのため、このFAQでは価格を明示し�
 <hr />
 <h2 id="q12-社用デバイスに限定したvpn接続は可能ですか">Q12. 社用デバイスに限定したVPN接続は可能ですか？<a class="headerlink" href="#q12-社用デバイスに限定したvpn接続は可能ですか" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
-本構成（RTX × PIO-ID）では、リモートアクセスVPN認証のレイヤで特定デバイスだけを識別して許可することはできません。</p>
-<p>RTXがリモートアクセスVPNでクライアント証明書認証をサポートしていないため、証明書などで端末を強固に識別する構成は利用できません。</p>
+本構成（YAMAHA RTX × PIO-ID）では、リモートアクセスVPN認証のレイヤで特定デバイスだけを識別して許可することはできません。</p>
+<p>YAMAHA RTXがリモートアクセスVPNでクライアント証明書認証をサポートしていないため、証明書などで端末を強固に識別する構成は利用できません。</p>
 <hr />
 <h2 id="q13-otp-はどこに入力しますか入力形式は">Q13. OTP はどこに入力しますか？（入力形式は？）<a class="headerlink" href="#q13-otp-はどこに入力しますか入力形式は" title="Permanent link"></a></h2>
 <p><strong>A.</strong><br />
@@ -1619,8 +1619,8 @@ PIO-IDはオープンプライスのため、このFAQでは価格を明示し�
 <hr />
 <h2 id="補足全体の前提">補足（全体の前提）<a class="headerlink" href="#補足全体の前提" title="Permanent link"></a></h2>
 <ul>
-<li>RTX × PIO-ID構成では、「ユーザID＋2要素認証（パスワード＋OTP）」によるリモートアクセスVPN認証強化が中心となります。</li>
-<li>クライアント証明書による端末識別・デバイス認証は、RTXの仕様上サポート対象外です。</li>
+<li>YAMAHA RTX × PIO-ID構成では、「ユーザID＋2要素認証（パスワード＋OTP）」によるリモートアクセスVPN認証強化が中心となります。</li>
+<li>クライアント証明書による端末識別・デバイス認証は、YAMAHA RTXの仕様上サポート対象外です。</li>
 </ul>
 
 

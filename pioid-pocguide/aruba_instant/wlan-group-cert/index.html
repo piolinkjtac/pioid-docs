@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/wifiap/lists/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/aruba_instant/wlan-group-cert/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧 - PIO-ID マニュアル</title>
+        <title>無線LANアクセス-クライアント証明書認証 - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" class="md-skip">
+        <a href="#無線lanアクセス-クライアント証明書認証" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧
+              無線LANアクセス-クライアント証明書認証
             
           </span>
         </div>
@@ -1324,6 +1324,147 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#目的" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#設定方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのグループの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのグループの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのユーザの作成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのユーザの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのクライアント証明書の発行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのクライアント証明書の発行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDのRADIUSサイトの登録
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aruba-instant-無線lanアクセスポイントの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aruba Instant 無線LANアクセスポイントの設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aruba Instant 無線LANアクセスポイントの設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiusサーバの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RADIUSサーバの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssidの設定" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSIDの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#動作確認方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        動作確認方法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#参考情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考情報
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1339,14 +1480,299 @@
 
 
 
-<h1 id="カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧">カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧<a class="headerlink" href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" title="Permanent link"></a></h1>
-<p>以下のRADIUS対応のモデルによる動作実績があります。</p>
+<h1 id="無線lanアクセス-クライアント証明書認証">無線LANアクセス-クライアント証明書認証<a class="headerlink" href="#無線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-05</p>
+<h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
-<li>Hypersonix クラウドアクセスポイント/網屋</li>
-<li>Juniper Mist/Juniper</li>
-<li>NETGEAR ワイヤレスアクセスポイント/NETGEAR</li>
-<li>RUCKUS ワイヤレス アクセスポイント/RUCKUS Networks</li>
-<li>ギガらくWi-Fi/NTT東日本</li>
+<li>PIO-IDのユーザで、Aruba Instant 無線LANアクセスポイントへアクセスします。</li>
+<li>接続する際の認証方式は、クライアント証明書認証（EAP-TLS）です。</li>
+<li>PIO-IDの標準RADIUSサーバを利用します。</li>
+<li>ユーザ/グループによるアクセス制限をします。</li>
+</ul>
+<h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
+<h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞グループ</strong>画面へ移動します。</li>
+<li><strong>グループ追加</strong>をクリックします。<strong>グループ追加</strong>画面がポップアップします。</li>
+<li><strong>グループ名</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</li>
+</ol>
+<h3 id="pio-idのユーザの作成">PIO-IDのユーザの作成<a class="headerlink" href="#pio-idのユーザの作成" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
+<li><strong>登録</strong>ボタンをクリックします。<strong>ユーザ登録</strong>画面がポップアップします。</li>
+<li><strong>ユーザ登録</strong>画面の<strong>基本情報</strong>を入力します。<strong>グループ</strong>タブをクリックします。</li>
+<li>メンバーとなるグループを選択し、<strong>登録</strong>ボタンをクリックします。</li>
+</ol>
+<h3 id="pio-idのクライアント証明書の発行">PIO-IDのクライアント証明書の発行<a class="headerlink" href="#pio-idのクライアント証明書の発行" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
+<li>クライアント証明書を発行したいユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
+<li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書の発行</strong>を選択します。</li>
+<li><strong>証明書発行</strong>画面がポップアップします。</li>
+<li><strong>プロファイル</strong>（例：デフォルト）および<strong>配布形式</strong>（例：一般）を選択します。</li>
+<li><strong>発行</strong>ボタンをクリックして、クライアント証明書を発行します。ユーザのメールアドレス宛に発行されたクライアント証明書のダウンロードリンクが送信されます。</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
+<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
+<li>カタログから<strong>Aruba Instant 無線LANアクセスポイント</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Aruba Instant 無線LANアクセスポイント</strong>画面がポップアップします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ</strong></td>
+<td style="text-align: left;"><strong>標準</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;">適切なサーバ番号を選択します。選択するサーバの番号により、RADIUSサーバのポート番号が異なります。<strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞RADIUSポート番号</strong>にサーバの番号と通信ポート番号の対応が記載されています。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP or ホスト名</strong></td>
+<td style="text-align: left;"><strong>Aruba Instant 無線LANアクセスポイント</strong>側の<strong>グローバルIPアドレス</strong>です。インターネットに出ていくときの送信元のIPアドレスです。グローバルIPアドレスが、動的の場合には、DDNS（ダイナミックDNS）を利用して<strong>ホスト名（FQDN）</strong>を設定します。<br><br><strong>注意:</strong> グローバルIPアドレスにIPv4の共用IPアドレスが使用されるインターネット接続サービス（IPv6インターネット接続、マンションタイプのインターネット接続、CATVインターネット、モバイルインターネット）の場合やDDNSサービスの利用ができない場合には、<strong>拡張RADIUSサーバ</strong>の利用を検討してください。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>シークレット</strong></td>
+<td style="text-align: left;">任意の文字列を設定します。英大文字、英小文字、数字、記号を組み合わせて、最低でも14文字以上の複雑な文字列を設定することをお勧めします。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
+</li>
+<li>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><strong>証明書認証（EAP-TLS）のみ許可</strong>を<strong>有効</strong>にすると、クライアント証明書認証以外の認証方式のアクセスを拒否します。</li>
+<li>認証したユーザおよびグループにVLAN IDを割り当てたい場合には、<strong>VLAN ID</strong>入力欄に、割り当てたい<strong>VLAN ID</strong>を入力します。</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+</li>
+</ol>
+<h3 id="aruba-instant-無線lanアクセスポイントの設定">Aruba Instant 無線LANアクセスポイントの設定<a class="headerlink" href="#aruba-instant-無線lanアクセスポイントの設定" title="Permanent link"></a></h3>
+<h4 id="radiusサーバの設定">RADIUSサーバの設定<a class="headerlink" href="#radiusサーバの設定" title="Permanent link"></a></h4>
+<ol>
+<li>Aruba Instantの管理画面へログインします。</li>
+<li><strong>Configuration＞Security</strong>画面へ移動します。</li>
+<li><strong>Authentication Servers</strong>を展開し、<strong>＋</strong>をクリックします。</li>
+<li>
+<p>プライマリRADIUSサーバを以下の内容で登録します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Name</strong></td>
+<td style="text-align: left;">任意の名前を設定します。（例: <code>PIO-ID-RADIUS-Primary</code>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Address</strong></td>
+<td style="text-align: left;"><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞基本情報</strong>タブの<strong>標準RADIUSサーバ＞IPアドレス</strong>の<strong>プライマリ</strong>です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RadSec</strong></td>
+<td style="text-align: left;">無効にします。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Auth port</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>サーバ番号</strong>に対応したポート番号です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shared key</strong></td>
+<td style="text-align: left;"><a href="#pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録</a>の手順の<strong>シークレット</strong>に設定した文字列です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Retype key</strong></td>
+<td style="text-align: left;"><strong>Shared key</strong>と同じ値です。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Timeout</strong></td>
+<td style="text-align: left;"><strong>10秒</strong>を設定します。（デフォルト値: 5秒）</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/aruba-instant-radius-server-standard.png"><img alt="Screenshot" src="/images/aruba-instant-radius-server-standard.png" /></a></p>
+</li>
+<li>
+<p><strong>OK</strong>をクリックします。</p>
+</li>
+<li>同じ手順でセカンダリRADIUSサーバを登録します。（例: <code>PIO-ID-RADIUS-Secondary</code>）</li>
+<li><strong>SAVE</strong>ボタンをクリックします。</li>
+</ol>
+<h4 id="ssidの設定">SSIDの設定<a class="headerlink" href="#ssidの設定" title="Permanent link"></a></h4>
+<ol>
+<li><strong>Configuration＞Networks</strong>画面へ移動します。</li>
+<li><strong>＋</strong>をクリックします。SSIDプロファイルを作成するウィザードが表示されます。</li>
+<li>
+<p><strong>Basic</strong>ステップで、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Name</strong></td>
+<td style="text-align: left;">任意のSSIDを設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><strong>Wireless</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary usage</strong></td>
+<td style="text-align: left;"><strong>Employee</strong>を選択します。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/aruba-instant-new-network-basic.png"><img alt="Screenshot" src="/images/aruba-instant-new-network-basic.png" /></a></p>
+</li>
+<li>
+<p>RADIUS属性でVLAN IDを割り当てる場合は、<strong>VLAN</strong>ステップで以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Client IP assignment</strong></td>
+<td style="text-align: left;"><strong>Network assigned</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Client VLAN assignment</strong></td>
+<td style="text-align: left;"><strong>Dynamic</strong>を選択します。（デフォルト値: <strong>Default</strong>）</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/aruba-instant-new-network-vlan.png"><img alt="Screenshot" src="/images/aruba-instant-new-network-vlan.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Client VLAN assignment</strong>で<strong>Default</strong>を選択すると、有線ネットワークのネイティブVLANが割り当てられます。PIO-IDで設定したVLAN IDは、RADIUSの<code>Tunnel-Type</code>、<code>Tunnel-Medium-Type</code>、<code>Tunnel-Private-Group-Id</code>により割り当てられるため、<strong>Dynamic</strong>を選択し、<strong>VLAN Assignment Rules</strong>は追加しません。</p>
+<p><strong>VLAN Assignment Rules</strong>は、RADIUSから返された別の属性値を条件に、Aruba Instant側でVLANを割り当てる場合に使用します。</p>
+</div>
+</li>
+<li>
+<p><strong>Security</strong>ステップで、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Security Level</strong></td>
+<td style="text-align: left;"><strong>Enterprise</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Key Management</strong></td>
+<td style="text-align: left;">検証対象に応じて<strong>WPA2-Enterprise</strong>または<strong>WPA3-Enterprise (CCM 128)</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Authentication server 1</strong></td>
+<td style="text-align: left;"><a href="#radiusサーバの設定">RADIUSサーバの設定</a>で登録したプライマリRADIUSサーバを選択します。（例: <code>PIO-ID-RADIUS-Primary</code>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Authentication server 2</strong></td>
+<td style="text-align: left;"><a href="#radiusサーバの設定">RADIUSサーバの設定</a>で登録したセカンダリRADIUSサーバを選択します。（例: <code>PIO-ID-RADIUS-Secondary</code>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EAP Offload</strong></td>
+<td style="text-align: left;">デフォルトで無効です。無効であることを確認し、EAP-TLSをPIO-IDのRADIUSサーバで処理します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Reauth interval</strong></td>
+<td style="text-align: left;"><code>1440</code> <strong>min.</strong>を設定します。（デフォルト値: 0分）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Opportunistic Key Caching (OKC)</strong></td>
+<td style="text-align: left;">有効にします。（デフォルト値: 無効）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>802.11r</strong></td>
+<td style="text-align: left;">必要に応じて設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>802.11k</strong></td>
+<td style="text-align: left;">必要に応じて設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>802.11k for 6G</strong></td>
+<td style="text-align: left;">6GHzを使用する場合に、必要に応じて設定します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>802.11v</strong></td>
+<td style="text-align: left;">必要に応じて設定します。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/images/aruba-instant-new-network-security.png"><img alt="Screenshot" src="/images/aruba-instant-new-network-security.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Reauth interval</strong>を<code>1440</code>分に設定すると、接続中のクライアントを24時間ごとに再認証します。再認証に失敗したクライアントは切断されます。</p>
+<p><strong>Opportunistic Key Caching (OKC)</strong>は、同一Instantクラスタ内のAP間を移動する際にPMKキャッシュを利用します。対応クライアントのローミング時に完全な802.1X認証を省略し、PIO-IDへのRADIUS認証が高頻度に発生することを抑えるため、有効にします。</p>
+<p><strong>802.11r</strong>、<strong>802.11k</strong>、<strong>802.11k for 6G</strong>、<strong>802.11v</strong>は、PIO-IDとの連携に必要な設定ではありません。クライアントの対応状況と無線LANの運用方針に応じて設定してください。各機能の詳細は、<a href="https://arubanetworking.hpe.com/techdocs/Instant_8.x_WebHelp/Content/instant-ug/wlan-ssid-conf/conf-secur-sett.htm" target="_blank">Configuring Security Settings for a WLAN SSID Profile（Aruba Instant）</a>を確認してください。</p>
+</div>
+</li>
+<li>
+<p><strong>Access</strong>ステップで、必要に応じてアクセスルールを設定し、<strong>Finish</strong>をクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Aruba Instant側でアクセスを制限しない場合は、<strong>Access Rules</strong>に<strong>Unrestricted</strong>を選択し、<strong>Download roles</strong>を無効にします。</p>
+</div>
+<p><a href="/images/aruba-instant-new-network-access.png"><img alt="Screenshot" src="/images/aruba-instant-new-network-access.png" /></a></p>
+</li>
+<li>
+<p>Aruba InstantのCLIで、対象のSSIDプロファイルに以下を設定します。</p>
+<div class="highlight"><pre><span></span><code>configure terminal
+wlan ssid-profile &lt;SSIDプロファイル名&gt;
+ called-station-id type macaddr
+ called-station-id include-ssid delimiter :
+end
+commit apply
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>この設定は、Called-Station-IdへSSIDを付加し、APのMACアドレスとSSIDの区切り文字にコロン（<code>:</code>）を使用するための設定です。</p>
+</div>
+</li>
+</ol>
+<h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
+<p>以下を参考にクライアントを設定して動作確認します。</p>
+<p><a href="../../clients/">クライアント接続設定</a></p>
+<h2 id="参考情報">参考情報<a class="headerlink" href="#参考情報" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://arubanetworking.hpe.com/techdocs/Instant_8.x_WebHelp/Content/homeinstant.htm" target="_blank">Aruba Instant 8.x Online Help</a></li>
+<li><a href="https://arubanetworking.hpe.com/techdocs/CLI-Bank/Content/instant/wlan-ssid-prof.htm" target="_blank">Aruba Instant CLI: wlan ssid-profile</a></li>
+<li><a href="https://arubanetworking.hpe.com/techdocs/Instant_8.x_WebHelp/Content/instant-ug/wlan-ssid-conf/conf-secur-sett.htm" target="_blank">Aruba Instant: Configuring Security Settings for a WLAN SSID Profile</a></li>
 </ul>
 
 

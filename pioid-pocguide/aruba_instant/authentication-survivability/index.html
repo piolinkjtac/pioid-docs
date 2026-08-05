@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/wifiap/lists/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-pocguide/aruba_instant/authentication-survivability/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧 - PIO-ID マニュアル</title>
+        <title>Authentication Survivabilityの利用について - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" class="md-skip">
+        <a href="#authentication-survivabilityの利用について" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧
+              Authentication Survivabilityの利用について
             
           </span>
         </div>
@@ -1324,6 +1324,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#理由" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        理由
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#参考情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考情報
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1339,14 +1369,16 @@
 
 
 
-<h1 id="カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧">カタログには掲載されていないが、動作実績のある無線LANアクセスポイント一覧<a class="headerlink" href="#カタログには掲載されていないが動作実績のある無線lanアクセスポイント一覧" title="Permanent link"></a></h1>
-<p>以下のRADIUS対応のモデルによる動作実績があります。</p>
+<h1 id="authentication-survivabilityの利用について">Authentication Survivabilityの利用について<a class="headerlink" href="#authentication-survivabilityの利用について" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-05</p>
+<p>PIO-IDでは、Aruba InstantのAuthentication Survivabilityを使用できません。</p>
+<h2 id="理由">理由<a class="headerlink" href="#理由" title="Permanent link"></a></h2>
+<p>PIO-IDは、共通のルートCA配下に顧客ごとの中間CAを用意し、各中間CAからクライアント証明書を発行します。</p>
+<p>AP-505-JPのAruba Instant 8.13.3.0 LSRでAuthentication Survivabilityを検証した結果、同じPIO-IDルートCA配下の別の中間CAから発行されたクライアント証明書でも、Aruba Instantの内部RADIUSによるEAP-TLS認証に成功しました。検証した構成では、クライアント証明書の発行元を顧客ごとの中間CAに限定できませんでした。</p>
+<p>このため、Authentication Survivabilityを使用すると、対象顧客とは異なる中間CAから発行されたクライアント証明書を受け入れる可能性があります。PIO-IDが顧客ごとに設けている証明書の信頼範囲を維持できないため、本機能は使用できません。</p>
+<h2 id="参考情報">参考情報<a class="headerlink" href="#参考情報" title="Permanent link"></a></h2>
 <ul>
-<li>Hypersonix クラウドアクセスポイント/網屋</li>
-<li>Juniper Mist/Juniper</li>
-<li>NETGEAR ワイヤレスアクセスポイント/NETGEAR</li>
-<li>RUCKUS ワイヤレス アクセスポイント/RUCKUS Networks</li>
-<li>ギガらくWi-Fi/NTT東日本</li>
+<li><a href="https://arubanetworking.hpe.com/techdocs/Archived/Instant-AOS-8/Instant_811_WebHelp/Content/instant-ug/authentication/conf-auth-surviv.htm" target="_blank">Authentication Survivability（Aruba Instant）</a></li>
 </ul>
 
 
