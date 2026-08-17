@@ -1930,7 +1930,7 @@
 <li>
 <p>定期的（1時間ごと）に証明書失効リスト（CRL）を更新するために、FortiGate CLIから<strong>set update-interval 3600</strong>を以下のように設定します。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config vpn certificate crl
-    edit &quot;CRL_1&quot;
+    edit "CRL_1"
         set update-interval 3600
     next
 end
@@ -1940,8 +1940,8 @@ end
 <h4 id="pkiユーザの登録">PKIユーザの登録<a class="headerlink" href="#pkiユーザの登録" title="Permanent link"></a></h4>
 <p>登録した中間CAで発行されたクライアント証明書かどうかを検証するために、以下のようにFortiGate CLIからPKIユーザを登録します。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user peer
-    edit &quot;PIO-ID_Cert_Check&quot;
-        set ca &quot;CA_Cert_1&quot;
+    edit "PIO-ID_Cert_Check"
+        set ca "CA_Cert_1"
     next
 end
 </code></pre></div>
@@ -2072,7 +2072,7 @@ end
     config authentication-rule
         edit 1
             set client-cert enable
-            set user-peer &quot;PIO-ID_Cert_Check&quot;
+            set user-peer "PIO-ID_Cert_Check"
         next
     end
 end

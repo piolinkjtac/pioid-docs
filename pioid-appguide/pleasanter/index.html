@@ -1581,50 +1581,50 @@
 </tbody>
 </table>
 <div class="highlight"><span class="filename">Authentication.json 設定例(SAML認証に関連する項目のみ抜粋</span><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SAML&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAML"</span><span class="p">,</span>
 <span class="w">    </span><span class="c1">// ～中略～</span>
-<span class="w">    </span><span class="nt">&quot;SamlParameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;UserCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserCode&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Birthday&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Birthday&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Language&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;TimeZone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TimeZone&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;TenantManager&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TenantManager&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;DeptCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeptCode&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Dept&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dept&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Body&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;MailAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{NameId}&quot;</span>
+<span class="w">    </span><span class="nt">"SamlParameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"UserCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserCode"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Birthday"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gender"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Language"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeZone"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"TenantManager"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TenantManager"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"DeptCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeptCode"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dept"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Body"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{NameId}"</span>
 <span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;SamlTenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;SPOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;EntityId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://pleasanter.example.com/pleasanter/Saml2&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;ReturnUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://pleasanter.example.com/pleasanter/Users/SamlLogin&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;AuthenticateRequestSigningBehavior&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfIdpWantAuthnRequestsSigned&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;OutboundSigningAlgorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;MinIncomingSigningAlgorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;DisableOverwriteName&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;IgnoreMissingInResponseTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;PublicOrigin&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;ServiceCertificates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="nt">"SamlTenantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"SPOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pleasanter.example.com/pleasanter/Saml2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pleasanter.example.com/pleasanter/Users/SamlLogin"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"AuthenticateRequestSigningBehavior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IfIdpWantAuthnRequestsSigned"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"OutboundSigningAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"MinIncomingSigningAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"DisableOverwriteName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"IgnoreMissingInResponseTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"PublicOrigin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"ServiceCertificates"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;IdentityProviders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"IdentityProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;EntityId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://auth-02-0001.poc.singleid.jp/auth/realms/90000013&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;SignOnUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://auth-02-0001.poc.singleid.jp/auth/realms/90000013/protocol/saml&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;LogoutUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;AllowUnsolicitedAuthnResponse&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;Binding&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HttpPost&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;WantAuthnRequestsSigned&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;DisableOutboundLogoutRequests&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;LoadMetadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;MetadataLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;SigningCertificate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nt">&quot;StoreName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="nt">&quot;StoreLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LocalMachine&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="nt">&quot;X509FindType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FindByThumbprint&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="nt">&quot;FindValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50B459426DE554010B35E9XXXXXXXXXXXXXXXXX&quot;</span>
+<span class="w">                </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://auth-02-0001.poc.singleid.jp/auth/realms/90000013"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"SignOnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://auth-02-0001.poc.singleid.jp/auth/realms/90000013/protocol/saml"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LogoutUrl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"AllowUnsolicitedAuthnResponse"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"Binding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HttpPost"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"WantAuthnRequestsSigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"DisableOutboundLogoutRequests"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LoadMetadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"MetadataLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"SigningCertificate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"StoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"StoreLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocalMachine"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"X509FindType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FindByThumbprint"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"FindValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50B459426DE554010B35E9XXXXXXXXXXXXXXXXX"</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">           </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>

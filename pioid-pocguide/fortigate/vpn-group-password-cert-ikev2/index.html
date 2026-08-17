@@ -1786,7 +1786,7 @@
 <li>
 <p>定期的（1時間ごと）に証明書失効リスト（CRL）を更新するために、FortiGate CLIから<strong>set update-interval 3600</strong>を以下のように設定します。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config vpn certificate crl
-    edit &quot;CRL_1&quot;
+    edit "CRL_1"
         set update-interval 3600
     next
 end
@@ -1902,7 +1902,7 @@ end
 </tbody>
 </table>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
-    edit &quot;&lt;RADIUSサーバの名前&gt;&quot;
+    edit "&lt;RADIUSサーバの名前&gt;"
         set radius-port &lt;RADIUS認証の通信ポート番号&gt;
     next
 end
@@ -2114,7 +2114,7 @@ end
 </tbody>
 </table>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config vpn ipsec phase1-interface
-    edit &quot;&lt;VPNトンネル名&gt;&quot;
+    edit "&lt;VPNトンネル名&gt;"
         set eap-cert-auth enable
     next
 end

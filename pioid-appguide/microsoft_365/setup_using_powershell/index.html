@@ -1864,13 +1864,13 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">PowerShellのサンプルスクリプト</span><pre><span></span><code><span class="nv">$domain</span> <span class="p">=</span> <span class="s2">&quot;xxxxx.example.com&quot;</span> 
-<span class="nv">$IdpIssuer</span> <span class="p">=</span> <span class="s2">&quot;https://auth-02-0001.dev.singleid.jp/auth/realms/90000013&quot;</span> 
-<span class="nv">$IdpSigningCert</span> <span class="p">=</span> <span class="s2">&quot;MIICnzCCAYcCBgF/zubcKTANBgkqhkiG9w0BAQsFADATMREwDw……..&quot;</span> 
-<span class="nv">$BrandName</span> <span class="p">=</span> <span class="s2">&quot;PIO-ID&quot;</span>
-<span class="nv">$IdpEndpoint</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">&quot;/protocol/saml&quot;</span>
-<span class="nv">$LogOffUrl</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">&quot;/protocol/openid-connect/logout&quot;</span> 
-<span class="nv">$Protocol</span> <span class="p">=</span> <span class="s2">&quot;SAMLP&quot;</span> 
+<div class="highlight"><span class="filename">PowerShellのサンプルスクリプト</span><pre><span></span><code><span class="nv">$domain</span> <span class="p">=</span> <span class="s2">"xxxxx.example.com"</span> 
+<span class="nv">$IdpIssuer</span> <span class="p">=</span> <span class="s2">"https://auth-02-0001.dev.singleid.jp/auth/realms/90000013"</span> 
+<span class="nv">$IdpSigningCert</span> <span class="p">=</span> <span class="s2">"MIICnzCCAYcCBgF/zubcKTANBgkqhkiG9w0BAQsFADATMREwDw…….."</span> 
+<span class="nv">$BrandName</span> <span class="p">=</span> <span class="s2">"PIO-ID"</span>
+<span class="nv">$IdpEndpoint</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">"/protocol/saml"</span>
+<span class="nv">$LogOffUrl</span> <span class="p">=</span> <span class="nv">$IdpIssuer</span> <span class="p">+</span> <span class="s2">"/protocol/openid-connect/logout"</span> 
+<span class="nv">$Protocol</span> <span class="p">=</span> <span class="s2">"SAMLP"</span> 
 <span class="nb">Set-MsolDomainAuthentication</span> <span class="p">`</span>
     <span class="n">-DomainName</span> <span class="nv">$domain</span> <span class="p">`</span>
     <span class="n">-FederationBrandName</span> <span class="nv">$BrandName</span> <span class="p">`</span>

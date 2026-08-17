@@ -1654,32 +1654,32 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>curl -X &#39;POST&#39; \
-    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
-    -H &#39;accept: application/json&#39; \
-    -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
-    -H &#39;Content-Type: application/json&#39; \
-    -d &#39;&#39;
+<div class="highlight"><pre><span></span><code>curl -X 'POST' \
+    'https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns' \
+    -H 'accept: application/json' \
+    -H 'Authorization: token &lt;APIキー&gt;' \
+    -H 'Content-Type: application/json' \
+    -d ''
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>IPv4とIPv6の両方のアドレスをもったインターネット回線の場合、curlコマンドでIPv4またはIPv6を明示して実行する必要があります。</p>
 </div>
 <p><strong>例 IPv4のIPをDDNSホストに登録したい場合</strong>
-<div class="highlight"><pre><span></span><code>curl -4 -X &#39;POST&#39; \
-    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
-    -H &#39;accept: application/json&#39; \
-    -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
-    -H &#39;Content-Type: application/json&#39; \
-    -d &#39;&#39;
+<div class="highlight"><pre><span></span><code>curl -4 -X 'POST' \
+    'https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns' \
+    -H 'accept: application/json' \
+    -H 'Authorization: token &lt;APIキー&gt;' \
+    -H 'Content-Type: application/json' \
+    -d ''
 </code></pre></div></p>
 <p><strong>例 IPv6のIPをDDNSホストに登録したい場合</strong>
-<div class="highlight"><pre><span></span><code>curl -6 -X &#39;POST&#39; \
-    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
-    -H &#39;accept: application/json&#39; \
-    -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
-    -H &#39;Content-Type: application/json&#39; \
-    -d &#39;&#39;
+<div class="highlight"><pre><span></span><code>curl -6 -X 'POST' \
+    'https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns' \
+    -H 'accept: application/json' \
+    -H 'Authorization: token &lt;APIキー&gt;' \
+    -H 'Content-Type: application/json' \
+    -d ''
 </code></pre></div></p>
 </li>
 <li>
@@ -1712,12 +1712,12 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>curl -X &#39;POST&#39; \
-    &#39;https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns&#39; \
-    -H &#39;accept: application/json&#39; \
-    -H &#39;Authorization: token &lt;APIキー&gt;&#39; \
-    -H &#39;Content-Type: application/json&#39; \
-    -d &#39;{&quot;global_ip&quot;: &quot;&lt;IPアドレス&gt;&quot;}&#39;
+<div class="highlight"><pre><span></span><code>curl -X 'POST' \
+    'https://&lt;エンドポイントのホスト名&gt;/box/forwarding/ddns' \
+    -H 'accept: application/json' \
+    -H 'Authorization: token &lt;APIキー&gt;' \
+    -H 'Content-Type: application/json' \
+    -d '{"global_ip": "&lt;IPアドレス&gt;"}'
 </code></pre></div>
 </li>
 <li>
@@ -1758,9 +1758,9 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39; \
+<div class="highlight"><pre><span></span><code>curl -X 'GET' \
 -u &lt;ホスト名&gt;:&lt;APIキー&gt; \
-&#39;https://&lt;エンドポイントのホスト名&gt;/nic/update?hostname=&lt;FQDN&gt;&amp;myip=&lt;IPアドレス&gt;&#39;
+'https://&lt;エンドポイントのホスト名&gt;/nic/update?hostname=&lt;FQDN&gt;&amp;myip=&lt;IPアドレス&gt;'
 </code></pre></div>
 </li>
 <li>

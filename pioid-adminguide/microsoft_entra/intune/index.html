@@ -1594,7 +1594,7 @@
 <li><strong>アプリケーションとサービス ログ &gt; Microsoft &gt; Windows &gt; DeviceManagement-Enterprise-Diagnostics-Provider &gt; Admin</strong></li>
 </ul>
 <p>ログ例:</p>
-<div class="highlight"><pre><span></span><code>SCEP: 失敗した LogError メッセージ: (SCEPInstallCertificateWithScepHelper:Failed to Initialize SCEP enrollment with NDES Server &#39;https://scep-02-0001.poc.singleid.jp/scep/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/pkiclient.exe&#39;, CA cert thumbprint &#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39; ...)
+<div class="highlight"><pre><span></span><code>SCEP: 失敗した LogError メッセージ: (SCEPInstallCertificateWithScepHelper:Failed to Initialize SCEP enrollment with NDES Server 'https://scep-02-0001.poc.singleid.jp/scep/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/pkiclient.exe', CA cert thumbprint 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' ...)
 </code></pre></div>
 <p>上記のログは、Intune の信頼された証明書プロファイルで指定したルートCA/中間CA証明書と、SCEP サーバーから取得した証明書が一致しない場合に発生します。</p>
 <p>まず、Intune の構成プロファイルに設定した CA 証明書（ルートCA/中間CA）が正しいか確認してください。</p>
@@ -1604,7 +1604,7 @@
 <p><a href="https://learn.microsoft.com/ja-jp/troubleshoot/mem/intune/certificates/troubleshoot-scep-certificate-profiles#logs-for-ios-and-ipados-devices" target="_blank">マイクロソフトの公式サイト</a></p>
 <h3 id="macos-デバイスのログ確認">macOS デバイスのログ確認<a class="headerlink" href="#macos-デバイスのログ確認" title="Permanent link"></a></h3>
 <p>ターミナルから以下のコマンドを実行します。</p>
-<div class="highlight"><pre><span></span><code>% log show --debug --info | grep &quot;com.apple.ManagedClient:SCEP&quot;
+<div class="highlight"><pre><span></span><code>% log show --debug --info | grep "com.apple.ManagedClient:SCEP"
 </code></pre></div>
 
 

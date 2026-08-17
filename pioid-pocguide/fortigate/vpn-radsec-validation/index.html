@@ -1535,7 +1535,7 @@
 <li>
 <p>セカンダリサーバが設定されている場合は、削除します。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
-    edit &quot;&lt;RADIUSサーバ設定名&gt;&quot;
+    edit "&lt;RADIUSサーバ設定名&gt;"
         unset secondary-server
         unset secondary-secret
     next
@@ -1575,11 +1575,11 @@ end
 </tbody>
 </table>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
-    edit &quot;&lt;RADIUSサーバ設定名&gt;&quot;
-        set server &quot;&lt;RADIUSサーバのホスト名&gt;&quot;
+    edit "&lt;RADIUSサーバ設定名&gt;"
+        set server "&lt;RADIUSサーバのホスト名&gt;"
         set radius-port &lt;RADIUS認証ポート番号&gt;
         set transport-protocol tls
-        set client-cert &quot;&lt;クライアント証明書&gt;&quot;
+        set client-cert "&lt;クライアント証明書&gt;"
     next
 end
 </code></pre></div>
@@ -1588,13 +1588,13 @@ end
 <h3 id="3-設定例">3. 設定例<a class="headerlink" href="#3-設定例" title="Permanent link"></a></h3>
 <p>以下は検証時の設定例です。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
-    edit &quot;PIO-ID_RADIUS&quot;
-        set server &quot;radius-02-0001.poc.singleid.jp&quot;
+    edit "PIO-ID_RADIUS"
+        set server "radius-02-0001.poc.singleid.jp"
         set secret ENC xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         set radius-port 20000
         set require-message-authenticator disable
         set transport-protocol tls
-        set client-cert &quot;vpn.example.com&quot;
+        set client-cert "vpn.example.com"
     next
 end
 </code></pre></div>
@@ -1619,7 +1619,7 @@ end
 <p>RadSecでは、FortiGateがPIO-IDのクラウドRADIUSのサーバ証明書を検証します。</p>
 <p>FortiGateのRadSecでは、<code>server-identity-check</code> がデフォルトで有効です。Fortinet公式ドキュメントでは、RADIUSサーバのドメイン名またはIPアドレスをサーバ証明書と照合する機能として説明されています。</p>
 <p>そのため、<code>set server</code> にはIPアドレスではなく、PIO-IDのRADIUSサーバ証明書のCNまたはSANと一致するホスト名を設定します。</p>
-<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>set server &quot;radius-02-0001.poc.singleid.jp&quot;
+<div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>set server "radius-02-0001.poc.singleid.jp"
 </code></pre></div>
 <h3 id="ca-certの指定について">ca-certの指定について<a class="headerlink" href="#ca-certの指定について" title="Permanent link"></a></h3>
 <p>今回の検証では、FortiGate側で <code>set ca-cert &lt;string&gt;</code> を明示的に設定しなくても接続できました。</p>

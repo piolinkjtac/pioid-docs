@@ -1663,7 +1663,7 @@
 </tbody>
 </table>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code>config user radius
-    edit &quot;&lt;RADIUSサーバの名前&gt;&quot;
+    edit "&lt;RADIUSサーバの名前&gt;"
         set radius-port &lt;RADIUS認証の通信ポート番号&gt;
     next
 end
@@ -1761,7 +1761,7 @@ end
 <li>
 <p>グループ（<a href="#fortigateのユーザグループの設定">FortiGateのユーザグループの設定</a>の手順で設定したユーザグループの名前）のメンバーは、<strong>admin_no_access</strong>プロファイルにより管理者権限はありません。しかし、以下のコマンドを実行することで、RADIUSサーバで認証が成功した場合に、指定したプロファイル（例：super_admin_readonly）で上書きできます。</p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code># config system admin
-    edit &quot;PIO-ID&quot;
+    edit "PIO-ID"
     set accprofile-override enable
 end
 </code></pre></div>
@@ -1850,15 +1850,15 @@ end
 <p>以下の画面が表示されたときには、CLIから<strong>set accprofile-override enable</strong>がセットされていることを確認してください。</p>
 <p><a href="/images/fortigate-18.png"><img alt="Screenshot" src="/images/fortigate-18.png" /></a></p>
 <div class="highlight"><span class="filename">FortiGate CLI</span><pre><span></span><code># config system admin
-(admin) # edit &quot;PIO-ID&quot;
+(admin) # edit "PIO-ID"
 (PIO-ID) # show
 config system admin
-    edit &quot;PIO-ID&quot;
+    edit "PIO-ID"
         set remote-auth enable
-        set accprofile &quot;admin_no_access&quot;
-        set vdom &quot;root&quot;
+        set accprofile "admin_no_access"
+        set vdom "root"
         set wildcard enable
-        set remote-group &quot;PIO-ID&quot;
+        set remote-group "PIO-ID"
         set accprofile-override enable
     next
 end
