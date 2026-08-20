@@ -1408,6 +1408,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#解約後の処理" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解約後の処理
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1503,7 +1514,7 @@
 
 
 <h1 id="顧客アカウント管理">顧客アカウント管理<a class="headerlink" href="#顧客アカウント管理" title="Permanent link"></a></h1>
-<p>文書更新日:2026-07-28</p>
+<p>文書更新日:2026-08-20</p>
 <p><strong>PIO-ID MSP管理者ポータル＞管理アカウント＞顧客アカウント一覧</strong>画面では、以下の操作を行うことができます。</p>
 <ul>
 <li>顧客アカウントの登録</li>
@@ -1531,7 +1542,10 @@
 <p><strong>顧客情報</strong>、<strong>契約ユーザ数</strong>、<strong>販売店情報</strong>を入力し、<strong>登録</strong>ボタンをクリックします。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>顧客情報は、顧客アカウントが作成された後に、<strong>PIO-ID 管理者ポータル＞管理＞基本情報</strong>画面からお客様自身で変更することもできます。</p>
+<ul>
+<li>顧客情報は、顧客アカウントが作成された後に、<strong>PIO-ID 管理者ポータル＞管理＞基本情報</strong>画面からお客様自身で変更することもできます。</li>
+<li>顧客アカウントの<strong>会社名</strong>は、最大255文字です。文字種に特別な制限はありません。</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1648,10 +1662,46 @@
 <p>設定した<strong>解約予定日</strong>に、<strong>解約処理が自動で実行</strong>されます。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>解約処理が自動実行された際には、同意したように、<strong>現在のポイント</strong>の<strong>不足分のポイントは補充</strong>され、<strong>残存分のポイントは消費</strong>されます。</p>
+<ul>
+<li>解約処理が自動実行された際には、同意したように、<strong>現在のポイント</strong>の<strong>不足分のポイントは補充</strong>され、<strong>残存分のポイントは消費</strong>されます。</li>
+<li>一度設定した<strong>解約予定日</strong>は、解約処理が実行される前であれば変更できます。また、<strong>解約予定日</strong>を空欄にして保存することで解除できます。</li>
+</ul>
 </div>
 </li>
 </ol>
+<h3 id="解約後の処理">解約後の処理<a class="headerlink" href="#解約後の処理" title="Permanent link"></a></h3>
+<p>顧客アカウントの解約後は、PIO-IDで以下の処理を行います。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>時期</strong></th>
+<th style="text-align: left;"><strong>処理内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">解約予定日の翌営業日から起算して3営業日以内</td>
+<td style="text-align: left;">すべてのRADIUS認証を無効化し、顧客アカウントに登録されたすべての管理者を削除します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">解約予定日から1か月後</td>
+<td style="text-align: left;">発行済みのクライアント証明書を失効し、ユーザ、ログ、証明書情報など、顧客アカウントのすべてのデータを削除します。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>解約予定日がPIO-IDの利用最終日です。</li>
+<li>即時解約の場合は、解約を実行した日を解約予定日として扱います。</li>
+<li>RADIUS認証の無効化時点では、発行済みのクライアント証明書は失効しません。PIO-IDのRADIUS認証はできなくなりますが、PIO-IDのRADIUSと連携せずにクライアント証明書だけを検証する外部システムでは、証明書が失効するまで認証できる場合があります。</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>削除されたデータを復元することはできません。</p>
+</div>
+<p>解約後に契約の継続を希望する場合は、データが削除される前にPIO-IDの担当営業またはサポートまでお問い合わせください。</p>
 <h2 id="契約期限前の警告通知">契約期限前の警告通知<a class="headerlink" href="#契約期限前の警告通知" title="Permanent link"></a></h2>
 <p>契約が終了する前に、担当者へ自動で警告通知メールが送信されます。これにより、契約更新の対応漏れを防止できます。</p>
 <h3 id="通知タイミング">通知タイミング<a class="headerlink" href="#通知タイミング" title="Permanent link"></a></h3>
