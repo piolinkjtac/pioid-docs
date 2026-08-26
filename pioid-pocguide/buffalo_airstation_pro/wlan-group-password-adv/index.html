@@ -1387,10 +1387,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#buffalo-airstation-proの設定" class="md-nav__link">
+  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Buffalo AirStation Proの設定
+        PIO-IDのRADIUSサイトの登録
       
     </span>
   </a>
@@ -1398,10 +1398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pio-idのradiusサイトの登録" class="md-nav__link">
+  <a href="#buffalo-airstation-proの設定" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIO-IDのRADIUSサイトの登録
+        Buffalo AirStation Proの設定
       
     </span>
   </a>
@@ -1442,7 +1442,7 @@
 
 
 <h1 id="無線lanアクセス-パスワード認証">無線LANアクセス-パスワード認証<a class="headerlink" href="#無線lanアクセス-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2026-07-11</p>
+<p>文書更新日:2026-08-26</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、Buffalo AirStation Proの無線LANアクセスポイントへアクセスします。</li>
@@ -1489,7 +1489,71 @@
 </table>
 </li>
 <li>
-<p><strong>登録</strong>ボタンをクリックします。専用のRADIUSポート番号が割り当てれます。</p>
+<p><strong>登録</strong>ボタンをクリックします。専用のRADIUSポート番号が割り当てられます。</p>
+</li>
+</ol>
+<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
+<ol>
+<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
+<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
+<li>カタログから<strong>Buffalo AirStation Pro</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Buffalo AirStation Pro</strong>画面がポップアップします。</li>
+<li>
+<p><strong>基本情報</strong>タブに、以下を設定します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>設定項目</strong></th>
+<th style="text-align: left;"><strong>設定内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>有効/無効</strong></td>
+<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ</strong></td>
+<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サーバ番号</strong></td>
+<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順で登録したサーバ番号を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
+<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>属性値</strong></td>
+<td style="text-align: left;"><code>**BUFFALO**</code>を設定します。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Buffalo AirStation Proは、機器のMACアドレス（小文字、区切り文字なし）をNAS-Identifierとして送信します。<code>**BUFFALO**</code>で判定できるベンダーコードと、一覧にない機器の設定方法は、<a href="../../../pioid-adminguide/radius/#buffaloで判定できるベンダーコード">RADIUS管理者ガイド</a>を参照してください。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>**BUFFALO**</code>は複数のRADIUSサイトで使用しないでください。サイトを分ける場合は、RADIUS認証ログで実際のNAS-Identifierを確認し、機器ごとのNAS-Identifierを<strong>属性値</strong>に設定します。</p>
+</div>
+</li>
+<li>
+<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
+</li>
+<li>
+<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>接続可能なSSIDを制限したい場合には、SSID入力欄に、接続を許可したいSSIDを入力します。</p>
+</div>
+</li>
+<li>
+<p><strong>登録</strong>ボタンをクリックします。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>設定がシステムに反映されるまで最大で15分かかります。</p>
+</div>
 </li>
 </ol>
 <h3 id="buffalo-airstation-proの設定">Buffalo AirStation Proの設定<a class="headerlink" href="#buffalo-airstation-proの設定" title="Permanent link"></a></h3>
@@ -1610,68 +1674,6 @@
 <p><strong>修正保存</strong>ボタンをクリックします。</p>
 </li>
 <li><strong>設定</strong>ボタンをクリックして、設定内容を機器へ適用します。</li>
-</ol>
-<h3 id="pio-idのradiusサイトの登録">PIO-IDのRADIUSサイトの登録<a class="headerlink" href="#pio-idのradiusサイトの登録" title="Permanent link"></a></h3>
-<ol>
-<li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>タブへ移動します。</li>
-<li><strong>カタログ表示</strong>ボタンをクリックします。</li>
-<li>カタログから<strong>Buffalo AirStation Pro</strong>の<strong>登録</strong>ボタンをクリックします。<strong>Buffalo AirStation Pro</strong>画面がポップアップします。</li>
-<li>
-<p><strong>基本情報</strong>タブに、以下を設定します。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>設定項目</strong></th>
-<th style="text-align: left;"><strong>設定内容</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>有効/無効</strong></td>
-<td style="text-align: left;"><strong>有効</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ</strong></td>
-<td style="text-align: left;"><strong>拡張</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サーバ番号</strong></td>
-<td style="text-align: left;"><a href="#pio-idの拡張radiusサーバの登録">PIO-IDの拡張RADIUSサーバの登録</a>の手順で登録したサーバ番号を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>サイト識別する属性</strong></td>
-<td style="text-align: left;"><strong>NAS-Identifier</strong>を選択します。</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><code>**BUFFALO**</code>を設定します。</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<ul>
-<li>BuffaloのAirStation Proは、NAS-Identifier属性の属性値に機器のMACアドレス（小文字ハイフンなし）を設定し、RADIUSサーバへ送信しています。対応するBUFFALO製品に同一のルールを設定する場合は、<strong>サイト識別する属性</strong>に<strong>NAS-Identifier</strong>、<strong>属性値</strong>に <code>**BUFFALO**</code> を設定します。対応するベンダーコードと、一覧にない機器の設定方法は、<a href="../../../pioid-adminguide/radius/#buffaloで判定できるベンダーコード">RADIUS管理者ガイド</a>を参照してください。</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>無線アクセスの認証</strong>タブへ移動します。</p>
-</li>
-<li>
-<p><strong>許可したいユーザ</strong>および<strong>許可したいグループ</strong>をダブルクリックし、許可へ移動させます。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>接続可能なSSIDを制限したい場合には、SSID入力欄に、接続を許可したいSSIDを入力します。</p>
-</div>
-</li>
-<li>
-<p><strong>登録</strong>ボタンをクリックします。</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>設定がシステムに反映されるまで最大で15分かかります。</p>
-</div>
-</li>
 </ol>
 <h2 id="動作確認方法">動作確認方法<a class="headerlink" href="#動作確認方法" title="Permanent link"></a></h2>
 <p>以下を参考にクライアントを設定して動作確認します。</p>

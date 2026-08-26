@@ -1459,7 +1459,7 @@
 
 
 <h1 id="有線lanアクセス-クライアント証明書認証">有線LANアクセス-クライアント証明書認証<a class="headerlink" href="#有線lanアクセス-クライアント証明書認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-21</p>
+<p>文書更新日:2026-08-24</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、アライドテレシス ネットワークスイッチへアクセスします。</li>
@@ -1483,7 +1483,7 @@
 </ol>
 <h3 id="pio-idのクライアント証明書の発行">PIO-IDのクライアント証明書の発行<a class="headerlink" href="#pio-idのクライアント証明書の発行" title="Permanent link"></a></h3>
 <ol>
-<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>タブへ移動します。</li>
+<li><strong>PIO-ID 管理者ポータル＞ユーザ</strong>画面へ移動します。</li>
 <li>クライアント証明書を発行したいユーザの行にある<strong>チェックボックス</strong>を選択します。</li>
 <li><strong>選択実行</strong>ボタンの▼をクリックし、プルダウンメニューの<strong>証明書の発行</strong>を選択します。</li>
 <li><strong>証明書発行</strong>画面がポップアップします。</li>
@@ -1593,7 +1593,7 @@
 <div class="highlight"><span class="filename">RADIUSサーバの登録</span><pre><span></span><code>awplus(config)# radius-server host &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
 awplus(config)# radius-server host &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
 </code></pre></div>
-<div class="highlight"><span class="filename">RADIUSサーバのグループ化</span><pre><span></span><code>awplus(config)#aaa group server radius &lt;RADIUSグループ名&gt;
+<div class="highlight"><span class="filename">RADIUSサーバのグループ化</span><pre><span></span><code>awplus(config)# aaa group server radius &lt;RADIUSグループ名&gt;
 awplus(config-sg)# server &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt;
 awplus(config-sg)# server &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt;
 </code></pre></div>
@@ -1699,7 +1699,7 @@ awplus(config)# no spanning-tree mstp enable
 </li>
 <li>
 <p>（MACベース認証を利用する場合）MACベース認証時のユーザ名・パスワードの形式を変更します。</p>
-<div class="highlight"><span class="filename">MACベース認証時のユーザ名、パスワードの形式を変更</span><pre><span></span><code>awplus(config)# awplus(config)#auth-mac username unformatted lower-case
+<div class="highlight"><span class="filename">MACベース認証時のユーザ名、パスワードの形式を変更</span><pre><span></span><code>awplus(config)# auth-mac username unformatted lower-case
 </code></pre></div>
 </li>
 <li>
@@ -1718,8 +1718,8 @@ awplus(config)# no spanning-tree mstp enable
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">VLANの作成</span><pre><span></span><code>awplus(config)#vlan database
-awplus(config-vlan)#vlan &lt;VLAN ID&gt;
+<div class="highlight"><span class="filename">VLANの作成</span><pre><span></span><code>awplus(config)# vlan database
+awplus(config-vlan)# vlan &lt;VLAN ID&gt;
 </code></pre></div>
 </li>
 <li>
@@ -1742,9 +1742,9 @@ awplus(config-vlan)#vlan &lt;VLAN ID&gt;
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">トランクポートの設定</span><pre><span></span><code>awplus(config)#interface &lt;アップリンクポートのインターフェース名&gt;
-awplus(config-if)#switchport mode trunk
-awplus(config-if)#switchport trunk allowed vlan add &lt;VLAN ID&gt;
+<div class="highlight"><span class="filename">トランクポートの設定</span><pre><span></span><code>awplus(config)# interface &lt;アップリンクポートのインターフェース名&gt;
+awplus(config-if)# switchport mode trunk
+awplus(config-if)# switchport trunk allowed vlan add &lt;VLAN ID&gt;
 </code></pre></div>
 </li>
 <li>

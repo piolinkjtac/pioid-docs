@@ -1448,7 +1448,7 @@
 
 
 <h1 id="有線lanアクセス-パスワード認証">有線LANアクセス-パスワード認証<a class="headerlink" href="#有線lanアクセス-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2025-04-21</p>
+<p>文書更新日:2026-08-24</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、アライドテレシス ネットワークスイッチへアクセスします。</li>
@@ -1570,7 +1570,7 @@
 <div class="highlight"><span class="filename">RADIUSサーバの登録</span><pre><span></span><code>awplus(config)# radius-server host &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
 awplus(config)# radius-server host &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt; key &lt;RADIUSクライアントのシークレット&gt;
 </code></pre></div>
-<div class="highlight"><span class="filename">RADIUSサーバのグループ化</span><pre><span></span><code>awplus(config)#aaa group server radius &lt;RADIUSグループ名&gt;
+<div class="highlight"><span class="filename">RADIUSサーバのグループ化</span><pre><span></span><code>awplus(config)# aaa group server radius &lt;RADIUSグループ名&gt;
 awplus(config-sg)# server &lt;RADIUSサーバのプライマリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt;
 awplus(config-sg)# server &lt;RADIUSサーバのセカンダリIPアドレス&gt; auth-port &lt;RADIUSサーバのポート番号&gt;
 </code></pre></div>
@@ -1676,7 +1676,7 @@ awplus(config)# no spanning-tree mstp enable
 </li>
 <li>
 <p>（MACベース認証を利用する場合）MACベース認証時のユーザ名・パスワードの形式を変更します。</p>
-<div class="highlight"><span class="filename">MACベース認証時のユーザ名、パスワードの形式を変更</span><pre><span></span><code>awplus(config)# awplus(config)#auth-mac username unformatted lower-case
+<div class="highlight"><span class="filename">MACベース認証時のユーザ名、パスワードの形式を変更</span><pre><span></span><code>awplus(config)# auth-mac username unformatted lower-case
 </code></pre></div>
 </li>
 <li>
@@ -1695,8 +1695,8 @@ awplus(config)# no spanning-tree mstp enable
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">VLANの作成</span><pre><span></span><code>awplus(config)#vlan database
-awplus(config-vlan)#vlan &lt;VLAN ID&gt;
+<div class="highlight"><span class="filename">VLANの作成</span><pre><span></span><code>awplus(config)# vlan database
+awplus(config-vlan)# vlan &lt;VLAN ID&gt;
 </code></pre></div>
 </li>
 <li>
@@ -1719,9 +1719,9 @@ awplus(config-vlan)#vlan &lt;VLAN ID&gt;
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">トランクポートの設定</span><pre><span></span><code>awplus(config)#interface &lt;アップリンクポートのインターフェース名&gt;
-awplus(config-if)#switchport mode trunk
-awplus(config-if)#switchport trunk allowed vlan add &lt;VLAN ID&gt;
+<div class="highlight"><span class="filename">トランクポートの設定</span><pre><span></span><code>awplus(config)# interface &lt;アップリンクポートのインターフェース名&gt;
+awplus(config-if)# switchport mode trunk
+awplus(config-if)# switchport trunk allowed vlan add &lt;VLAN ID&gt;
 </code></pre></div>
 </li>
 <li>

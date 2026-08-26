@@ -2,9 +2,9 @@
 !  - Startup Configuration -
 !  Last Modified: Sun Feb  2 05:28:50 JST 2031
 !
-enable password admin
+enable password ChangeMe_Admin-2026!
 !
-username admin privilege on password password
+username admin privilege on password ChangeMe_Admin-2026!
 !
 dns-client enable
 aaa authentication dot1x
@@ -13,8 +13,8 @@ auth-mac auth-user unformatted lower-case
 lldp run
 lldp auto-setting enable
 !
-radius-server host 35.77.207.168 auth-port 10003 key yamaha
-radius-server host 35.73.34.139 auth-port 10003 key yamaha
+radius-server host 35.77.207.168 auth-port 10003 key ChangeMe_RADIUS-2026!
+radius-server host 35.73.34.139 auth-port 10003 key ChangeMe_RADIUS-2026!
 !
 vlan database
  vlan 101 name VLAN0101
@@ -40,6 +40,7 @@ interface port1.2
  auth-mac enable
  dot1x port-control auto
  auth dynamic-vlan-creation
+ auth timeout server-timeout 40
  lldp-agent
   set lldp enable txrx 
   exit 
@@ -52,6 +53,7 @@ interface port1.3
  auth-mac enable
  dot1x port-control auto
  auth dynamic-vlan-creation
+ auth timeout server-timeout 40
  lldp-agent
   set lldp enable txrx 
   exit 
@@ -64,6 +66,7 @@ interface port1.4
  auth-mac enable
  dot1x port-control auto
  auth dynamic-vlan-creation
+ auth timeout server-timeout 40
  lldp-agent
   set lldp enable txrx 
   exit 
@@ -76,6 +79,7 @@ interface port1.5
  auth-mac enable
  dot1x port-control auto
  auth dynamic-vlan-creation
+ auth timeout server-timeout 40
  lldp-agent
   set lldp enable txrx 
   exit 
@@ -88,6 +92,7 @@ interface port1.6
  auth-mac enable
  dot1x port-control auto
  auth dynamic-vlan-creation
+ auth timeout server-timeout 40
  lldp-agent
   set lldp enable txrx 
   exit 
@@ -149,4 +154,3 @@ line con 0
 line vty 0 7
 !
 end
-

@@ -1442,7 +1442,7 @@
 
 
 <h1 id="無線lanアクセス-パスワード認証">無線LANアクセス-パスワード認証<a class="headerlink" href="#無線lanアクセス-パスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2026-08-03</p>
+<p>文書更新日:2026-08-26</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、PIOLINK TiFRONT-APの無線LANアクセスポイントへアクセスします。</li>
@@ -1525,16 +1525,20 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>属性値</strong></td>
-<td style="text-align: left;"><code>AR-WF</code>を設定します。実際にネットワーク機器から送信される<strong>NAS-Identifier</strong>の属性値に対して、ここの設定項目で設定した文字列で<strong>部分一致検索</strong>します。</td>
+<td style="text-align: left;">RADIUS認証ログで確認したNAS-Identifierをもとに設定します。すべてのPIOLINK TiFRONT-APを1つのRADIUSサイトで扱う場合は、<code>AR-WF</code>を設定します。</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
-<li><strong>NAS-Identifier</strong>として<code>AR-WF6-254I</code>のような値が送信される場合があります。ただし、ハードウェアリビジョンや機種差分により末尾が異なる可能性があるため、初期値としては共通接頭辞である<code>AR-WF</code>を設定することをお勧めします。</li>
+<li><strong>NAS-Identifier</strong>として<code>AR-WF6-254I</code>のような値が送信される場合があります。ただし、ハードウェアリビジョンや機種差分により末尾が異なる可能性があるため、RADIUS認証ログで実際のNAS-Identifierを確認してください。</li>
 <li>認証が失敗し、<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面のエラーメッセージが <code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier.</code> の場合には、<a href="../../../pioid-adminguide/radius/#radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法</a>を参照して<strong>属性値</strong>を見直してください。</li>
 </ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NAS-Identifierは部分一致で検索されます。複数のRADIUSサイトを登録する場合は、ネットワーク機器が送信する1つのNAS-Identifierに複数サイトの属性値が一致しないように設定してください。</p>
 </div>
 </li>
 <li>

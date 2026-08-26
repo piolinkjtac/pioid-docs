@@ -1747,7 +1747,7 @@
 
 
 <h1 id="radius">RADIUS<a class="headerlink" href="#radius" title="Permanent link"></a></h1>
-<p>文書更新日:2026-07-11</p>
+<p>文書更新日:2026-08-26</p>
 <p><strong>PIO-ID 管理者ポータル＞認証＞RADIUS</strong>画面では、RADIUSに関する操作を行うことができます。</p>
 <h2 id="サポートする認証方式について">サポートする認証方式について<a class="headerlink" href="#サポートする認証方式について" title="Permanent link"></a></h2>
 <p>以下の認証方式をサポートしています。</p>
@@ -1911,6 +1911,10 @@
 </div>
 <h3 id="radiusクライアントのサイト識別する属性の確認方法">RADIUSクライアントのサイト識別する属性の確認方法<a class="headerlink" href="#radiusクライアントのサイト識別する属性の確認方法" title="Permanent link"></a></h3>
 <p>拡張RADIUSサーバを利用してサイトを作成する際には、<strong>サイト識別する属性</strong>の<strong>属性値</strong>をPIO-IDへ設定する必要があります。<strong>サイト識別する属性</strong>としては、RADIUS属性の<strong>NAS-IP-Address</strong>または<strong>NAS-Identifier</strong>を選択可能です。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NAS-Identifierは部分一致で検索されます。複数のRADIUSサイトを登録する場合は、ネットワーク機器が送信する1つのNAS-Identifierに複数サイトの属性値が一致しないように設定してください。</p>
+</div>
 <p>PIO-IDと連携する機器から送信されるNAS-IP-AddressおよびNAS-Identifierがどのような属性値をもつかについて、連携機器のマニュアルをご確認ください。属性値が不明な場合には、以下の手順で確認することができます。</p>
 <ol>
 <li><strong>PIO-ID 管理者ポータル＞認証＞RADIUS＞簡易設定</strong>画面へ移動します。</li>
@@ -1992,7 +1996,10 @@
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>NAS-IP-Addressに <code>0.0.0.0</code> を設定し、複数のRADIUSサイトを登録している場合は、意図しないサイトが判定されないように設定内容を確認してください。</p>
+<ul>
+<li>NAS-IP-Addressに <code>0.0.0.0</code> を設定し、複数のRADIUSサイトを登録している場合は、意図しないサイトが判定されないように設定内容を確認してください。</li>
+<li><code>**MACADDR**</code>または<code>**BUFFALO**</code>は広い条件に一致するため、同じ特別な値を複数のRADIUSサイトに設定しないでください。</li>
+</ul>
 </div>
 <p><code>**MACADDR**</code> は、機器ごとに異なるMACアドレスがNAS-Identifierとして送信される場合に、個別のMACアドレスを指定せずまとめて判定するために使用します。</p>
 <p><code>**BUFFALO**</code> は、対応するBUFFALO製ネットワーク機器をまとめて判定するために使用します。</p>

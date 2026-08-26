@@ -21,7 +21,7 @@
     
     
       
-        <title>YAMAHA SWX(SWX2310-10G)の設定例一覧 - PIO-ID マニュアル</title>
+        <title>YAMAHA SWXシリーズの設定例一覧 - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yamaha-swxswx2310-10gの設定例一覧" class="md-skip">
+        <a href="#yamaha-swxシリーズの設定例一覧" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YAMAHA SWX(SWX2310-10G)の設定例一覧
+              YAMAHA SWXシリーズの設定例一覧
             
           </span>
         </div>
@@ -1331,6 +1331,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#検証環境" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        検証環境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#パスワード認証" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1369,19 +1380,46 @@
 
 
 
-<h1 id="yamaha-swxswx2310-10gの設定例一覧">YAMAHA SWX(SWX2310-10G)の設定例一覧<a class="headerlink" href="#yamaha-swxswx2310-10gの設定例一覧" title="Permanent link"></a></h1>
+<h1 id="yamaha-swxシリーズの設定例一覧">YAMAHA SWXシリーズの設定例一覧<a class="headerlink" href="#yamaha-swxシリーズの設定例一覧" title="Permanent link"></a></h1>
+<p>文書更新日:2026-08-24</p>
+<h2 id="検証環境">検証環境<a class="headerlink" href="#検証環境" title="Permanent link"></a></h2>
+<p>本設定ガイドは、下記の機器で動作確認を行っています。
+機種が異なる場合、設定項目が一部異なることがあります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>項目</strong></th>
+<th style="text-align: left;"><strong>内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>検証機種</strong></td>
+<td style="text-align: left;">SWX2310-10G</td>
+</tr>
+</tbody>
+</table>
 <h2 id="パスワード認証">パスワード認証<a class="headerlink" href="#パスワード認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="networkauth-group-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）</a></li>
-<li><a href="networkauth-group-mab-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>MACアドレス認証バイパス</strong>（MAC Authentication Bypass）の併用</a></li>
-<li><a href="networkauth-group-dvlan-password/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>ダイナミックVLAN</strong>の併用</a></li>
+<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-password/">標準</a>/<a href="networkauth-group-password-adv/">拡張</a> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 <h2 id="クライアント証明書認証">クライアント証明書認証<a class="headerlink" href="#クライアント証明書認証" title="Permanent link"></a></h2>
 <ul>
-<li><a href="networkauth-group-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）</a></li>
-<li><a href="networkauth-group-mab-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>MACアドレス認証バイパス</strong>（MAC Authentication Bypass）の併用</a></li>
-<li><a href="networkauth-group-dvlan-cert/"><strong>ネットワーク接続の認証</strong>（グループによるアクセス制限）と<strong>ダイナミックVLAN</strong>の併用</a></li>
+<li>有線LANアクセス ユーザ/グループによるアクセス制限 <a href="networkauth-group-cert/">標準</a>/<a href="networkauth-group-cert-adv/">拡張</a> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<ul>
+<li>標準：標準RADIUSサーバを利用した設定方法です。</li>
+<li>拡張：拡張RADIUSサーバを利用した設定方法です。</li>
+<li>固定グローバルIPをもたないインターネット接続環境の場合には、拡張RADIUSサーバを利用した設定方法を参考にしてください。</li>
+</ul>
+<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
