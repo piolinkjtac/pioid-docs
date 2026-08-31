@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-adminguide/radius_authlog/">
+        <link rel="canonical" href="https://pioid-docs.piolink.co.jp/pioid-adminguide/radius_authlog_errors/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../operation_log/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>RADIUS認証ログ - PIO-ID マニュアル</title>
+        <title>RADIUS認証ログのエラー確認 - PIO-ID マニュアル</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#radius認証ログ" class="md-skip">
+        <a href="#radius認証ログのエラー確認" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RADIUS認証ログ
+              RADIUS認証ログのエラー確認
             
           </span>
         </div>
@@ -262,20 +258,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -296,7 +290,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -339,20 +333,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -373,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -388,37 +380,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RADIUS認証ログ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../radius_authlog/" class="md-nav__link">
         
   
   
@@ -434,59 +399,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ログの検索表示" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ログの検索・表示
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#csvエクスポート" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CSVエクスポート
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#認証エラーのトラブルシューティング" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        認証エラーのトラブルシューティング
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1419,10 +1331,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ログの検索表示" class="md-nav__link">
+  <a href="#認証結果の一覧" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ログの検索・表示
+        認証結果の一覧
       
     </span>
   </a>
@@ -1430,10 +1342,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#csvエクスポート" class="md-nav__link">
+  <a href="#ログ項目の見方" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CSVエクスポート
+        ログ項目の見方
       
     </span>
   </a>
@@ -1441,10 +1353,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#認証エラーのトラブルシューティング" class="md-nav__link">
+  <a href="#radius認証ログがない場合" class="md-nav__link">
     <span class="md-ellipsis">
       
-        認証エラーのトラブルシューティング
+        RADIUS認証ログがない場合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#問い合わせ時に必要な情報" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問い合わせ時に必要な情報
       
     </span>
   </a>
@@ -1468,77 +1391,307 @@
 
 
 
-<h1 id="radius認証ログ">RADIUS認証ログ<a class="headerlink" href="#radius認証ログ" title="Permanent link"></a></h1>
+<h1 id="radius認証ログのエラー確認">RADIUS認証ログのエラー確認<a class="headerlink" href="#radius認証ログのエラー確認" title="Permanent link"></a></h1>
 <p>文書更新日:2026-08-31</p>
-<p><strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面では、RADIUS認証ログの検索、表示、CSVエクスポートを行うことができます。</p>
-<h2 id="ログの検索表示">ログの検索・表示<a class="headerlink" href="#ログの検索表示" title="Permanent link"></a></h2>
-<p><strong>ログ表示期間</strong>と検索条件を設定し、<strong>表示</strong>ボタンをクリックします。主に以下の項目で検索できます。</p>
-<ul>
-<li>ユーザ名</li>
-<li>RADIUSクライアントIP</li>
-<li>NAS ID</li>
-<li>SSID</li>
-<li>認証タイプ</li>
-<li>エラーメッセージ</li>
-</ul>
-<p>検索結果はページ単位で表示されます。ページ送りを行うことで、前後の認証ログを確認できます。</p>
-<div class="admonition info">
-<p class="admonition-title">ログ表示に関する注意</p>
-<ul>
-<li>少なくとも1か月分のログを表示できます。</li>
-<li>RADIUS認証ログが表示されるまで、認証実行後から5分程度かかる場合があります。</li>
-<li>RADIUSクライアントのIPアドレスまたは共有シークレットが誤っている場合、RADIUSリクエストがあってもログには表示されません。</li>
-</ul>
-</div>
-<h2 id="csvエクスポート">CSVエクスポート<a class="headerlink" href="#csvエクスポート" title="Permanent link"></a></h2>
-<p><strong>ログ表示期間</strong>を設定し、<strong>CSVエクスポート</strong>ボタンをクリックします。</p>
-<p>指定したログ表示期間内のRADIUS認証ログを対象に、CSVファイルが非同期で作成されます。処理状況は、<strong>エクスポート履歴</strong>ボタンから確認できます。</p>
+<p>RADIUS認証に失敗した場合は、まず<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面で、認証を試行した時刻のログを確認してください。</p>
+<p>RADIUS認証ログでは、PIO-ID が認証要求を処理した結果を確認できます。利用端末またはネットワーク機器に表示されるエラーだけでは、原因を特定できない場合があります。</p>
+<p>本ページでは、PIO-IDで確認した代表的なRADIUS認証ログのエラーと確認観点を掲載しています。すべてのエラーメッセージを網羅するものではありません。</p>
+<blockquote>
+<p>RADIUS認証ログが表示されるまで、認証実行後から5分程度かかる場合があります。認証直後にログが見つからない場合は、少し時間をおいて再度検索してください。</p>
+</blockquote>
+<h2 id="認証結果の一覧">認証結果の一覧<a class="headerlink" href="#認証結果の一覧" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>項目</strong></th>
-<th style="text-align: left;"><strong>説明</strong></th>
+<th>パケットタイプ</th>
+<th>認証タイプ</th>
+<th>エラーメッセージ</th>
+<th>考えられる原因</th>
+<th>確認・対応</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>作成日時</strong></td>
-<td style="text-align: left;">CSVエクスポートを開始した日時</td>
+<td><code>Access-Accept</code></td>
+<td><code>Accept/-</code>、<code>eap_xxxxxxxx/MD5</code>、<code>eap_xxxxxxxx/TTLS</code>、<code>otp_xxxxxxxx/-</code></td>
+<td><code>-/-</code></td>
+<td>MABまたはOTPを含む認証成功</td>
+<td>認証後の接続に失敗する場合は、RADIUSクライアント側の認可設定、アドレス払い出し、接続先設定を確認します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>日付範囲</strong></td>
-<td style="text-align: left;">エクスポート対象のログ表示期間</td>
+<td><code>Access-Accept</code></td>
+<td><code>PAP/-</code>、<code>CHAP/-</code>、<code>MS-CHAP/-</code>、<code>eap_xxxxxxxx/MSCHAPv2</code>、<code>eap_xxxxxxxx/PEAP</code>、<code>eap_xxxxxxxx/TLS</code>、<code>eap_xxxxxxxx/TTLS</code></td>
+<td><code>-/The user account was found.</code></td>
+<td>通常のユーザ認証成功</td>
+<td>認証自体は成功しています。RADIUSクライアント側の後続処理を確認します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>状態</strong></td>
-<td style="text-align: left;">待機中、作成中、完了、失敗、期限切れ</td>
+<td><code>Access-Reject</code></td>
+<td><code>otp_xxxxxxxx/-</code></td>
+<td><code>-/-</code></td>
+<td>OTPまたはパスワードが誤り</td>
+<td>パスワードと6桁のOTPを <code>パスワード:123456</code> の形式で入力していること、端末時刻が正しいことを確認します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>件数</strong></td>
-<td style="text-align: left;">処理済み件数と対象件数</td>
+<td><code>Access-Reject</code></td>
+<td><code>otp_xxxxxxxx/-</code></td>
+<td><code>otp_xxxxxxxx: Server returned:/-</code></td>
+<td>ユーザ無効、OTP未登録、またはOTP入力形式不正</td>
+<td>ユーザが有効であること、OTPが登録済みであること、入力形式を確認します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ファイル名</strong></td>
-<td style="text-align: left;">作成されたCSVファイル名</td>
+<td><code>Access-Reject</code></td>
+<td><code>PAP/-</code></td>
+<td><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject/The user account was not found.</code></td>
+<td>ユーザが見つからない</td>
+<td>ユーザIDを確認します。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>操作</strong></td>
-<td style="text-align: left;">キャンセルまたはダウンロード</td>
+<td><code>Access-Reject</code></td>
+<td><code>-/-</code></td>
+<td><code>No Auth-Type found: rejecting the user via Post-Auth-Type = Reject/The user account was found.</code></td>
+<td>PAPパスワードが空</td>
+<td>利用端末またはネットワーク機器でパスワードが設定されていることを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>PAP/-</code></td>
+<td><code>pap: Cleartext password does not match "known good" password/The user account was found.</code></td>
+<td>ユーザパスワード不正。または、Message-Authenticatorを含まない要求ではRADIUS共有シークレット不一致</td>
+<td>ユーザパスワードとRADIUSクライアントに保存された資格情報を確認します。Message-Authenticatorを送信しない機器では、RADIUS共有シークレットも確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>CHAP/-</code></td>
+<td><code>chap: &amp;control:Cleartext-Password is required for authentication/The user account was not found.</code></td>
+<td>ユーザが見つからない</td>
+<td>ユーザIDを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>CHAP/-</code></td>
+<td><code>chap: Password comparison failed: password is incorrect/The user account was found.</code></td>
+<td>パスワード不正</td>
+<td>パスワードを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>MS-CHAP/-</code></td>
+<td><code>mschap: FAILED: No NT-Password.  Cannot perform authentication/The user account was not found.</code></td>
+<td>ユーザが見つからない</td>
+<td>ユーザIDを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>MS-CHAP/-</code></td>
+<td><code>mschap: MS-CHAP2-Response is incorrect/The user account was found.</code></td>
+<td>パスワード不正</td>
+<td>パスワードを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/MD5</code></td>
+<td><code>eap_md5: Cleartext-Password is required for EAP-MD5 authentication/-</code></td>
+<td>MABのMACアドレスが未登録、またはユーザ名とMACアドレスが不一致</td>
+<td>MACアドレスとMABルールを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/MD5</code></td>
+<td><code>-/-</code></td>
+<td>登録済みMACアドレスに対するEAP-MD5パスワード不正</td>
+<td>MABのMACアドレスと、機器が送信するEAP-MD5パスワードを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/MSCHAPv2</code></td>
+<td><code>mschap: FAILED: No NT-Password.  Cannot perform authentication/-</code> または <code>mschap: FAILED: No NT-Password.  Cannot perform authentication/The user account was not found.</code></td>
+<td>ユーザ未登録、またはサイト条件により認証情報を取得できない</td>
+<td>ユーザIDとRADIUSサイトの条件を確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/MSCHAPv2</code></td>
+<td><code>mschap: MS-CHAP2-Response is incorrect/The user account was found.</code></td>
+<td>パスワード不正</td>
+<td>パスワードを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/PEAP</code></td>
+<td><code>eap_peap: The users session was previously rejected: returning reject (again.)/The user account was found.</code> または <code>eap_peap: The users session was previously rejected: returning reject (again.)/The user account was not found.</code></td>
+<td>EAP内側の認証が拒否された</td>
+<td>後半のメッセージに従い、ユーザIDまたはパスワードを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) TLS - Alert read:fatal:internal error/-</code></td>
+<td>利用端末のRADIUSサーバ名またはドメインの検証条件が一致しない</td>
+<td>利用端末のRADIUSサーバ名またはドメインに、PIO-ID 管理者ポータルの <strong>認証＞RADIUS＞基本情報</strong> に表示されるホスト名を設定します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TTLS</code></td>
+<td><code>eap_xxxxxxxx: Failed continuing EAP TTLS (21) session.  EAP sub-module failed/-</code>、<code>eap_xxxxxxxx: Failed continuing EAP TTLS (21) session.  EAP sub-module failed/The user account was found.</code>、または <code>eap_xxxxxxxx: Failed continuing EAP TTLS (21) session.  EAP sub-module failed/The user account was not found.</code></td>
+<td>EAP内側の認証またはOTP認証が拒否された</td>
+<td>後半のメッセージに従い、ユーザID、パスワード、OTPを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>-/The user account was not found.</code></td>
+<td>証明書CNに対応するユーザが見つからない</td>
+<td>証明書CNとPIO-IDのユーザIDを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) TLS - Alert read:fatal:unknown CA/-</code></td>
+<td>利用端末で、RADIUSサーバ証明書の検証に使用するCAが正しく設定されていない</td>
+<td>利用端末で、PIO-IDのRADIUSサーバ証明書を検証できるCAを設定します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: Program returned code (2) and output 'error /var/run/radiusd/radiusd.client.XXXXXXXX: verification failed'/-</code></td>
+<td>クライアント証明書が失効している、またはPIO-IDが信頼していない発行元の証明書</td>
+<td>証明書の失効状態、発行元、証明書チェーンを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) OpenSSL says error 18 : self signed certificate/-</code></td>
+<td>自己署名のクライアント証明書</td>
+<td>PIO-IDが信頼する発行元のクライアント証明書を使用します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) OpenSSL says error 20 : unable to get local issuer certificate/-</code></td>
+<td>PIO-IDが信頼していない発行元のクライアント証明書</td>
+<td>クライアント証明書の発行元と証明書チェーンを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) OpenSSL says error 19 : self signed certificate in certificate chain/-</code></td>
+<td>クライアント証明書チェーンに自己署名証明書が含まれる</td>
+<td>PIO-IDが信頼する発行元のクライアント証明書を使用します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) OpenSSL says error 10 : certificate has expired/-</code></td>
+<td>クライアント証明書の有効期限切れ</td>
+<td>有効なクライアント証明書を使用します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TLS</code></td>
+<td><code>eap_tls: (TLS) OpenSSL says error 9 : certificate is not yet valid/-</code></td>
+<td>クライアント証明書がまだ有効開始前</td>
+<td>有効開始日を過ぎたクライアント証明書を使用します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>-/-</code>、<code>CHAP/-</code>、<code>MS-CHAP/-</code>、<code>eap_xxxxxxxx/Identity</code>、<code>eap_xxxxxxxx/TLS</code></td>
+<td><code>-/The user account is locked.</code></td>
+<td>ユーザが無効</td>
+<td>管理者ポータルで対象ユーザを有効にします。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/PEAP</code></td>
+<td><code>eap_peap: The users session was previously rejected: returning reject (again.)/The user account is locked.</code></td>
+<td>ユーザが無効</td>
+<td>管理者ポータルで対象ユーザを有効にします。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>eap_xxxxxxxx/TTLS</code></td>
+<td><code>eap_xxxxxxxx: Failed continuing EAP TTLS (21) session.  EAP sub-module failed/The user account is locked.</code></td>
+<td>ユーザが無効</td>
+<td>管理者ポータルで対象ユーザを有効にします。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>Reject/-</code>、<code>Reject/MSCHAPv2</code>、<code>Reject/PEAP</code>、<code>Reject/TTLS</code>、<code>Reject/TLS</code></td>
+<td><code>Rejected: The reject rule is matched./The user account was found.</code> または <code>Rejected: The reject rule is matched./-</code></td>
+<td>RADIUSサイトの拒否ルールに一致</td>
+<td>許可ユーザ、許可グループ、条件、ルール順序、NAS ID、SSID、NASポートタイプを確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>-/-</code></td>
+<td><code>Rejected: There is no sites assosiated with sent NAS-IP-Address/NAS-Identifier./-</code></td>
+<td>拡張RADIUSで、サイト識別の属性または属性値が、RADIUSクライアントから送信されたNAS-IP-AddressまたはNAS-Identifierと一致しない</td>
+<td>サイトの識別属性と属性値を確認します。NAS-Identifierを使う場合は、安定した共通文字列を部分一致条件として設定できるか確認します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>-/-</code></td>
+<td><code>Rejected: User-Name contains whitespace/-</code></td>
+<td>ユーザIDに空白文字がある</td>
+<td>利用端末またはRADIUSクライアントのユーザID設定から空白を除去します。</td>
+</tr>
+<tr>
+<td><code>Access-Reject</code></td>
+<td><code>-/-</code></td>
+<td><code>Rejected: Multiple @ in User-Name/-</code>、<code>Rejected: Realm begins with a dot/-</code>、<code>Rejected: Realm ends with a dot/-</code>、<code>Rejected: User-Name contains multiple ..s/-</code></td>
+<td>ユーザIDまたはrealmの形式が不正</td>
+<td>ユーザIDの形式を確認します。</td>
 </tr>
 </tbody>
 </table>
-<p><strong>待機中</strong>のエクスポートはキャンセルできます。<strong>完了</strong>したエクスポートは、<strong>ダウンロード</strong>ボタンからCSVファイルをダウンロードできます。</p>
-<div class="admonition info">
-<p class="admonition-title">CSVエクスポートに関する注意</p>
+<h2 id="ログ項目の見方">ログ項目の見方<a class="headerlink" href="#ログ項目の見方" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>確認内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>パケットタイプ</td>
+<td>RADIUS の最終応答です。<code>Access-Accept</code> は成功、<code>Access-Reject</code> は拒否です。</td>
+</tr>
+<tr>
+<td>認証タイプ</td>
+<td>PIO-ID が処理した認証方式です。<code>PAP/-</code>、<code>CHAP/-</code>、<code>MS-CHAP/-</code>、<code>eap_xxxxxxxx/TLS</code>、<code>otp_xxxxxxxx/-</code> などが表示されます。<code>xxxxxxxx</code> の数字部分は環境によって異なります。</td>
+</tr>
+<tr>
+<td>エラーメッセージ</td>
+<td><code>/</code> の前後を含めて表示されます。<code>-</code> は該当するメッセージがないことを表します。</td>
+</tr>
+<tr>
+<td>RADIUSクライアントIP、NAS ID、SSID</td>
+<td>認証要求を送信した機器・接続先を特定するための情報です。想定した機器・サイトからの認証要求か確認してください。</td>
+</tr>
+</tbody>
+</table>
+<p>エラーメッセージが <code>-/-</code> の場合は、追加のメッセージが記録されていないことを示します。<code>-/-</code> 自体は成功を意味しません。パケットタイプと認証タイプをあわせて判断してください。</p>
+<h2 id="radius認証ログがない場合">RADIUS認証ログがない場合<a class="headerlink" href="#radius認証ログがない場合" title="Permanent link"></a></h2>
+<p>該当時刻にRADIUS認証ログがない場合は、クラウドRADIUSに認証要求が到達していないか、認証ログを記録する前に要求が破棄された可能性があります。</p>
 <ul>
-<li>CSVエクスポートできるRADIUS認証ログは最大100万件です。</li>
-<li>作成されたエクスポートファイルのダウンロード有効期限は7日間です。</li>
-<li>CSVエクスポートは検索条件を引き継ぎません。ログ表示期間内の全件を対象に作成します。</li>
+<li>RADIUSクライアントの接続先、ポート番号、送信元IPアドレスを確認してください。</li>
+<li>Message-Authenticatorを送信する機器では、共有シークレット不一致により要求が認証ログを記録する前に破棄されることがあります。</li>
+<li><code>User-Name</code>属性が空または未指定でないことを確認してください。</li>
 </ul>
-</div>
-<h2 id="認証エラーのトラブルシューティング">認証エラーのトラブルシューティング<a class="headerlink" href="#認証エラーのトラブルシューティング" title="Permanent link"></a></h2>
-<p>RADIUS認証に失敗した場合は、認証を試行した時刻のログを確認してください。</p>
-<p>エラーメッセージごとの確認観点は、<a href="../radius_authlog_errors/">RADIUS認証ログのエラー確認</a>を参照してください。</p>
+<h2 id="問い合わせ時に必要な情報">問い合わせ時に必要な情報<a class="headerlink" href="#問い合わせ時に必要な情報" title="Permanent link"></a></h2>
+<p>原因調査が必要な場合は、次の情報を添えて問い合わせてください。</p>
+<ul>
+<li>対象ユーザID</li>
+<li>認証を試行した日時とタイムゾーン</li>
+<li>RADIUS認証ログの該当行、または該当ログがないこと</li>
+<li>RADIUSクライアントIP、NAS ID、SSID、認証タイプ</li>
+<li>利用端末の種類、OS、RADIUS認証の設定内容</li>
+<li>RADIUSクライアントの機器名、ソフトウェアバージョン、構成概要</li>
+<li>利用端末またはRADIUSクライアントに表示されたエラー内容</li>
+<li>特定の端末、回線、時間帯でのみ発生するか</li>
+</ul>
+<p>パスワード、ワンタイムパスワード、RADIUS共有シークレット、秘密鍵、証明書ファイルは問い合わせに記載または添付しないでください。</p>
 
 
 
