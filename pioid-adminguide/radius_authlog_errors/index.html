@@ -1361,6 +1361,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="RADIUS認証ログがない場合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radius認証処理が開始または完了していない" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RADIUS認証処理が開始または完了していない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radius認証要求を送信しているがpio-idまで到達していない" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RADIUS認証要求を送信しているがPIO-IDまで到達していない
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADIUS認証要求を送信しているがPIO-IDまで到達していない">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#標準radiusサーバを利用している場合" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        標準RADIUSサーバを利用している場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pio-idに到達した後に認証ログが記録される前に破棄されている" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIO-IDに到達した後に認証ログが記録される前に破棄されている
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1392,13 +1448,14 @@
 
 
 <h1 id="radius認証ログのエラー確認">RADIUS認証ログのエラー確認<a class="headerlink" href="#radius認証ログのエラー確認" title="Permanent link"></a></h1>
-<p>文書更新日:2026-08-31</p>
+<p>文書更新日:2026-09-01</p>
 <p>RADIUS認証に失敗した場合は、まず<strong>PIO-ID 管理者ポータル＞ログ＞RADIUS認証ログ</strong>画面で、認証を試行した時刻のログを確認してください。</p>
-<p>RADIUS認証ログでは、PIO-ID が認証要求を処理した結果を確認できます。利用端末またはネットワーク機器に表示されるエラーだけでは、原因を特定できない場合があります。</p>
+<p>RADIUS認証ログでは、PIO-IDが認証要求を処理した結果を確認できます。利用端末またはネットワーク機器に表示されるエラーだけでは、原因を特定できない場合があります。</p>
 <p>本ページでは、PIO-IDで確認した代表的なRADIUS認証ログのエラーと確認観点を掲載しています。すべてのエラーメッセージを網羅するものではありません。</p>
-<blockquote>
-<p>RADIUS認証ログが表示されるまで、認証実行後から5分程度かかる場合があります。認証直後にログが見つからない場合は、少し時間をおいて再度検索してください。</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">ログ表示に関する注意</p>
+<p>RADIUS認証ログが表示されるまで、認証実行後から5分程度かかる場合があります。認証直後にログが表示されない場合は、少し時間をおいてから再度確認してください。</p>
+</div>
 <h2 id="認証結果の一覧">認証結果の一覧<a class="headerlink" href="#認証結果の一覧" title="Permanent link"></a></h2>
 <table>
 <thead>
@@ -1554,7 +1611,7 @@
 <tr>
 <td><code>Access-Reject</code></td>
 <td><code>eap_xxxxxxxx/TLS</code></td>
-<td><code>eap_tls: Program returned code (2) and output 'error /var/run/radiusd/radiusd.client.XXXXXXXX: verification failed'/-</code></td>
+<td><code>eap_tls: Program returned code (2) ... verification failed/-</code></td>
 <td>クライアント証明書が失効している、またはPIO-IDが信頼していない発行元の証明書</td>
 <td>証明書の失効状態、発行元、証明書チェーンを確認します。</td>
 </tr>
@@ -1659,7 +1716,7 @@
 </tr>
 <tr>
 <td>認証タイプ</td>
-<td>PIO-ID が処理した認証方式です。<code>PAP/-</code>、<code>CHAP/-</code>、<code>MS-CHAP/-</code>、<code>eap_xxxxxxxx/TLS</code>、<code>otp_xxxxxxxx/-</code> などが表示されます。<code>xxxxxxxx</code> の数字部分は環境によって異なります。</td>
+<td>PIO-IDが処理した認証方式です。<code>PAP/-</code>、<code>CHAP/-</code>、<code>MS-CHAP/-</code>、<code>eap_xxxxxxxx/TLS</code>、<code>otp_xxxxxxxx/-</code> などが表示されます。<code>xxxxxxxx</code> の数字部分は環境によって異なります。</td>
 </tr>
 <tr>
 <td>エラーメッセージ</td>
@@ -1673,12 +1730,34 @@
 </table>
 <p>エラーメッセージが <code>-/-</code> の場合は、追加のメッセージが記録されていないことを示します。<code>-/-</code> 自体は成功を意味しません。パケットタイプと認証タイプをあわせて判断してください。</p>
 <h2 id="radius認証ログがない場合">RADIUS認証ログがない場合<a class="headerlink" href="#radius認証ログがない場合" title="Permanent link"></a></h2>
-<p>該当時刻にRADIUS認証ログがない場合は、クラウドRADIUSに認証要求が到達していないか、認証ログを記録する前に要求が破棄された可能性があります。</p>
+<p>該当時刻にRADIUS認証ログがない場合は、PIO-IDが認証結果を記録する段階までRADIUS認証処理が進んでいない可能性があります。</p>
+<p>まず、RADIUSクライアントとなるネットワーク機器から、RADIUS認証要求が送信されているかを確認してください。</p>
+<h3 id="radius認証処理が開始または完了していない">RADIUS認証処理が開始または完了していない<a class="headerlink" href="#radius認証処理が開始または完了していない" title="Permanent link"></a></h3>
+<p>利用端末とネットワーク機器の間で、RADIUS認証を開始する前の処理に失敗している場合があります。</p>
+<p>たとえば、次のような原因が考えられます。</p>
 <ul>
-<li>RADIUSクライアントの接続先、ポート番号、送信元IPアドレスを確認してください。</li>
-<li>Message-Authenticatorを送信する機器では、共有シークレット不一致により要求が認証ログを記録する前に破棄されることがあります。</li>
-<li><code>User-Name</code>属性が空または未指定でないことを確認してください。</li>
+<li>Wi-Fiへの接続や802.1X認証の開始前に失敗している</li>
+<li>利用端末の802.1X、EAP、証明書などの設定に問題がある</li>
+<li>VPNで、IKE/IPsecやL2TPなど、RADIUS認証より前の接続処理に失敗している</li>
+<li>VPNクライアントとネットワーク機器で、PAP、CHAP、MS-CHAPv2などの認証方式が一致していない</li>
+<li>ネットワーク機器側でRADIUS認証を使用する設定になっていない</li>
+<li>認証対象となるSSID、VPN、ポートなどにRADIUS設定が適用されていない</li>
 </ul>
+<p>この場合、PIO-IDにRADIUS認証要求が送信されないか、一連の認証処理が完了しないため、RADIUS認証ログが記録されないことがあります。</p>
+<p>ネットワーク機器の認証ログ、システムログ、デバッグログなどを確認し、RADIUS Access-Requestが送信されているか、応答後に認証処理が中断していないか確認してください。</p>
+<h3 id="radius認証要求を送信しているがpio-idまで到達していない">RADIUS認証要求を送信しているがPIO-IDまで到達していない<a class="headerlink" href="#radius認証要求を送信しているがpio-idまで到達していない" title="Permanent link"></a></h3>
+<p>ネットワーク機器からRADIUS認証要求が送信されている場合は、次の項目を確認してください。</p>
+<ul>
+<li>ネットワーク機器に設定されているRADIUSサーバのアドレスおよび認証ポートが正しいこと</li>
+<li>ファイアウォール、ルータ、NAT、アクセス制御などによりRADIUS通信が遮断されていないこと</li>
+</ul>
+<h4 id="標準radiusサーバを利用している場合">標準RADIUSサーバを利用している場合<a class="headerlink" href="#標準radiusサーバを利用している場合" title="Permanent link"></a></h4>
+<p>上記に加えて、PIO-IDから見えるRADIUSパケットの送信元グローバルIPアドレスが、PIO-IDに登録しているRADIUSクライアントのIPアドレスと一致していることを確認してください。</p>
+<h3 id="pio-idに到達した後に認証ログが記録される前に破棄されている">PIO-IDに到達した後に認証ログが記録される前に破棄されている<a class="headerlink" href="#pio-idに到達した後に認証ログが記録される前に破棄されている" title="Permanent link"></a></h3>
+<p>RADIUS認証要求がPIO-IDまで到達していても、RADIUS共有シークレットの不一致などにより、認証ログが記録される前に要求が破棄される場合があります。</p>
+<p>RADIUS共有シークレットが、ネットワーク機器側とPIO-ID側で一致していることを確認してください。</p>
+<p>EAPを利用する場合や、ネットワーク機器がMessage-Authenticator属性を付与する場合、共有シークレットが一致していないとRADIUS認証要求が破棄され、認証ログが記録されないことがあります。</p>
+<p>また、一部のネットワーク機器では、共有シークレットに使用する特殊文字の扱いによって、設定した文字列と実際に使用される共有シークレットが一致しない場合があります。共有シークレットの不一致が疑われる場合は、十分な長さの半角英数字のみの文字列に変更して確認してください。</p>
 <h2 id="問い合わせ時に必要な情報">問い合わせ時に必要な情報<a class="headerlink" href="#問い合わせ時に必要な情報" title="Permanent link"></a></h2>
 <p>原因調査が必要な場合は、次の情報を添えて問い合わせてください。</p>
 <ul>
