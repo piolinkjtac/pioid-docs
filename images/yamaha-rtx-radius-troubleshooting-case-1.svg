@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="3440" viewBox="0 0 3600 3440" role="img" aria-labelledby="title desc">
+  <title id="title">対象ユーザの認証結果ログがない場合</title>
+  <desc id="desc">対象ユーザの認証結果ログがない接続試行について、YAMAHA RTXのログからIKE/IPsec、L2TP、PPP、RADIUSの処理段階を確認し、Windows VPNクライアント、通信経路、YAMAHA RTX、SingleIDの確認範囲を切り分けるフローチャート</desc>
+  <defs>
+    <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#425466"/></marker>
+    <filter id="s"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity=".16"/></filter>
+    <style>.t{font-family:"Noto Sans JP","Yu Gothic",sans-serif;fill:#17324d;text-anchor:middle}.m{font-size:36px;font-weight:700}.n{font-size:28px;font-weight:500}.d{font-size:25px;font-weight:500}.b{font-size:26px;font-weight:700;fill:#425466}.w{fill:#fff}.l{stroke:#425466;stroke-width:6;fill:none;marker-end:url(#a)}.box{fill:#fff;stroke:#e76f00;stroke-width:6}</style>
+  </defs>
+  <rect width="3600" height="3440" rx="36" fill="#fff7f0"/>
+
+  <rect x="1350" y="25" width="900" height="110" rx="24" fill="#e76f00" filter="url(#s)"/>
+  <text class="t m w" x="1800" y="92">対象ユーザの認証結果ログがない</text>
+  <path class="l" d="M1800 135V245"/>
+  <rect class="box" x="1350" y="245" width="900" height="130" rx="24" filter="url(#s)"/>
+  <text class="t m" x="1800" y="300">YAMAHA RTXでログを確認</text><text class="t n" x="1800" y="345">ログがない接続試行の時刻にshow log reverseを実行</text>
+
+  <path class="l" d="M1800 375V495"/>
+  <polygon class="box" points="1800,495 2250,605 1800,715 1350,605" filter="url(#s)"/>
+  <text class="t m" x="1800" y="590">接続試行時刻に</text><text class="t m" x="1800" y="636">[IKE]を含むログがあるか</text>
+  <path class="l" d="M1350 605H1050"/><text class="t b" x="1200" y="570">いいえ</text>
+  <rect class="box" x="50" y="415" width="1000" height="380" rx="24" filter="url(#s)"/>
+  <text class="t m" x="550" y="465">[IKE]ログを確認できない</text><text class="t n" x="550" y="515">IKE接続試行の到達を確認できない</text><text class="t d" x="550" y="570">1. VPNクライアント: 接続先・VPNの種類・接続開始</text><text class="t d" x="550" y="620">2. 通信経路: インターネット接続・NAT</text><text class="t d" x="550" y="665">ファイアウォール・UDP 500/4500・ESP</text><text class="t d" x="550" y="715">3. YAMAHA RTX: IPsec・フィルター・ログ出力設定</text><text class="t d" x="550" y="760">確認後にVPN接続を再試行</text>
+
+  <path class="l" d="M1800 715V875"/><text class="t b" x="2010" y="795">はい: IKEログあり</text>
+  <polygon class="box" points="1800,875 2250,985 1800,1095 1350,985" filter="url(#s)"/>
+  <text class="t m" x="1800" y="950">[L2TP]接続要求を受信したか</text><text class="t d" x="1800" y="1000">TUNNEL[...] connected from ...</text>
+  <path class="l" d="M2250 985H2550"/><text class="t b" x="2400" y="950">いいえ</text>
+  <rect class="box" x="2550" y="795" width="1000" height="380" rx="24" filter="url(#s)"/>
+  <text class="t m" x="3050" y="845">[L2TP] connected fromを確認できない</text><text class="t n" x="3050" y="895">L2TP接続要求の受信を確認できない</text><text class="t d" x="3050" y="950">1. VPNクライアント: VPNの種類・事前共有キー</text><text class="t d" x="3050" y="1000">2. 通信経路: UDP 500/4500・ESP・NAT</text><text class="t d" x="3050" y="1050">3. YAMAHA RTX: IKE/IPsec・NATトラバーサル</text><text class="t d" x="3050" y="1100">L2TP・フィルター設定</text><text class="t d" x="3050" y="1145">確認後にVPN接続を再試行</text>
+
+  <path class="l" d="M1800 1095V1255"/><text class="t b" x="2120" y="1175">はい: L2TP接続要求を受信</text>
+  <polygon class="box" points="1800,1255 2250,1365 1800,1475 1350,1365" filter="url(#s)"/>
+  <text class="t m" x="1800" y="1330">L2TP確立ログがあるか</text><text class="t d" x="1800" y="1375">tunnel ... established</text><text class="t d" x="1800" y="1415">session ... established</text>
+  <path class="l" d="M1350 1365H1050"/><text class="t b" x="1200" y="1330">いいえ</text>
+  <rect class="box" x="50" y="1175" width="1000" height="380" rx="24" filter="url(#s)"/>
+  <text class="t m" x="550" y="1245">[L2TP] establishedを確認できない</text><text class="t n" x="550" y="1300">L2TPセッションの確立を確認できない</text><text class="t d" x="550" y="1365">1. VPNクライアント: VPNの種類</text><text class="t d" x="550" y="1420">2. YAMAHA RTX: L2TP・トンネル・同時接続数</text><text class="t d" x="550" y="1485">確認後にVPN接続を再試行</text>
+
+  <path class="l" d="M1800 1475V1635"/><text class="t b" x="2110" y="1555">はい: L2TPセッション確立</text>
+  <polygon class="box" points="1800,1635 2250,1745 1800,1855 1350,1745" filter="url(#s)"/>
+  <text class="t m" x="1800" y="1710">PPP認証開始ログがあるか</text><text class="t d" x="1800" y="1760">PP[ANONYMOUSxx] Call detected</text><text class="t d" x="1800" y="1800">from user '...'</text>
+  <path class="l" d="M2250 1745H2550"/><text class="t b" x="2400" y="1710">いいえ</text>
+  <rect class="box" x="2550" y="1555" width="1000" height="380" rx="24" filter="url(#s)"/>
+  <text class="t m" x="3050" y="1625">PP Call detectedを確認できない</text><text class="t n" x="3050" y="1680">PPPユーザ認証の開始を確認できない</text><text class="t d" x="3050" y="1745">1. VPNクライアント: ユーザ名とパスワード・PAP</text><text class="t d" x="3050" y="1800">2. YAMAHA RTX: PPP認証方式・匿名接続設定</text><text class="t d" x="3050" y="1865">確認後にVPN接続を再試行</text>
+
+  <path class="l" d="M1800 1855V2015"/><text class="t b" x="2060" y="1935">はい: PPP認証開始</text>
+  <polygon class="box" points="1800,2015 2250,2125 1800,2235 1350,2125" filter="url(#s)"/>
+  <text class="t m" x="1800" y="2110">接続ユーザ名がYAMAHA RTXに</text><text class="t m" x="1800" y="2156">ローカル登録されているか</text>
+  <path class="l" d="M2250 2125H2550"/><text class="t b" x="2400" y="2090">はい</text>
+  <rect class="box" x="2550" y="2025" width="1000" height="280" rx="24" filter="url(#s)"/>
+  <text class="t m" x="3050" y="2080">YAMAHA RTXでローカル認証</text><text class="t n" x="3050" y="2130">SingleIDへRADIUS要求は送信されない</text><text class="t d" x="3050" y="2180">ローカルパスワード不一致でも</text><text class="t d" x="3050" y="2225">RADIUS認証へフォールバックしない</text><text class="t d" x="3050" y="2275">SingleIDで認証する場合はローカル登録を削除</text>
+
+  <path class="l" d="M1800 2235V2395"/><text class="t b" x="2045" y="2315">いいえ: RADIUS認証へ</text>
+  <polygon class="box" points="1800,2395 2250,2520 1800,2645 1350,2520" filter="url(#s)"/>
+  <text class="t n" x="1800" y="2470">拡張RADIUSサーバの場合</text><text class="t m" x="1800" y="2515">同じ時刻にサイト識別失敗</text><text class="t m" x="1800" y="2560">ログがあるか</text>
+  <path class="l" d="M2250 2520H2550"/><text class="t b" x="2400" y="2485">ある</text>
+  <rect class="box" x="2550" y="2340" width="1000" height="360" rx="24" filter="url(#s)"/>
+  <text class="t m" x="3050" y="2410">拡張RADIUSサイトを確認</text><text class="t n" x="3050" y="2470">サイト識別する属性: NAS-IP-Address</text><text class="t n" x="3050" y="2520">属性値: ログに表示されたNAS-IP</text><text class="t d" x="3050" y="2580">設定を修正してVPN接続を再試行</text><text class="t d" x="3050" y="2630">5分後に対象ユーザの認証結果ログを確認</text>
+  <path class="l" d="M1800 2645V2805"/><text class="t b" x="2110" y="2735">ない、または標準RADIUS</text>
+  <rect class="box" x="1350" y="2805" width="900" height="260" rx="24" filter="url(#s)"/>
+  <text class="t m" x="1800" y="2860">RADIUS送信設定を確認</text><text class="t n" x="1800" y="2910">送信先・ポート・通信経路</text><text class="t n" x="1800" y="2955">サーバ種別・サーバ番号</text><text class="t n" x="1800" y="3000">タイムアウトなど現在の通信状態を確認</text>
+  <path class="l" d="M1800 3065V3185"/>
+  <rect x="1350" y="3185" width="900" height="160" rx="24" fill="#e76f00" filter="url(#s)"/>
+  <text class="t m w" x="1800" y="3245">修正後にVPN接続を再試行</text><text class="t n w" x="1800" y="3295">5分後に対象ユーザの認証結果ログを確認</text>
+</svg>

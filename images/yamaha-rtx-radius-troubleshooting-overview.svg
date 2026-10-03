@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3300" height="1000" viewBox="0 0 3300 1000" role="img" aria-labelledby="title desc">
+  <title id="title">YAMAHA RTX リモートアクセスVPN 2要素認証で接続できない場合の切り分けフロー</title>
+  <desc id="desc">パスワードとOTPによる2要素認証を使用するリモートアクセスVPNに接続できない場合について、対象ユーザの認証結果ログの有無、パケットタイプ、認証タイプから切り分けるフローチャート</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#425466"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#17324d" flood-opacity=".16"/></filter>
+    <style>.text{font-family:"Noto Sans JP","Yu Gothic",sans-serif;fill:#17324d;text-anchor:middle}.main{font-size:36px;font-weight:700}.step{font-size:30px;font-weight:700}.branch{font-size:26px;font-weight:700;fill:#425466}.number{font-size:25px;font-weight:700;fill:#fff}.inverse{fill:#fff}.line{stroke:#425466;stroke-width:6;fill:none;marker-end:url(#arrow)}a{cursor:pointer}a:hover rect{stroke-width:9}</style>
+  </defs>
+  <rect width="3300" height="1000" rx="36" fill="#fff7f0"/>
+
+  <rect x="950" y="25" width="900" height="110" rx="24" fill="#e76f00" filter="url(#shadow)"/>
+  <text class="text main inverse" x="1400" y="72">2要素認証を使用するVPNに</text><text class="text main inverse" x="1400" y="114">接続できない</text>
+  <path class="line" d="M1400 135V235"/>
+  <polygon points="1400,235 1750,345 1400,455 1050,345" fill="#fff" stroke="#e76f00" stroke-width="6" filter="url(#shadow)"/>
+  <text class="text main" x="1400" y="335">5分後に対象ユーザの</text><text class="text main" x="1400" y="377">認証結果ログがあるか</text>
+
+  <path class="line" d="M1050 345H500V750"/><text class="text branch" x="775" y="315">ない</text>
+  <path class="line" d="M1750 345H2150V485"/><text class="text branch" x="1950" y="315">ある</text>
+  <polygon points="2150,485 2500,595 2150,705 1800,595" fill="#fff" stroke="#e76f00" stroke-width="6" filter="url(#shadow)"/>
+  <text class="text main" x="2150" y="585">パケットタイプと</text><text class="text main" x="2150" y="627">認証タイプを確認</text>
+
+  <path class="line" d="M1800 595H1400V750"/><text class="text branch" x="1600" y="535">Access-Reject</text><text class="text branch" x="1600" y="575">またはOTP以外</text>
+  <path class="line" d="M2500 595H2850V750"/><text class="text branch" x="2675" y="535">Access-Accept</text><text class="text branch" x="2675" y="575">かつOTP</text>
+
+  <a href="/singleid-pocguide/yamaha_rtx/troubleshooting-radius/#case-1" target="_top">
+    <rect x="100" y="750" width="800" height="190" rx="24" fill="#e76f00" stroke="#e76f00" filter="url(#shadow)"/>
+    <circle cx="180" cy="845" r="36" fill="#fff" opacity=".25"/><text class="text number" x="180" y="854">1</text>
+    <text class="text step inverse" x="520" y="835">対象ユーザの</text><text class="text step inverse" x="520" y="875">認証結果ログがない</text>
+  </a>
+  <a href="/singleid-pocguide/yamaha_rtx/troubleshooting-radius/#case-2" target="_top">
+    <rect x="1000" y="750" width="800" height="190" rx="24" fill="#e76f00" stroke="#e76f00" filter="url(#shadow)"/>
+    <circle cx="1080" cy="845" r="36" fill="#fff" opacity=".25"/><text class="text number" x="1080" y="854">2</text>
+    <text class="text step inverse" x="1420" y="835">RADIUS認証ログの</text><text class="text step inverse" x="1420" y="880">内容を確認</text>
+  </a>
+  <rect x="2450" y="750" width="800" height="190" rx="24" fill="#e76f00" stroke="#e76f00" filter="url(#shadow)"/>
+  <text class="text step inverse" x="2850" y="835">2要素認証に成功</text><text class="text step inverse" x="2850" y="880">YAMAHA RTX側を確認</text>
+</svg>
