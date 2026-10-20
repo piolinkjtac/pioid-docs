@@ -1785,7 +1785,7 @@
 <li>PIO-ID のアカウント番号、Microsoft Entra ID のテナント ID を確認できること</li>
 </ul>
 <h3 id="upn-の運用重要">UPN の運用（重要）<a class="headerlink" href="#upn-の運用重要" title="Permanent link"></a></h3>
-<p>PIO-ID では、Microsoft Entra ID の**ユーザー プリンシパル名（UPN）**を元にユーザを識別します（PIO-ID 側のユーザ名は UPN の<code>@</code>より前の部分が利用されます）。</p>
+<p>PIO-ID では、Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>を元にユーザを識別します（PIO-ID 側のユーザ名は UPN の<code>@</code>より前の部分が利用されます）。</p>
 <ul>
 <li>同期対象にできる UPN サフィックスは1つであること</li>
 <li>
@@ -1886,7 +1886,7 @@ PIO-ID ユーザ／グループ管理
 <li><strong>新しいアプリケーション</strong>ボタンをクリックします。</li>
 <li><strong>独自のアプリケーションの作成</strong>ボタンをクリックします。</li>
 <li>アプリ名を入力します（例：<code>PIO-ID SCIM</code>）。</li>
-<li>**ギャラリーに見つからないその他のアプリケーションを統合します (ギャラリー以外)**を選択します。</li>
+<li><strong>ギャラリーに見つからないその他のアプリケーションを統合します (ギャラリー以外)</strong>を選択します。</li>
 <li><strong>作成</strong>ボタンをクリックします。</li>
 </ol>
 <hr />
@@ -1961,7 +1961,7 @@ PIO-ID ユーザ／グループ管理
 <p><strong>テスト接続</strong>ボタンをクリックし、接続テストが成功することを確認します。</p>
 </li>
 <li><strong>作成</strong>ボタンをクリックします。</li>
-<li>作成完了後、アプリの**概要（プレビュー）**画面が表示されます。</li>
+<li>作成完了後、アプリの<strong>概要（プレビュー）</strong>画面が表示されます。</li>
 <li>画面上部に<strong>プロビジョニングの開始</strong>ボタンが表示されていることを確認します。</li>
 </ol>
 <div class="admonition info">
@@ -1971,9 +1971,9 @@ PIO-ID ユーザ／グループ管理
 <hr />
 <h2 id="6-属性マッピング">6. 属性マッピング<a class="headerlink" href="#6-属性マッピング" title="Permanent link"></a></h2>
 <h3 id="61-ユーザ属性マッピングusers">6.1 ユーザ属性マッピング（Users）<a class="headerlink" href="#61-ユーザ属性マッピングusers" title="Permanent link"></a></h3>
-<p>マッピングは、サイドメニューの**属性マッピング（プレビュー）**から設定します。</p>
+<p>マッピングは、サイドメニューの<strong>属性マッピング（プレビュー）</strong>から設定します。</p>
 <ol>
-<li>サイドメニューから**属性マッピング（プレビュー）**をクリックします。</li>
+<li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
 <li>一覧から <strong>Provision Microsoft Entra ID Users</strong> をクリックします。Microsoft Entra ID のユーザー属性を PIO-ID の SCIM ユーザ属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</li>
 </ol>
 <table>
@@ -2077,7 +2077,7 @@ PIO-ID ユーザ／グループ管理
 <hr />
 <h3 id="62-グループ属性マッピングgroups">6.2 グループ属性マッピング（Groups）<a class="headerlink" href="#62-グループ属性マッピングgroups" title="Permanent link"></a></h3>
 <ol>
-<li>サイドメニューから**属性マッピング（プレビュー）**をクリックします。</li>
+<li>サイドメニューから<strong>属性マッピング（プレビュー）</strong>をクリックします。</li>
 <li>
 <p>一覧から <strong>Provision Microsoft Entra ID Groups</strong> をクリックします。Microsoft Entra ID のグループ属性を PIO-ID の SCIM グループ属性にマッピングします。PIO-ID 連携では、基本的に<strong>デフォルトのマッピングのままで動作します</strong>。以下はデフォルトのマッピング例です。</p>
 <table>
@@ -2108,7 +2108,7 @@ PIO-ID ユーザ／グループ管理
 <p class="admonition-title">Warning</p>
 <ul>
 <li>Microsoft Entra ID の SCIM では、グループの入れ子（グループのメンバーに別グループが含まれる状態）は<strong>展開されません</strong>。</li>
-<li>PIO-ID に同期されるのは、割り当てたグループの**直下のメンバー（直接メンバー）**のみです。</li>
+<li>PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。</li>
 </ul>
 </div>
 <hr />
@@ -2126,13 +2126,13 @@ PIO-ID ユーザ／グループ管理
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>グループを含むグループ（入れ子になっているグループ）<strong>を割り当て対象に選択しないでください。PIO-ID に同期されるのは、割り当てたグループの</strong>直下のメンバー（直接メンバー）<strong>のみです。グループを割り当てる場合は、メンバーが</strong>ユーザーのみ</strong>のグループを選択してください。</p>
+<p><strong>グループを含むグループ（入れ子になっているグループ）</strong>を割り当て対象に選択しないでください。PIO-ID に同期されるのは、割り当てたグループの<strong>直下のメンバー（直接メンバー）</strong>のみです。グループを割り当てる場合は、メンバーが<strong>ユーザーのみ</strong>のグループを選択してください。</p>
 </div>
 <hr />
 <h3 id="72-プロビジョニングの開始">7.2 プロビジョニングの開始<a class="headerlink" href="#72-プロビジョニングの開始" title="Permanent link"></a></h3>
 <p>属性マッピングとユーザー／グループの割り当てが完了したら、プロビジョニングを開始します。</p>
 <ol>
-<li>サイドメニューから**概要（プレビュー）**をクリックします。</li>
+<li>サイドメニューから<strong>概要（プレビュー）</strong>をクリックします。</li>
 <li>画面上部の<strong>プロビジョニングの開始</strong>ボタンをクリックします。</li>
 <li>画面上部の表示が<strong>プロビジョニングを一時停止</strong>に切り替わることを確認します。</li>
 </ol>
@@ -2142,7 +2142,7 @@ PIO-ID ユーザ／グループ管理
 <h3 id="80-pio-idへ同期されるユーザ項目">8.0 PIO-IDへ同期されるユーザ項目<a class="headerlink" href="#80-pio-idへ同期されるユーザ項目" title="Permanent link"></a></h3>
 <p>PIO-ID に同期される主なユーザ項目は以下です。</p>
 <ul>
-<li>ユーザ名：Microsoft Entra ID の**ユーザー プリンシパル名（UPN）**の<code>@</code>より前の部分</li>
+<li>ユーザ名：Microsoft Entra ID の<strong>ユーザー プリンシパル名（UPN）</strong>の<code>@</code>より前の部分</li>
 <li>名：<code>givenName</code></li>
 <li>姓：<code>surname</code></li>
 <li>メールアドレス：<code>mail</code></li>

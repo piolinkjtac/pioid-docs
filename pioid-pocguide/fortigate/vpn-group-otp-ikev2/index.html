@@ -1372,7 +1372,7 @@
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証ikev2自動トランスポートモード">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）（IKEv2自動トランスポートモード）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証ikev2自動トランスポートモード" title="Permanent link"></a></h1>
 <p>文書更新日:2026-06-22</p>
 <h2 id="本手順について">本手順について<a class="headerlink" href="#本手順について" title="Permanent link"></a></h2>
-<p>FortiGate のリモートアクセス VPN（IPsec）で、<strong>IKEv2 の自動トランスポートモード</strong>を利用する構成では、PIO-ID の**2要素認証（パスワード認証＋ワンタイムパスワード認証）**は利用できません。</p>
+<p>FortiGate のリモートアクセス VPN（IPsec）で、<strong>IKEv2 の自動トランスポートモード</strong>を利用する構成では、PIO-ID の<strong>2要素認証（パスワード認証＋ワンタイムパスワード認証）</strong>は利用できません。</p>
 <h2 id="理由">理由<a class="headerlink" href="#理由" title="Permanent link"></a></h2>
 <p>PIO-ID のワンタイムパスワード認証では、RADIUS 認証方式として <strong>PAP</strong> を利用する必要があります。</p>
 <p>一方、FortiGate のリモートアクセス VPN（IPsec）の <strong>IKEv2 自動トランスポートモード</strong>では、この構成で必要となる PAP 認証を利用できません。そのため、<strong>標準 RADIUS サーバ</strong>を利用する構成でも、PIO-ID のワンタイムパスワード認証は利用できません。</p>
