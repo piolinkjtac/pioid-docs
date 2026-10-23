@@ -21,7 +21,7 @@
     
     
       
-        <title>PHP、Java、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響 - PIO-ID マニュアル</title>
+        <title>PHP、OpenJDK、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響 - PIO-ID マニュアル</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phpjavaapache-tomcatnodejsの脆弱性に関するpio-idへの影響" class="md-skip">
+        <a href="#phpopenjdkapache-tomcatnodejsの脆弱性に関するpio-idへの影響" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PHP、Java、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響
+              PHP、OpenJDK、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響
             
           </span>
         </div>
@@ -1342,10 +1342,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
+  <a href="#openjdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Java
+        OpenJDK
       
     </span>
   </a>
@@ -1402,11 +1402,11 @@
 
 
 
-<h1 id="phpjavaapache-tomcatnodejsの脆弱性に関するpio-idへの影響">PHP、Java、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響<a class="headerlink" href="#phpjavaapache-tomcatnodejsの脆弱性に関するpio-idへの影響" title="Permanent link"></a></h1>
+<h1 id="phpopenjdkapache-tomcatnodejsの脆弱性に関するpio-idへの影響">PHP、OpenJDK、Apache Tomcat、Node.jsの脆弱性に関するPIO-IDへの影響<a class="headerlink" href="#phpopenjdkapache-tomcatnodejsの脆弱性に関するpio-idへの影響" title="Permanent link"></a></h1>
 <p>文書更新日:2026-10-22</p>
 <p>PIO-IDでは、お客様にご対応をお願いする必要がある場合を除き、個別の脆弱性に関する対応状況は通常公表しておりません。</p>
 <p>このたび、広く利用されているPHPにおいて、認証なしで外部から任意のコードを実行される可能性がある、2件の重大な脆弱性が公表されました。国内では、IPAによる事前の注意喚起や高市総理による速やかな対応の呼びかけに加え、財務省がWebサイトの一部を一時停止するなど、社会的にも大きな影響が生じています。</p>
-<p>こうした状況を踏まえ、お客様に安心してPIO-IDをご利用いただけるよう、今回のPHP脆弱性によるPIO-IDへの影響をお知らせします。併せて、同時期に公表されたJava、Apache Tomcat、Node.jsの脆弱性についても、影響の有無と対応状況をご案内します。</p>
+<p>こうした状況を踏まえ、お客様に安心してPIO-IDをご利用いただけるよう、今回のPHP脆弱性によるPIO-IDへの影響をお知らせします。併せて、同時期に公表されたOpenJDK、Apache Tomcat、Node.jsの脆弱性についても、深刻度の高いものを中心に、影響の有無と対応状況をご案内します。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
@@ -1432,12 +1432,16 @@
 <td style="text-align: left;"><code>CVE-2026-109618</code>、<code>CVE-2026-109619</code></td>
 </tr>
 <tr>
+<td style="text-align: left;">深刻度</td>
+<td style="text-align: left;">Critical（CVSS 4.0: 9.2）</td>
+</tr>
+<tr>
 <td style="text-align: left;">PIO-IDへの影響</td>
 <td style="text-align: left;">PHPを使用していないため、影響はありません。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="java">Java<a class="headerlink" href="#java" title="Permanent link"></a></h2>
+<h2 id="openjdk">OpenJDK<a class="headerlink" href="#openjdk" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -1455,12 +1459,16 @@
 <td style="text-align: left;"><code>CVE-2026-91403</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">PIO-IDへの影響</td>
-<td style="text-align: left;">Javaを使用しています。クラウドRADIUSおよびプライベートPKIへの影響はありません。アプリ連携機能の一部は影響を受ける可能性がありますが、接続先を限定しているため、リスクは低いと評価しています。</td>
+<td style="text-align: left;">深刻度</td>
+<td style="text-align: left;">Critical（CVSS 3.1: 9.1）</td>
 </tr>
 <tr>
-<td style="text-align: left;">対応状況</td>
-<td style="text-align: left;">対策の検証は完了しており、サービス停止を伴わない方法で対応を進めています。緊急メンテナンスは実施しません。</td>
+<td style="text-align: left;">PIO-IDへの影響</td>
+<td style="text-align: left;">2026年10月22日に対策を完了しており、現在、PIO-IDへの影響はありません。</td>
+</tr>
+<tr>
+<td style="text-align: left;">対応履歴</td>
+<td style="text-align: left;">2026年10月21日: クラウドRADIUSおよびプライベートPKIへの影響はありませんでした。アプリ連携機能の一部は影響を受ける可能性がありましたが、接続先を限定しているため、リスクは低いと評価しました。<br>2026年10月22日: サービスを停止せずに対策を完了しました。</td>
 </tr>
 </tbody>
 </table>
@@ -1480,6 +1488,10 @@
 <tr>
 <td style="text-align: left;">対象</td>
 <td style="text-align: left;"><code>CVE-2026-101356</code>、<code>CVE-2026-101296</code>、<code>CVE-2026-93446</code>、<code>CVE-2026-88041</code>、<code>CVE-2026-74049</code>、<code>CVE-2026-74048</code>、<code>CVE-2026-103119</code>、<code>CVE-2026-80353</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">深刻度</td>
+<td style="text-align: left;">Important: <code>CVE-2026-101356</code>、<code>CVE-2026-101296</code>、<code>CVE-2026-103119</code><br>Low: <code>CVE-2026-93446</code>、<code>CVE-2026-88041</code>、<code>CVE-2026-74049</code>、<code>CVE-2026-74048</code>、<code>CVE-2026-80353</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">PIO-IDへの影響</td>
@@ -1503,6 +1515,10 @@
 <tr>
 <td style="text-align: left;">対象</td>
 <td style="text-align: left;"><code>CVE-2026-105481</code>、<code>CVE-2026-105482</code>、<code>CVE-2026-105483</code>、<code>CVE-2026-106069</code>、<code>CVE-2026-106070</code>、<code>CVE-2026-106071</code>、<code>CVE-2026-106072</code>、<code>CVE-2026-106073</code>、<code>CVE-2026-106074</code>、<code>CVE-2026-111497</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">深刻度</td>
+<td style="text-align: left;">High: <code>CVE-2026-105482</code>、<code>CVE-2026-105483</code>、<code>CVE-2026-106069</code>、<code>CVE-2026-111497</code><br>Medium: <code>CVE-2026-105481</code>、<code>CVE-2026-106072</code>、<code>CVE-2026-106074</code><br>Low: <code>CVE-2026-106070</code>、<code>CVE-2026-106071</code>、<code>CVE-2026-106073</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">PIO-IDへの影響</td>
