@@ -1492,7 +1492,7 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証">リモートアクセスVPN-2要素認証（パスワード認証＋ワンタイムパスワード認証）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証ワンタイムパスワード認証" title="Permanent link"></a></h1>
-<p>文書更新日:2026-08-05</p>
+<p>文書更新日:2026-11-05</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、YAMAHA RTXへVPNを使ってリモートアクセスします。</li>
@@ -1509,8 +1509,9 @@
 <li>PAP認証を利用できること</li>
 </ul>
 <p>YAMAHA RTXでRADIUS連携によるリモートアクセスVPNを利用する場合、VPN方式はL2TP/IPsecです。また、本構成ではYAMAHA RTX側のユーザ認証方式としてPAPを選択します。L2TP/IPsecまたはPAP認証を利用できないVPNクライアントは対象外です。</p>
-<p>iPhone/iPadの標準VPNクライアントは、PAPを明示的に選択できないため対象外です。</p>
+<p>iPhone/iPadおよびMac（macOS）の標準VPNクライアントは、L2TP/IPsecのユーザ認証にMS-CHAPV2を使用するため対象外です。</p>
 <p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。</p>
+<p>参考: <a href="https://support.apple.com/ja-jp/guide/security/sec802e8ab55/web" target="_blank">VPN（仮想プライベートネットワーク）のセキュリティ（Apple）</a>、<a href="https://network.yamaha.com/setting/router_firewall/vpn/vpn_client/android/" target="_blank">Androidからリモートアクセスする（YAMAHA）</a></p>
 </div>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
 <h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>

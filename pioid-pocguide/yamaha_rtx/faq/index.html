@@ -1452,10 +1452,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#q11-iphoneipadやandroid端末をvpn接続端末として利用できますか" class="md-nav__link">
+  <a href="#q11-maciphoneipadandroid端末をvpn接続端末として利用できますか" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q11. iPhone/iPadやAndroid端末をVPN接続端末として利用できますか？
+        Q11. Mac、iPhone/iPad、Android端末をVPN接続端末として利用できますか？
       
     </span>
   </a>
@@ -1513,7 +1513,7 @@
 
 
 <h1 id="faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化">FAQ｜YAMAHA RTX × PIO-ID（リモートアクセスVPNの認証強化）<a class="headerlink" href="#faqyamaha-rtx--pio-idリモートアクセスvpnの認証強化" title="Permanent link"></a></h1>
-<p>文書更新日: 2026-08-05</p>
+<p>文書更新日:2026-11-05</p>
 <p>本FAQは、YAMAHA RTXとPIO-IDを組み合わせてリモートアクセスVPNの認証を強化する場合の、よくある疑問点を整理したものです。
 具体的な設定手順は、関連ドキュメントの設定例を参照してください。</p>
 <h2 id="関連ドキュメント">関連ドキュメント<a class="headerlink" href="#関連ドキュメント" title="Permanent link"></a></h2>
@@ -1590,7 +1590,7 @@ PIO-IDはオープンプライスのため、このFAQでは価格を明示し�
 <p>YAMAHA公式のリモートアクセスVPNクライアントはYMS-VPN8です。</p>
 </div>
 <hr />
-<h2 id="q11-iphoneipadやandroid端末をvpn接続端末として利用できますか">Q11. iPhone/iPadやAndroid端末をVPN接続端末として利用できますか？<a class="headerlink" href="#q11-iphoneipadやandroid端末をvpn接続端末として利用できますか" title="Permanent link"></a></h2>
+<h2 id="q11-maciphoneipadandroid端末をvpn接続端末として利用できますか">Q11. Mac、iPhone/iPad、Android端末をVPN接続端末として利用できますか？<a class="headerlink" href="#q11-maciphoneipadandroid端末をvpn接続端末として利用できますか" title="Permanent link"></a></h2>
 <p><strong>A.</strong>
 本構成のVPN接続端末は、Windows端末を前提としています。スマートフォンやタブレットは、ソフトウェアトークンアプリを表示する端末として利用できます。</p>
 <p>本構成でVPN接続端末として利用するには、次の2点を満たす必要があります。</p>
@@ -1599,11 +1599,11 @@ PIO-IDはオープンプライスのため、このFAQでは価格を明示し�
 <li>PAP認証を利用できること</li>
 </ul>
 <p>YAMAHA RTXでRADIUS連携によるリモートアクセスVPNを利用する場合、VPN方式はL2TP/IPsecです。また、本構成ではYAMAHA RTX側でPAP認証を利用します。そのため、L2TP/IPsecまたはPAP認証を利用できないVPNクライアントは対象外です。</p>
-<p>iPhone/iPadの標準VPNクライアントは、PAPを明示的に選択できないため対象外です。</p>
+<p>iPhone/iPadおよびMac（macOS）の標準VPNクライアントは、L2TP/IPsecのユーザ認証にMS-CHAPV2を使用するため対象外です。</p>
 <p>Android 12以降は、標準機能でL2TP/IPsecを利用できないため対象外です。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Apple公式資料では、iOS/iPadOSのL2TP/IPsecは<strong>MS-CHAPV2パスワードによるユーザ認証</strong>として説明されています。YAMAHA公式資料では、Android 12以降でL2TP/IPsec機能を利用できないと説明されています。</p>
+<p>Apple公式資料では、iOS、iPadOS、macOSのL2TP/IPsecは<strong>MS-CHAPV2パスワードによるユーザ認証</strong>として説明されています。YAMAHA公式資料では、Android 12以降でL2TP/IPsec機能を利用できないと説明されています。</p>
 <p>参考: <a href="https://support.apple.com/ja-jp/guide/security/sec802e8ab55/web" target="_blank">VPN（仮想プライベートネットワーク）のセキュリティ（Apple）</a>、<a href="https://network.yamaha.com/setting/router_firewall/vpn/vpn_client/android/" target="_blank">Androidからリモートアクセスする（YAMAHA）</a></p>
 </div>
 <hr />
