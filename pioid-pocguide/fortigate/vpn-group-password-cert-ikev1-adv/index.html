@@ -1591,7 +1591,7 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev1">リモートアクセスVPN-2要素認証（パスワード認証＋クライアント証明書認証）（IKEv1）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev1" title="Permanent link"></a></h1>
-<p>文書更新日:2026-08-26</p>
+<p>文書更新日:2026-11-05</p>
 <h2 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link"></a></h2>
 <ul>
 <li>PIO-IDのユーザで、FortiGateへVPNを使ってリモートアクセスします。</li>
@@ -1600,6 +1600,18 @@
 <li>PIO-IDの拡張RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本書では、Windows版FortiClient VPNを利用する場合の設定方法と動作確認方法を説明します。</p>
+<p>Fortinetの資料では、Windows版およびmacOS版FortiClient 7.4.4以降はIKEv1をサポートしないと説明されています。FortiClientの対応バージョンについては、<a href="https://docs.fortinet.com/document/fortigate/7.4.4/ssl-vpn-to-ipsec-vpn-migration/883534/ikev1-or-ikev2" target="_blank">FortinetのIKEバージョンに関する資料</a>を確認してください。</p>
+<p>VPNクライアントの設定については、以下を参照してください。</p>
+<ul>
+<li>Windows、macOS: <a href="https://docs.fortinet.com/document/forticlient/7.4.3/administration-guide/494391/configuring-an-ipsec-vpn-connection" target="_blank">FortiClientのIPsec VPN設定</a></li>
+<li>Android: <a href="https://docs.fortinet.com/document/forticlient/7.4.0/android-administration-guide/834699/creating-an-ipsec-vpn-ikev1-connection" target="_blank">FortiClientのIKEv1接続</a></li>
+<li>iOS/iPadOS（標準VPNクライアント）: <a href="https://support.apple.com/ja-jp/guide/deployment/depdf31db478/web" target="_blank">AppleデバイスのCisco IPsec VPN設定</a></li>
+<li>iOS/iPadOS（有償版FortiClient）: <a href="https://docs.fortinet.com/document/forticlient/8.0.0/ios-administration-guide/189805/ipsec-vpn" target="_blank">FortiClientのIPsec VPN設定</a>。Fortinetの資料では、IKEv1のアグレッシブモードをサポートせず、メインモードを使用すると説明されています。</li>
+</ul>
+</div>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
 <h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
 <ol>

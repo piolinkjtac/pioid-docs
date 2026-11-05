@@ -1591,12 +1591,12 @@
 
 
 <h1 id="リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev2自動トランスポートモード">リモートアクセスVPN-2要素認証（パスワード認証＋クライアント証明書認証）（IKEv2自動トランスポートモード）<a class="headerlink" href="#リモートアクセスvpn-2要素認証パスワード認証クライアント証明書認証ikev2自動トランスポートモード" title="Permanent link"></a></h1>
-<p>文書更新日:2026-08-26</p>
+<p>文書更新日:2026-11-05</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
 <li>本設定ガイドは、FortiGate v7.6.6およびFortiClient 7.4.3.4726（ライセンス版）を用いて動作確認した内容に基づいて作成しています。</li>
-<li>IKEv2の自動トランスポートモードでTCPへのフォールバックを利用するには、FortiClient 7.4.1以降が必要です。</li>
+<li>Fortinetの資料では、IKEv2の自動トランスポートモードでTCPへのフォールバックを利用するには、FortiClient 7.4.1以降が必要と説明されています。詳細は、<a href="https://docs.fortinet.com/document/forticlient/7.4.0/new-features/914884/ipsec-vpn-over-tcp-on-windows-macos-and-linux-7-4-1" target="_blank">IPsec VPN over TCP</a>を確認してください。</li>
 <li>Fortinet公式ドキュメントの「<a href="https://docs.fortinet.com/document/forticlient/7.4.3/administration-guide/269675/forticlient-standalone-and-licensed-version-feature-comparison">FortiClient standalone and licensed version feature comparison</a>」によると、FortiClient 7.4系の無償Standalone版はIPsec over TCPをサポートしていません。UDPが利用できない環境でTCP接続まで確認する場合は、ライセンス版のFortiClientを使用してください。</li>
 </ul>
 </div>
@@ -1608,6 +1608,11 @@
 <li>PIO-IDの拡張RADIUSサーバを利用します。</li>
 <li>ユーザ/グループによるアクセス制限をします。</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本書では、Windows版FortiClientを利用する場合の設定方法と動作確認方法を説明します。</p>
+<p>Fortinetの資料では、Android版FortiClientのIKEv2接続は複数の認証方式を組み合わせることができないと説明されています。そのため、本構成では利用できません。詳細は、<a href="https://docs.fortinet.com/document/forticlient/latest/android-administration-guide/189805/creating-an-ipsec-vpn-ikev2-connection" target="_blank">FortiClient（Android）のIKEv2接続</a>を確認してください。</p>
+</div>
 <h2 id="設定方法">設定方法<a class="headerlink" href="#設定方法" title="Permanent link"></a></h2>
 <h3 id="pio-idのグループの作成">PIO-IDのグループの作成<a class="headerlink" href="#pio-idのグループの作成" title="Permanent link"></a></h3>
 <ol>
